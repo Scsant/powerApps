@@ -1,0 +1,6 @@
+.tools/
+**/node_modules/
+**/out/
+**/bin/
+**/obj/
+*.binlog

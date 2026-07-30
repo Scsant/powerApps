@@ -1,0 +1,196 @@
+@import "tailwindcss/theme.css" layer(theme);
+@import "tailwindcss/utilities.css" layer(utilities);
+@source "../**/*.tsx";
+
+.va-root {
+    --va-bg: #07111f;
+    --va-panel: #0d1b2d;
+    --va-panel-soft: #12243a;
+    --va-border: #203a55;
+    --va-text: #e8f1f8;
+    --va-muted: #8fa7bc;
+    --va-cyan: #24c7d9;
+    --va-blue: #3b82f6;
+    --va-green: #32d583;
+    --va-red: #f97066;
+    @apply w-full min-h-full box-border overflow-auto text-sm;
+    color: var(--va-text);
+    background:
+        radial-gradient(circle at 5% 0%, rgba(36, 199, 217, 0.13), transparent 28rem),
+        linear-gradient(145deg, #07111f, #091827 55%, #07111f);
+    font-family: Inter, "Segoe UI", Arial, sans-serif;
+}
+
+.va-root *, .va-root *::before, .va-root *::after { box-sizing: border-box; }
+.va-root button, .va-root input, .va-root select, .va-root textarea { font: inherit; }
+
+.va-hero {
+    @apply flex items-center justify-between gap-5 px-7 pt-7 pb-5;
+    border-bottom: 1px solid rgba(143, 167, 188, 0.12);
+}
+.va-brand { @apply flex items-center gap-4 min-w-0; }
+.va-brand-icon {
+    @apply flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl;
+    color: var(--va-cyan);
+    background: linear-gradient(145deg, rgba(36, 199, 217, 0.18), rgba(59, 130, 246, 0.14));
+    border: 1px solid rgba(36, 199, 217, 0.28);
+    box-shadow: 0 0 26px rgba(36, 199, 217, 0.09);
+}
+.va-eyebrow { @apply block text-[10px] font-bold tracking-[0.2em]; color: var(--va-cyan); }
+.va-brand h1 { @apply m-0 mt-1 text-xl font-semibold tracking-tight; }
+.va-brand p { @apply m-0 mt-1 text-xs; color: var(--va-muted); }
+.va-user {
+    @apply flex shrink-0 items-center gap-2.5 rounded-xl px-3.5 py-2.5;
+    color: var(--va-muted);
+    background: rgba(18, 36, 58, 0.72);
+    border: 1px solid var(--va-border);
+}
+.va-user span { @apply flex flex-col; }
+.va-user strong { @apply max-w-44 truncate text-xs font-semibold; color: var(--va-text); }
+.va-user small { @apply max-w-44 truncate text-[10px]; }
+
+.va-kpis {
+    @apply grid grid-cols-4 gap-3 px-7 py-5;
+}
+.va-kpis > div {
+    @apply flex min-h-16 flex-col justify-center rounded-xl px-4;
+    background: linear-gradient(140deg, rgba(18, 36, 58, 0.88), rgba(13, 27, 45, 0.82));
+    border: 1px solid rgba(32, 58, 85, 0.8);
+}
+.va-kpis span { @apply text-[10px] uppercase tracking-wider; color: var(--va-muted); }
+.va-kpis strong { @apply mt-1 flex items-center gap-1.5 text-sm font-semibold; }
+.va-kpis .va-secure { color: var(--va-green); }
+
+.va-alert {
+    @apply mx-7 mb-5 flex items-center gap-2.5 rounded-xl px-4 py-3 text-xs;
+    border: 1px solid;
+}
+.va-alert.is-success { color: #9aefc5; background: rgba(50, 213, 131, 0.1); border-color: rgba(50, 213, 131, 0.28); }
+.va-alert.is-error { color: #fda29b; background: rgba(249, 112, 102, 0.1); border-color: rgba(249, 112, 102, 0.28); }
+
+.va-layout { @apply grid grid-cols-[minmax(0,1fr)_17rem] items-start gap-5 px-7 pb-24; }
+.va-form { @apply flex min-w-0 flex-col gap-4; }
+.va-section {
+    @apply rounded-2xl p-5;
+    background: linear-gradient(145deg, rgba(13, 27, 45, 0.96), rgba(10, 24, 39, 0.96));
+    border: 1px solid var(--va-border);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
+}
+.va-section-heading { @apply mb-5 flex items-start gap-3; }
+.va-section-icon {
+    @apply flex h-9 w-9 shrink-0 items-center justify-center rounded-xl;
+    color: var(--va-cyan);
+    background: rgba(36, 199, 217, 0.1);
+    border: 1px solid rgba(36, 199, 217, 0.18);
+}
+.va-section h2 { @apply m-0 text-sm font-semibold; }
+.va-section-heading p { @apply m-0 mt-1 text-[11px]; color: var(--va-muted); }
+.va-grid { @apply grid grid-cols-2 gap-x-4 gap-y-4; }
+.va-field { @apply min-w-0; }
+.va-field:has(textarea) { @apply col-span-2; }
+.va-field label { @apply mb-1.5 block text-[11px] font-medium; color: #b8cad9; }
+.va-field label span { color: var(--va-cyan); }
+.va-field input, .va-field select, .va-field textarea {
+    @apply w-full rounded-lg px-3 py-2.5 text-xs outline-none transition;
+    color: var(--va-text);
+    background: rgba(5, 16, 29, 0.82);
+    border: 1px solid #29445f;
+}
+.va-field textarea { @apply min-h-24 resize-y; }
+.va-field input::placeholder, .va-field textarea::placeholder { color: #607b93; }
+.va-field input:hover, .va-field select:hover, .va-field textarea:hover { border-color: #3a5d7e; }
+.va-field input:focus, .va-field select:focus, .va-field textarea:focus {
+    border-color: var(--va-cyan);
+    box-shadow: 0 0 0 3px rgba(36, 199, 217, 0.1);
+}
+.va-field input:disabled, .va-field select:disabled, .va-field textarea:disabled {
+    @apply cursor-not-allowed opacity-60;
+}
+.va-field [aria-invalid="true"] { border-color: rgba(249, 112, 102, 0.75); }
+.va-error { @apply mt-1 block text-[10px]; color: #fda29b; }
+.va-currency { @apply relative; }
+.va-currency > span {
+    @apply pointer-events-none absolute left-3 top-1/2 -translate-y-1/2 text-xs;
+    color: var(--va-muted);
+}
+.va-currency input { @apply pl-9; }
+
+.va-side { @apply sticky top-4 flex flex-col gap-4; }
+.va-timeline, .va-attachment-card {
+    @apply rounded-2xl p-4;
+    background: rgba(13, 27, 45, 0.94);
+    border: 1px solid var(--va-border);
+}
+.va-timeline-head { @apply flex flex-col gap-1 border-b pb-3; border-color: var(--va-border); }
+.va-timeline-head span { @apply text-[10px] uppercase tracking-wider; color: var(--va-muted); }
+.va-timeline-head strong { @apply text-xs; color: var(--va-cyan); }
+.va-timeline ol { @apply m-0 list-none p-0 pt-3; }
+.va-timeline li { @apply relative flex items-center gap-2.5 py-2 text-[11px]; color: #6f889f; }
+.va-timeline li:not(:last-child)::after {
+    content: "";
+    @apply absolute left-[0.68rem] top-7 h-3.5 w-px;
+    background: var(--va-border);
+}
+.va-step-icon {
+    @apply z-10 flex h-[1.4rem] w-[1.4rem] shrink-0 items-center justify-center rounded-full;
+    background: #0a1827;
+    border: 1px solid var(--va-border);
+}
+.va-timeline li.is-active { @apply font-semibold; color: var(--va-text); }
+.va-timeline li.is-active .va-step-icon {
+    color: var(--va-cyan);
+    border-color: var(--va-cyan);
+    box-shadow: 0 0 12px rgba(36, 199, 217, 0.24);
+}
+.va-timeline li.is-complete { color: #a1eec7; }
+.va-timeline li.is-complete .va-step-icon { color: #06140d; background: var(--va-green); border-color: var(--va-green); }
+.va-attachment-card { @apply flex items-start gap-3; color: var(--va-muted); }
+.va-attachment-card > svg { @apply shrink-0; color: var(--va-cyan); }
+.va-attachment-card strong { @apply block text-xs; color: var(--va-text); }
+.va-attachment-card p { @apply m-0 mt-1 text-[10px] leading-relaxed; }
+
+.va-actions {
+    @apply sticky bottom-0 z-20 flex items-center justify-between gap-4 px-7 py-3;
+    background: rgba(7, 17, 31, 0.96);
+    border-top: 1px solid var(--va-border);
+    backdrop-filter: blur(14px);
+}
+.va-actions-hint { @apply flex shrink-0 items-center gap-2 text-[10px]; color: var(--va-muted); }
+.va-actions-hint svg { color: var(--va-cyan); }
+.va-actions > div { @apply flex flex-wrap justify-end gap-2; }
+.va-btn {
+    @apply inline-flex cursor-pointer items-center justify-center gap-2 rounded-lg px-3.5 py-2 text-[11px] font-semibold transition;
+    border: 1px solid transparent;
+}
+.va-btn:hover:not(:disabled) { transform: translateY(-1px); }
+.va-btn:focus-visible { outline: 2px solid var(--va-cyan); outline-offset: 2px; }
+.va-btn:disabled { @apply cursor-not-allowed opacity-40; }
+.va-btn-primary { color: #031418; background: linear-gradient(135deg, var(--va-cyan), #53d8e5); box-shadow: 0 7px 18px rgba(36, 199, 217, 0.15); }
+.va-btn-secondary { color: var(--va-text); background: var(--va-panel-soft); border-color: var(--va-border); }
+.va-btn-danger { color: #fda29b; background: rgba(249, 112, 102, 0.1); border-color: rgba(249, 112, 102, 0.28); }
+
+.va-root.is-tablet .va-layout { @apply grid-cols-1; }
+.va-root.is-tablet .va-side { @apply static grid grid-cols-2; }
+.va-root.is-tablet .va-timeline ol { @apply grid grid-cols-3; }
+.va-root.is-tablet .va-timeline li::after { display: none; }
+
+.va-root.is-mobile .va-hero { @apply items-start px-4 pt-5; }
+.va-root.is-mobile .va-user { @apply hidden; }
+.va-root.is-mobile .va-brand h1 { @apply text-lg; }
+.va-root.is-mobile .va-kpis { @apply grid-cols-2 px-4 py-4; }
+.va-root.is-mobile .va-layout { @apply grid-cols-1 px-4 pb-20; }
+.va-root.is-mobile .va-grid { @apply grid-cols-1; }
+.va-root.is-mobile .va-field:has(textarea) { @apply col-span-1; }
+.va-root.is-mobile .va-section { @apply p-4; }
+.va-root.is-mobile .va-side { @apply static; }
+.va-root.is-mobile .va-actions { @apply items-stretch px-4; }
+.va-root.is-mobile .va-actions-hint { @apply hidden; }
+.va-root.is-mobile .va-actions > div { @apply w-full flex-nowrap overflow-x-auto; }
+.va-root.is-mobile .va-btn { @apply min-w-max flex-1; }
+
+@media (prefers-reduced-motion: reduce) {
+    .va-root *, .va-root *::before, .va-root *::after {
+        scroll-behavior: auto !important;
+        transition: none !important;
+    }
+}
