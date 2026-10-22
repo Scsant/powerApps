@@ -1,0 +1,1503 @@
+Screens:
+  novaSolicitacao:
+    Properties:
+      Fill: =RGBA(255, 255, 255, 1)
+      LoadingSpinnerColor: =RGBA(0, 120, 212, 1)
+      OnVisible: |-
+        =UpdateContext({varUsuario: UsuáriosdoOffice365.MyProfile()});
+    Children:
+      - cNovaSoliBg:
+          Control: GroupContainer
+          Variant: ManualLayout
+          Properties:
+            DropShadow: =DropShadow.None
+            Height: =Parent.Height
+            RadiusBottomLeft: =0
+            RadiusBottomRight: =0
+            RadiusTopLeft: =0
+            RadiusTopRight: =0
+            Width: =Parent.Width
+          Children:
+            - imgNovaSoliBg:
+                Control: Image
+                Properties:
+                  BorderColor: =RGBA(0, 0, 0, 0)
+                  BorderStyle: =BorderStyle.None
+                  DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                  DisabledFill: =RGBA(0, 0, 0, 0)
+                  DisplayMode: =DisplayMode.View
+                  FocusedBorderThickness: =4
+                  Height: =Parent.Height
+                  HoverBorderColor: =RGBA(0, 0, 0, 0)
+                  HoverFill: =RGBA(0, 0, 0, 0)
+                  Image: ='BRACELL FÁBRICA (21)'
+                  ImagePosition: =ImagePosition.Fill
+                  PressedBorderColor: =RGBA(0, 0, 0, 0)
+                  PressedFill: =RGBA(0, 0, 0, 0)
+                  Width: =Parent.Width
+            - rNovaSoliBg:
+                Control: Rectangle
+                Properties:
+                  BorderColor: =RGBA(0, 0, 0, 0)
+                  BorderStyle: =BorderStyle.None
+                  DisabledFill: =RGBA(161, 159, 157, 1)
+                  DisplayMode: =DisplayMode.View
+                  Fill: =RGBA(0, 0, 0, 0.65)
+                  FocusedBorderThickness: =4
+                  Height: =Parent.Height
+                  HoverFill: =
+                  PressedFill: =
+                  Width: =Parent.Width
+      - cNovaSoliMain:
+          Control: GroupContainer
+          Variant: ManualLayout
+          Properties:
+            DropShadow: =DropShadow.None
+            Fill: =RGBA(255, 255, 255, 1)
+            Height: =Parent.Height * 6/7
+            RadiusBottomLeft: =0
+            RadiusBottomRight: =0
+            RadiusTopLeft: =0
+            RadiusTopRight: =0
+            Width: =Parent.Width * 1
+            X: =Parent.Width * 0
+            Y: =Parent.Height * 1/7
+          Children:
+            - iNovaSoliMainHome:
+                Control: Classic/Icon
+                Properties:
+                  BorderColor: =RGBA(0, 0, 0, 0)
+                  Color: =RGBA(255, 255, 255, 1)
+                  DisabledBorderColor: =RGBA(245, 245, 245, 1)
+                  DisabledColor: =RGBA(225, 223, 221, 1)
+                  DisabledFill: =RGBA(0, 0, 0, 0)
+                  FocusedBorderThickness: =0
+                  Height: =Parent.Height * 1/15
+                  HoverBorderColor: =RGBA(0, 0, 0, 0)
+                  HoverColor: =RGBA(54, 176, 75, 1)
+                  HoverFill: =RGBA(0, 0, 0, 0)
+                  Icon: =Icon.Home
+                  OnSelect: =Navigate(Menu, ScreenTransition.Fade)
+                  PressedBorderColor: =RGBA(0, 0, 0, 0)
+                  PressedColor: =RGBA(16, 110, 190, 1)
+                  PressedFill: =RGBA(0, 0, 0, 0)
+                  Width: =Parent.Width * 1/30
+                  X: =Parent.Width * 1/100
+                  Y: =Parent.Height * 1/20
+            - cvNovaSoli:
+                Control: GroupContainer
+                Variant: AutoLayout
+                Properties:
+                  DropShadow: =DropShadow.None
+                  Fill: =RGBA(14, 99, 171, 1)
+                  Height: |
+                    =Parent.Height
+                  LayoutAlignItems: =LayoutAlignItems.Center
+                  LayoutDirection: =LayoutDirection.Vertical
+                  RadiusBottomLeft: =0
+                  RadiusBottomRight: =0
+                  RadiusTopLeft: =0
+                  RadiusTopRight: =0
+                  Width: =Parent.Width
+                Children:
+                  - cvConteudoNovaSoli:
+                      Control: GroupContainer
+                      Variant: AutoLayout
+                      Properties:
+                        DropShadow: =DropShadow.None
+                        FillPortions: =0
+                        Height: =Parent.Height
+                        LayoutAlignItems: =LayoutAlignItems.Stretch
+                        LayoutDirection: =LayoutDirection.Vertical
+                        LayoutGap: =10
+                        LayoutJustifyContent: =LayoutJustifyContent.SpaceBetween
+                        LayoutMaxHeight: =
+                        LayoutMaxWidth: =
+                        LayoutMinWidth: =0
+                        LayoutOverflowY: =LayoutOverflow.Scroll
+                        PaddingTop: =20
+                        RadiusBottomLeft: =0
+                        RadiusBottomRight: =0
+                        RadiusTopLeft: =0
+                        RadiusTopRight: =0
+                        Width: =Parent.Width
+                        Y: =Parent.Height
+                      Children:
+                        - Container1:
+                            Control: GroupContainer
+                            Variant: AutoLayout
+                            Properties:
+                              AlignInContainer: =AlignInContainer.SetByContainer
+                              DropShadow: =DropShadow.None
+                              FillPortions: =0
+                              Height: =Parent.Height * 2/30
+                              LayoutDirection: =LayoutDirection.Horizontal
+                              LayoutGap: =25
+                              LayoutMaxHeight: =
+                              LayoutMaxWidth: =
+                              PaddingLeft: =Parent.Width * 1/15
+                              PaddingRight: =Parent.Width * 1/15
+                              RadiusBottomLeft: =0
+                              RadiusBottomRight: =0
+                              RadiusTopLeft: =0
+                              RadiusTopRight: =0
+                            Children:
+                              - Label1_1:
+                                  Control: Label
+                                  Properties:
+                                    BorderColor: =RGBA(0, 0, 0, 0)
+                                    BorderStyle: =BorderStyle.None
+                                    Color: =RGBA(255, 255, 255, 1)
+                                    DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                                    DisabledColor: =RGBA(161, 159, 157, 1)
+                                    FillPortions: =1
+                                    Font: =Font.'Segoe UI'
+                                    FontWeight: =FontWeight.Semibold
+                                    Height: =Parent.Height
+                                    Italic: =true
+                                    LayoutMaxHeight: =
+                                    LayoutMaxWidth: =
+                                    Size: =cvConteudoNovaSoli.Height * 1/55
+                                    Text: ="1. Informações Básicas do Solicitante"
+                                    Width: =Parent.Width
+                        - Container2:
+                            Control: GroupContainer
+                            Variant: AutoLayout
+                            Properties:
+                              AlignInContainer: =AlignInContainer.SetByContainer
+                              DropShadow: =DropShadow.None
+                              FillPortions: =0
+                              Height: =Parent.Height * 1/8
+                              LayoutDirection: =LayoutDirection.Horizontal
+                              LayoutGap: =50
+                              LayoutMaxHeight: =
+                              LayoutMaxWidth: =
+                              PaddingBottom: =Parent.Width * 1/200
+                              PaddingLeft: =Parent.Width * 1/15
+                              PaddingRight: =Parent.Width * 1/15
+                              PaddingTop: =Parent.Width * 1/200
+                              RadiusBottomLeft: =0
+                              RadiusBottomRight: =0
+                              RadiusTopLeft: =0
+                              RadiusTopRight: =0
+                            Children:
+                              - Container3:
+                                  Control: GroupContainer
+                                  Variant: AutoLayout
+                                  Properties:
+                                    DropShadow: =DropShadow.Semibold
+                                    FillPortions: =2
+                                    Height: =Parent.Height
+                                    LayoutDirection: =LayoutDirection.Vertical
+                                    LayoutMaxHeight: =
+                                    LayoutMaxWidth: =
+                                    LayoutMinHeight: =0
+                                    RadiusBottomLeft: =10
+                                    RadiusBottomRight: =10
+                                    RadiusTopLeft: =10
+                                    RadiusTopRight: =10
+                                  Children:
+                                    - Label3:
+                                        Control: Label
+                                        Properties:
+                                          AlignInContainer: =AlignInContainer.Center
+                                          AutoHeight: =true
+                                          BorderColor: =RGBA(0, 0, 0, 0)
+                                          BorderStyle: =BorderStyle.None
+                                          Color: =RGBA(50, 49, 48, 1)
+                                          DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                                          DisabledColor: =RGBA(161, 159, 157, 1)
+                                          Fill: =RGBA(230, 230, 230, 1)
+                                          FillPortions: =1
+                                          Font: =Font.'Segoe UI'
+                                          FontWeight: =FontWeight.Semibold
+                                          Height: =Parent.Height * 1/3
+                                          LayoutMaxHeight: =
+                                          LayoutMaxWidth: =
+                                          LayoutMinHeight: =0
+                                          PaddingLeft: =15
+                                          Size: =Parent.Height * 1/8
+                                          Text: ="Nome completo:"
+                                          Width: =Parent.Width
+                                    - Label3_16:
+                                        Control: Label
+                                        Properties:
+                                          Align: =Align.Center
+                                          BorderColor: =RGBA(0, 0, 0, 0)
+                                          BorderStyle: =BorderStyle.None
+                                          Color: =RGBA(50, 49, 48, 1)
+                                          DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                                          DisabledColor: =RGBA(161, 159, 157, 1)
+                                          Fill: =RGBA(255, 255, 255, 1)
+                                          FillPortions: =2
+                                          FocusedBorderColor: =
+                                          Font: =Font.'Segoe UI'
+                                          Height: =Parent.Height * 2/3
+                                          Italic: =true
+                                          LayoutMaxHeight: =
+                                          LayoutMaxWidth: =
+                                          LayoutMinHeight: =0
+                                          Size: =Parent.Height * 1/8
+                                          Text: =User().FullName
+                                          Width: =Parent.Width
+                              - Container3_1:
+                                  Control: GroupContainer
+                                  Variant: AutoLayout
+                                  Properties:
+                                    BorderStyle: =BorderStyle.None
+                                    DropShadow: =DropShadow.Semibold
+                                    FillPortions: =2
+                                    Height: =Parent.Height
+                                    LayoutDirection: =LayoutDirection.Vertical
+                                    LayoutMaxHeight: =
+                                    LayoutMaxWidth: =
+                                    LayoutMinHeight: =0
+                                    RadiusBottomLeft: =10
+                                    RadiusBottomRight: =10
+                                    RadiusTopLeft: =10
+                                    RadiusTopRight: =10
+                                  Children:
+                                    - Label3_1:
+                                        Control: Label
+                                        Properties:
+                                          AlignInContainer: =AlignInContainer.Center
+                                          AutoHeight: =true
+                                          BorderColor: =RGBA(0, 0, 0, 0)
+                                          BorderStyle: =BorderStyle.None
+                                          BorderThickness: =2
+                                          Color: =RGBA(50, 49, 48, 1)
+                                          DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                                          DisabledColor: =RGBA(161, 159, 157, 1)
+                                          Fill: =RGBA(230, 230, 230, 1)
+                                          FillPortions: =1
+                                          FocusedBorderThickness: =4
+                                          Font: =Font.'Segoe UI'
+                                          FontWeight: =FontWeight.Semibold
+                                          Height: =Parent.Height * 1/3
+                                          LayoutMaxHeight: =
+                                          LayoutMaxWidth: =
+                                          LayoutMinHeight: =0
+                                          PaddingLeft: =15
+                                          Size: =Parent.Height * 1/8
+                                          Text: ="E-mail:"
+                                          Width: =Parent.Width
+                                    - lbEmail:
+                                        Control: Label
+                                        Properties:
+                                          Align: =Align.Center
+                                          BorderColor: =RGBA(0, 0, 0, 0)
+                                          BorderStyle: =BorderStyle.None
+                                          Color: =RGBA(50, 49, 48, 1)
+                                          DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                                          DisabledColor: =RGBA(161, 159, 157, 1)
+                                          Fill: =RGBA(255, 255, 255, 1)
+                                          FillPortions: =2
+                                          FocusedBorderColor: =
+                                          Font: =Font.'Segoe UI'
+                                          Height: =Parent.Height * 2/3
+                                          Italic: =true
+                                          LayoutMaxHeight: =
+                                          LayoutMaxWidth: =
+                                          LayoutMinHeight: =0
+                                          Size: =Parent.Height * 1/8
+                                          Text: =User().Email
+                                          Width: =Parent.Width
+                              - Container3_13:
+                                  Control: GroupContainer
+                                  Variant: AutoLayout
+                                  Properties:
+                                    BorderStyle: =BorderStyle.None
+                                    DropShadow: =DropShadow.Semibold
+                                    Height: =Parent.Height
+                                    LayoutDirection: =LayoutDirection.Vertical
+                                    LayoutMaxHeight: =
+                                    LayoutMaxWidth: =
+                                    LayoutMinHeight: =0
+                                    RadiusBottomLeft: =10
+                                    RadiusBottomRight: =10
+                                    RadiusTopLeft: =10
+                                    RadiusTopRight: =10
+                                  Children:
+                                    - Label3_19:
+                                        Control: Label
+                                        Properties:
+                                          AlignInContainer: =AlignInContainer.Center
+                                          AutoHeight: =true
+                                          BorderColor: =RGBA(0, 0, 0, 0)
+                                          BorderStyle: =BorderStyle.None
+                                          BorderThickness: =2
+                                          Color: =RGBA(50, 49, 48, 1)
+                                          DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                                          DisabledColor: =RGBA(161, 159, 157, 1)
+                                          Fill: =RGBA(230, 230, 230, 1)
+                                          FillPortions: =1
+                                          FocusedBorderThickness: =4
+                                          Font: =Font.'Segoe UI'
+                                          FontWeight: =FontWeight.Semibold
+                                          LayoutMaxHeight: =
+                                          LayoutMaxWidth: =
+                                          LayoutMinHeight: =0
+                                          PaddingLeft: =15
+                                          Size: =Parent.Height * 1/8
+                                          Text: |-
+                                            ="Matrícula:
+                                            "
+                                          Width: =Parent.Width
+                                    - txtMatricula:
+                                        Control: Classic/TextInput
+                                        Properties:
+                                          BorderColor: =RGBA(245, 245, 245, 1)
+                                          BorderThickness: =0
+                                          Color: =RGBA(50, 49, 48, 1)
+                                          Default: =
+                                          DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                                          DisabledColor: =RGBA(161, 159, 157, 1)
+                                          DisabledFill: =RGBA(242, 242, 241, 0)
+                                          FillPortions: =2
+                                          FocusedBorderColor: =
+                                          FocusedBorderThickness: =
+                                          Font: =Font.'Segoe UI'
+                                          Format: =TextFormat.Number
+                                          HintText: =
+                                          HoverBorderColor: =RGBA(16, 110, 190, 1)
+                                          HoverColor: =RGBA(50, 49, 48, 1)
+                                          HoverFill: =RGBA(255, 255, 255, 1)
+                                          LayoutMaxHeight: =
+                                          LayoutMaxWidth: =
+                                          LayoutMinHeight: =0
+                                          PressedBorderColor: =RGBA(0, 120, 212, 1)
+                                          PressedColor: =RGBA(50, 49, 48, 1)
+                                          PressedFill: =RGBA(255, 255, 255, 1)
+                                          RadiusBottomLeft: =0
+                                          RadiusBottomRight: =0
+                                          RadiusTopLeft: =0
+                                          RadiusTopRight: =0
+                                          Size: =10
+                                          Width: =Parent.Width
+                        - Container2_1:
+                            Control: GroupContainer
+                            Variant: AutoLayout
+                            Properties:
+                              AlignInContainer: =AlignInContainer.SetByContainer
+                              DropShadow: =DropShadow.None
+                              FillPortions: =0
+                              Height: =Parent.Height * 1/8
+                              LayoutDirection: =LayoutDirection.Horizontal
+                              LayoutGap: =50
+                              LayoutMaxHeight: =
+                              LayoutMaxWidth: =
+                              PaddingBottom: =Parent.Width * 1/200
+                              PaddingLeft: =Parent.Width * 1/15
+                              PaddingRight: =Parent.Width * 1/15
+                              PaddingTop: =Parent.Width * 1/200
+                              RadiusBottomLeft: =0
+                              RadiusBottomRight: =0
+                              RadiusTopLeft: =0
+                              RadiusTopRight: =0
+                            Children:
+                              - Container3_3:
+                                  Control: GroupContainer
+                                  Variant: AutoLayout
+                                  Properties:
+                                    BorderStyle: =BorderStyle.None
+                                    DropShadow: =DropShadow.Semibold
+                                    FillPortions: =2
+                                    Height: =Parent.Height
+                                    LayoutDirection: =LayoutDirection.Vertical
+                                    LayoutMaxHeight: =
+                                    LayoutMaxWidth: =
+                                    LayoutMinHeight: =0
+                                    RadiusBottomLeft: =10
+                                    RadiusBottomRight: =10
+                                    RadiusTopLeft: =10
+                                    RadiusTopRight: =10
+                                  Children:
+                                    - Label3_3:
+                                        Control: Label
+                                        Properties:
+                                          AlignInContainer: =AlignInContainer.Center
+                                          AutoHeight: =true
+                                          BorderColor: =RGBA(0, 0, 0, 0)
+                                          BorderStyle: =BorderStyle.None
+                                          BorderThickness: =2
+                                          Color: =RGBA(50, 49, 48, 1)
+                                          DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                                          DisabledColor: =RGBA(161, 159, 157, 1)
+                                          Fill: =RGBA(230, 230, 230, 1)
+                                          FillPortions: =1
+                                          FocusedBorderThickness: =4
+                                          Font: =Font.'Segoe UI'
+                                          FontWeight: =FontWeight.Semibold
+                                          Height: =Parent.Height * 1/3
+                                          LayoutMaxHeight: =
+                                          LayoutMaxWidth: =
+                                          LayoutMinHeight: =0
+                                          PaddingLeft: =15
+                                          Size: =Parent.Height * 1/8
+                                          Text: ="Área:"
+                                          Width: =Parent.Width
+                                    - cbArea:
+                                        Control: Classic/ComboBox
+                                        Properties:
+                                          BorderColor: =RGBA(245, 245, 245, 1)
+                                          BorderStyle: =BorderStyle.None
+                                          BorderThickness: =0
+                                          ChevronBackground: =RGBA(0, 0, 0, 0)
+                                          ChevronDisabledBackground: =RGBA(242, 242, 241, 0)
+                                          ChevronDisabledFill: =RGBA(161, 159, 157, 1)
+                                          ChevronFill: =RGBA(50, 49, 48, 1)
+                                          ChevronHoverBackground: =RGBA(245, 245, 245, 1)
+                                          ChevronHoverFill: =RGBA(0, 0, 0, 0)
+                                          Color: =RGBA(50, 49, 48, 1)
+                                          DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                                          DisabledColor: =RGBA(0, 0, 0, 1)
+                                          DisabledFill: =RGBA(245, 245, 245, 1)
+                                          DisplayFields: =["Value"]
+                                          Fill: =RGBA(245, 245, 245, 1)
+                                          FillPortions: =2
+                                          FocusedBorderColor: =
+                                          FocusedBorderThickness: =
+                                          Font: =Font.'Segoe UI'
+                                          HoverBorderColor: =RGBA(0, 0, 0, 0)
+                                          HoverColor: =RGBA(50, 49, 48, 1)
+                                          HoverFill: =RGBA(245, 245, 245, 1)
+                                          InputTextPlaceholder: ="Selecione a area..."
+                                          IsSearchable: =false
+                                          Items: =Choices(soliMateriais.area)
+                                          LayoutMaxHeight: =
+                                          LayoutMaxWidth: =
+                                          LayoutMinHeight: =0
+                                          PressedBorderColor: =RGBA(0, 0, 0, 0)
+                                          PressedColor: =RGBA(0, 0, 0, 1)
+                                          PressedFill: =RGBA(245, 245, 245, 1)
+                                          SearchFields: =["Value"]
+                                          SelectMultiple: =false
+                                          SelectionColor: =RGBA(0, 0, 0, 1)
+                                          SelectionFill: =RGBA(245, 245, 245, 1)
+                                          Size: =Parent.Height * 1/11
+                                          Width: =Parent.Width
+                              - Container3_10:
+                                  Control: GroupContainer
+                                  Variant: AutoLayout
+                                  Properties:
+                                    BorderStyle: =BorderStyle.None
+                                    DropShadow: =DropShadow.Semibold
+                                    FillPortions: =2
+                                    Height: =Parent.Height
+                                    LayoutDirection: =LayoutDirection.Vertical
+                                    LayoutMaxHeight: =
+                                    LayoutMaxWidth: =
+                                    LayoutMinHeight: =0
+                                    RadiusBottomLeft: =10
+                                    RadiusBottomRight: =10
+                                    RadiusTopLeft: =10
+                                    RadiusTopRight: =10
+                                  Children:
+                                    - Label3_5:
+                                        Control: Label
+                                        Properties:
+                                          AlignInContainer: =AlignInContainer.Center
+                                          AutoHeight: =true
+                                          BorderColor: =RGBA(0, 0, 0, 0)
+                                          BorderStyle: =BorderStyle.None
+                                          BorderThickness: =2
+                                          Color: =RGBA(50, 49, 48, 1)
+                                          DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                                          DisabledColor: =RGBA(161, 159, 157, 1)
+                                          Fill: =RGBA(230, 230, 230, 1)
+                                          FillPortions: =1
+                                          FocusedBorderThickness: =4
+                                          Font: =Font.'Segoe UI'
+                                          FontWeight: =FontWeight.Semibold
+                                          Height: =Parent.Height * 1/3
+                                          LayoutMaxHeight: =
+                                          LayoutMaxWidth: =
+                                          LayoutMinHeight: =0
+                                          PaddingLeft: =15
+                                          Size: =Parent.Height * 1/8
+                                          Text: ="Únidade de Negócios:"
+                                          Width: =Parent.Width
+                                    - cbUnidadeNegocios:
+                                        Control: Classic/ComboBox
+                                        Properties:
+                                          BorderColor: =RGBA(245, 245, 245, 1)
+                                          BorderStyle: =BorderStyle.None
+                                          BorderThickness: =0
+                                          ChevronBackground: =RGBA(0, 0, 0, 0)
+                                          ChevronDisabledBackground: =RGBA(242, 242, 241, 0)
+                                          ChevronDisabledFill: =RGBA(161, 159, 157, 1)
+                                          ChevronFill: =RGBA(50, 49, 48, 1)
+                                          ChevronHoverBackground: =RGBA(245, 245, 245, 1)
+                                          ChevronHoverFill: =RGBA(0, 0, 0, 0)
+                                          Color: =RGBA(50, 49, 48, 1)
+                                          DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                                          DisabledColor: =RGBA(0, 0, 0, 1)
+                                          DisabledFill: =RGBA(245, 245, 245, 1)
+                                          DisplayFields: =["Value"]
+                                          Fill: =RGBA(245, 245, 245, 1)
+                                          FillPortions: =2
+                                          FocusedBorderColor: =
+                                          FocusedBorderThickness: =
+                                          Font: =Font.'Segoe UI'
+                                          HoverBorderColor: =RGBA(0, 0, 0, 0)
+                                          HoverColor: =RGBA(50, 49, 48, 1)
+                                          HoverFill: =RGBA(245, 245, 245, 1)
+                                          InputTextPlaceholder: ="Selecione a origem da solicitação"
+                                          IsSearchable: =false
+                                          Items: =Choices(soliMateriais.unidadeNegocios)
+                                          LayoutMaxHeight: =
+                                          LayoutMaxWidth: =
+                                          LayoutMinHeight: =0
+                                          PressedBorderColor: =RGBA(0, 0, 0, 0)
+                                          PressedColor: =RGBA(0, 0, 0, 1)
+                                          PressedFill: =RGBA(245, 245, 245, 1)
+                                          SearchFields: =["Value"]
+                                          SelectMultiple: =false
+                                          SelectionColor: =RGBA(0, 0, 0, 1)
+                                          SelectionFill: =RGBA(245, 245, 245, 1)
+                                          Size: =Parent.Height * 1/11
+                                          Width: =Parent.Width
+                              - Container3_4:
+                                  Control: GroupContainer
+                                  Variant: AutoLayout
+                                  Properties:
+                                    BorderStyle: =BorderStyle.None
+                                    DropShadow: =DropShadow.Semibold
+                                    Height: =Parent.Height
+                                    LayoutDirection: =LayoutDirection.Vertical
+                                    LayoutMaxHeight: =
+                                    LayoutMaxWidth: =
+                                    LayoutMinHeight: =0
+                                    RadiusBottomLeft: =10
+                                    RadiusBottomRight: =10
+                                    RadiusTopLeft: =10
+                                    RadiusTopRight: =10
+                                  Children:
+                                    - Label3_4:
+                                        Control: Label
+                                        Properties:
+                                          AlignInContainer: =AlignInContainer.Center
+                                          AutoHeight: =true
+                                          BorderColor: =RGBA(0, 0, 0, 0)
+                                          BorderStyle: =BorderStyle.None
+                                          BorderThickness: =2
+                                          Color: =RGBA(50, 49, 48, 1)
+                                          DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                                          DisabledColor: =RGBA(161, 159, 157, 1)
+                                          Fill: =RGBA(230, 230, 230, 1)
+                                          FillPortions: =1
+                                          FocusedBorderThickness: =4
+                                          Font: =Font.'Segoe UI'
+                                          FontWeight: =FontWeight.Semibold
+                                          Height: =Parent.Height * 1/3
+                                          LayoutMaxHeight: =
+                                          LayoutMaxWidth: =
+                                          LayoutMinHeight: =0
+                                          PaddingLeft: =15
+                                          Size: =Parent.Height * 1/8
+                                          Text: ="Contato:"
+                                          Width: =Parent.Width
+                                    - txtContato:
+                                        Control: Classic/TextInput
+                                        Properties:
+                                          BorderColor: =RGBA(245, 245, 245, 1)
+                                          BorderThickness: =0
+                                          Color: =RGBA(50, 49, 48, 1)
+                                          Default: =
+                                          DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                                          DisabledColor: =RGBA(161, 159, 157, 1)
+                                          DisabledFill: =RGBA(242, 242, 241, 0)
+                                          FillPortions: =2
+                                          FocusedBorderColor: =
+                                          FocusedBorderThickness: =
+                                          Font: =Font.'Segoe UI'
+                                          Format: =TextFormat.Number
+                                          HintText: =
+                                          HoverBorderColor: =RGBA(16, 110, 190, 1)
+                                          HoverColor: =RGBA(50, 49, 48, 1)
+                                          HoverFill: =RGBA(255, 255, 255, 1)
+                                          LayoutMaxHeight: =
+                                          LayoutMaxWidth: =
+                                          LayoutMinHeight: =0
+                                          PressedBorderColor: =RGBA(0, 120, 212, 1)
+                                          PressedColor: =RGBA(50, 49, 48, 1)
+                                          PressedFill: =RGBA(255, 255, 255, 1)
+                                          RadiusBottomLeft: =0
+                                          RadiusBottomRight: =0
+                                          RadiusTopLeft: =0
+                                          RadiusTopRight: =0
+                                          Size: =10
+                                          Width: =Parent.Width
+                        - Container1_2:
+                            Control: GroupContainer
+                            Variant: AutoLayout
+                            Properties:
+                              AlignInContainer: =AlignInContainer.SetByContainer
+                              DropShadow: =DropShadow.None
+                              FillPortions: =0
+                              Height: =Parent.Height * 2/30
+                              LayoutDirection: =LayoutDirection.Horizontal
+                              LayoutGap: =25
+                              LayoutMaxHeight: =
+                              LayoutMaxWidth: =
+                              PaddingLeft: =Parent.Width * 1/15
+                              PaddingRight: =Parent.Width * 1/15
+                              RadiusBottomLeft: =0
+                              RadiusBottomRight: =0
+                              RadiusTopLeft: =0
+                              RadiusTopRight: =0
+                            Children:
+                              - Label1_2:
+                                  Control: Label
+                                  Properties:
+                                    AlignInContainer: =AlignInContainer.Stretch
+                                    BorderColor: =RGBA(0, 0, 0, 0)
+                                    BorderStyle: =BorderStyle.None
+                                    Color: =RGBA(255, 255, 255, 1)
+                                    DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                                    DisabledColor: =RGBA(161, 159, 157, 1)
+                                    FillPortions: =1
+                                    FocusedBorderThickness: =4
+                                    Font: =Font.'Segoe UI'
+                                    FontWeight: =FontWeight.Semibold
+                                    Height: =Parent.Height
+                                    Italic: =true
+                                    LayoutMaxHeight: =
+                                    LayoutMaxWidth: =
+                                    Size: =cvConteudoNovaSoli.Height * 1/55
+                                    Text: ="2. Detalhes da Solicitação"
+                                    Width: =Parent.Width
+                        - Container2_2:
+                            Control: GroupContainer
+                            Variant: AutoLayout
+                            Properties:
+                              AlignInContainer: =AlignInContainer.SetByContainer
+                              DropShadow: =DropShadow.None
+                              FillPortions: =0
+                              Height: =Parent.Height * 1/8
+                              LayoutDirection: =LayoutDirection.Horizontal
+                              LayoutGap: =50
+                              LayoutMaxHeight: =
+                              LayoutMaxWidth: =
+                              PaddingBottom: =Parent.Width * 1/200
+                              PaddingLeft: =Parent.Width * 1/15
+                              PaddingRight: =Parent.Width * 1/15
+                              PaddingTop: =Parent.Width * 1/200
+                              RadiusBottomLeft: =0
+                              RadiusBottomRight: =0
+                              RadiusTopLeft: =0
+                              RadiusTopRight: =0
+                            Children:
+                              - Container3_11:
+                                  Control: GroupContainer
+                                  Variant: AutoLayout
+                                  Properties:
+                                    BorderStyle: =BorderStyle.None
+                                    DropShadow: =DropShadow.Semibold
+                                    Height: =Parent.Height
+                                    LayoutDirection: =LayoutDirection.Vertical
+                                    LayoutMaxHeight: =
+                                    LayoutMaxWidth: =
+                                    LayoutMinHeight: =0
+                                    LayoutMinWidth: =0
+                                    RadiusBottomLeft: =10
+                                    RadiusBottomRight: =10
+                                    RadiusTopLeft: =10
+                                    RadiusTopRight: =10
+                                  Children:
+                                    - Label3_8:
+                                        Control: Label
+                                        Properties:
+                                          AlignInContainer: =AlignInContainer.Center
+                                          AutoHeight: =true
+                                          BorderColor: =RGBA(0, 0, 0, 0)
+                                          BorderStyle: =BorderStyle.None
+                                          BorderThickness: =2
+                                          Color: =RGBA(50, 49, 48, 1)
+                                          DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                                          DisabledColor: =RGBA(161, 159, 157, 1)
+                                          Fill: =RGBA(230, 230, 230, 1)
+                                          FillPortions: =1
+                                          FocusedBorderThickness: =4
+                                          Font: =Font.'Segoe UI'
+                                          FontWeight: =FontWeight.Semibold
+                                          LayoutMaxHeight: =
+                                          LayoutMaxWidth: =
+                                          LayoutMinHeight: =0
+                                          PaddingLeft: =15
+                                          Size: =Parent.Height * 1/8
+                                          Text: |-
+                                            ="Almoxarifado de retirada:
+                                            "
+                                          Width: =Parent.Width
+                                    - cbAlmoxarifado:
+                                        Control: Classic/ComboBox
+                                        Properties:
+                                          BorderColor: =RGBA(245, 245, 245, 1)
+                                          BorderStyle: =BorderStyle.None
+                                          BorderThickness: =0
+                                          ChevronBackground: =RGBA(0, 0, 0, 0)
+                                          ChevronDisabledBackground: =RGBA(242, 242, 241, 0)
+                                          ChevronDisabledFill: =RGBA(161, 159, 157, 1)
+                                          ChevronFill: =RGBA(50, 49, 48, 1)
+                                          ChevronHoverBackground: =RGBA(245, 245, 245, 1)
+                                          ChevronHoverFill: =RGBA(0, 0, 0, 0)
+                                          Color: =RGBA(50, 49, 48, 1)
+                                          DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                                          DisabledColor: =RGBA(0, 0, 0, 1)
+                                          DisabledFill: =RGBA(245, 245, 245, 1)
+                                          DisplayFields: =["Value"]
+                                          Fill: =RGBA(245, 245, 245, 1)
+                                          FillPortions: =2
+                                          FocusedBorderColor: =
+                                          FocusedBorderThickness: =
+                                          Font: =Font.'Segoe UI'
+                                          HoverBorderColor: =RGBA(0, 0, 0, 0)
+                                          HoverColor: =RGBA(50, 49, 48, 1)
+                                          HoverFill: =RGBA(245, 245, 245, 1)
+                                          InputTextPlaceholder: ="Selecione o almoxarifado..."
+                                          IsSearchable: =false
+                                          Items: =Choices(soliMateriais.almoxarifado)
+                                          LayoutMaxHeight: =
+                                          LayoutMaxWidth: =
+                                          LayoutMinHeight: =0
+                                          PressedBorderColor: =RGBA(0, 0, 0, 0)
+                                          PressedColor: =RGBA(0, 0, 0, 1)
+                                          PressedFill: =RGBA(245, 245, 245, 1)
+                                          SearchFields: =["Value"]
+                                          SelectMultiple: =false
+                                          SelectionColor: =RGBA(0, 0, 0, 1)
+                                          SelectionFill: =RGBA(245, 245, 245, 1)
+                                          Size: =Parent.Height * 1/11
+                                          Width: =Parent.Width
+                              - Container3_7:
+                                  Control: GroupContainer
+                                  Variant: AutoLayout
+                                  Properties:
+                                    BorderStyle: =BorderStyle.None
+                                    DropShadow: =DropShadow.Semibold
+                                    Height: =Parent.Height
+                                    LayoutDirection: =LayoutDirection.Vertical
+                                    LayoutMaxHeight: =
+                                    LayoutMaxWidth: =
+                                    LayoutMinHeight: =0
+                                    LayoutMinWidth: =0
+                                    RadiusBottomLeft: =10
+                                    RadiusBottomRight: =10
+                                    RadiusTopLeft: =10
+                                    RadiusTopRight: =10
+                                  Children:
+                                    - Label3_7:
+                                        Control: Label
+                                        Properties:
+                                          AlignInContainer: =AlignInContainer.Center
+                                          AutoHeight: =true
+                                          BorderColor: =RGBA(0, 0, 0, 0)
+                                          BorderStyle: =BorderStyle.None
+                                          BorderThickness: =2
+                                          Color: =RGBA(50, 49, 48, 1)
+                                          DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                                          DisabledColor: =RGBA(161, 159, 157, 1)
+                                          Fill: =RGBA(230, 230, 230, 1)
+                                          FillPortions: =1
+                                          FocusedBorderThickness: =4
+                                          Font: =Font.'Segoe UI'
+                                          FontWeight: =FontWeight.Semibold
+                                          LayoutMaxHeight: =
+                                          LayoutMaxWidth: =
+                                          LayoutMinHeight: =0
+                                          PaddingLeft: =15
+                                          Size: =Parent.Height * 1/8
+                                          Text: |-
+                                            ="Número da reserva no SAP:
+                                            "
+                                          Width: =Parent.Width
+                                    - txtReservaSAP:
+                                        Control: Classic/TextInput
+                                        Properties:
+                                          BorderColor: =RGBA(245, 245, 245, 1)
+                                          BorderThickness: =0
+                                          Color: =RGBA(50, 49, 48, 1)
+                                          Default: =
+                                          DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                                          DisabledColor: =RGBA(161, 159, 157, 1)
+                                          DisabledFill: =RGBA(242, 242, 241, 0)
+                                          FillPortions: =2
+                                          FocusedBorderColor: =
+                                          FocusedBorderThickness: =
+                                          Font: =Font.'Segoe UI'
+                                          Format: =TextFormat.Number
+                                          HintText: =
+                                          HoverBorderColor: =RGBA(16, 110, 190, 1)
+                                          HoverColor: =RGBA(50, 49, 48, 1)
+                                          HoverFill: =RGBA(255, 255, 255, 1)
+                                          LayoutMaxHeight: =
+                                          LayoutMaxWidth: =
+                                          LayoutMinHeight: =0
+                                          PaddingLeft: =5
+                                          PressedBorderColor: =RGBA(0, 120, 212, 1)
+                                          PressedColor: =RGBA(50, 49, 48, 1)
+                                          PressedFill: =RGBA(255, 255, 255, 1)
+                                          RadiusBottomLeft: =0
+                                          RadiusBottomRight: =0
+                                          RadiusTopLeft: =0
+                                          RadiusTopRight: =0
+                                          Size: =Parent.Height * 1/11
+                                          Width: =Parent.Width
+                              - Container3_8:
+                                  Control: GroupContainer
+                                  Variant: AutoLayout
+                                  Properties:
+                                    BorderStyle: =BorderStyle.None
+                                    DropShadow: =DropShadow.Semibold
+                                    Height: =Parent.Height
+                                    LayoutDirection: =LayoutDirection.Vertical
+                                    LayoutMaxHeight: =
+                                    LayoutMaxWidth: =
+                                    LayoutMinHeight: =0
+                                    LayoutMinWidth: =0
+                                    RadiusBottomLeft: =10
+                                    RadiusBottomRight: =10
+                                    RadiusTopLeft: =10
+                                    RadiusTopRight: =10
+                                    X: =40
+                                    Y: =40
+                                  Children:
+                                    - Label3_17:
+                                        Control: Label
+                                        Properties:
+                                          AlignInContainer: =AlignInContainer.Center
+                                          AutoHeight: =true
+                                          BorderColor: =RGBA(0, 0, 0, 0)
+                                          BorderStyle: =BorderStyle.None
+                                          BorderThickness: =2
+                                          Color: =RGBA(50, 49, 48, 1)
+                                          DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                                          DisabledColor: =RGBA(161, 159, 157, 1)
+                                          Fill: =RGBA(230, 230, 230, 1)
+                                          FillPortions: =1
+                                          FocusedBorderThickness: =4
+                                          Font: =Font.'Segoe UI'
+                                          FontWeight: =FontWeight.Semibold
+                                          LayoutMaxHeight: =
+                                          LayoutMaxWidth: =
+                                          LayoutMinHeight: =0
+                                          PaddingLeft: =15
+                                          Size: =Parent.Height * 1/8
+                                          Text: |-
+                                            ="Qual o tipo de reserva?
+                                            "
+                                          Width: =Parent.Width
+                                    - cbTipoReserva:
+                                        Control: Classic/ComboBox
+                                        Properties:
+                                          BorderColor: =RGBA(245, 245, 245, 1)
+                                          BorderStyle: =BorderStyle.None
+                                          BorderThickness: =0
+                                          ChevronBackground: =RGBA(0, 0, 0, 0)
+                                          ChevronDisabledBackground: =RGBA(242, 242, 241, 0)
+                                          ChevronDisabledFill: =RGBA(161, 159, 157, 1)
+                                          ChevronFill: =RGBA(50, 49, 48, 1)
+                                          ChevronHoverBackground: =RGBA(245, 245, 245, 1)
+                                          ChevronHoverFill: =RGBA(0, 0, 0, 0)
+                                          Color: =RGBA(50, 49, 48, 1)
+                                          DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                                          DisabledColor: =RGBA(0, 0, 0, 1)
+                                          DisabledFill: =RGBA(245, 245, 245, 1)
+                                          DisplayFields: =["Value"]
+                                          Fill: =RGBA(245, 245, 245, 1)
+                                          FillPortions: =2
+                                          FocusedBorderColor: =
+                                          FocusedBorderThickness: =
+                                          Font: =Font.'Segoe UI'
+                                          HoverBorderColor: =RGBA(0, 0, 0, 0)
+                                          HoverColor: =RGBA(50, 49, 48, 1)
+                                          HoverFill: =RGBA(245, 245, 245, 1)
+                                          InputTextPlaceholder: ="Selecione o tipo de reserva"
+                                          IsSearchable: =false
+                                          Items: =Choices(soliMateriais.tipoReservaSap)
+                                          LayoutMaxHeight: =
+                                          LayoutMaxWidth: =
+                                          LayoutMinHeight: =0
+                                          PressedBorderColor: =RGBA(0, 0, 0, 0)
+                                          PressedColor: =RGBA(0, 0, 0, 1)
+                                          PressedFill: =RGBA(245, 245, 245, 1)
+                                          SearchFields: =["Value"]
+                                          SelectMultiple: =false
+                                          SelectionColor: =RGBA(0, 0, 0, 1)
+                                          SelectionFill: =RGBA(245, 245, 245, 1)
+                                          Size: =Parent.Height * 1/11
+                                          Tooltip: =
+                                          Width: =Parent.Width
+                              - Container3_6:
+                                  Control: GroupContainer
+                                  Variant: AutoLayout
+                                  Properties:
+                                    BorderStyle: =BorderStyle.None
+                                    DropShadow: =DropShadow.Semibold
+                                    Height: =Parent.Height
+                                    LayoutDirection: =LayoutDirection.Vertical
+                                    LayoutMaxHeight: =
+                                    LayoutMaxWidth: =
+                                    LayoutMinHeight: =0
+                                    LayoutMinWidth: =0
+                                    RadiusBottomLeft: =5
+                                    RadiusBottomRight: =5
+                                    RadiusTopLeft: =5
+                                    RadiusTopRight: =5
+                                    Visible: =cbTipoReserva.Selected.Value <> "Atendimento"
+                                  Children:
+                                    - Label3_6:
+                                        Control: Label
+                                        Properties:
+                                          AlignInContainer: =AlignInContainer.Center
+                                          AutoHeight: =true
+                                          BorderColor: =RGBA(0, 0, 0, 0)
+                                          BorderStyle: =BorderStyle.None
+                                          BorderThickness: =2
+                                          Color: =RGBA(50, 49, 48, 1)
+                                          DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                                          DisabledColor: =RGBA(161, 159, 157, 1)
+                                          Fill: =RGBA(230, 230, 230, 1)
+                                          FillPortions: =1
+                                          FocusedBorderThickness: =4
+                                          Font: =Font.'Segoe UI'
+                                          FontWeight: =FontWeight.Semibold
+                                          LayoutMaxHeight: =
+                                          LayoutMaxWidth: =
+                                          LayoutMinHeight: =0
+                                          PaddingLeft: =15
+                                          Size: =Parent.Height * 1/8
+                                          Text: ="Informe a data para retirada:"
+                                          Width: =Parent.Width
+                                    - dataRetirada:
+                                        Control: Classic/DatePicker
+                                        Properties:
+                                          BorderColor: =
+                                          BorderStyle: =
+                                          BorderThickness: =
+                                          DefaultDate: =
+                                          DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                                          DisabledColor: =RGBA(245, 245, 245, 1)
+                                          DisabledFill: =RGBA(0, 0, 0, 0)
+                                          Fill: =RGBA(245, 245, 245, 1)
+                                          FillPortions: =2
+                                          FocusedBorderColor: =
+                                          FocusedBorderThickness: =
+                                          Font: =Font.'Segoe UI'
+                                          Height: =0
+                                          IconBackground: =Color.DarkBlue
+                                          IconFill: =RGBA(255, 255, 255, 1)
+                                          InputTextPlaceholder: =""
+                                          LayoutMaxHeight: =
+                                          LayoutMaxWidth: =
+                                          LayoutMinHeight: =0
+                                          PaddingTop: =5
+                                          Size: =Parent.Height * 1/11
+                                          StartYear: =2025
+                                          Width: =Parent.Width
+                              - Container3_40:
+                                  Control: GroupContainer
+                                  Variant: AutoLayout
+                                  Properties:
+                                    BorderStyle: =BorderStyle.None
+                                    DropShadow: =DropShadow.Semibold
+                                    Height: =Parent.Height
+                                    LayoutDirection: =LayoutDirection.Vertical
+                                    LayoutMaxHeight: =
+                                    LayoutMaxWidth: =
+                                    LayoutMinHeight: =0
+                                    LayoutMinWidth: =0
+                                    RadiusBottomLeft: =5
+                                    RadiusBottomRight: =5
+                                    RadiusTopLeft: =5
+                                    RadiusTopRight: =5
+                                    Visible: =cbTipoReserva.Selected.Value <> "Atendimento" && cbTipoReserva.Selected.Value <> "Delivery"
+                                    X: =40
+                                    Y: =40
+                                  Children:
+                                    - Label3_14:
+                                        Control: Label
+                                        Properties:
+                                          AlignInContainer: =AlignInContainer.Center
+                                          AutoHeight: =true
+                                          BorderColor: =RGBA(0, 0, 0, 0)
+                                          BorderStyle: =BorderStyle.None
+                                          BorderThickness: =2
+                                          Color: =RGBA(50, 49, 48, 1)
+                                          DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                                          DisabledColor: =RGBA(161, 159, 157, 1)
+                                          Fill: =RGBA(230, 230, 230, 1)
+                                          FillPortions: =1
+                                          FocusedBorderThickness: =4
+                                          Font: =Font.'Segoe UI'
+                                          FontWeight: =FontWeight.Semibold
+                                          LayoutMaxHeight: =
+                                          LayoutMaxWidth: =
+                                          LayoutMinHeight: =0
+                                          PaddingLeft: =15
+                                          Size: =Parent.Height * 1/8
+                                          Text: ="Informe o horário para retirada:"
+                                          Width: =Parent.Width
+                                    - txtHorarioRetirada:
+                                        Control: Classic/ComboBox
+                                        Properties:
+                                          AlignInContainer: =AlignInContainer.Center
+                                          BorderColor: =RGBA(245, 245, 245, 1)
+                                          BorderStyle: =BorderStyle.None
+                                          BorderThickness: =0
+                                          ChevronBackground: =RGBA(0, 0, 0, 0)
+                                          ChevronDisabledBackground: =RGBA(242, 242, 241, 0)
+                                          ChevronDisabledFill: =RGBA(161, 159, 157, 1)
+                                          ChevronFill: =RGBA(50, 49, 48, 1)
+                                          ChevronHoverBackground: =RGBA(245, 245, 245, 1)
+                                          ChevronHoverFill: =RGBA(0, 0, 0, 0)
+                                          Color: =RGBA(50, 49, 48, 1)
+                                          DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                                          DisabledColor: =RGBA(0, 0, 0, 1)
+                                          DisabledFill: =RGBA(245, 245, 245, 1)
+                                          DisplayFields: =["Value"]
+                                          Fill: =RGBA(245, 245, 245, 1)
+                                          FillPortions: =2
+                                          FocusedBorderColor: =
+                                          FocusedBorderThickness: =
+                                          Font: =Font.'Segoe UI'
+                                          HoverBorderColor: =RGBA(0, 0, 0, 0)
+                                          HoverColor: =RGBA(50, 49, 48, 1)
+                                          HoverFill: =RGBA(245, 245, 245, 1)
+                                          InputTextPlaceholder: ="Selecione o horário.."
+                                          IsSearchable: =false
+                                          Items: =Choices(soliMateriais.janelaHorarioRetirada)
+                                          LayoutMaxHeight: =
+                                          LayoutMaxWidth: =
+                                          LayoutMinHeight: =0
+                                          PressedBorderColor: =RGBA(0, 0, 0, 0)
+                                          PressedColor: =RGBA(0, 0, 0, 1)
+                                          PressedFill: =RGBA(245, 245, 245, 1)
+                                          SearchFields: =["Value"]
+                                          SelectMultiple: =false
+                                          SelectionColor: =RGBA(0, 0, 0, 1)
+                                          SelectionFill: =RGBA(245, 245, 245, 1)
+                                          Size: =Parent.Height * 1/11
+                                          Width: =Parent.Width
+                        - Container1_3:
+                            Control: GroupContainer
+                            Variant: AutoLayout
+                            Properties:
+                              AlignInContainer: =AlignInContainer.SetByContainer
+                              DropShadow: =DropShadow.None
+                              FillPortions: =0
+                              Height: =Parent.Height * 2/30
+                              LayoutDirection: =LayoutDirection.Horizontal
+                              LayoutGap: =25
+                              LayoutMaxHeight: =
+                              LayoutMaxWidth: =
+                              PaddingLeft: =Parent.Width * 1/15
+                              PaddingRight: =Parent.Width * 1/15
+                              RadiusBottomLeft: =0
+                              RadiusBottomRight: =0
+                              RadiusTopLeft: =0
+                              RadiusTopRight: =0
+                              X: =40
+                              Y: =40
+                            Children:
+                              - Label1_3:
+                                  Control: Label
+                                  Properties:
+                                    AlignInContainer: =AlignInContainer.Stretch
+                                    BorderColor: =RGBA(0, 0, 0, 0)
+                                    BorderStyle: =BorderStyle.None
+                                    Color: =RGBA(255, 255, 255, 1)
+                                    DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                                    DisabledColor: =RGBA(161, 159, 157, 1)
+                                    FillPortions: =1
+                                    FocusedBorderThickness: =4
+                                    Font: =Font.'Segoe UI'
+                                    FontWeight: =FontWeight.Semibold
+                                    Height: =Parent.Height
+                                    Italic: =true
+                                    LayoutMaxHeight: =
+                                    LayoutMaxWidth: =
+                                    Size: =cvConteudoNovaSoli.Height * 1/55
+                                    Text: ="3. Observação:"
+                                    Width: =Parent.Width
+                        - Container2_3:
+                            Control: GroupContainer
+                            Variant: AutoLayout
+                            Properties:
+                              AlignInContainer: =AlignInContainer.SetByContainer
+                              DropShadow: =DropShadow.None
+                              FillPortions: =0
+                              Height: =Parent.Height * 1.25/8
+                              LayoutDirection: =LayoutDirection.Horizontal
+                              LayoutGap: =50
+                              LayoutMaxHeight: =
+                              LayoutMaxWidth: =
+                              PaddingBottom: =Parent.Width * 1/200
+                              PaddingLeft: =Parent.Width * 1/15
+                              PaddingRight: =Parent.Width * 1/15
+                              PaddingTop: =Parent.Width * 1/200
+                              RadiusBottomLeft: =0
+                              RadiusBottomRight: =0
+                              RadiusTopLeft: =0
+                              RadiusTopRight: =0
+                              X: =40
+                              Y: =40
+                            Children:
+                              - Container3_9:
+                                  Control: GroupContainer
+                                  Variant: AutoLayout
+                                  Properties:
+                                    BorderStyle: =BorderStyle.None
+                                    DropShadow: =DropShadow.Semibold
+                                    Height: =Parent.Height
+                                    LayoutDirection: =LayoutDirection.Vertical
+                                    LayoutMaxHeight: =
+                                    LayoutMaxWidth: =
+                                    LayoutMinHeight: =0
+                                    RadiusBottomLeft: =10
+                                    RadiusBottomRight: =10
+                                    RadiusTopLeft: =10
+                                    RadiusTopRight: =10
+                                  Children:
+                                    - txtObservacao:
+                                        Control: Classic/TextInput
+                                        Properties:
+                                          BorderColor: =RGBA(245, 245, 245, 1)
+                                          BorderThickness: =0
+                                          Color: =RGBA(50, 49, 48, 1)
+                                          Default: =
+                                          DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                                          DisabledColor: =RGBA(161, 159, 157, 1)
+                                          DisabledFill: =RGBA(242, 242, 241, 0)
+                                          FillPortions: =3
+                                          FocusedBorderColor: =
+                                          FocusedBorderThickness: =
+                                          Font: =Font.'Segoe UI'
+                                          HintText: =
+                                          HoverBorderColor: =RGBA(16, 110, 190, 1)
+                                          HoverColor: =RGBA(50, 49, 48, 1)
+                                          HoverFill: =RGBA(255, 255, 255, 1)
+                                          LayoutMaxHeight: =
+                                          LayoutMaxWidth: =
+                                          LayoutMinHeight: =0
+                                          Mode: =TextMode.MultiLine
+                                          PressedBorderColor: =RGBA(0, 120, 212, 1)
+                                          PressedColor: =RGBA(50, 49, 48, 1)
+                                          PressedFill: =RGBA(255, 255, 255, 1)
+                                          RadiusBottomLeft: =0
+                                          RadiusBottomRight: =0
+                                          RadiusTopLeft: =0
+                                          RadiusTopRight: =0
+                                          Size: =10
+                                          Width: =Parent.Width
+                        - Container1_5:
+                            Control: GroupContainer
+                            Variant: AutoLayout
+                            Properties:
+                              AlignInContainer: =AlignInContainer.SetByContainer
+                              DropShadow: =DropShadow.None
+                              FillPortions: =0
+                              Height: =Parent.Height * 2/15
+                              LayoutAlignItems: =LayoutAlignItems.Center
+                              LayoutDirection: =LayoutDirection.Horizontal
+                              LayoutGap: =25
+                              LayoutJustifyContent: =LayoutJustifyContent.End
+                              LayoutMaxHeight: =
+                              LayoutMaxWidth: =
+                              PaddingLeft: =100
+                              PaddingRight: =100
+                              RadiusBottomLeft: =0
+                              RadiusBottomRight: =0
+                              RadiusTopLeft: =0
+                              RadiusTopRight: =0
+                            Children:
+                              - Button1:
+                                  Control: Classic/Button
+                                  Properties:
+                                    AlignInContainer: =AlignInContainer.Center
+                                    BorderColor: =RGBA(0, 0, 0, 0.99)
+                                    BorderStyle: =BorderStyle.None
+                                    BorderThickness: =15
+                                    Color: =RGBA(255, 255, 255, 1)
+                                    DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                                    DisabledColor: =RGBA(161, 159, 157, 1)
+                                    DisabledFill: =RGBA(9, 33, 98, 1)
+                                    Fill: =RGBA(9, 33, 98, 1)
+                                    FocusedBorderColor: =
+                                    FocusedBorderThickness: =
+                                    Font: =Font.'Segoe UI'
+                                    Height: =Parent.Height * 8/10
+                                    HoverBorderColor: =RGBA(0, 0, 0, 0)
+                                    HoverColor: =RGBA(255, 255, 255, 1)
+                                    HoverFill: =RGBA(54, 176, 75, 1)
+                                    LayoutMaxHeight: =
+                                    LayoutMaxWidth: =
+                                    OnSelect: |
+                                      =// Validações: apenas o que existe na lista
+                                      UpdateContext({
+                                          varErroValidacao:
+                                              If(
+                                                  IsBlank(cbArea.Selected.Value), "Área não selecionada.",
+                                                  IsBlank(cbTipoReserva.Selected.Value), "Tipo de reserva não selecionado.",
+                                                  IsBlank(cbAlmoxarifado.Selected.Value), "Almoxarifado não selecionado.",
+                                                  IsBlank(cbUnidadeNegocios.Selected.Value), "Unidade de negócios não selecionada.",
+                                                  IsBlank(txtContato.Text), "Contato não informado.",
+                                                  Len(txtContato.Text) <= 9, "Contato deve ter mais de 9 dígitos.",
+                                                  IsBlank(txtReservaSAP.Text), "Reserva SAP não informada.",
+                                                  IsBlank(txtMatricula.Text), "Matrícula não informada.",
+                                                  Len(txtMatricula.Text) <> 8, "Matrícula deve ter exatamente 8 dígitos.",
+                                                  IsBlank(dataRetirada.SelectedDate), "Data de retirada não informada.",
+                                                  dataRetirada.SelectedDate < Today(), "Data de retirada não pode ser anterior a hoje.",
+                                                  IsBlank(txtHorarioRetirada.Selected.Value), "Horário de retirada não selecionado.",
+                                                  Blank()
+                                              )
+                                      });
+
+
+                                      If(
+                                          IsBlank(varErroValidacao),
+
+                                          // Executa o Patch
+                                          Patch(
+                                              soliMateriais,
+                                              Defaults(soliMateriais),
+                                              {
+                                                  solicitante: {
+                                                      '@odata.type': "#Microsoft.Azure.Connectors.SharePoint.SPListExpandedUser",
+                                                      Claims: "i:0#.f|membership|" & Lower(varUsuario.Mail),
+                                                      DisplayName: varUsuario.DisplayName,
+                                                      Email: varUsuario.Mail,
+                                                      Department: "",
+                                                      JobTitle: "",
+                                                      Picture: ""
+                                                  },
+                                                  unidadeNegocios: { Value: cbUnidadeNegocios.Selected.Value },
+                                                  area: { Value: cbArea.Selected.Value },
+                                                  contato: Value(txtContato.Text),
+                                                  reservaSap: Value(txtReservaSAP.Text),
+                                                  tipoReservaSap: { Value: cbTipoReserva.Selected.Value },
+                                                  dataRetirada: DateValue(dataRetirada.SelectedDate),
+                                                  janelaHorarioRetirada: { Value: txtHorarioRetirada.Selected.Value },
+                                                  observacao: txtObservacao.Text,
+                                                  status: { Value: "Aguardando Separação" },
+                                                  almoxarifado: { Value: cbAlmoxarifado.Selected.Value },
+                                                  ultimaAlteracao: Now(),
+                                                  matricula: Value(txtMatricula.Text)
+                                              }
+                                          );
+
+                                          // Reset dos campos
+                                          Reset(cbArea);
+                                          Reset(cbUnidadeNegocios);
+                                          Reset(txtContato);
+                                          Reset(txtReservaSAP);
+                                          Reset(cbTipoReserva);
+                                          Reset(txtHorarioRetirada);
+                                          Reset(txtObservacao);
+                                          Reset(txtMatricula);
+                                          Reset(dataRetirada);
+                                          Reset(cbAlmoxarifado);
+
+                                          // Navegação e sucesso
+                                          Navigate(Finalizada, ScreenTransition.Fade),
+                                          Notify(
+                                              "Solicitação enviada com sucesso.",
+                                              NotificationType.Success
+                                          ),
+
+                                          // Erro de validação
+                                          Notify(
+                                              varErroValidacao,
+                                              NotificationType.Error
+                                          )
+                                      );
+                                    PressedBorderColor: =RGBA(0, 69, 120, 1)
+                                    PressedColor: =RGBA(255, 255, 255, 1)
+                                    PressedFill: =RGBA(54, 176, 75, 1)
+                                    RadiusBottomLeft: =33
+                                    RadiusBottomRight: =33
+                                    RadiusTopLeft: =33
+                                    RadiusTopRight: =33
+                                    Size: =cvConteudoNovaSoli.Height * 1/50
+                                    Text: ="Salvar"
+                                    Width: =Parent.Width * 1/12
+                        - Container1_14:
+                            Control: GroupContainer
+                            Variant: AutoLayout
+                            Properties:
+                              AlignInContainer: =AlignInContainer.SetByContainer
+                              DropShadow: =DropShadow.None
+                              FillPortions: =0
+                              Height: =Parent.Height * 1/15
+                              LayoutAlignItems: =LayoutAlignItems.Center
+                              LayoutDirection: =LayoutDirection.Horizontal
+                              LayoutGap: =25
+                              LayoutJustifyContent: =LayoutJustifyContent.End
+                              LayoutMaxHeight: =
+                              LayoutMaxWidth: =
+                              LayoutMinWidth: =0
+                              PaddingLeft: =100
+                              PaddingRight: =100
+                              RadiusBottomLeft: =0
+                              RadiusBottomRight: =0
+                              RadiusTopLeft: =0
+                              RadiusTopRight: =0
+      - chNovaSoliHeader:
+          Control: GroupContainer
+          Variant: AutoLayout
+          Properties:
+            Height: =Parent.Height * 1/7
+            LayoutDirection: =LayoutDirection.Horizontal
+            Width: =Parent.Width
+            Y: |
+              =0
+          Children:
+            - cNovaSoliHeader:
+                Control: GroupContainer
+                Variant: ManualLayout
+                Properties:
+                  DropShadow: =DropShadow.None
+                  Fill: =RGBA(255, 255, 255, 1)
+                  Height: =Parent.Height
+                  LayoutMaxHeight: =
+                  LayoutMaxWidth: =
+                  LayoutMinHeight: =0
+                  RadiusBottomLeft: =0
+                  RadiusBottomRight: =0
+                  RadiusTopLeft: =0
+                  RadiusTopRight: =0
+                  Width: |
+                    =Parent.Width
+                Children:
+                  - imgLogoNovaSoliHeader:
+                      Control: Image
+                      Properties:
+                        BorderColor: =RGBA(0, 0, 0, 0)
+                        BorderStyle: =BorderStyle.None
+                        DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                        DisabledFill: =RGBA(0, 0, 0, 0)
+                        FocusedBorderThickness: =4
+                        Height: =Parent.Height * 0.5
+                        HoverBorderColor: =RGBA(0, 0, 0, 0)
+                        HoverFill: =RGBA(0, 0, 0, 0)
+                        Image: =BRACELL_COLOR
+                        PressedBorderColor: =RGBA(0, 0, 0, 0)
+                        PressedFill: =RGBA(0, 0, 0, 0)
+                        Width: =Parent.Width * 0.09
+                        X: =cNovaSoliHeader.Width * 0.89
+                        Y: =cNovaSoliHeader.Height * 0.20
+                  - lbTitleNovaSoliHeader:
+                      Control: Label
+                      Properties:
+                        Align: =Align.Center
+                        BorderColor: =RGBA(0, 0, 0, 0)
+                        BorderStyle: =BorderStyle.None
+                        Color: =RGBA(50, 49, 48, 1)
+                        DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                        DisabledColor: =RGBA(161, 159, 157, 1)
+                        DisplayMode: =DisplayMode.View
+                        Font: =Font.'Segoe UI'
+                        Height: =Parent.Height * 1/2
+                        Italic: =true
+                        Size: =Parent.Height * 1.75/12
+                        Text: ="Preencha os campos para enviar uma solicitação."
+                        Width: =Parent.Width * 5/10
+                        Wrap: =false
+                        X: =cNovaSoliHeader.Width * 2.5/10
+                        Y: =Parent.Height * 3/10
+                  - lbFuncNovaSoliHeader:
+                      Control: Label
+                      Properties:
+                        AutoHeight: =true
+                        BorderColor: =RGBA(0, 0, 0, 0)
+                        BorderStyle: =BorderStyle.None
+                        Color: =RGBA(50, 49, 48, 1)
+                        DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                        DisabledColor: =RGBA(161, 159, 157, 1)
+                        Font: =Font.'Segoe UI'
+                        Height: =Parent.Height * 0.15
+                        Italic: =true
+                        Size: =Parent.Height * 1/12
+                        Text: =UsuáriosdoOffice365.UserProfile(User().Email).JobTitle
+                        Width: =Parent.Width * 0.2
+                        X: =cNovaSoliHeader.Width * 0.08
+                        Y: =cNovaSoliHeader.Height * 0.50
+                  - lbNomeNovaSoliHeader:
+                      Control: Label
+                      Properties:
+                        AutoHeight: =true
+                        BorderColor: =RGBA(0, 0, 0, 0)
+                        BorderStyle: =BorderStyle.None
+                        Color: =RGBA(50, 49, 48, 1)
+                        DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                        DisabledColor: =RGBA(161, 159, 157, 1)
+                        Font: =Font.'Segoe UI'
+                        FontWeight: =FontWeight.Semibold
+                        Height: =Parent.Height * 0.15
+                        Size: =Parent.Height * 1/11
+                        Text: =User().FullName
+                        Width: =Parent.Width * 0.2
+                        X: =cNovaSoliHeader.Width * 0.08
+                        Y: =cNovaSoliHeader.Height * 0.35
+                  - imgUserNovaSoliHeader:
+                      Control: Image
+                      Properties:
+                        BorderColor: =RGBA(0, 0, 0, 0)
+                        BorderStyle: =BorderStyle.None
+                        DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                        DisabledFill: =RGBA(0, 0, 0, 0)
+                        DisplayMode: =DisplayMode.View
+                        FocusedBorderColor: =
+                        FocusedBorderThickness: =
+                        Height: =novaSolicitacao.Width * 1/35
+                        HoverBorderColor: =RGBA(0, 0, 0, 0)
+                        HoverFill: =RGBA(0, 0, 0, 0)
+                        Image: =User().Image
+                        PressedBorderColor: =RGBA(0, 0, 0, 0)
+                        PressedFill: =RGBA(0, 0, 0, 0)
+                        RadiusBottomLeft: =33
+                        RadiusBottomRight: =33
+                        RadiusTopLeft: =33
+                        RadiusTopRight: =33
+                        Width: =novaSolicitacao.Width * 1/35
+                        X: =cNovaSoliHeader.Width * 0.035
+                        Y: =cNovaSoliHeader.Height * 0.25
+                  - rHeaderMinhasSolicitacoes_2:
+                      Control: Rectangle
+                      Properties:
+                        BorderColor: =RGBA(0, 0, 0, 0)
+                        BorderStyle: =BorderStyle.None
+                        DisabledFill: =RGBA(0, 0, 0, 0)
+                        DisplayMode: =DisplayMode.View
+                        Fill: =RGBA(54, 176, 75, 1)
+                        FocusedBorderColor: =
+                        FocusedBorderThickness: =
+                        Height: =Parent.Height * 1/30
+                        HoverFill: =
+                        OnSelect: =
+                        PressedFill: =
+                        Width: =Parent.Width
+                        X: =cHeaderMinhasSolicitacoes_1.Width * 0
+                        Y: =Parent.Height * 9.7/10
+      - iHomeMainSolicitacoesAtendente_4:
+          Control: Classic/Icon
+          Properties:
+            BorderColor: =RGBA(0, 0, 0, 0)
+            Color: =RGBA(255, 255, 255, 1)
+            DisabledBorderColor: =RGBA(245, 245, 245, 1)
+            DisabledColor: =RGBA(255, 255, 255, 1)
+            DisabledFill: =RGBA(0, 0, 0, 0)
+            FocusedBorderThickness: =0
+            Height: =Parent.Height * 1/25
+            HoverBorderColor: =RGBA(0, 0, 0, 0)
+            HoverColor: =RGBA(255, 255, 255, 1)
+            HoverFill: =RGBA(0, 0, 0, 0)
+            Icon: =Icon.ChevronLeft
+            OnSelect: =Navigate(Menu, ScreenTransition.Fade)
+            PressedBorderColor: =RGBA(0, 0, 0, 0)
+            PressedColor: =RGBA(16, 110, 190, 1)
+            PressedFill: =RGBA(0, 0, 0, 0)
+            Width: =Parent.Width * 1/25
+            X: =Parent.Width * 1/80
+            Y: =Parent.Height * 2/10

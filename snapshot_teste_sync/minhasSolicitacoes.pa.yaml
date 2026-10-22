@@ -1,0 +1,1815 @@
+Screens:
+  minhasSolicitacoes:
+    Properties:
+      Fill: =RGBA(255, 255, 255, 1)
+      LoadingSpinnerColor: =RGBA(0, 120, 212, 1)
+    Children:
+      - cMainMinhasSolicitacoes:
+          Control: GroupContainer
+          Variant: ManualLayout
+          Properties:
+            DropShadow: =DropShadow.None
+            Height: =Parent.Height * 6/7
+            RadiusBottomLeft: =0
+            RadiusBottomRight: =0
+            RadiusTopLeft: =0
+            RadiusTopRight: =0
+            Width: =Parent.Width
+            X: =Parent.Width * 0
+            Y: =Parent.Height * 1/7
+          Children:
+            - cGalleryMainMinhasSolicitacoes:
+                Control: GroupContainer
+                Variant: ManualLayout
+                Properties:
+                  BorderStyle: =BorderStyle.None
+                  DropShadow: =DropShadow.Semilight
+                  Fill: =RGBA(255, 255, 255, 1)
+                  Height: =Parent.Height * 6/10
+                  RadiusBottomLeft: =33
+                  RadiusBottomRight: =33
+                  RadiusTopLeft: =33
+                  RadiusTopRight: =33
+                  Width: =Parent.Width * 7/10
+                  X: =Parent.Width * 1.5/10
+                  Y: =Parent.Height * 2/10
+                Children:
+                  - gMainMinhasSolicitacoes:
+                      Control: Gallery
+                      Variant: Vertical
+                      Properties:
+                        BorderColor: =RGBA(245, 245, 245, 1)
+                        BorderStyle: =BorderStyle.None
+                        FocusedBorderThickness: =0
+                        Height: =Parent.Height * 8.75/10
+                        Items: |+
+                          =Filter(
+                              colMinhasSolicitacoes,
+                              IsBlank(txtPesquisarMainMinhasSolicitacoes.Text) ||
+                              Find(Lower(txtPesquisarMainMinhasSolicitacoes.Text), Lower(Text(status.Value)), 1) > 0 ||
+                              Find(Lower(txtPesquisarMainMinhasSolicitacoes.Text), Lower(Criado), 1) > 0 ||
+                              Find(Lower(txtPesquisarMainMinhasSolicitacoes.Text), Lower(Text(reservaSap)), 1) > 0
+                          )
+
+
+                        NavigationStep: =0
+                        ShowScrollbar: =false
+                        TabIndex: =-0
+                        TemplatePadding: =0
+                        TemplateSize: =Parent.Height * 1.3/10
+                        Width: =Parent.Width * 1
+                        X: =Parent.Width * 0
+                        Y: =Parent.Height * 1/10
+                      Children:
+                        - chCMainMinhasSolicitacoes:
+                            Control: GroupContainer
+                            Variant: AutoLayout
+                            Properties:
+                              DropShadow: =DropShadow.None
+                              Height: =Parent.Height * 1/7
+                              LayoutAlignItems: =LayoutAlignItems.Center
+                              LayoutDirection: =LayoutDirection.Horizontal
+                              LayoutJustifyContent: =LayoutJustifyContent.Center
+                              LayoutOverflowX: =LayoutOverflow.Scroll
+                              RadiusBottomLeft: =0
+                              RadiusBottomRight: =0
+                              RadiusTopLeft: =0
+                              RadiusTopRight: =0
+                              Width: =Parent.Width
+                            Children:
+                              - txtAtendenteCHCMainMinhasSolicitacoes:
+                                  Control: Label
+                                  Properties:
+                                    Align: =Align.Center
+                                    AutoHeight: =true
+                                    BorderColor: =RGBA(0, 0, 0, 0)
+                                    BorderStyle: =BorderStyle.None
+                                    Color: =RGBA(50, 49, 48, 1)
+                                    DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                                    DisabledColor: =RGBA(161, 159, 157, 1)
+                                    DisplayMode: =DisplayMode.View
+                                    FillPortions: =1
+                                    Font: =Font.'Segoe UI'
+                                    Height: =Parent.Height
+                                    LayoutMaxHeight: =
+                                    LayoutMaxWidth: =
+                                    LayoutMinWidth: =0
+                                    OnSelect: =0
+                                    Overflow: =Overflow.Scroll
+                                    Size: =Parent.Height * 1/6
+                                    Text: =ThisItem.ID
+                                    Width: =Parent.Width * 2.75/15
+                                    Wrap: =false
+                                    X: =Parent.Width * 12.25/20
+                                    Y: =Parent.Height * 1/50
+                              - txtStatusCHCMainMinhasSolicitacoes:
+                                  Control: Label
+                                  Properties:
+                                    Align: =Align.Center
+                                    AlignInContainer: =AlignInContainer.Center
+                                    AutoHeight: =true
+                                    BorderColor: =RGBA(0, 0, 0, 0)
+                                    BorderStyle: =BorderStyle.None
+                                    Color: =RGBA(50, 49, 48, 1)
+                                    DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                                    DisabledColor: =RGBA(161, 159, 157, 1)
+                                    DisplayMode: =DisplayMode.View
+                                    FillPortions: =1
+                                    Font: =Font.'Segoe UI'
+                                    Height: =Parent.Height
+                                    LayoutMaxHeight: =
+                                    LayoutMaxWidth: =
+                                    LayoutMinWidth: =0
+                                    OnSelect: =0
+                                    Overflow: =Overflow.Scroll
+                                    Size: =Parent.Height * 1/6
+                                    Text: =ThisItem.Criado
+                                    Width: =Parent.Width * 1.25/15
+                                    X: =Parent.Width * 16/20
+                                    Y: =Parent.Height * 1/50
+                              - txtStatusCHCMainMinhasSolicitacoes_3:
+                                  Control: Label
+                                  Properties:
+                                    Align: =Align.Center
+                                    AlignInContainer: =AlignInContainer.Center
+                                    AutoHeight: =true
+                                    BorderColor: =RGBA(0, 0, 0, 0)
+                                    BorderStyle: =BorderStyle.None
+                                    Color: =RGBA(50, 49, 48, 1)
+                                    DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                                    DisabledColor: =RGBA(161, 159, 157, 1)
+                                    DisplayMode: =DisplayMode.View
+                                    FillPortions: =1
+                                    Font: =Font.'Segoe UI'
+                                    Height: =Parent.Height
+                                    LayoutMaxHeight: =
+                                    LayoutMaxWidth: =
+                                    LayoutMinWidth: =0
+                                    OnSelect: =0
+                                    Overflow: =Overflow.Scroll
+                                    Size: =Parent.Height * 1/6
+                                    Text: =ThisItem.reservaSap
+                                    Width: =Parent.Width * 1.25/15
+                                    X: =Parent.Width * 16/20
+                                    Y: =Parent.Height * 1/50
+                              - txtStatusCHCMainMinhasSolicitacoes_2:
+                                  Control: Label
+                                  Properties:
+                                    Align: =Align.Center
+                                    AlignInContainer: =AlignInContainer.Center
+                                    AutoHeight: =true
+                                    BorderColor: =RGBA(0, 0, 0, 0)
+                                    BorderStyle: =BorderStyle.None
+                                    Color: =RGBA(50, 49, 48, 1)
+                                    DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                                    DisabledColor: =RGBA(161, 159, 157, 1)
+                                    DisplayMode: =DisplayMode.View
+                                    FillPortions: =1
+                                    Font: =Font.'Segoe UI'
+                                    Height: =Parent.Height
+                                    LayoutMaxHeight: =
+                                    LayoutMaxWidth: =
+                                    LayoutMinWidth: =0
+                                    OnSelect: =0
+                                    Overflow: =Overflow.Scroll
+                                    Size: =Parent.Height * 1/6
+                                    Text: =ThisItem.almoxarifado.Value
+                                    Width: =Parent.Width * 1.25/15
+                                    X: =Parent.Width * 16/20
+                                    Y: =Parent.Height * 1/50
+                              - txtStatusCHCMainMinhasSolicitacoes_4:
+                                  Control: Label
+                                  Properties:
+                                    Align: =Align.Center
+                                    AlignInContainer: =AlignInContainer.Center
+                                    AutoHeight: =true
+                                    BorderColor: =RGBA(0, 0, 0, 0)
+                                    BorderStyle: =BorderStyle.None
+                                    Color: =RGBA(50, 49, 48, 1)
+                                    DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                                    DisabledColor: =RGBA(161, 159, 157, 1)
+                                    DisplayMode: =DisplayMode.View
+                                    FillPortions: =1
+                                    Font: =Font.'Segoe UI'
+                                    Height: =Parent.Height
+                                    LayoutMaxHeight: =
+                                    LayoutMaxWidth: =
+                                    LayoutMinWidth: =0
+                                    OnSelect: =0
+                                    Overflow: =Overflow.Scroll
+                                    Size: =Parent.Height * 1/6
+                                    Text: =ThisItem.status.Value
+                                    Width: =Parent.Width * 1.25/15
+                                    X: =Parent.Width * 16/20
+                                    Y: =Parent.Height * 1/50
+                              - txtStatusCHCMainMinhasSolicitacoes_9:
+                                  Control: Label
+                                  Properties:
+                                    Align: =Align.Center
+                                    AlignInContainer: =AlignInContainer.Center
+                                    AutoHeight: =true
+                                    BorderColor: =RGBA(0, 0, 0, 0)
+                                    BorderStyle: =BorderStyle.None
+                                    Color: =RGBA(50, 49, 48, 1)
+                                    DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                                    DisabledColor: =RGBA(161, 159, 157, 1)
+                                    DisplayMode: =DisplayMode.View
+                                    FillPortions: =1
+                                    Font: =Font.'Segoe UI'
+                                    Height: =Parent.Height
+                                    LayoutMaxHeight: =
+                                    LayoutMaxWidth: =
+                                    LayoutMinWidth: =0
+                                    OnSelect: =0
+                                    Overflow: =Overflow.Scroll
+                                    Size: =Parent.Height * 1/6
+                                    Text: |-
+                                      =If(
+                                          IsBlank(varDados.comentario),
+                                          "Sem comentários nessa solicitação",
+                                          varDados.comentario
+                                      )
+                                    Width: =Parent.Width * 1.25/15
+                                    X: =Parent.Width * 16/20
+                                    Y: =Parent.Height * 1/50
+                              - iModalInformacoesCHCMainMinhasSolicitacoes:
+                                  Control: Classic/Icon
+                                  Properties:
+                                    BorderColor: =RGBA(0, 0, 0, 0)
+                                    Color: =RGBA(0, 120, 212, 1)
+                                    DisabledBorderColor: =RGBA(245, 245, 245, 1)
+                                    DisabledColor: =RGBA(225, 223, 221, 1)
+                                    DisabledFill: =RGBA(0, 0, 0, 0)
+                                    FillPortions: =1
+                                    FocusedBorderThickness: =0
+                                    Height: =Parent.Height * 1/3
+                                    HoverBorderColor: =RGBA(0, 0, 0, 0)
+                                    HoverColor: =RGBA(54, 176, 75, 1)
+                                    HoverFill: =RGBA(0, 0, 0, 0)
+                                    Icon: =Icon.View
+                                    LayoutMaxHeight: =
+                                    LayoutMaxWidth: =
+                                    LayoutMinWidth: =0
+                                    OnSelect: |-
+                                      =UpdateContext({varDados: ThisItem});
+                                      UpdateContext({varModal: true})
+                                    PressedBorderColor: =RGBA(0, 0, 0, 0)
+                                    PressedColor: =RGBA(16, 110, 190, 1)
+                                    PressedFill: =RGBA(0, 0, 0, 0)
+                                    Width: =Parent.Width * 2/20
+                                    X: =Parent.Width * 18.25/20
+                                    Y: =Parent.Height * 1/30
+                              - iModalInformacoesCHCMainMinhasSolicitacoes_3:
+                                  Control: Classic/Icon
+                                  Properties:
+                                    BorderColor: =RGBA(0, 0, 0, 0)
+                                    Color: =RGBA(0, 120, 212, 1)
+                                    DisabledBorderColor: =RGBA(245, 245, 245, 1)
+                                    DisabledColor: =RGBA(225, 223, 221, 1)
+                                    DisabledFill: =RGBA(0, 0, 0, 0)
+                                    DisplayMode: |-
+                                      =If(ThisItem.status.Value = "Aguardando Separação",
+                                      DisplayMode.Edit,
+                                      DisplayMode.View
+                                      )
+                                    FillPortions: =1
+                                    FocusedBorderThickness: =0
+                                    Height: =Parent.Height * 1/3
+                                    HoverBorderColor: =RGBA(0, 0, 0, 0)
+                                    HoverColor: =RGBA(54, 176, 75, 1)
+                                    HoverFill: =RGBA(0, 0, 0, 0)
+                                    Icon: =Icon.Trash
+                                    LayoutMaxHeight: =
+                                    LayoutMaxWidth: =
+                                    LayoutMinWidth: =0
+                                    OnSelect: "=Remove(\n        soliMateriais,\n        LookUp(\n            soliMateriais,\n            ID = ThisItem.ID \n        )\n    );\n    \nNotify(\n    \"Solicitação removida com sucesso\",\n    NotificationType.Success,\n    3000\n)\n"
+                                    PressedBorderColor: =RGBA(0, 0, 0, 0)
+                                    PressedColor: =RGBA(16, 110, 190, 1)
+                                    PressedFill: =RGBA(0, 0, 0, 0)
+                                    Width: =Parent.Width * 2/20
+                                    X: =Parent.Width * 18.25/20
+                                    Y: =Parent.Height * 1/30
+                  - cHeaderMainMinhasSolicitacoes:
+                      Control: GroupContainer
+                      Variant: ManualLayout
+                      Properties:
+                        DropShadow: =DropShadow.Semibold
+                        Fill: =RGBA(230, 230, 230, 0.74)
+                        Height: =Parent.Height * 1/10
+                        Width: =Parent.Width
+                        X: =Parent.Width * 0
+                        Y: =Parent.Height * 0
+                      Children:
+                        - cHeaderGalleryHorizontal:
+                            Control: GroupContainer
+                            Variant: AutoLayout
+                            Properties:
+                              Height: =Parent.Height
+                              LayoutDirection: =LayoutDirection.Horizontal
+                              LayoutOverflowX: =LayoutOverflow.Scroll
+                              Width: =Parent.Width
+                            Children:
+                              - txtTitleEmpresa:
+                                  Control: Label
+                                  Properties:
+                                    Align: =Align.Center
+                                    BorderColor: =RGBA(0, 0, 0, 0)
+                                    BorderStyle: =BorderStyle.None
+                                    BorderThickness: =2
+                                    Color: =RGBA(50, 49, 48, 1)
+                                    DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                                    DisabledColor: =RGBA(161, 159, 157, 1)
+                                    FillPortions: =1
+                                    FocusedBorderThickness: =4
+                                    Font: =Font.'Segoe UI'
+                                    FontWeight: =FontWeight.Semibold
+                                    Height: =Parent.Height
+                                    LayoutMaxHeight: =
+                                    LayoutMaxWidth: =
+                                    LayoutMinWidth: =0
+                                    Size: =Parent.Height * 1/4
+                                    Text: ="ID:"
+                                    Width: =Parent.Width * 1.5/15
+                                    X: =Parent.Width * 0/20
+                                    Y: =Parent.Height * 0
+                              - txtTitleTipoApoio_4:
+                                  Control: Label
+                                  Properties:
+                                    Align: =Align.Center
+                                    BorderColor: =RGBA(0, 0, 0, 0)
+                                    BorderStyle: =BorderStyle.None
+                                    BorderThickness: =2
+                                    Color: =RGBA(50, 49, 48, 1)
+                                    DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                                    DisabledColor: =RGBA(161, 159, 157, 1)
+                                    FillPortions: =1
+                                    FocusedBorderThickness: =4
+                                    Font: =Font.'Segoe UI'
+                                    FontWeight: =FontWeight.Semibold
+                                    Height: =Parent.Height
+                                    LayoutMaxHeight: =
+                                    LayoutMaxWidth: =
+                                    LayoutMinWidth: =0
+                                    Size: =Parent.Height * 1/4
+                                    Text: ="Data Solicitação:"
+                                    Width: =Parent.Width * 2/15
+                                    X: =Parent.Width * 5.5/20
+                                    Y: =Parent.Height * 0
+                              - txtTitleTipoApoio:
+                                  Control: Label
+                                  Properties:
+                                    Align: =Align.Center
+                                    BorderColor: =RGBA(0, 0, 0, 0)
+                                    BorderStyle: =BorderStyle.None
+                                    BorderThickness: =2
+                                    Color: =RGBA(50, 49, 48, 1)
+                                    DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                                    DisabledColor: =RGBA(161, 159, 157, 1)
+                                    FillPortions: =1
+                                    FocusedBorderThickness: =4
+                                    Font: =Font.'Segoe UI'
+                                    FontWeight: =FontWeight.Semibold
+                                    Height: =Parent.Height
+                                    LayoutMaxHeight: =
+                                    LayoutMaxWidth: =
+                                    LayoutMinWidth: =0
+                                    Size: =Parent.Height * 1/4
+                                    Text: ="Reserva do SAP:"
+                                    Width: =Parent.Width * 2/15
+                                    X: =Parent.Width * 5.5/20
+                                    Y: =Parent.Height * 0
+                              - txtTitleTipoApoio_6:
+                                  Control: Label
+                                  Properties:
+                                    Align: =Align.Center
+                                    BorderColor: =RGBA(0, 0, 0, 0)
+                                    BorderStyle: =BorderStyle.None
+                                    BorderThickness: =2
+                                    Color: =RGBA(50, 49, 48, 1)
+                                    DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                                    DisabledColor: =RGBA(161, 159, 157, 1)
+                                    FillPortions: =1
+                                    FocusedBorderThickness: =4
+                                    Font: =Font.'Segoe UI'
+                                    FontWeight: =FontWeight.Semibold
+                                    Height: =Parent.Height
+                                    LayoutMaxHeight: =
+                                    LayoutMaxWidth: =
+                                    LayoutMinWidth: =0
+                                    Size: =Parent.Height * 1/4
+                                    Text: ="Almoxarifado:"
+                                    Width: =Parent.Width * 2/15
+                                    X: =Parent.Width * 5.5/20
+                                    Y: =Parent.Height * 0
+                              - txtTitleTipoApoio_5:
+                                  Control: Label
+                                  Properties:
+                                    Align: =Align.Center
+                                    BorderColor: =RGBA(0, 0, 0, 0)
+                                    BorderStyle: =BorderStyle.None
+                                    BorderThickness: =2
+                                    Color: =RGBA(50, 49, 48, 1)
+                                    DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                                    DisabledColor: =RGBA(161, 159, 157, 1)
+                                    FillPortions: =1
+                                    FocusedBorderThickness: =4
+                                    Font: =Font.'Segoe UI'
+                                    FontWeight: =FontWeight.Semibold
+                                    Height: =Parent.Height
+                                    LayoutMaxHeight: =
+                                    LayoutMaxWidth: =
+                                    LayoutMinWidth: =0
+                                    Size: =Parent.Height * 1/4
+                                    Text: ="Status:"
+                                    Width: =Parent.Width * 2/15
+                                    X: =Parent.Width * 5.5/20
+                                    Y: =Parent.Height * 0
+                              - txtTitleTipoApoio_16:
+                                  Control: Label
+                                  Properties:
+                                    Align: =Align.Center
+                                    BorderColor: =RGBA(0, 0, 0, 0)
+                                    BorderStyle: =BorderStyle.None
+                                    BorderThickness: =2
+                                    Color: =RGBA(50, 49, 48, 1)
+                                    DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                                    DisabledColor: =RGBA(161, 159, 157, 1)
+                                    FillPortions: =1
+                                    FocusedBorderThickness: =4
+                                    Font: =Font.'Segoe UI'
+                                    FontWeight: =FontWeight.Semibold
+                                    Height: =Parent.Height
+                                    LayoutMaxHeight: =
+                                    LayoutMaxWidth: =
+                                    LayoutMinWidth: =0
+                                    Size: =Parent.Height * 1/4
+                                    Text: ="Comentários:"
+                                    Width: =Parent.Width * 2/15
+                                    X: =Parent.Width * 5.5/20
+                                    Y: =Parent.Height * 0
+                              - txtTitleTipoApoio_1:
+                                  Control: Label
+                                  Properties:
+                                    Align: =Align.Center
+                                    BorderColor: =RGBA(0, 0, 0, 0)
+                                    BorderStyle: =BorderStyle.None
+                                    BorderThickness: =2
+                                    Color: =RGBA(50, 49, 48, 1)
+                                    DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                                    DisabledColor: =RGBA(161, 159, 157, 1)
+                                    FillPortions: =1
+                                    FocusedBorderThickness: =4
+                                    Font: =Font.'Segoe UI'
+                                    FontWeight: =FontWeight.Semibold
+                                    Height: =Parent.Height
+                                    LayoutMaxHeight: =
+                                    LayoutMaxWidth: =
+                                    LayoutMinWidth: =0
+                                    Size: =Parent.Height * 1/4
+                                    Text: ="Visualizar:"
+                                    Width: =Parent.Width * 2/15
+                                    X: =Parent.Width * 5.5/20
+                                    Y: =Parent.Height * 0
+                              - txtTitleTipoApoio_13:
+                                  Control: Label
+                                  Properties:
+                                    Align: =Align.Center
+                                    BorderColor: =RGBA(0, 0, 0, 0)
+                                    BorderStyle: =BorderStyle.None
+                                    BorderThickness: =2
+                                    Color: =RGBA(50, 49, 48, 1)
+                                    DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                                    DisabledColor: =RGBA(161, 159, 157, 1)
+                                    FillPortions: =1
+                                    FocusedBorderThickness: =4
+                                    Font: =Font.'Segoe UI'
+                                    FontWeight: =FontWeight.Semibold
+                                    Height: =Parent.Height
+                                    LayoutMaxHeight: =
+                                    LayoutMaxWidth: =
+                                    LayoutMinWidth: =0
+                                    Size: =Parent.Height * 1/4
+                                    Text: ="Excluir"
+                                    Width: =Parent.Width * 2/15
+                                    X: =Parent.Width * 5.5/20
+                                    Y: =Parent.Height * 0
+            - chPesquisarMainMinhasSolicitacoes:
+                Control: GroupContainer
+                Variant: AutoLayout
+                Properties:
+                  DropShadow: =DropShadow.Regular
+                  Fill: =RGBA(255, 255, 255, 1)
+                  Height: =Parent.Height * 1/20
+                  LayoutAlignItems: =LayoutAlignItems.Center
+                  LayoutDirection: =LayoutDirection.Horizontal
+                  LayoutJustifyContent: =LayoutJustifyContent.Center
+                  RadiusBottomLeft: =15
+                  RadiusBottomRight: =15
+                  RadiusTopLeft: =15
+                  RadiusTopRight: =15
+                  Width: =Parent.Width * 1/3
+                  X: =Parent.Width * 1/3
+                  Y: =Parent.Height * 1/15
+                Children:
+                  - lbPesquisarMainMinhasSolicitacoes:
+                      Control: Label
+                      Properties:
+                        Align: =Align.Center
+                        AlignInContainer: =AlignInContainer.Center
+                        BorderColor: =RGBA(0, 0, 0, 0)
+                        BorderStyle: =BorderStyle.None
+                        Color: =RGBA(50, 49, 48, 1)
+                        DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                        DisabledColor: =RGBA(161, 159, 157, 1)
+                        Fill: =RGBA(230, 230, 230, 1)
+                        Font: =Font.'Segoe UI'
+                        Height: =Parent.Height
+                        LayoutMaxHeight: =
+                        LayoutMaxWidth: =
+                        PaddingBottom: =0
+                        PaddingLeft: =0
+                        PaddingRight: =0
+                        PaddingTop: =0
+                        Size: =Parent.Height * 1/3
+                        Text: ="Pesquisar:"
+                        Width: =Parent.Width * 2/10
+                  - txtPesquisarMainMinhasSolicitacoes:
+                      Control: Classic/TextInput
+                      Properties:
+                        BorderColor: =RGBA(245, 245, 245, 1)
+                        BorderStyle: =BorderStyle.None
+                        BorderThickness: =0
+                        Color: =RGBA(50, 49, 48, 1)
+                        Default: =
+                        DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                        DisabledColor: =RGBA(161, 159, 157, 1)
+                        DisabledFill: =RGBA(242, 242, 241, 0)
+                        Font: =Font.'Segoe UI'
+                        Height: =Parent.Height
+                        HintText: ="Pesquise por Data, Reserva SAP ou Status"
+                        HoverBorderColor: =RGBA(0, 0, 0, 0)
+                        HoverColor: =RGBA(50, 49, 48, 1)
+                        HoverFill: =RGBA(255, 255, 255, 1)
+                        LayoutMaxHeight: =
+                        LayoutMaxWidth: =
+                        PaddingBottom: =0
+                        PaddingRight: =0
+                        PaddingTop: =0
+                        PressedBorderColor: =RGBA(0, 0, 0, 0)
+                        PressedColor: =RGBA(50, 49, 48, 1)
+                        PressedFill: =RGBA(255, 255, 255, 1)
+                        RadiusBottomLeft: =0
+                        RadiusBottomRight: =0
+                        RadiusTopLeft: =0
+                        RadiusTopRight: =0
+                        Size: =Parent.Height * 1/5
+                        Width: =Parent.Width * 7/10
+                  - iPesquisarMainMinhasSolicitacoes:
+                      Control: Classic/Icon
+                      Properties:
+                        BorderColor: =RGBA(0, 0, 0, 0)
+                        Color: =RGBA(0, 120, 212, 1)
+                        DisabledBorderColor: =RGBA(245, 245, 245, 1)
+                        DisabledColor: =RGBA(225, 223, 221, 1)
+                        DisabledFill: =RGBA(0, 0, 0, 0)
+                        DisplayMode: =DisplayMode.View
+                        FocusedBorderThickness: =0
+                        Height: =Parent.Height * 2/3
+                        HoverBorderColor: =RGBA(0, 0, 0, 0)
+                        HoverColor: =RGBA(16, 110, 190, 1)
+                        HoverFill: =RGBA(0, 0, 0, 0)
+                        Icon: =Icon.Search
+                        LayoutMaxHeight: =
+                        LayoutMaxWidth: =
+                        OnSelect: =
+                        PressedBorderColor: =RGBA(0, 0, 0, 0)
+                        PressedColor: =RGBA(16, 110, 190, 1)
+                        PressedFill: =RGBA(0, 0, 0, 0)
+                        Width: =Parent.Width * 1/10
+      - chHeaderMinhasSolicitacoes:
+          Control: GroupContainer
+          Variant: AutoLayout
+          Properties:
+            DropShadow: =DropShadow.None
+            Height: =Parent.Height * 1/7
+            LayoutDirection: =LayoutDirection.Horizontal
+            RadiusBottomLeft: =0
+            RadiusBottomRight: =0
+            RadiusTopLeft: =0
+            RadiusTopRight: =0
+            Width: =Parent.Width
+          Children:
+            - cHeaderMinhasSolicitacoes:
+                Control: GroupContainer
+                Variant: ManualLayout
+                Properties:
+                  BorderStyle: =BorderStyle.None
+                  DropShadow: =DropShadow.None
+                  Height: |
+                    =Parent.Height * 1/7
+                  LayoutMaxHeight: =
+                  LayoutMaxWidth: =
+                  LayoutMinHeight: =0
+                  LayoutMinWidth: =0
+                  RadiusBottomLeft: =0
+                  RadiusBottomRight: =0
+                  RadiusTopLeft: =0
+                  RadiusTopRight: =0
+                  Width: |
+                    =Parent.Width
+                Children:
+                  - imgLogoHeaderMinhasSolicitacoes:
+                      Control: Image
+                      Properties:
+                        BorderColor: =RGBA(0, 0, 0, 0)
+                        BorderStyle: =BorderStyle.None
+                        DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                        DisabledFill: =RGBA(0, 0, 0, 0)
+                        FocusedBorderThickness: =4
+                        Height: =Parent.Height * 0.5
+                        HoverBorderColor: =RGBA(0, 0, 0, 0)
+                        HoverFill: =RGBA(0, 0, 0, 0)
+                        Image: =BRACELL_COLOR
+                        PressedBorderColor: =RGBA(0, 0, 0, 0)
+                        PressedFill: =RGBA(0, 0, 0, 0)
+                        Width: =Parent.Width * 0.09
+                        X: =cHeaderMinhasSolicitacoes.Width * 0.89
+                        Y: =cHeaderMinhasSolicitacoes.Height * 0.20
+                  - lbTitleHeaderMinhasSolicitacoes:
+                      Control: Label
+                      Properties:
+                        Align: =Align.Center
+                        BorderColor: =RGBA(0, 0, 0, 0)
+                        BorderStyle: =BorderStyle.None
+                        Color: =RGBA(50, 49, 48, 1)
+                        DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                        DisabledColor: =RGBA(161, 159, 157, 1)
+                        DisplayMode: =DisplayMode.View
+                        Font: =Font.'Segoe UI'
+                        Height: =Parent.Height * 0.6
+                        Italic: =true
+                        Size: =16
+                        Text: ="Minhas Solicitações"
+                        Width: =Parent.Width * 0.4
+                        X: =cHeaderMinhasSolicitacoes.Width * 0.3
+                        Y: =Parent.Height * 1/5
+                  - lbFuncHeaderMinhasSolicitacoes:
+                      Control: Label
+                      Properties:
+                        AutoHeight: =true
+                        BorderColor: =RGBA(0, 0, 0, 0)
+                        BorderStyle: =BorderStyle.None
+                        BorderThickness: =2
+                        Color: =RGBA(50, 49, 48, 1)
+                        DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                        DisabledColor: =RGBA(161, 159, 157, 1)
+                        FocusedBorderThickness: =4
+                        Font: =Font.'Segoe UI'
+                        Height: =Parent.Height * 0.15
+                        Italic: =true
+                        Size: =9
+                        Text: =UsuáriosdoOffice365.UserProfile(User().Email).JobTitle
+                        Width: =Parent.Width * 0.2
+                        X: =cHeaderMinhasSolicitacoes.Width * 0.08
+                        Y: =cHeaderMinhasSolicitacoes.Height * 0.5
+                  - lbNomeHeaderMinhasSolicitacoes:
+                      Control: Label
+                      Properties:
+                        AutoHeight: =true
+                        BorderColor: =RGBA(0, 0, 0, 0)
+                        BorderStyle: =BorderStyle.None
+                        BorderThickness: =2
+                        Color: =RGBA(50, 49, 48, 1)
+                        DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                        DisabledColor: =RGBA(161, 159, 157, 1)
+                        FocusedBorderThickness: =4
+                        Font: =Font.'Segoe UI'
+                        FontWeight: =FontWeight.Semibold
+                        Height: =Parent.Height * 0.15
+                        Size: =Parent.Height * 1/10
+                        Text: =User().FullName
+                        Width: =Parent.Width * 0.2
+                        X: =cHeaderMinhasSolicitacoes.Width * 0.08
+                        Y: =cHeaderMinhasSolicitacoes.Height * 0.3
+                  - imgUserHeaderMinhasSolicitacoes:
+                      Control: Image
+                      Properties:
+                        BorderColor: =RGBA(255, 255, 255, 1)
+                        BorderStyle: =BorderStyle.None
+                        DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                        DisabledFill: =RGBA(0, 0, 0, 0)
+                        DisplayMode: =DisplayMode.View
+                        FocusedBorderThickness: =4
+                        Height: =minhasSolicitacoes.Width * 1/30
+                        HoverBorderColor: =RGBA(0, 0, 0, 0)
+                        HoverFill: =RGBA(0, 0, 0, 0)
+                        Image: =User().Image
+                        PressedBorderColor: =RGBA(0, 0, 0, 0)
+                        PressedFill: =RGBA(0, 0, 0, 0)
+                        RadiusBottomLeft: =66
+                        RadiusBottomRight: =66
+                        RadiusTopLeft: =66
+                        RadiusTopRight: =66
+                        Width: =minhasSolicitacoes.Width * 1/30
+                        X: =cHeaderMinhasSolicitacoes.Width * 0.04
+                        Y: =cHeaderMinhasSolicitacoes.Height * 0.20
+                  - rHeaderMinhasSolicitacoes:
+                      Control: Rectangle
+                      Properties:
+                        BorderColor: =RGBA(0, 0, 0, 0)
+                        BorderStyle: =BorderStyle.None
+                        DisabledFill: =RGBA(0, 0, 0, 0)
+                        DisplayMode: =DisplayMode.View
+                        Fill: =RGBA(54, 176, 75, 1)
+                        FocusedBorderColor: =
+                        FocusedBorderThickness: =
+                        Height: =Parent.Height * 1/30
+                        HoverFill: =
+                        OnSelect: =
+                        PressedFill: =
+                        Width: =Parent.Width
+                        X: =cHeaderMinhasSolicitacoes.Width * 0
+                        Y: =cHeaderMinhasSolicitacoes.Height * 0.88
+      - iHomeMainSolicitacoesAtendente_1:
+          Control: Classic/Icon
+          Properties:
+            BorderColor: =RGBA(0, 0, 0, 0)
+            Color: =RGBA(0, 120, 212, 1)
+            DisabledBorderColor: =RGBA(245, 245, 245, 1)
+            DisabledColor: =RGBA(225, 223, 221, 1)
+            DisabledFill: =RGBA(0, 0, 0, 0)
+            FocusedBorderThickness: =0
+            Height: =Parent.Height * 1/15
+            HoverBorderColor: =RGBA(0, 0, 0, 0)
+            HoverColor: =RGBA(54, 176, 75, 1)
+            HoverFill: =RGBA(0, 0, 0, 0)
+            Icon: =Icon.Home
+            OnSelect: =Navigate(Menu, ScreenTransition.Fade)
+            PressedBorderColor: =RGBA(0, 0, 0, 0)
+            PressedColor: =RGBA(16, 110, 190, 1)
+            PressedFill: =RGBA(0, 0, 0, 0)
+            Width: =Parent.Width * 1/20
+            X: =Parent.Width * 1/25
+            Y: =Parent.Height * 2/10
+      - bgMinhasSolicitacoes_1:
+          Control: Rectangle
+          Properties:
+            BorderColor: =RGBA(0, 0, 0, 0)
+            BorderStyle: =BorderStyle.None
+            DisabledFill: =RGBA(161, 159, 157, 1)
+            Fill: =RGBA(0, 0, 0, 0.32)
+            FocusedBorderThickness: =4
+            Height: =Parent.Height
+            HoverFill: |
+              =
+            OnSelect: |-
+              =UpdateContext({varModal: false});
+            PressedFill: =
+            Visible: =varModal
+            Width: =Parent.Width
+      - cModalMinhasSolicitacoes_1:
+          Control: GroupContainer
+          Variant: ManualLayout
+          Properties:
+            DropShadow: =DropShadow.ExtraBold
+            Fill: =RGBA(255, 255, 255, 1)
+            Height: =Parent.Height * 8/10
+            RadiusBottomLeft: =66
+            RadiusBottomRight: =66
+            RadiusTopLeft: =66
+            RadiusTopRight: =66
+            Visible: =varModal
+            Width: =Parent.Width * 5/10
+            X: =Parent.Width * 1/4
+            Y: =Parent.Height * 1/10
+          Children:
+            - cvModalMinhasSolicitacoes_1:
+                Control: GroupContainer
+                Variant: AutoLayout
+                Properties:
+                  Fill: =RGBA(230, 230, 230, 1)
+                  Height: =Parent.Height * 9/10
+                  LayoutDirection: =LayoutDirection.Vertical
+                  LayoutOverflowX: =LayoutOverflow.Scroll
+                  LayoutOverflowY: =LayoutOverflow.Scroll
+                  Width: =Parent.Width * 9/10
+                  X: =Parent.Width * 1/20
+                  Y: =Parent.Height * 1/20
+                Children:
+                  - chLogoModalMinhasSolicitacoes_1:
+                      Control: GroupContainer
+                      Variant: AutoLayout
+                      Properties:
+                        BorderStyle: =BorderStyle.None
+                        DropShadow: =DropShadow.None
+                        Fill: =RGBA(255, 255, 255, 1)
+                        Height: =Parent.Height * 1/10
+                        LayoutAlignItems: =LayoutAlignItems.Center
+                        LayoutDirection: =LayoutDirection.Horizontal
+                        LayoutJustifyContent: =LayoutJustifyContent.Center
+                        LayoutMaxHeight: =
+                        LayoutMaxWidth: =
+                        LayoutMinHeight: =70
+                      Children:
+                        - logoModalMinhasSolicitacoes_1:
+                            Control: Image
+                            Properties:
+                              BorderColor: =RGBA(0, 0, 0, 0)
+                              BorderStyle: =BorderStyle.None
+                              BorderThickness: =2
+                              DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                              DisabledFill: =RGBA(0, 0, 0, 0)
+                              FocusedBorderThickness: =4
+                              Height: =Parent.Height
+                              HoverBorderColor: =RGBA(0, 0, 0, 0)
+                              HoverFill: =RGBA(0, 0, 0, 0)
+                              Image: =BRACELL_BLACK
+                              LayoutMaxHeight: =
+                              LayoutMaxWidth: =
+                              PressedBorderColor: =RGBA(0, 0, 0, 0)
+                              PressedFill: =RGBA(0, 0, 0, 0)
+                  - chDadosGeraisModalMinhasSolicitacoes_1:
+                      Control: GroupContainer
+                      Variant: AutoLayout
+                      Properties:
+                        BorderStyle: =BorderStyle.None
+                        DropShadow: =DropShadow.None
+                        Height: =Parent.Height * 1/15
+                        LayoutAlignItems: =LayoutAlignItems.Stretch
+                        LayoutDirection: =LayoutDirection.Horizontal
+                        LayoutJustifyContent: =LayoutJustifyContent.SpaceBetween
+                        LayoutMaxHeight: =
+                        LayoutMaxWidth: =
+                        LayoutMinHeight: =70
+                        RadiusBottomLeft: =0
+                        RadiusBottomRight: =0
+                        RadiusTopLeft: =0
+                        RadiusTopRight: =0
+                        X: =40
+                        Y: =40
+                      Children:
+                        - lbDadosGeraisModalMinhasSolicitacoes_1:
+                            Control: Label
+                            Properties:
+                              Align: =Align.Center
+                              BorderColor: =RGBA(255, 255, 255, 1)
+                              Color: =RGBA(50, 49, 48, 1)
+                              DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                              DisabledColor: =RGBA(161, 159, 157, 1)
+                              Fill: =RGBA(153, 153, 153, 1)
+                              Font: =Font.'Segoe UI'
+                              FontWeight: =FontWeight.Semibold
+                              Height: =Parent.Height
+                              LayoutMaxHeight: =
+                              LayoutMaxWidth: =
+                              Size: =Parent.Height * 1/5
+                              Text: ="Dados gerais:"
+                              Width: =Parent.Width
+                  - chIDModalMinhasSolicitacoes_1:
+                      Control: GroupContainer
+                      Variant: AutoLayout
+                      Properties:
+                        BorderStyle: =BorderStyle.None
+                        DropShadow: =DropShadow.None
+                        Height: =Parent.Height * 1/10
+                        LayoutDirection: =LayoutDirection.Horizontal
+                        LayoutMaxHeight: =
+                        LayoutMaxWidth: =
+                        LayoutMinHeight: =70
+                        RadiusBottomLeft: =0
+                        RadiusBottomRight: =0
+                        RadiusTopLeft: =0
+                        RadiusTopRight: =0
+                        Width: =Parent.Width
+                        X: =40
+                        Y: =40
+                      Children:
+                        - lbIDModalMinhasSolicitacoes_1:
+                            Control: Label
+                            Properties:
+                              BorderColor: =RGBA(0, 0, 0, 1)
+                              BorderStyle: =BorderStyle.None
+                              Color: =RGBA(50, 49, 48, 1)
+                              DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                              DisabledColor: =RGBA(161, 159, 157, 1)
+                              DisplayMode: =DisplayMode.View
+                              Fill: =RGBA(196, 196, 196, 1)
+                              Font: =Font.'Segoe UI'
+                              FontWeight: =FontWeight.Semibold
+                              Height: =Parent.Height
+                              Italic: =true
+                              LayoutMaxHeight: =
+                              LayoutMaxWidth: =
+                              PaddingTop: =10
+                              Size: =Parent.Height * 1/6
+                              Text: ="ID chamado:"
+                              Width: =Parent.Width * 3/12
+                              X: =Parent.Width * 1/20
+                              Y: =Parent.Height * 1/10
+                        - txtIDModalMinhasSolicitacoes_1:
+                            Control: Label
+                            Properties:
+                              BorderColor: =RGBA(0, 0, 0, 0)
+                              BorderStyle: =BorderStyle.None
+                              BorderThickness: =2
+                              Color: =RGBA(50, 49, 48, 1)
+                              DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                              DisabledColor: =RGBA(161, 159, 157, 1)
+                              FocusedBorderThickness: =4
+                              Font: =Font.'Segoe UI'
+                              Height: =Parent.Height
+                              LayoutMaxHeight: =
+                              LayoutMaxWidth: =
+                              Size: =Parent.Height * 1/8
+                              Text: =varDados.ID
+                              Width: =Parent.Width * 5.25/7
+                  - chSolicitanteModalMinhasSolicitacoes_1:
+                      Control: GroupContainer
+                      Variant: AutoLayout
+                      Properties:
+                        BorderStyle: =BorderStyle.None
+                        DropShadow: =DropShadow.None
+                        Height: =Parent.Height * 1/10
+                        LayoutDirection: =LayoutDirection.Horizontal
+                        LayoutMaxHeight: =
+                        LayoutMaxWidth: =
+                        LayoutMinHeight: =70
+                        RadiusBottomLeft: =0
+                        RadiusBottomRight: =0
+                        RadiusTopLeft: =0
+                        RadiusTopRight: =0
+                        Width: =Parent.Width
+                        X: =40
+                        Y: =40
+                      Children:
+                        - lbSolicitanteModalMinhasSolicitacoes_1:
+                            Control: Label
+                            Properties:
+                              BorderColor: =RGBA(0, 0, 0, 1)
+                              BorderStyle: =BorderStyle.None
+                              Color: =RGBA(50, 49, 48, 1)
+                              DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                              DisabledColor: =RGBA(161, 159, 157, 1)
+                              DisplayMode: =DisplayMode.View
+                              Fill: =RGBA(196, 196, 196, 1)
+                              Font: =Font.'Segoe UI'
+                              FontWeight: =FontWeight.Semibold
+                              Height: =Parent.Height
+                              Italic: =true
+                              LayoutMaxHeight: =
+                              LayoutMaxWidth: =
+                              PaddingTop: =10
+                              Size: =Parent.Height * 1/6
+                              Text: ="Solicitante:"
+                              Width: =Parent.Width * 3/12
+                              X: =Parent.Width * 1/20
+                              Y: =Parent.Height * 1/10
+                        - txtSolicitanteModalMinhasSolicitacoes_1:
+                            Control: Label
+                            Properties:
+                              BorderColor: =RGBA(0, 0, 0, 0)
+                              BorderStyle: =BorderStyle.None
+                              BorderThickness: =2
+                              Color: =RGBA(50, 49, 48, 1)
+                              DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                              DisabledColor: =RGBA(161, 159, 157, 1)
+                              FocusedBorderThickness: =4
+                              Font: =Font.'Segoe UI'
+                              Height: =Parent.Height
+                              LayoutMaxHeight: =
+                              LayoutMaxWidth: =
+                              Size: =Parent.Height * 1/8
+                              Text: =varDados.solicitante.DisplayName
+                              Width: =Parent.Width * 5.25/7
+                  - chEmpresaModalMinhasSolicitacoes_1:
+                      Control: GroupContainer
+                      Variant: AutoLayout
+                      Properties:
+                        BorderStyle: =BorderStyle.None
+                        DropShadow: =DropShadow.None
+                        Height: =Parent.Height * 1/10
+                        LayoutDirection: =LayoutDirection.Horizontal
+                        LayoutMaxHeight: =
+                        LayoutMaxWidth: =
+                        LayoutMinHeight: =70
+                        RadiusBottomLeft: =0
+                        RadiusBottomRight: =0
+                        RadiusTopLeft: =0
+                        RadiusTopRight: =0
+                        Width: =Parent.Width
+                        X: =40
+                        Y: =40
+                      Children:
+                        - lbEmpresaModalMinhasSolicitacoes_1:
+                            Control: Label
+                            Properties:
+                              BorderColor: =RGBA(0, 0, 0, 1)
+                              BorderStyle: =BorderStyle.None
+                              Color: =RGBA(50, 49, 48, 1)
+                              DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                              DisabledColor: =RGBA(161, 159, 157, 1)
+                              DisplayMode: =DisplayMode.View
+                              Fill: =RGBA(196, 196, 196, 1)
+                              Font: =Font.'Segoe UI'
+                              FontWeight: =FontWeight.Semibold
+                              Height: =Parent.Height
+                              Italic: =true
+                              LayoutMaxHeight: =
+                              LayoutMaxWidth: =
+                              PaddingTop: =10
+                              Size: =Parent.Height * 1/6
+                              Text: ="Matrícula:"
+                              Width: =Parent.Width * 3/12
+                              X: =Parent.Width * 1/20
+                              Y: =Parent.Height * 1/10
+                        - txtEmpresaModalMinhasSolicitacoes_1:
+                            Control: Label
+                            Properties:
+                              BorderColor: =RGBA(0, 0, 0, 0)
+                              BorderStyle: =BorderStyle.None
+                              BorderThickness: =2
+                              Color: =RGBA(50, 49, 48, 1)
+                              DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                              DisabledColor: =RGBA(161, 159, 157, 1)
+                              FocusedBorderThickness: =4
+                              Font: =Font.'Segoe UI'
+                              Height: =Parent.Height
+                              LayoutMaxHeight: =
+                              LayoutMaxWidth: =
+                              Size: =Parent.Height * 1/8
+                              Text: =varDados.matricula
+                              Width: =Parent.Width * 5.25/7
+                  - chAreaModalMinhasSolicitacoes_1:
+                      Control: GroupContainer
+                      Variant: AutoLayout
+                      Properties:
+                        BorderStyle: =BorderStyle.None
+                        DropShadow: =DropShadow.None
+                        Height: =Parent.Height * 1/10
+                        LayoutDirection: =LayoutDirection.Horizontal
+                        LayoutMaxHeight: =
+                        LayoutMaxWidth: =
+                        LayoutMinHeight: =70
+                        RadiusBottomLeft: =0
+                        RadiusBottomRight: =0
+                        RadiusTopLeft: =0
+                        RadiusTopRight: =0
+                        Width: =Parent.Width
+                        X: =40
+                        Y: =40
+                      Children:
+                        - lbAreaModalMinhasSolicitacoes_1:
+                            Control: Label
+                            Properties:
+                              BorderColor: =RGBA(0, 0, 0, 1)
+                              BorderStyle: =BorderStyle.None
+                              Color: =RGBA(50, 49, 48, 1)
+                              DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                              DisabledColor: =RGBA(161, 159, 157, 1)
+                              DisplayMode: =DisplayMode.View
+                              Fill: =RGBA(196, 196, 196, 1)
+                              Font: =Font.'Segoe UI'
+                              FontWeight: =FontWeight.Semibold
+                              Height: =Parent.Height
+                              Italic: =true
+                              LayoutMaxHeight: =
+                              LayoutMaxWidth: =
+                              PaddingTop: =10
+                              Size: =Parent.Height * 1/6
+                              Text: ="Unidade de Negócios:"
+                              Width: =Parent.Width * 3/12
+                              X: =Parent.Width * 1/20
+                              Y: =Parent.Height * 1/10
+                        - txtAreaModalMinhasSolicitacoes_1:
+                            Control: Label
+                            Properties:
+                              BorderColor: =RGBA(0, 0, 0, 0)
+                              BorderStyle: =BorderStyle.None
+                              BorderThickness: =2
+                              Color: =RGBA(50, 49, 48, 1)
+                              DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                              DisabledColor: =RGBA(161, 159, 157, 1)
+                              FocusedBorderThickness: =4
+                              Font: =Font.'Segoe UI'
+                              Height: =Parent.Height
+                              LayoutMaxHeight: =
+                              LayoutMaxWidth: =
+                              Size: =Parent.Height * 1/8
+                              Text: =varDados.unidadeNegocios.Value
+                              Width: =Parent.Width * 5.25/7
+                  - chDataEsperadaModalMinhasSolicitacoes_1:
+                      Control: GroupContainer
+                      Variant: AutoLayout
+                      Properties:
+                        BorderStyle: =BorderStyle.None
+                        DropShadow: =DropShadow.None
+                        Height: =Parent.Height * 1/10
+                        LayoutDirection: =LayoutDirection.Horizontal
+                        LayoutMaxHeight: =
+                        LayoutMaxWidth: =
+                        LayoutMinHeight: =70
+                        RadiusBottomLeft: =0
+                        RadiusBottomRight: =0
+                        RadiusTopLeft: =0
+                        RadiusTopRight: =0
+                        Width: =Parent.Width
+                        X: =40
+                        Y: =40
+                      Children:
+                        - lbDataEsperadaModalMinhasSolicitacoes_1:
+                            Control: Label
+                            Properties:
+                              BorderColor: =RGBA(0, 0, 0, 1)
+                              BorderStyle: =BorderStyle.None
+                              Color: =RGBA(50, 49, 48, 1)
+                              DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                              DisabledColor: =RGBA(161, 159, 157, 1)
+                              DisplayMode: =DisplayMode.View
+                              Fill: =RGBA(196, 196, 196, 1)
+                              Font: =Font.'Segoe UI'
+                              FontWeight: =FontWeight.Semibold
+                              Height: =Parent.Height
+                              Italic: =true
+                              LayoutMaxHeight: =
+                              LayoutMaxWidth: =
+                              PaddingTop: =10
+                              Size: =Parent.Height * 1/6
+                              Text: ="Área:"
+                              Width: =Parent.Width * 3/12
+                              X: =Parent.Width * 1/20
+                              Y: =Parent.Height * 1/10
+                        - txtDataEsperadaModalMinhasSolicitacoes_1:
+                            Control: Label
+                            Properties:
+                              BorderColor: =RGBA(0, 0, 0, 0)
+                              BorderStyle: =BorderStyle.None
+                              BorderThickness: =2
+                              Color: =RGBA(50, 49, 48, 1)
+                              DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                              DisabledColor: =RGBA(161, 159, 157, 1)
+                              FocusedBorderThickness: =4
+                              Font: =Font.'Segoe UI'
+                              Height: =Parent.Height
+                              LayoutMaxHeight: =
+                              LayoutMaxWidth: =
+                              Size: =Parent.Height * 1/8
+                              Text: =varDados.area.Value
+                              Width: =Parent.Width * 5.25/7
+                  - chTipoApoioModalMinhasSolicitacoes_1:
+                      Control: GroupContainer
+                      Variant: AutoLayout
+                      Properties:
+                        BorderStyle: =BorderStyle.None
+                        DropShadow: =DropShadow.None
+                        Height: =Parent.Height * 1/10
+                        LayoutDirection: =LayoutDirection.Horizontal
+                        LayoutMaxHeight: =
+                        LayoutMaxWidth: =
+                        LayoutMinHeight: =70
+                        RadiusBottomLeft: =0
+                        RadiusBottomRight: =0
+                        RadiusTopLeft: =0
+                        RadiusTopRight: =0
+                        Width: =Parent.Width
+                        X: =40
+                        Y: =40
+                      Children:
+                        - lbTipoApoioModalMinhasSolicitacoes_1:
+                            Control: Label
+                            Properties:
+                              BorderColor: =RGBA(0, 0, 0, 1)
+                              BorderStyle: =BorderStyle.None
+                              Color: =RGBA(50, 49, 48, 1)
+                              DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                              DisabledColor: =RGBA(161, 159, 157, 1)
+                              DisplayMode: =DisplayMode.View
+                              Fill: =RGBA(196, 196, 196, 1)
+                              Font: =Font.'Segoe UI'
+                              FontWeight: =FontWeight.Semibold
+                              Height: =Parent.Height
+                              Italic: =true
+                              LayoutMaxHeight: =
+                              LayoutMaxWidth: =
+                              PaddingTop: =10
+                              Size: =Parent.Height * 1/6
+                              Text: ="Almoxarifado:"
+                              Width: =Parent.Width * 3/12
+                              X: =Parent.Width * 1/20
+                              Y: =Parent.Height * 1/10
+                        - txtTipoApoioModalMinhasSolicitacoes_1:
+                            Control: Label
+                            Properties:
+                              BorderColor: =RGBA(0, 0, 0, 0)
+                              BorderStyle: =BorderStyle.None
+                              BorderThickness: =2
+                              Color: =RGBA(50, 49, 48, 1)
+                              DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                              DisabledColor: =RGBA(161, 159, 157, 1)
+                              FocusedBorderThickness: =4
+                              Font: =Font.'Segoe UI'
+                              Height: =Parent.Height
+                              LayoutMaxHeight: =
+                              LayoutMaxWidth: =
+                              Size: =Parent.Height * 1/8
+                              Text: =varDados.almoxarifado.Value
+                              Width: =Parent.Width * 5.25/7
+                  - chDescricaoModalMinhasSolicitacoes_1:
+                      Control: GroupContainer
+                      Variant: AutoLayout
+                      Properties:
+                        BorderStyle: =BorderStyle.None
+                        DropShadow: =DropShadow.None
+                        Height: =Parent.Height * 1/10
+                        LayoutDirection: =LayoutDirection.Horizontal
+                        LayoutMaxHeight: =
+                        LayoutMaxWidth: =
+                        LayoutMinHeight: =70
+                        RadiusBottomLeft: =0
+                        RadiusBottomRight: =0
+                        RadiusTopLeft: =0
+                        RadiusTopRight: =0
+                        Width: =Parent.Width
+                        X: =40
+                        Y: =40
+                      Children:
+                        - lbDescricaoModalMinhasSolicitacoes_1:
+                            Control: Label
+                            Properties:
+                              BorderColor: =RGBA(0, 0, 0, 1)
+                              BorderStyle: =BorderStyle.None
+                              Color: =RGBA(50, 49, 48, 1)
+                              DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                              DisabledColor: =RGBA(161, 159, 157, 1)
+                              DisplayMode: =DisplayMode.View
+                              Fill: =RGBA(196, 196, 196, 1)
+                              Font: =Font.'Segoe UI'
+                              FontWeight: =FontWeight.Semibold
+                              Height: =Parent.Height
+                              Italic: =true
+                              LayoutMaxHeight: =
+                              LayoutMaxWidth: =
+                              PaddingTop: =10
+                              Size: =Parent.Height * 1/6
+                              Text: ="Contato:"
+                              Width: =Parent.Width * 3/12
+                              X: =Parent.Width * 1/20
+                              Y: =Parent.Height * 1/10
+                        - txtDescricaoModalMinhasSolicitacoes_1:
+                            Control: Label
+                            Properties:
+                              AlignInContainer: =AlignInContainer.Center
+                              AutoHeight: =true
+                              BorderColor: =RGBA(0, 0, 0, 0)
+                              BorderStyle: =BorderStyle.None
+                              BorderThickness: =2
+                              Color: =RGBA(50, 49, 48, 1)
+                              DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                              DisabledColor: =RGBA(161, 159, 157, 1)
+                              FocusedBorderThickness: =4
+                              Font: =Font.'Segoe UI'
+                              Height: =Parent.Height
+                              LayoutMaxHeight: =
+                              LayoutMaxWidth: =
+                              Overflow: =Overflow.Scroll
+                              Size: =Parent.Height * 1/8
+                              Text: =varDados.contato
+                              Width: =Parent.Width * 5.25/7
+                  - chAtendenteModalMinhasSolicitacoes_1:
+                      Control: GroupContainer
+                      Variant: AutoLayout
+                      Properties:
+                        BorderStyle: =BorderStyle.None
+                        DropShadow: =DropShadow.None
+                        Height: =Parent.Height * 1/10
+                        LayoutDirection: =LayoutDirection.Horizontal
+                        LayoutMaxHeight: =
+                        LayoutMaxWidth: =
+                        LayoutMinHeight: =70
+                        RadiusBottomLeft: =0
+                        RadiusBottomRight: =0
+                        RadiusTopLeft: =0
+                        RadiusTopRight: =0
+                        Width: =Parent.Width
+                        X: =40
+                        Y: =40
+                      Children:
+                        - lbAtendenteModalMinhasSolicitacoes_1:
+                            Control: Label
+                            Properties:
+                              BorderColor: =RGBA(0, 0, 0, 1)
+                              BorderStyle: =BorderStyle.None
+                              Color: =RGBA(50, 49, 48, 1)
+                              DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                              DisabledColor: =RGBA(161, 159, 157, 1)
+                              DisplayMode: =DisplayMode.View
+                              Fill: =RGBA(196, 196, 196, 1)
+                              Font: =Font.'Segoe UI'
+                              FontWeight: =FontWeight.Semibold
+                              Height: =Parent.Height
+                              Italic: =true
+                              LayoutMaxHeight: =
+                              LayoutMaxWidth: =
+                              PaddingTop: =10
+                              Size: =Parent.Height * 1/6
+                              Text: ="Reserva SAP:"
+                              Width: =Parent.Width * 3/12
+                              X: =Parent.Width * 1/20
+                              Y: =Parent.Height * 1/10
+                        - txtAtendenteModalMinhasSolicitacoes_1:
+                            Control: Label
+                            Properties:
+                              AlignInContainer: =AlignInContainer.Center
+                              AutoHeight: =true
+                              BorderColor: =RGBA(0, 0, 0, 0)
+                              BorderStyle: =BorderStyle.None
+                              BorderThickness: =2
+                              Color: =RGBA(50, 49, 48, 1)
+                              DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                              DisabledColor: =RGBA(161, 159, 157, 1)
+                              FocusedBorderThickness: =4
+                              Font: =Font.'Segoe UI'
+                              Height: =Parent.Height
+                              LayoutMaxHeight: =
+                              LayoutMaxWidth: =
+                              Size: =Parent.Height * 1/8
+                              Text: =varDados.reservaSap
+                              Width: =Parent.Width * 5.25/7
+                  - chStatusModalMinhasSolicitacoes_7:
+                      Control: GroupContainer
+                      Variant: AutoLayout
+                      Properties:
+                        BorderStyle: =BorderStyle.None
+                        DropShadow: =DropShadow.None
+                        Height: =Parent.Height * 1/10
+                        LayoutDirection: =LayoutDirection.Horizontal
+                        LayoutMaxHeight: =
+                        LayoutMaxWidth: =
+                        LayoutMinHeight: =70
+                        RadiusBottomLeft: =0
+                        RadiusBottomRight: =0
+                        RadiusTopLeft: =0
+                        RadiusTopRight: =0
+                        Width: =Parent.Width
+                        X: =40
+                        Y: =40
+                      Children:
+                        - lbStatusModalMinhasSolicitacoes_7:
+                            Control: Label
+                            Properties:
+                              BorderColor: =RGBA(0, 0, 0, 1)
+                              BorderStyle: =BorderStyle.None
+                              Color: =RGBA(50, 49, 48, 1)
+                              DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                              DisabledColor: =RGBA(161, 159, 157, 1)
+                              DisplayMode: =DisplayMode.View
+                              Fill: =RGBA(196, 196, 196, 1)
+                              Font: =Font.'Segoe UI'
+                              FontWeight: =FontWeight.Semibold
+                              Height: =Parent.Height
+                              Italic: =true
+                              LayoutMaxHeight: =
+                              LayoutMaxWidth: =
+                              PaddingTop: =10
+                              Size: =Parent.Height * 1/6
+                              Text: ="Tipo de Reserva SAP:"
+                              Width: =Parent.Width * 3/12
+                              X: =Parent.Width * 1/20
+                              Y: =Parent.Height * 1/10
+                        - txtStatusModalMinhasSolicitacoes_7:
+                            Control: Label
+                            Properties:
+                              BorderColor: =RGBA(0, 0, 0, 0)
+                              BorderStyle: =BorderStyle.None
+                              BorderThickness: =2
+                              Color: =RGBA(50, 49, 48, 1)
+                              DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                              DisabledColor: =RGBA(161, 159, 157, 1)
+                              FocusedBorderThickness: =4
+                              Font: =Font.'Segoe UI'
+                              Height: =Parent.Height
+                              LayoutMaxHeight: =
+                              LayoutMaxWidth: =
+                              Size: =Parent.Height * 1/8
+                              Text: =varDados.tipoReservaSap.Value
+                              Width: =Parent.Width * 5.25/7
+                  - chStatusModalMinhasSolicitacoes_8:
+                      Control: GroupContainer
+                      Variant: AutoLayout
+                      Properties:
+                        BorderStyle: =BorderStyle.None
+                        DropShadow: =DropShadow.None
+                        Height: =Parent.Height * 1/10
+                        LayoutDirection: =LayoutDirection.Horizontal
+                        LayoutMaxHeight: =
+                        LayoutMaxWidth: =
+                        LayoutMinHeight: =70
+                        RadiusBottomLeft: =0
+                        RadiusBottomRight: =0
+                        RadiusTopLeft: =0
+                        RadiusTopRight: =0
+                        Width: =Parent.Width
+                        X: =40
+                        Y: =40
+                      Children:
+                        - lbStatusModalMinhasSolicitacoes_8:
+                            Control: Label
+                            Properties:
+                              BorderColor: =RGBA(0, 0, 0, 1)
+                              BorderStyle: =BorderStyle.None
+                              Color: =RGBA(50, 49, 48, 1)
+                              DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                              DisabledColor: =RGBA(161, 159, 157, 1)
+                              DisplayMode: =DisplayMode.View
+                              Fill: =RGBA(196, 196, 196, 1)
+                              Font: =Font.'Segoe UI'
+                              FontWeight: =FontWeight.Semibold
+                              Height: =Parent.Height
+                              Italic: =true
+                              LayoutMaxHeight: =
+                              LayoutMaxWidth: =
+                              PaddingTop: =10
+                              Size: =Parent.Height * 1/6
+                              Text: ="Data de Retirada:"
+                              Width: =Parent.Width * 3/12
+                              X: =Parent.Width * 1/20
+                              Y: =Parent.Height * 1/10
+                        - txtStatusModalMinhasSolicitacoes_8:
+                            Control: Label
+                            Properties:
+                              BorderColor: =RGBA(0, 0, 0, 0)
+                              BorderStyle: =BorderStyle.None
+                              BorderThickness: =2
+                              Color: =RGBA(50, 49, 48, 1)
+                              DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                              DisabledColor: =RGBA(161, 159, 157, 1)
+                              FocusedBorderThickness: =4
+                              Font: =Font.'Segoe UI'
+                              Height: =Parent.Height
+                              LayoutMaxHeight: =
+                              LayoutMaxWidth: =
+                              Size: =Parent.Height * 1/8
+                              Text: =varDados.dataRetirada
+                              Width: =Parent.Width * 5.25/7
+                  - chStatusModalMinhasSolicitacoes_9:
+                      Control: GroupContainer
+                      Variant: AutoLayout
+                      Properties:
+                        BorderStyle: =BorderStyle.None
+                        DropShadow: =DropShadow.None
+                        Height: =Parent.Height * 1/10
+                        LayoutDirection: =LayoutDirection.Horizontal
+                        LayoutMaxHeight: =
+                        LayoutMaxWidth: =
+                        LayoutMinHeight: =70
+                        RadiusBottomLeft: =0
+                        RadiusBottomRight: =0
+                        RadiusTopLeft: =0
+                        RadiusTopRight: =0
+                        Width: =Parent.Width
+                        X: =40
+                        Y: =40
+                      Children:
+                        - lbStatusModalMinhasSolicitacoes_9:
+                            Control: Label
+                            Properties:
+                              BorderColor: =RGBA(0, 0, 0, 1)
+                              BorderStyle: =BorderStyle.None
+                              Color: =RGBA(50, 49, 48, 1)
+                              DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                              DisabledColor: =RGBA(161, 159, 157, 1)
+                              DisplayMode: =DisplayMode.View
+                              Fill: =RGBA(196, 196, 196, 1)
+                              Font: =Font.'Segoe UI'
+                              FontWeight: =FontWeight.Semibold
+                              Height: =Parent.Height
+                              Italic: =true
+                              LayoutMaxHeight: =
+                              LayoutMaxWidth: =
+                              PaddingTop: =10
+                              Size: =Parent.Height * 1/6
+                              Text: ="Horário de Retirada:"
+                              Width: =Parent.Width * 3/12
+                              X: =Parent.Width * 1/20
+                              Y: =Parent.Height * 1/10
+                        - txtStatusModalMinhasSolicitacoes_9:
+                            Control: Label
+                            Properties:
+                              BorderColor: =RGBA(0, 0, 0, 0)
+                              BorderStyle: =BorderStyle.None
+                              BorderThickness: =2
+                              Color: =RGBA(50, 49, 48, 1)
+                              DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                              DisabledColor: =RGBA(161, 159, 157, 1)
+                              FocusedBorderThickness: =4
+                              Font: =Font.'Segoe UI'
+                              Height: =Parent.Height
+                              LayoutMaxHeight: =
+                              LayoutMaxWidth: =
+                              Size: =Parent.Height * 1/8
+                              Text: =varDados.janelaHorarioRetirada.Value
+                              Width: =Parent.Width * 5.25/7
+                  - chStatusModalMinhasSolicitacoes_10:
+                      Control: GroupContainer
+                      Variant: AutoLayout
+                      Properties:
+                        BorderStyle: =BorderStyle.None
+                        DropShadow: =DropShadow.None
+                        Height: =Parent.Height * 1/10
+                        LayoutDirection: =LayoutDirection.Horizontal
+                        LayoutMaxHeight: =
+                        LayoutMaxWidth: =
+                        LayoutMinHeight: =70
+                        RadiusBottomLeft: =0
+                        RadiusBottomRight: =0
+                        RadiusTopLeft: =0
+                        RadiusTopRight: =0
+                        Width: =Parent.Width
+                        X: =40
+                        Y: =40
+                      Children:
+                        - lbStatusModalMinhasSolicitacoes_10:
+                            Control: Label
+                            Properties:
+                              BorderColor: =RGBA(0, 0, 0, 1)
+                              BorderStyle: =BorderStyle.None
+                              Color: =RGBA(50, 49, 48, 1)
+                              DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                              DisabledColor: =RGBA(161, 159, 157, 1)
+                              DisplayMode: =DisplayMode.View
+                              Fill: =RGBA(196, 196, 196, 1)
+                              Font: =Font.'Segoe UI'
+                              FontWeight: =FontWeight.Semibold
+                              Height: =Parent.Height
+                              Italic: =true
+                              LayoutMaxHeight: =
+                              LayoutMaxWidth: =
+                              PaddingTop: =10
+                              Size: =Parent.Height * 1/6
+                              Text: ="Observação:"
+                              Width: =Parent.Width * 3/12
+                              X: =Parent.Width * 1/20
+                              Y: =Parent.Height * 1/10
+                        - txtStatusModalMinhasSolicitacoes_10:
+                            Control: Label
+                            Properties:
+                              BorderColor: =RGBA(0, 0, 0, 0)
+                              BorderStyle: =BorderStyle.None
+                              BorderThickness: =2
+                              Color: =RGBA(50, 49, 48, 1)
+                              DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                              DisabledColor: =RGBA(161, 159, 157, 1)
+                              FocusedBorderThickness: =4
+                              Font: =Font.'Segoe UI'
+                              Height: =Parent.Height
+                              LayoutMaxHeight: =
+                              LayoutMaxWidth: =
+                              Size: =Parent.Height * 1/8
+                              Text: =varDados.observacao
+                              Width: =Parent.Width * 5.25/7
+                  - chStatusModalMinhasSolicitacoes_11:
+                      Control: GroupContainer
+                      Variant: AutoLayout
+                      Properties:
+                        BorderStyle: =BorderStyle.None
+                        DropShadow: =DropShadow.None
+                        Height: =Parent.Height * 1/10
+                        LayoutDirection: =LayoutDirection.Horizontal
+                        LayoutMaxHeight: =
+                        LayoutMaxWidth: =
+                        LayoutMinHeight: =70
+                        RadiusBottomLeft: =0
+                        RadiusBottomRight: =0
+                        RadiusTopLeft: =0
+                        RadiusTopRight: =0
+                        Width: =Parent.Width
+                        X: =40
+                        Y: =40
+                      Children:
+                        - lbStatusModalMinhasSolicitacoes_11:
+                            Control: Label
+                            Properties:
+                              BorderColor: =RGBA(0, 0, 0, 1)
+                              BorderStyle: =BorderStyle.None
+                              Color: =RGBA(50, 49, 48, 1)
+                              DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                              DisabledColor: =RGBA(161, 159, 157, 1)
+                              DisplayMode: =DisplayMode.View
+                              Fill: =RGBA(196, 196, 196, 1)
+                              Font: =Font.'Segoe UI'
+                              FontWeight: =FontWeight.Semibold
+                              Height: =Parent.Height
+                              Italic: =true
+                              LayoutMaxHeight: =
+                              LayoutMaxWidth: =
+                              PaddingTop: =10
+                              Size: =Parent.Height * 1/6
+                              Text: ="Status:"
+                              Width: =Parent.Width * 3/12
+                              X: =Parent.Width * 1/20
+                              Y: =Parent.Height * 1/10
+                        - txtStatusModalMinhasSolicitacoes_11:
+                            Control: Label
+                            Properties:
+                              BorderColor: =RGBA(0, 0, 0, 0)
+                              BorderStyle: =BorderStyle.None
+                              BorderThickness: =2
+                              Color: =RGBA(50, 49, 48, 1)
+                              DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                              DisabledColor: =RGBA(161, 159, 157, 1)
+                              FocusedBorderThickness: =4
+                              Font: =Font.'Segoe UI'
+                              Height: =Parent.Height
+                              LayoutMaxHeight: =
+                              LayoutMaxWidth: =
+                              Size: =Parent.Height * 1/8
+                              Text: =varDados.status.Value
+                              Width: =Parent.Width * 5.25/7
+                  - chStatusModalMinhasSolicitacoes_12:
+                      Control: GroupContainer
+                      Variant: AutoLayout
+                      Properties:
+                        BorderStyle: =BorderStyle.None
+                        DropShadow: =DropShadow.None
+                        Height: =Parent.Height * 1/10
+                        LayoutDirection: =LayoutDirection.Horizontal
+                        LayoutMaxHeight: =
+                        LayoutMaxWidth: =
+                        LayoutMinHeight: =70
+                        RadiusBottomLeft: =0
+                        RadiusBottomRight: =0
+                        RadiusTopLeft: =0
+                        RadiusTopRight: =0
+                        Width: =Parent.Width
+                        X: =40
+                        Y: =40
+                      Children:
+                        - lbStatusModalMinhasSolicitacoes_12:
+                            Control: Label
+                            Properties:
+                              BorderColor: =RGBA(0, 0, 0, 1)
+                              BorderStyle: =BorderStyle.None
+                              Color: =RGBA(50, 49, 48, 1)
+                              DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                              DisabledColor: =RGBA(161, 159, 157, 1)
+                              DisplayMode: =DisplayMode.View
+                              Fill: =RGBA(196, 196, 196, 1)
+                              Font: =Font.'Segoe UI'
+                              FontWeight: =FontWeight.Semibold
+                              Height: =Parent.Height
+                              Italic: =true
+                              LayoutMaxHeight: =
+                              LayoutMaxWidth: =
+                              PaddingTop: =10
+                              Size: =Parent.Height * 1/6
+                              Text: ="Atendente:"
+                              Width: =Parent.Width * 3/12
+                              X: =Parent.Width * 1/20
+                              Y: =Parent.Height * 1/10
+                        - txtStatusModalMinhasSolicitacoes_12:
+                            Control: Label
+                            Properties:
+                              BorderColor: =RGBA(0, 0, 0, 0)
+                              BorderStyle: =BorderStyle.None
+                              BorderThickness: =2
+                              Color: =RGBA(50, 49, 48, 1)
+                              DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                              DisabledColor: =RGBA(161, 159, 157, 1)
+                              FocusedBorderThickness: =4
+                              Font: =Font.'Segoe UI'
+                              Height: =Parent.Height
+                              LayoutMaxHeight: =
+                              LayoutMaxWidth: =
+                              Size: =Parent.Height * 1/8
+                              Text: |-
+                                =If(
+                                    IsBlank(varDados.atendente.Email),
+                                    "Essa solicitação ainda não foi atendida",
+                                    varDados.atendente.DisplayName
+                                )
+                              Width: =Parent.Width * 5.25/7
+                  - chStatusModalMinhasSolicitacoes_13:
+                      Control: GroupContainer
+                      Variant: AutoLayout
+                      Properties:
+                        BorderStyle: =BorderStyle.None
+                        DropShadow: =DropShadow.None
+                        Height: =Parent.Height * 1/10
+                        LayoutDirection: =LayoutDirection.Horizontal
+                        LayoutMaxHeight: =
+                        LayoutMaxWidth: =
+                        LayoutMinHeight: =70
+                        RadiusBottomLeft: =0
+                        RadiusBottomRight: =0
+                        RadiusTopLeft: =0
+                        RadiusTopRight: =0
+                        Width: =Parent.Width
+                        X: =40
+                        Y: =40
+                      Children:
+                        - lbStatusModalMinhasSolicitacoes_13:
+                            Control: Label
+                            Properties:
+                              BorderColor: =RGBA(0, 0, 0, 1)
+                              BorderStyle: =BorderStyle.None
+                              Color: =RGBA(50, 49, 48, 1)
+                              DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                              DisabledColor: =RGBA(161, 159, 157, 1)
+                              DisplayMode: =DisplayMode.View
+                              Fill: =RGBA(196, 196, 196, 1)
+                              Font: =Font.'Segoe UI'
+                              FontWeight: =FontWeight.Semibold
+                              Height: =Parent.Height
+                              Italic: =true
+                              LayoutMaxHeight: =
+                              LayoutMaxWidth: =
+                              PaddingTop: =10
+                              Size: =Parent.Height * 1/6
+                              Text: ="Data atendimento:"
+                              Width: =Parent.Width * 3/12
+                              X: =Parent.Width * 1/20
+                              Y: =Parent.Height * 1/10
+                        - txtStatusModalMinhasSolicitacoes_13:
+                            Control: Label
+                            Properties:
+                              BorderColor: =RGBA(0, 0, 0, 0)
+                              BorderStyle: =BorderStyle.None
+                              BorderThickness: =2
+                              Color: =RGBA(50, 49, 48, 1)
+                              DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                              DisabledColor: =RGBA(161, 159, 157, 1)
+                              FocusedBorderThickness: =4
+                              Font: =Font.'Segoe UI'
+                              Height: =Parent.Height
+                              LayoutMaxHeight: =
+                              LayoutMaxWidth: =
+                              Size: =Parent.Height * 1/8
+                              Text: |-
+                                =If(
+                                    IsBlank(varDados.dataAtendimento),
+                                    "Essa solicitação ainda não foi atendida",
+                                    varDados.dataAtendimento
+                                )
+                              Width: =Parent.Width * 5.25/7
+                  - chStatusModalMinhasSolicitacoes_15:
+                      Control: GroupContainer
+                      Variant: AutoLayout
+                      Properties:
+                        BorderStyle: =BorderStyle.None
+                        DropShadow: =DropShadow.None
+                        Height: =Parent.Height * 1/10
+                        LayoutDirection: =LayoutDirection.Horizontal
+                        LayoutMaxHeight: =
+                        LayoutMaxWidth: =
+                        LayoutMinHeight: =70
+                        RadiusBottomLeft: =0
+                        RadiusBottomRight: =0
+                        RadiusTopLeft: =0
+                        RadiusTopRight: =0
+                        Width: =Parent.Width
+                        X: =40
+                        Y: =40
+                      Children:
+                        - lbStatusModalMinhasSolicitacoes_15:
+                            Control: Label
+                            Properties:
+                              BorderColor: =RGBA(0, 0, 0, 1)
+                              BorderStyle: =BorderStyle.None
+                              Color: =RGBA(50, 49, 48, 1)
+                              DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                              DisabledColor: =RGBA(161, 159, 157, 1)
+                              DisplayMode: =DisplayMode.View
+                              Fill: =RGBA(196, 196, 196, 1)
+                              Font: =Font.'Segoe UI'
+                              FontWeight: =FontWeight.Semibold
+                              Height: =Parent.Height
+                              Italic: =true
+                              LayoutMaxHeight: =
+                              LayoutMaxWidth: =
+                              PaddingTop: =10
+                              Size: =Parent.Height * 1/6
+                              Text: ="Comentário:"
+                              Width: =Parent.Width * 3/12
+                              X: =Parent.Width * 1/20
+                              Y: =Parent.Height * 1/10
+                        - txtStatusModalMinhasSolicitacoes_15:
+                            Control: Label
+                            Properties:
+                              BorderColor: =RGBA(0, 0, 0, 0)
+                              BorderStyle: =BorderStyle.None
+                              BorderThickness: =2
+                              Color: =RGBA(50, 49, 48, 1)
+                              DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                              DisabledColor: =RGBA(161, 159, 157, 1)
+                              FocusedBorderThickness: =4
+                              Font: =Font.'Segoe UI'
+                              Height: =Parent.Height
+                              LayoutMaxHeight: =
+                              LayoutMaxWidth: =
+                              Size: =Parent.Height * 1/8
+                              Text: |-
+                                =If(
+                                    IsBlank(varDados.comentario),
+                                    "Sem comentários nessa solicitação",
+                                    varDados.comentario
+                                )
+                              Width: =Parent.Width * 5.25/7

@@ -1,0 +1,34 @@
+App:
+  Properties:
+    OnStart: |+
+      =Set(varUsuario, UsuáriosdoOffice365.MyProfile());
+      Set(varImg, UsuáriosdoOffice365.UserPhotoV2(User().Email));
+
+      // 1. Filtra a lista para encontrar o registro correspondente ao usuário
+
+      // Coloque isso no App.OnStart ou na Screen.OnVisible, conforme seu fluxo
+
+
+      // No App.OnStart ou Screen.OnVisible
+      Concurrent(
+          Set(
+              varAtendente,
+              !IsEmpty(
+                  Filter(
+                      atendentes,
+                      colab.Email = User().Email
+                  )
+              )
+          ),
+          Set(
+              varSupervisor,
+              !IsEmpty(
+                  Filter(
+                      supervisores,
+                      colab.Email = User().Email
+                  )
+              )
+          )
+      );
+
+    Theme: =PowerAppsTheme
