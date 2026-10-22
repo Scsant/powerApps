@@ -1,0 +1,1369 @@
+Screens:
+  Menu:
+    Properties:
+      Fill: =corFundo
+      LoadingSpinnerColor: =corPrimaria
+    Children:
+      - mnuRaiz:
+          Control: GroupContainer
+          Variant: AutoLayout
+          Properties:
+            BorderThickness: =0
+            DropShadow: =DropShadow.None
+            Fill: =corFundo
+            Height: =Parent.Height
+            LayoutAlignItems: =LayoutAlignItems.Stretch
+            LayoutDirection: =LayoutDirection.Vertical
+            LayoutGap: =0
+            Width: =Parent.Width
+            X: =0
+            Y: =0
+          Children:
+            - mnuHeader:
+                Control: GroupContainer
+                Variant: AutoLayout
+                Properties:
+                  AlignInContainer: =AlignInContainer.SetByContainer
+                  BorderThickness: =0
+                  DropShadow: =DropShadow.None
+                  Fill: =corHeader
+                  FillPortions: =0
+                  Height: =64
+                  LayoutAlignItems: =LayoutAlignItems.Center
+                  LayoutDirection: =LayoutDirection.Horizontal
+                  LayoutGap: =14
+                  LayoutMinHeight: =0
+                  LayoutMinWidth: =0
+                  PaddingBottom: =0
+                  PaddingLeft: =32
+                  PaddingRight: =32
+                  PaddingTop: =0
+                Children:
+                  - mnuLogo:
+                      Control: Label
+                      Properties:
+                        AutoHeight: =false
+                        Color: =Color.White
+                        FocusedBorderThickness: =0
+                        Font: =Font.'Segoe UI'
+                        FontWeight: =FontWeight.Semibold
+                        Height: =64
+                        LayoutMinHeight: =0
+                        LayoutMinWidth: =0
+                        PaddingBottom: =0
+                        PaddingLeft: =0
+                        PaddingRight: =0
+                        PaddingTop: =0
+                        Size: =18
+                        TabIndex: =-1
+                        Text: ="Bracell"
+                        VerticalAlign: =VerticalAlign.Middle
+                        Width: =90
+                        Wrap: =true
+                  - mnuDivisor:
+                      Control: Rectangle
+                      Properties:
+                        Fill: =RGBA(255, 255, 255, 0.5)
+                        FocusedBorderThickness: =0
+                        Height: =24
+                        TabIndex: =-1
+                        Width: =1
+                  - mnuPortal:
+                      Control: Label
+                      Properties:
+                        AutoHeight: =false
+                        Color: =Color.White
+                        FocusedBorderThickness: =0
+                        Font: =Font.'Segoe UI'
+                        FontWeight: =FontWeight.Semibold
+                        Height: =64
+                        LayoutMinHeight: =0
+                        LayoutMinWidth: =0
+                        PaddingBottom: =0
+                        PaddingLeft: =12
+                        PaddingRight: =0
+                        PaddingTop: =0
+                        Size: =11
+                        TabIndex: =-1
+                        Text: ="Portal do Almoxarifado"
+                        VerticalAlign: =VerticalAlign.Middle
+                        Width: =200
+                        Wrap: =true
+                  - mnuSpacer:
+                      Control: Label
+                      Properties:
+                        AutoHeight: =false
+                        FillPortions: =1
+                        FocusedBorderThickness: =0
+                        Height: =1
+                        LayoutMinHeight: =0
+                        LayoutMinWidth: =0
+                        TabIndex: =-1
+                        Text: =""
+                        Width: =1
+                  - mnuNavInicio:
+                      Control: Label
+                      Properties:
+                        Align: =Align.Center
+                        AutoHeight: =false
+                        BorderColor: =Color.White
+                        BorderThickness: =0
+                        Color: =Color.White
+                        FocusedBorderColor: =corTexto
+                        FocusedBorderThickness: =2
+                        Font: =Font.'Segoe UI'
+                        FontWeight: =FontWeight.Semibold
+                        Height: =64
+                        HoverColor: =Color.White
+                        LayoutMinHeight: =0
+                        LayoutMinWidth: =0
+                        OnSelect: =Navigate(Menu, ScreenTransition.Fade)
+                        PaddingBottom: =0
+                        PaddingLeft: =0
+                        PaddingRight: =0
+                        PaddingTop: =0
+                        Size: =10
+                        TabIndex: =0
+                        Text: ="Início"
+                        VerticalAlign: =VerticalAlign.Middle
+                        Width: =60
+                        Wrap: =true
+                  - mnuNavMinhas:
+                      Control: Label
+                      Properties:
+                        Align: =Align.Center
+                        AutoHeight: =false
+                        BorderColor: =RGBA(0,0,0,0)
+                        BorderThickness: =0
+                        Color: =RGBA(255, 255, 255, 0.72)
+                        FocusedBorderColor: =corTexto
+                        FocusedBorderThickness: =2
+                        Font: =Font.'Segoe UI'
+                        FontWeight: =FontWeight.Normal
+                        Height: =64
+                        HoverColor: =Color.White
+                        LayoutMinHeight: =0
+                        LayoutMinWidth: =0
+                        OnSelect: =Navigate(minhasSolicitacoes, ScreenTransition.Fade)
+                        PaddingBottom: =0
+                        PaddingLeft: =0
+                        PaddingRight: =0
+                        PaddingTop: =0
+                        Size: =10
+                        TabIndex: =0
+                        Text: ="Minhas solicitações"
+                        VerticalAlign: =VerticalAlign.Middle
+                        Width: =150
+                        Wrap: =true
+                  - mnuNavFila:
+                      Control: Label
+                      Properties:
+                        Align: =Align.Center
+                        AutoHeight: =false
+                        BorderColor: =RGBA(0,0,0,0)
+                        BorderThickness: =0
+                        Color: =RGBA(255, 255, 255, 0.72)
+                        FocusedBorderColor: =corTexto
+                        FocusedBorderThickness: =2
+                        Font: =Font.'Segoe UI'
+                        FontWeight: =FontWeight.Normal
+                        Height: =64
+                        HoverColor: =Color.White
+                        LayoutMinHeight: =0
+                        LayoutMinWidth: =0
+                        OnSelect: =Navigate(filaAtendimento, ScreenTransition.Fade)
+                        PaddingBottom: =0
+                        PaddingLeft: =0
+                        PaddingRight: =0
+                        PaddingTop: =0
+                        Size: =10
+                        TabIndex: =0
+                        Text: ="Fila de atendimento"
+                        VerticalAlign: =VerticalAlign.Middle
+                        Visible: =varAtendente || varSupervisor
+                        Width: =150
+                        Wrap: =true
+                  - mnuNavEquipe:
+                      Control: Label
+                      Properties:
+                        Align: =Align.Center
+                        AutoHeight: =false
+                        BorderColor: =RGBA(0,0,0,0)
+                        BorderThickness: =0
+                        Color: =RGBA(255, 255, 255, 0.72)
+                        FocusedBorderColor: =corTexto
+                        FocusedBorderThickness: =2
+                        Font: =Font.'Segoe UI'
+                        FontWeight: =FontWeight.Normal
+                        Height: =64
+                        HoverColor: =Color.White
+                        LayoutMinHeight: =0
+                        LayoutMinWidth: =0
+                        OnSelect: =Navigate(cadastroEquipe, ScreenTransition.Fade)
+                        PaddingBottom: =0
+                        PaddingLeft: =0
+                        PaddingRight: =0
+                        PaddingTop: =0
+                        Size: =10
+                        TabIndex: =0
+                        Text: ="Equipe"
+                        VerticalAlign: =VerticalAlign.Middle
+                        Visible: =varSupervisor
+                        Width: =70
+                        Wrap: =true
+                  - mnuAvatar:
+                      Control: GroupContainer
+                      Variant: AutoLayout
+                      Properties:
+                        AlignInContainer: =AlignInContainer.SetByContainer
+                        BorderThickness: =0
+                        DropShadow: =DropShadow.None
+                        Fill: =Color.White
+                        FillPortions: =0
+                        Height: =32
+                        LayoutDirection: =LayoutDirection.Horizontal
+                        LayoutGap: =0
+                        LayoutMinHeight: =0
+                        LayoutMinWidth: =0
+                        RadiusBottomLeft: =16
+                        RadiusBottomRight: =16
+                        RadiusTopLeft: =16
+                        RadiusTopRight: =16
+                        Width: =32
+                      Children:
+                        - mnuAvatarTxt:
+                            Control: Label
+                            Properties:
+                              Align: =Align.Center
+                              AutoHeight: =false
+                              Color: =corHeader
+                              FillPortions: =1
+                              FocusedBorderThickness: =0
+                              Font: =Font.'Segoe UI'
+                              FontWeight: =FontWeight.Semibold
+                              Height: =32
+                              LayoutMinHeight: =0
+                              LayoutMinWidth: =0
+                              PaddingBottom: =0
+                              PaddingLeft: =0
+                              PaddingRight: =0
+                              PaddingTop: =0
+                              Size: =9
+                              TabIndex: =-1
+                              Text: =fxIniciais
+                              VerticalAlign: =VerticalAlign.Middle
+                              Wrap: =true
+                  - mnuUsuario:
+                      Control: Label
+                      Properties:
+                        AutoHeight: =false
+                        Color: =Color.White
+                        FocusedBorderThickness: =0
+                        Font: =Font.'Segoe UI'
+                        FontWeight: =FontWeight.Normal
+                        Height: =64
+                        LayoutMinHeight: =0
+                        LayoutMinWidth: =0
+                        PaddingBottom: =0
+                        PaddingLeft: =0
+                        PaddingRight: =0
+                        PaddingTop: =0
+                        Size: =10
+                        TabIndex: =-1
+                        Text: =fxNomeCurto
+                        VerticalAlign: =VerticalAlign.Middle
+                        Width: =170
+                        Wrap: =true
+            - mnuCorpo:
+                Control: GroupContainer
+                Variant: AutoLayout
+                Properties:
+                  AlignInContainer: =AlignInContainer.SetByContainer
+                  BorderThickness: =0
+                  DropShadow: =DropShadow.None
+                  Fill: =corFundo
+                  FillPortions: =1
+                  LayoutAlignItems: =LayoutAlignItems.Center
+                  LayoutDirection: =LayoutDirection.Vertical
+                  LayoutGap: =0
+                  LayoutMinHeight: =0
+                  LayoutMinWidth: =0
+                  LayoutOverflowY: =LayoutOverflow.Scroll
+                  PaddingBottom: =32
+                  PaddingLeft: =0
+                  PaddingRight: =0
+                  PaddingTop: =28
+                Children:
+                  - mnuConteudo:
+                      Control: GroupContainer
+                      Variant: AutoLayout
+                      Properties:
+                        AlignInContainer: =AlignInContainer.Center
+                        BorderThickness: =0
+                        DropShadow: =DropShadow.None
+                        FillPortions: =0
+                        Height: =600
+                        LayoutAlignItems: =LayoutAlignItems.Stretch
+                        LayoutDirection: =LayoutDirection.Vertical
+                        LayoutGap: =20
+                        LayoutMinHeight: =0
+                        LayoutMinWidth: =0
+                        Width: =Min(1100, Parent.Width - 64)
+                      Children:
+                        - mnuBanner:
+                            Control: GroupContainer
+                            Variant: AutoLayout
+                            Properties:
+                              AlignInContainer: =AlignInContainer.SetByContainer
+                              BorderThickness: =0
+                              DropShadow: =DropShadow.None
+                              Fill: =corBanner
+                              FillPortions: =0
+                              Height: =150
+                              LayoutAlignItems: =LayoutAlignItems.Center
+                              LayoutDirection: =LayoutDirection.Horizontal
+                              LayoutGap: =24
+                              LayoutMinHeight: =0
+                              LayoutMinWidth: =0
+                              PaddingBottom: =20
+                              PaddingLeft: =28
+                              PaddingRight: =28
+                              PaddingTop: =20
+                              RadiusBottomLeft: =12
+                              RadiusBottomRight: =12
+                              RadiusTopLeft: =12
+                              RadiusTopRight: =12
+                            Children:
+                              - mnuBannerTxt:
+                                  Control: GroupContainer
+                                  Variant: AutoLayout
+                                  Properties:
+                                    AlignInContainer: =AlignInContainer.SetByContainer
+                                    BorderThickness: =0
+                                    DropShadow: =DropShadow.None
+                                    FillPortions: =1
+                                    Height: =112
+                                    LayoutDirection: =LayoutDirection.Vertical
+                                    LayoutGap: =6
+                                    LayoutJustifyContent: =LayoutJustifyContent.Center
+                                    LayoutMinHeight: =0
+                                    LayoutMinWidth: =0
+                                  Children:
+                                    - mnuBannerKicker:
+                                        Control: Label
+                                        Properties:
+                                          AutoHeight: =true
+                                          Color: =RGBA(255, 255, 255, 0.85)
+                                          FocusedBorderThickness: =0
+                                          Font: =Font.'Segoe UI'
+                                          FontWeight: =FontWeight.Semibold
+                                          LayoutMinHeight: =0
+                                          LayoutMinWidth: =0
+                                          PaddingBottom: =0
+                                          PaddingLeft: =0
+                                          PaddingRight: =0
+                                          PaddingTop: =0
+                                          Size: =8
+                                          TabIndex: =-1
+                                          Text: ="ALMOXARIFADO • SOLICITAÇÕES"
+                                          Wrap: =true
+                                    - mnuBannerOla:
+                                        Control: Label
+                                        Properties:
+                                          AutoHeight: =true
+                                          Color: =Color.White
+                                          FocusedBorderThickness: =0
+                                          Font: =Font.'Segoe UI'
+                                          FontWeight: =FontWeight.Semibold
+                                          LayoutMinHeight: =0
+                                          LayoutMinWidth: =0
+                                          PaddingBottom: =0
+                                          PaddingLeft: =0
+                                          PaddingRight: =0
+                                          PaddingTop: =0
+                                          Size: =22
+                                          TabIndex: =-1
+                                          Text: ="Olá, " & fxPrimeiroNome & "."
+                                          Wrap: =true
+                                    - mnuBannerPergunta:
+                                        Control: Label
+                                        Properties:
+                                          AutoHeight: =true
+                                          Color: =Color.White
+                                          FocusedBorderThickness: =0
+                                          Font: =Font.'Segoe UI'
+                                          FontWeight: =FontWeight.Normal
+                                          LayoutMinHeight: =0
+                                          LayoutMinWidth: =0
+                                          PaddingBottom: =0
+                                          PaddingLeft: =0
+                                          PaddingRight: =0
+                                          PaddingTop: =0
+                                          Size: =14
+                                          TabIndex: =-1
+                                          Text: ="O que você precisa fazer hoje?"
+                                          Wrap: =true
+                                    - mnuBannerSub:
+                                        Control: Label
+                                        Properties:
+                                          AutoHeight: =true
+                                          Color: =RGBA(255, 255, 255, 0.85)
+                                          FocusedBorderThickness: =0
+                                          Font: =Font.'Segoe UI'
+                                          FontWeight: =FontWeight.Normal
+                                          LayoutMinHeight: =0
+                                          LayoutMinWidth: =0
+                                          PaddingBottom: =0
+                                          PaddingLeft: =0
+                                          PaddingRight: =0
+                                          PaddingTop: =0
+                                          Size: =9
+                                          TabIndex: =-1
+                                          Text: ="Solicite a retirada de materiais e acompanhe seus pedidos em um só lugar."
+                                          Wrap: =true
+                              - mnuBannerPerfil:
+                                  Control: GroupContainer
+                                  Variant: AutoLayout
+                                  Properties:
+                                    AlignInContainer: =AlignInContainer.SetByContainer
+                                    BorderThickness: =0
+                                    DropShadow: =DropShadow.None
+                                    Fill: =corBannerCard
+                                    FillPortions: =0
+                                    Height: =104
+                                    LayoutDirection: =LayoutDirection.Vertical
+                                    LayoutGap: =6
+                                    LayoutJustifyContent: =LayoutJustifyContent.Center
+                                    LayoutMinHeight: =0
+                                    LayoutMinWidth: =0
+                                    PaddingBottom: =14
+                                    PaddingLeft: =16
+                                    PaddingRight: =16
+                                    PaddingTop: =14
+                                    RadiusBottomLeft: =8
+                                    RadiusBottomRight: =8
+                                    RadiusTopLeft: =8
+                                    RadiusTopRight: =8
+                                    Width: =260
+                                  Children:
+                                    - mnuBannerPerfilKicker:
+                                        Control: Label
+                                        Properties:
+                                          AutoHeight: =true
+                                          Color: =RGBA(255, 255, 255, 0.8)
+                                          FocusedBorderThickness: =0
+                                          Font: =Font.'Segoe UI'
+                                          FontWeight: =FontWeight.Semibold
+                                          LayoutMinHeight: =0
+                                          LayoutMinWidth: =0
+                                          PaddingBottom: =0
+                                          PaddingLeft: =0
+                                          PaddingRight: =0
+                                          PaddingTop: =0
+                                          Size: =7
+                                          TabIndex: =-1
+                                          Text: ="SEU ESPAÇO DE TRABALHO"
+                                          Wrap: =true
+                                    - mnuBannerPerfilTxt:
+                                        Control: Label
+                                        Properties:
+                                          AutoHeight: =true
+                                          Color: =Color.White
+                                          FocusedBorderThickness: =0
+                                          Font: =Font.'Segoe UI'
+                                          FontWeight: =FontWeight.Semibold
+                                          LayoutMinHeight: =0
+                                          LayoutMinWidth: =0
+                                          PaddingBottom: =0
+                                          PaddingLeft: =0
+                                          PaddingRight: =0
+                                          PaddingTop: =0
+                                          Size: =13
+                                          TabIndex: =-1
+                                          Text: ="Prático do início" & Char(10) & "ao acompanhamento."
+                                          Wrap: =true
+                                    - mnuBannerPerfilPapel:
+                                        Control: Label
+                                        Properties:
+                                          AutoHeight: =true
+                                          Color: =RGBA(255, 255, 255, 0.8)
+                                          FocusedBorderThickness: =0
+                                          Font: =Font.'Segoe UI'
+                                          FontWeight: =FontWeight.Normal
+                                          LayoutMinHeight: =0
+                                          LayoutMinWidth: =0
+                                          PaddingBottom: =0
+                                          PaddingLeft: =0
+                                          PaddingRight: =0
+                                          PaddingTop: =0
+                                          Size: =8
+                                          TabIndex: =-1
+                                          Text: =varPerfilUsuario & If(IsBlank(varAlmoxUsuario), "", " · " & varAlmoxUsuario.Value)
+                                          Wrap: =true
+                        - mnuAcessoTitulo:
+                            Control: Label
+                            Properties:
+                              AutoHeight: =true
+                              Color: =corTexto
+                              FocusedBorderThickness: =0
+                              Font: =Font.'Segoe UI'
+                              FontWeight: =FontWeight.Semibold
+                              LayoutMinHeight: =0
+                              LayoutMinWidth: =0
+                              PaddingBottom: =0
+                              PaddingLeft: =0
+                              PaddingRight: =0
+                              PaddingTop: =0
+                              Size: =12
+                              TabIndex: =-1
+                              Text: ="Acesso rápido"
+                              Wrap: =true
+                        - mnuCards:
+                            Control: GroupContainer
+                            Variant: AutoLayout
+                            Properties:
+                              AlignInContainer: =AlignInContainer.SetByContainer
+                              BorderThickness: =0
+                              DropShadow: =DropShadow.None
+                              FillPortions: =0
+                              Height: =190
+                              LayoutAlignItems: =LayoutAlignItems.Stretch
+                              LayoutDirection: =LayoutDirection.Horizontal
+                              LayoutGap: =16
+                              LayoutMinHeight: =0
+                              LayoutMinWidth: =0
+                            Children:
+                              - mnuCardNova:
+                                  Control: GroupContainer
+                                  Variant: AutoLayout
+                                  Properties:
+                                    AlignInContainer: =AlignInContainer.SetByContainer
+                                    BorderColor: =corBorda
+                                    BorderThickness: =1
+                                    DropShadow: =DropShadow.None
+                                    Fill: =corCard
+                                    FillPortions: =1
+                                    Height: =190
+                                    LayoutAlignItems: =LayoutAlignItems.Stretch
+                                    LayoutDirection: =LayoutDirection.Vertical
+                                    LayoutGap: =10
+                                    LayoutMinHeight: =0
+                                    LayoutMinWidth: =220
+                                    PaddingBottom: =20
+                                    PaddingLeft: =20
+                                    PaddingRight: =20
+                                    PaddingTop: =20
+                                    RadiusBottomLeft: =10
+                                    RadiusBottomRight: =10
+                                    RadiusTopLeft: =10
+                                    RadiusTopRight: =10
+                                  Children:
+                                    - mnuCardNovaIcone:
+                                        Control: GroupContainer
+                                        Variant: AutoLayout
+                                        Properties:
+                                          AlignInContainer: =AlignInContainer.Start
+                                          BorderThickness: =0
+                                          DropShadow: =DropShadow.None
+                                          Fill: =RGBA(232, 245, 222, 1)
+                                          FillPortions: =0
+                                          Height: =34
+                                          LayoutDirection: =LayoutDirection.Horizontal
+                                          LayoutGap: =0
+                                          LayoutMinHeight: =0
+                                          LayoutMinWidth: =0
+                                          RadiusBottomLeft: =8
+                                          RadiusBottomRight: =8
+                                          RadiusTopLeft: =8
+                                          RadiusTopRight: =8
+                                          Width: =34
+                                        Children:
+                                          - mnuCardNovaIconeTxt:
+                                              Control: Label
+                                              Properties:
+                                                Align: =Align.Center
+                                                AutoHeight: =false
+                                                Color: =RGBA(62, 122, 30, 1)
+                                                FillPortions: =1
+                                                FocusedBorderThickness: =0
+                                                Font: =Font.'Segoe UI'
+                                                FontWeight: =FontWeight.Semibold
+                                                Height: =34
+                                                LayoutMinHeight: =0
+                                                LayoutMinWidth: =0
+                                                PaddingBottom: =0
+                                                PaddingLeft: =0
+                                                PaddingRight: =0
+                                                PaddingTop: =0
+                                                Size: =13
+                                                TabIndex: =-1
+                                                Text: ="+"
+                                                VerticalAlign: =VerticalAlign.Middle
+                                                Wrap: =true
+                                    - mnuCardNovaTitulo:
+                                        Control: Label
+                                        Properties:
+                                          AutoHeight: =true
+                                          Color: =corTexto
+                                          FocusedBorderThickness: =0
+                                          Font: =Font.'Segoe UI'
+                                          FontWeight: =FontWeight.Semibold
+                                          LayoutMinHeight: =0
+                                          LayoutMinWidth: =0
+                                          PaddingBottom: =0
+                                          PaddingLeft: =0
+                                          PaddingRight: =0
+                                          PaddingTop: =0
+                                          Size: =14
+                                          TabIndex: =-1
+                                          Text: ="Nova solicitação"
+                                          Wrap: =true
+                                    - mnuCardNovaDesc:
+                                        Control: Label
+                                        Properties:
+                                          AutoHeight: =false
+                                          Color: =corTextoSec
+                                          FillPortions: =1
+                                          FocusedBorderThickness: =0
+                                          Font: =Font.'Segoe UI'
+                                          FontWeight: =FontWeight.Normal
+                                          LayoutMinHeight: =0
+                                          LayoutMinWidth: =0
+                                          PaddingBottom: =0
+                                          PaddingLeft: =0
+                                          PaddingRight: =0
+                                          PaddingTop: =0
+                                          Size: =9
+                                          TabIndex: =-1
+                                          Text: ="Informe os dados da reserva e organize a retirada de materiais."
+                                          Wrap: =true
+                                    - mnuBtnNova:
+                                        Control: Classic/Button
+                                        Properties:
+                                          BorderColor: =corPrimaria
+                                          BorderThickness: =1
+                                          Color: =Color.White
+                                          Fill: =corPrimaria
+                                          FocusedBorderColor: =corTexto
+                                          FocusedBorderThickness: =2
+                                          Font: =Font.'Segoe UI'
+                                          FontWeight: =FontWeight.Semibold
+                                          Height: =38
+                                          HoverBorderColor: =corPrimariaHover
+                                          HoverColor: =Color.White
+                                          HoverFill: =corPrimariaHover
+                                          OnSelect: =Navigate(novaSolicitacao, ScreenTransition.Fade)
+                                          PressedBorderColor: =corPrimaria
+                                          PressedColor: =Color.White
+                                          PressedFill: =corPrimariaHover
+                                          RadiusBottomLeft: =6
+                                          RadiusBottomRight: =6
+                                          RadiusTopLeft: =6
+                                          RadiusTopRight: =6
+                                          Size: =10
+                                          Text: ="+  Criar solicitação"
+                                          Width: =170
+                              - mnuCardMinhas:
+                                  Control: GroupContainer
+                                  Variant: AutoLayout
+                                  Properties:
+                                    AlignInContainer: =AlignInContainer.SetByContainer
+                                    BorderColor: =corBorda
+                                    BorderThickness: =1
+                                    DropShadow: =DropShadow.None
+                                    Fill: =corCard
+                                    FillPortions: =1
+                                    Height: =190
+                                    LayoutAlignItems: =LayoutAlignItems.Stretch
+                                    LayoutDirection: =LayoutDirection.Vertical
+                                    LayoutGap: =10
+                                    LayoutMinHeight: =0
+                                    LayoutMinWidth: =220
+                                    PaddingBottom: =20
+                                    PaddingLeft: =20
+                                    PaddingRight: =20
+                                    PaddingTop: =20
+                                    RadiusBottomLeft: =10
+                                    RadiusBottomRight: =10
+                                    RadiusTopLeft: =10
+                                    RadiusTopRight: =10
+                                  Children:
+                                    - mnuCardMinhasIcone:
+                                        Control: GroupContainer
+                                        Variant: AutoLayout
+                                        Properties:
+                                          AlignInContainer: =AlignInContainer.Start
+                                          BorderThickness: =0
+                                          DropShadow: =DropShadow.None
+                                          Fill: =corPrimariaClara
+                                          FillPortions: =0
+                                          Height: =34
+                                          LayoutDirection: =LayoutDirection.Horizontal
+                                          LayoutGap: =0
+                                          LayoutMinHeight: =0
+                                          LayoutMinWidth: =0
+                                          RadiusBottomLeft: =8
+                                          RadiusBottomRight: =8
+                                          RadiusTopLeft: =8
+                                          RadiusTopRight: =8
+                                          Width: =34
+                                        Children:
+                                          - mnuCardMinhasIconeTxt:
+                                              Control: Label
+                                              Properties:
+                                                Align: =Align.Center
+                                                AutoHeight: =false
+                                                Color: =corPrimaria
+                                                FillPortions: =1
+                                                FocusedBorderThickness: =0
+                                                Font: =Font.'Segoe UI'
+                                                FontWeight: =FontWeight.Semibold
+                                                Height: =34
+                                                LayoutMinHeight: =0
+                                                LayoutMinWidth: =0
+                                                PaddingBottom: =0
+                                                PaddingLeft: =0
+                                                PaddingRight: =0
+                                                PaddingTop: =0
+                                                Size: =13
+                                                TabIndex: =-1
+                                                Text: ="≡"
+                                                VerticalAlign: =VerticalAlign.Middle
+                                                Wrap: =true
+                                    - mnuCardMinhasTitulo:
+                                        Control: Label
+                                        Properties:
+                                          AutoHeight: =true
+                                          Color: =corTexto
+                                          FocusedBorderThickness: =0
+                                          Font: =Font.'Segoe UI'
+                                          FontWeight: =FontWeight.Semibold
+                                          LayoutMinHeight: =0
+                                          LayoutMinWidth: =0
+                                          PaddingBottom: =0
+                                          PaddingLeft: =0
+                                          PaddingRight: =0
+                                          PaddingTop: =0
+                                          Size: =14
+                                          TabIndex: =-1
+                                          Text: ="Minhas solicitações"
+                                          Wrap: =true
+                                    - mnuCardMinhasDesc:
+                                        Control: Label
+                                        Properties:
+                                          AutoHeight: =false
+                                          Color: =corTextoSec
+                                          FillPortions: =1
+                                          FocusedBorderThickness: =0
+                                          Font: =Font.'Segoe UI'
+                                          FontWeight: =FontWeight.Normal
+                                          LayoutMinHeight: =0
+                                          LayoutMinWidth: =0
+                                          PaddingBottom: =0
+                                          PaddingLeft: =0
+                                          PaddingRight: =0
+                                          PaddingTop: =0
+                                          Size: =9
+                                          TabIndex: =-1
+                                          Text: ="Consulte os pedidos enviados e acompanhe o andamento de cada solicitação."
+                                          Wrap: =true
+                                    - mnuBtnMinhas:
+                                        Control: Classic/Button
+                                        Properties:
+                                          BorderColor: =corBorda
+                                          BorderThickness: =1
+                                          Color: =corPrimaria
+                                          Fill: =Color.White
+                                          FocusedBorderColor: =corTexto
+                                          FocusedBorderThickness: =2
+                                          Font: =Font.'Segoe UI'
+                                          FontWeight: =FontWeight.Semibold
+                                          Height: =38
+                                          HoverBorderColor: =corPrimaria
+                                          HoverColor: =corPrimaria
+                                          HoverFill: =corFundo
+                                          OnSelect: =Navigate(minhasSolicitacoes, ScreenTransition.Fade)
+                                          PressedBorderColor: =corBorda
+                                          PressedColor: =corPrimaria
+                                          PressedFill: =corBorda
+                                          RadiusBottomLeft: =6
+                                          RadiusBottomRight: =6
+                                          RadiusTopLeft: =6
+                                          RadiusTopRight: =6
+                                          Size: =10
+                                          Text: ="Consultar solicitações  →"
+                                          Width: =170
+                              - mnuCardFila:
+                                  Control: GroupContainer
+                                  Variant: AutoLayout
+                                  Properties:
+                                    AlignInContainer: =AlignInContainer.SetByContainer
+                                    BorderColor: =corBorda
+                                    BorderThickness: =1
+                                    DropShadow: =DropShadow.None
+                                    Fill: =corCard
+                                    FillPortions: =1
+                                    Height: =190
+                                    LayoutAlignItems: =LayoutAlignItems.Stretch
+                                    LayoutDirection: =LayoutDirection.Vertical
+                                    LayoutGap: =10
+                                    LayoutMinHeight: =0
+                                    LayoutMinWidth: =220
+                                    PaddingBottom: =20
+                                    PaddingLeft: =20
+                                    PaddingRight: =20
+                                    PaddingTop: =20
+                                    RadiusBottomLeft: =10
+                                    RadiusBottomRight: =10
+                                    RadiusTopLeft: =10
+                                    RadiusTopRight: =10
+                                    Visible: =varAtendente || varSupervisor
+                                  Children:
+                                    - mnuCardFilaIcone:
+                                        Control: GroupContainer
+                                        Variant: AutoLayout
+                                        Properties:
+                                          AlignInContainer: =AlignInContainer.Start
+                                          BorderThickness: =0
+                                          DropShadow: =DropShadow.None
+                                          Fill: =RGBA(255, 244, 214, 1)
+                                          FillPortions: =0
+                                          Height: =34
+                                          LayoutDirection: =LayoutDirection.Horizontal
+                                          LayoutGap: =0
+                                          LayoutMinHeight: =0
+                                          LayoutMinWidth: =0
+                                          RadiusBottomLeft: =8
+                                          RadiusBottomRight: =8
+                                          RadiusTopLeft: =8
+                                          RadiusTopRight: =8
+                                          Width: =34
+                                        Children:
+                                          - mnuCardFilaIconeTxt:
+                                              Control: Label
+                                              Properties:
+                                                Align: =Align.Center
+                                                AutoHeight: =false
+                                                Color: =RGBA(138, 90, 0, 1)
+                                                FillPortions: =1
+                                                FocusedBorderThickness: =0
+                                                Font: =Font.'Segoe UI'
+                                                FontWeight: =FontWeight.Semibold
+                                                Height: =34
+                                                LayoutMinHeight: =0
+                                                LayoutMinWidth: =0
+                                                PaddingBottom: =0
+                                                PaddingLeft: =0
+                                                PaddingRight: =0
+                                                PaddingTop: =0
+                                                Size: =13
+                                                TabIndex: =-1
+                                                Text: ="⏱"
+                                                VerticalAlign: =VerticalAlign.Middle
+                                                Wrap: =true
+                                    - mnuCardFilaTitulo:
+                                        Control: Label
+                                        Properties:
+                                          AutoHeight: =true
+                                          Color: =corTexto
+                                          FocusedBorderThickness: =0
+                                          Font: =Font.'Segoe UI'
+                                          FontWeight: =FontWeight.Semibold
+                                          LayoutMinHeight: =0
+                                          LayoutMinWidth: =0
+                                          PaddingBottom: =0
+                                          PaddingLeft: =0
+                                          PaddingRight: =0
+                                          PaddingTop: =0
+                                          Size: =14
+                                          TabIndex: =-1
+                                          Text: ="Fila de atendimento"
+                                          Wrap: =true
+                                    - mnuCardFilaDesc:
+                                        Control: Label
+                                        Properties:
+                                          AutoHeight: =false
+                                          Color: =corTextoSec
+                                          FillPortions: =1
+                                          FocusedBorderThickness: =0
+                                          Font: =Font.'Segoe UI'
+                                          FontWeight: =FontWeight.Normal
+                                          LayoutMinHeight: =0
+                                          LayoutMinWidth: =0
+                                          PaddingBottom: =0
+                                          PaddingLeft: =0
+                                          PaddingRight: =0
+                                          PaddingTop: =0
+                                          Size: =9
+                                          TabIndex: =-1
+                                          Text: ="Separe os pedidos do seu almoxarifado e atualize o status."
+                                          Wrap: =true
+                                    - mnuBtnFila:
+                                        Control: Classic/Button
+                                        Properties:
+                                          BorderColor: =corBorda
+                                          BorderThickness: =1
+                                          Color: =corPrimaria
+                                          Fill: =Color.White
+                                          FocusedBorderColor: =corTexto
+                                          FocusedBorderThickness: =2
+                                          Font: =Font.'Segoe UI'
+                                          FontWeight: =FontWeight.Semibold
+                                          Height: =38
+                                          HoverBorderColor: =corPrimaria
+                                          HoverColor: =corPrimaria
+                                          HoverFill: =corFundo
+                                          OnSelect: =Navigate(filaAtendimento, ScreenTransition.Fade)
+                                          PressedBorderColor: =corBorda
+                                          PressedColor: =corPrimaria
+                                          PressedFill: =corBorda
+                                          RadiusBottomLeft: =6
+                                          RadiusBottomRight: =6
+                                          RadiusTopLeft: =6
+                                          RadiusTopRight: =6
+                                          Size: =10
+                                          Text: ="Abrir fila  →"
+                                          Width: =170
+                              - mnuCardEquipe:
+                                  Control: GroupContainer
+                                  Variant: AutoLayout
+                                  Properties:
+                                    AlignInContainer: =AlignInContainer.SetByContainer
+                                    BorderColor: =corBorda
+                                    BorderThickness: =1
+                                    DropShadow: =DropShadow.None
+                                    Fill: =corCard
+                                    FillPortions: =1
+                                    Height: =190
+                                    LayoutAlignItems: =LayoutAlignItems.Stretch
+                                    LayoutDirection: =LayoutDirection.Vertical
+                                    LayoutGap: =10
+                                    LayoutMinHeight: =0
+                                    LayoutMinWidth: =220
+                                    PaddingBottom: =20
+                                    PaddingLeft: =20
+                                    PaddingRight: =20
+                                    PaddingTop: =20
+                                    RadiusBottomLeft: =10
+                                    RadiusBottomRight: =10
+                                    RadiusTopLeft: =10
+                                    RadiusTopRight: =10
+                                    Visible: =varSupervisor
+                                  Children:
+                                    - mnuCardEquipeIcone:
+                                        Control: GroupContainer
+                                        Variant: AutoLayout
+                                        Properties:
+                                          AlignInContainer: =AlignInContainer.Start
+                                          BorderThickness: =0
+                                          DropShadow: =DropShadow.None
+                                          Fill: =RGBA(240, 232, 252, 1)
+                                          FillPortions: =0
+                                          Height: =34
+                                          LayoutDirection: =LayoutDirection.Horizontal
+                                          LayoutGap: =0
+                                          LayoutMinHeight: =0
+                                          LayoutMinWidth: =0
+                                          RadiusBottomLeft: =8
+                                          RadiusBottomRight: =8
+                                          RadiusTopLeft: =8
+                                          RadiusTopRight: =8
+                                          Width: =34
+                                        Children:
+                                          - mnuCardEquipeIconeTxt:
+                                              Control: Label
+                                              Properties:
+                                                Align: =Align.Center
+                                                AutoHeight: =false
+                                                Color: =RGBA(98, 60, 160, 1)
+                                                FillPortions: =1
+                                                FocusedBorderThickness: =0
+                                                Font: =Font.'Segoe UI'
+                                                FontWeight: =FontWeight.Semibold
+                                                Height: =34
+                                                LayoutMinHeight: =0
+                                                LayoutMinWidth: =0
+                                                PaddingBottom: =0
+                                                PaddingLeft: =0
+                                                PaddingRight: =0
+                                                PaddingTop: =0
+                                                Size: =13
+                                                TabIndex: =-1
+                                                Text: ="👥"
+                                                VerticalAlign: =VerticalAlign.Middle
+                                                Wrap: =true
+                                    - mnuCardEquipeTitulo:
+                                        Control: Label
+                                        Properties:
+                                          AutoHeight: =true
+                                          Color: =corTexto
+                                          FocusedBorderThickness: =0
+                                          Font: =Font.'Segoe UI'
+                                          FontWeight: =FontWeight.Semibold
+                                          LayoutMinHeight: =0
+                                          LayoutMinWidth: =0
+                                          PaddingBottom: =0
+                                          PaddingLeft: =0
+                                          PaddingRight: =0
+                                          PaddingTop: =0
+                                          Size: =14
+                                          TabIndex: =-1
+                                          Text: ="Equipe"
+                                          Wrap: =true
+                                    - mnuCardEquipeDesc:
+                                        Control: Label
+                                        Properties:
+                                          AutoHeight: =false
+                                          Color: =corTextoSec
+                                          FillPortions: =1
+                                          FocusedBorderThickness: =0
+                                          Font: =Font.'Segoe UI'
+                                          FontWeight: =FontWeight.Normal
+                                          LayoutMinHeight: =0
+                                          LayoutMinWidth: =0
+                                          PaddingBottom: =0
+                                          PaddingLeft: =0
+                                          PaddingRight: =0
+                                          PaddingTop: =0
+                                          Size: =9
+                                          TabIndex: =-1
+                                          Text: ="Cadastre atendentes e supervisores de cada almoxarifado."
+                                          Wrap: =true
+                                    - mnuBtnEquipe:
+                                        Control: Classic/Button
+                                        Properties:
+                                          BorderColor: =corBorda
+                                          BorderThickness: =1
+                                          Color: =corPrimaria
+                                          Fill: =Color.White
+                                          FocusedBorderColor: =corTexto
+                                          FocusedBorderThickness: =2
+                                          Font: =Font.'Segoe UI'
+                                          FontWeight: =FontWeight.Semibold
+                                          Height: =38
+                                          HoverBorderColor: =corPrimaria
+                                          HoverColor: =corPrimaria
+                                          HoverFill: =corFundo
+                                          OnSelect: =Navigate(cadastroEquipe, ScreenTransition.Fade)
+                                          PressedBorderColor: =corBorda
+                                          PressedColor: =corPrimaria
+                                          PressedFill: =corBorda
+                                          RadiusBottomLeft: =6
+                                          RadiusBottomRight: =6
+                                          RadiusTopLeft: =6
+                                          RadiusTopRight: =6
+                                          Size: =10
+                                          Text: ="Gerenciar equipe  →"
+                                          Width: =170
+                        - mnuPassos:
+                            Control: GroupContainer
+                            Variant: AutoLayout
+                            Properties:
+                              AlignInContainer: =AlignInContainer.SetByContainer
+                              BorderColor: =corBorda
+                              BorderThickness: =1
+                              DropShadow: =DropShadow.None
+                              Fill: =corCard
+                              FillPortions: =0
+                              Height: =88
+                              LayoutAlignItems: =LayoutAlignItems.Stretch
+                              LayoutDirection: =LayoutDirection.Vertical
+                              LayoutGap: =12
+                              LayoutMinHeight: =0
+                              LayoutMinWidth: =0
+                              PaddingBottom: =16
+                              PaddingLeft: =20
+                              PaddingRight: =20
+                              PaddingTop: =16
+                              RadiusBottomLeft: =10
+                              RadiusBottomRight: =10
+                              RadiusTopLeft: =10
+                              RadiusTopRight: =10
+                            Children:
+                              - mnuPassosLinha:
+                                  Control: GroupContainer
+                                  Variant: AutoLayout
+                                  Properties:
+                                    AlignInContainer: =AlignInContainer.SetByContainer
+                                    BorderThickness: =0
+                                    DropShadow: =DropShadow.None
+                                    FillPortions: =0
+                                    Height: =56
+                                    LayoutAlignItems: =LayoutAlignItems.Start
+                                    LayoutDirection: =LayoutDirection.Horizontal
+                                    LayoutGap: =24
+                                    LayoutMinHeight: =0
+                                    LayoutMinWidth: =0
+                                  Children:
+                                    - mnuPassosIntro:
+                                        Control: GroupContainer
+                                        Variant: AutoLayout
+                                        Properties:
+                                          AlignInContainer: =AlignInContainer.SetByContainer
+                                          BorderThickness: =0
+                                          DropShadow: =DropShadow.None
+                                          FillPortions: =1
+                                          Height: =56
+                                          LayoutDirection: =LayoutDirection.Vertical
+                                          LayoutGap: =3
+                                          LayoutMinHeight: =0
+                                          LayoutMinWidth: =0
+                                        Children:
+                                          - mnuPassosTitulo:
+                                              Control: Label
+                                              Properties:
+                                                AutoHeight: =true
+                                                Color: =corTexto
+                                                FocusedBorderThickness: =0
+                                                Font: =Font.'Segoe UI'
+                                                FontWeight: =FontWeight.Semibold
+                                                LayoutMinHeight: =0
+                                                LayoutMinWidth: =0
+                                                PaddingBottom: =0
+                                                PaddingLeft: =0
+                                                PaddingRight: =0
+                                                PaddingTop: =0
+                                                Size: =11
+                                                TabIndex: =-1
+                                                Text: ="Antes de solicitar"
+                                                Wrap: =true
+                                          - mnuPassosSub:
+                                              Control: Label
+                                              Properties:
+                                                AutoHeight: =true
+                                                Color: =corTextoSec
+                                                FocusedBorderThickness: =0
+                                                Font: =Font.'Segoe UI'
+                                                FontWeight: =FontWeight.Normal
+                                                LayoutMinHeight: =0
+                                                LayoutMinWidth: =0
+                                                PaddingBottom: =0
+                                                PaddingLeft: =0
+                                                PaddingRight: =0
+                                                PaddingTop: =0
+                                                Size: =9
+                                                TabIndex: =-1
+                                                Text: ="Separe as informações da retirada."
+                                                Wrap: =true
+                                    - mnuPasso1:
+                                        Control: GroupContainer
+                                        Variant: AutoLayout
+                                        Properties:
+                                          AlignInContainer: =AlignInContainer.SetByContainer
+                                          BorderThickness: =0
+                                          DropShadow: =DropShadow.None
+                                          FillPortions: =1
+                                          Height: =56
+                                          LayoutDirection: =LayoutDirection.Vertical
+                                          LayoutGap: =3
+                                          LayoutMinHeight: =0
+                                          LayoutMinWidth: =0
+                                        Children:
+                                          - mnuPasso1Num:
+                                              Control: Label
+                                              Properties:
+                                                AutoHeight: =true
+                                                Color: =corPrimaria
+                                                FocusedBorderThickness: =0
+                                                Font: =Font.'Segoe UI'
+                                                FontWeight: =FontWeight.Semibold
+                                                LayoutMinHeight: =0
+                                                LayoutMinWidth: =0
+                                                PaddingBottom: =0
+                                                PaddingLeft: =0
+                                                PaddingRight: =0
+                                                PaddingTop: =0
+                                                Size: =9
+                                                TabIndex: =-1
+                                                Text: ="01"
+                                                Wrap: =true
+                                          - mnuPasso1Titulo:
+                                              Control: Label
+                                              Properties:
+                                                AutoHeight: =true
+                                                Color: =corTexto
+                                                FocusedBorderThickness: =0
+                                                Font: =Font.'Segoe UI'
+                                                FontWeight: =FontWeight.Semibold
+                                                LayoutMinHeight: =0
+                                                LayoutMinWidth: =0
+                                                PaddingBottom: =0
+                                                PaddingLeft: =0
+                                                PaddingRight: =0
+                                                PaddingTop: =0
+                                                Size: =10
+                                                TabIndex: =-1
+                                                Text: ="Reserva SAP"
+                                                Wrap: =true
+                                          - mnuPasso1Desc:
+                                              Control: Label
+                                              Properties:
+                                                AutoHeight: =true
+                                                Color: =corTextoSec
+                                                FocusedBorderThickness: =0
+                                                Font: =Font.'Segoe UI'
+                                                FontWeight: =FontWeight.Normal
+                                                LayoutMinHeight: =0
+                                                LayoutMinWidth: =0
+                                                PaddingBottom: =0
+                                                PaddingLeft: =0
+                                                PaddingRight: =0
+                                                PaddingTop: =0
+                                                Size: =9
+                                                TabIndex: =-1
+                                                Text: ="Tenha o número da reserva."
+                                                Wrap: =true
+                                    - mnuPasso2:
+                                        Control: GroupContainer
+                                        Variant: AutoLayout
+                                        Properties:
+                                          AlignInContainer: =AlignInContainer.SetByContainer
+                                          BorderThickness: =0
+                                          DropShadow: =DropShadow.None
+                                          FillPortions: =1
+                                          Height: =56
+                                          LayoutDirection: =LayoutDirection.Vertical
+                                          LayoutGap: =3
+                                          LayoutMinHeight: =0
+                                          LayoutMinWidth: =0
+                                        Children:
+                                          - mnuPasso2Num:
+                                              Control: Label
+                                              Properties:
+                                                AutoHeight: =true
+                                                Color: =corPrimaria
+                                                FocusedBorderThickness: =0
+                                                Font: =Font.'Segoe UI'
+                                                FontWeight: =FontWeight.Semibold
+                                                LayoutMinHeight: =0
+                                                LayoutMinWidth: =0
+                                                PaddingBottom: =0
+                                                PaddingLeft: =0
+                                                PaddingRight: =0
+                                                PaddingTop: =0
+                                                Size: =9
+                                                TabIndex: =-1
+                                                Text: ="02"
+                                                Wrap: =true
+                                          - mnuPasso2Titulo:
+                                              Control: Label
+                                              Properties:
+                                                AutoHeight: =true
+                                                Color: =corTexto
+                                                FocusedBorderThickness: =0
+                                                Font: =Font.'Segoe UI'
+                                                FontWeight: =FontWeight.Semibold
+                                                LayoutMinHeight: =0
+                                                LayoutMinWidth: =0
+                                                PaddingBottom: =0
+                                                PaddingLeft: =0
+                                                PaddingRight: =0
+                                                PaddingTop: =0
+                                                Size: =10
+                                                TabIndex: =-1
+                                                Text: ="Local de retirada"
+                                                Wrap: =true
+                                          - mnuPasso2Desc:
+                                              Control: Label
+                                              Properties:
+                                                AutoHeight: =true
+                                                Color: =corTextoSec
+                                                FocusedBorderThickness: =0
+                                                Font: =Font.'Segoe UI'
+                                                FontWeight: =FontWeight.Normal
+                                                LayoutMinHeight: =0
+                                                LayoutMinWidth: =0
+                                                PaddingBottom: =0
+                                                PaddingLeft: =0
+                                                PaddingRight: =0
+                                                PaddingTop: =0
+                                                Size: =9
+                                                TabIndex: =-1
+                                                Text: ="Confira o almoxarifado."
+                                                Wrap: =true
+                                    - mnuPasso3:
+                                        Control: GroupContainer
+                                        Variant: AutoLayout
+                                        Properties:
+                                          AlignInContainer: =AlignInContainer.SetByContainer
+                                          BorderThickness: =0
+                                          DropShadow: =DropShadow.None
+                                          FillPortions: =1
+                                          Height: =56
+                                          LayoutDirection: =LayoutDirection.Vertical
+                                          LayoutGap: =3
+                                          LayoutMinHeight: =0
+                                          LayoutMinWidth: =0
+                                        Children:
+                                          - mnuPasso3Num:
+                                              Control: Label
+                                              Properties:
+                                                AutoHeight: =true
+                                                Color: =corPrimaria
+                                                FocusedBorderThickness: =0
+                                                Font: =Font.'Segoe UI'
+                                                FontWeight: =FontWeight.Semibold
+                                                LayoutMinHeight: =0
+                                                LayoutMinWidth: =0
+                                                PaddingBottom: =0
+                                                PaddingLeft: =0
+                                                PaddingRight: =0
+                                                PaddingTop: =0
+                                                Size: =9
+                                                TabIndex: =-1
+                                                Text: ="03"
+                                                Wrap: =true
+                                          - mnuPasso3Titulo:
+                                              Control: Label
+                                              Properties:
+                                                AutoHeight: =true
+                                                Color: =corTexto
+                                                FocusedBorderThickness: =0
+                                                Font: =Font.'Segoe UI'
+                                                FontWeight: =FontWeight.Semibold
+                                                LayoutMinHeight: =0
+                                                LayoutMinWidth: =0
+                                                PaddingBottom: =0
+                                                PaddingLeft: =0
+                                                PaddingRight: =0
+                                                PaddingTop: =0
+                                                Size: =10
+                                                TabIndex: =-1
+                                                Text: ="Data desejada"
+                                                Wrap: =true
+                                          - mnuPasso3Desc:
+                                              Control: Label
+                                              Properties:
+                                                AutoHeight: =true
+                                                Color: =corTextoSec
+                                                FocusedBorderThickness: =0
+                                                Font: =Font.'Segoe UI'
+                                                FontWeight: =FontWeight.Normal
+                                                LayoutMinHeight: =0
+                                                LayoutMinWidth: =0
+                                                PaddingBottom: =0
+                                                PaddingLeft: =0
+                                                PaddingRight: =0
+                                                PaddingTop: =0
+                                                Size: =9
+                                                TabIndex: =-1
+                                                Text: ="Informe quando irá retirar."
+                                                Wrap: =true
+                        - mnuRodape:
+                            Control: Label
+                            Properties:
+                              AutoHeight: =true
+                              Color: =corTextoSec
+                              FocusedBorderThickness: =0
+                              Font: =Font.'Segoe UI'
+                              FontWeight: =FontWeight.Normal
+                              LayoutMinHeight: =0
+                              LayoutMinWidth: =0
+                              PaddingBottom: =0
+                              PaddingLeft: =0
+                              PaddingRight: =0
+                              PaddingTop: =0
+                              Size: =8
+                              TabIndex: =-1
+                              Text: ="Bracell  /  Portal interno de solicitações"
+                              Wrap: =true

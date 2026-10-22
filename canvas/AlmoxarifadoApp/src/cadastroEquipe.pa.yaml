@@ -1,0 +1,1518 @@
+Screens:
+  cadastroEquipe:
+    Properties:
+      Fill: =corFundo
+      LoadingSpinnerColor: =corPrimaria
+      OnVisible: |-
+        =UpdateContext({locConfirmar: false});
+        ClearCollect(
+            colColabAlmoxarifado,
+            AddColumns(
+                ShowColumns(atendentes, colab, almoxarifado),
+                Perfil, "Atendente"
+            )
+        );
+        Collect(
+            colColabAlmoxarifado,
+            AddColumns(
+                ShowColumns(supervisores, colab, almoxarifado),
+                Perfil, "Supervisor"
+            )
+        )
+    Children:
+      - eqpRaiz:
+          Control: GroupContainer
+          Variant: AutoLayout
+          Properties:
+            BorderThickness: =0
+            DropShadow: =DropShadow.None
+            Fill: =corFundo
+            Height: =Parent.Height
+            LayoutAlignItems: =LayoutAlignItems.Stretch
+            LayoutDirection: =LayoutDirection.Vertical
+            LayoutGap: =0
+            Width: =Parent.Width
+            X: =0
+            Y: =0
+          Children:
+            - eqpHeader:
+                Control: GroupContainer
+                Variant: AutoLayout
+                Properties:
+                  AlignInContainer: =AlignInContainer.SetByContainer
+                  BorderThickness: =0
+                  DropShadow: =DropShadow.None
+                  Fill: =corHeader
+                  FillPortions: =0
+                  Height: =64
+                  LayoutAlignItems: =LayoutAlignItems.Center
+                  LayoutDirection: =LayoutDirection.Horizontal
+                  LayoutGap: =14
+                  LayoutMinHeight: =0
+                  LayoutMinWidth: =0
+                  PaddingBottom: =0
+                  PaddingLeft: =32
+                  PaddingRight: =32
+                  PaddingTop: =0
+                Children:
+                  - eqpLogo:
+                      Control: Label
+                      Properties:
+                        AutoHeight: =false
+                        Color: =Color.White
+                        FocusedBorderThickness: =0
+                        Font: =Font.'Segoe UI'
+                        FontWeight: =FontWeight.Semibold
+                        Height: =64
+                        LayoutMinHeight: =0
+                        LayoutMinWidth: =0
+                        PaddingBottom: =0
+                        PaddingLeft: =0
+                        PaddingRight: =0
+                        PaddingTop: =0
+                        Size: =18
+                        TabIndex: =-1
+                        Text: ="Bracell"
+                        VerticalAlign: =VerticalAlign.Middle
+                        Width: =90
+                        Wrap: =true
+                  - eqpDivisor:
+                      Control: Rectangle
+                      Properties:
+                        Fill: =RGBA(255, 255, 255, 0.5)
+                        FocusedBorderThickness: =0
+                        Height: =24
+                        TabIndex: =-1
+                        Width: =1
+                  - eqpPortal:
+                      Control: Label
+                      Properties:
+                        AutoHeight: =false
+                        Color: =Color.White
+                        FocusedBorderThickness: =0
+                        Font: =Font.'Segoe UI'
+                        FontWeight: =FontWeight.Semibold
+                        Height: =64
+                        LayoutMinHeight: =0
+                        LayoutMinWidth: =0
+                        PaddingBottom: =0
+                        PaddingLeft: =12
+                        PaddingRight: =0
+                        PaddingTop: =0
+                        Size: =11
+                        TabIndex: =-1
+                        Text: ="Portal do Almoxarifado"
+                        VerticalAlign: =VerticalAlign.Middle
+                        Width: =200
+                        Wrap: =true
+                  - eqpSpacer:
+                      Control: Label
+                      Properties:
+                        AutoHeight: =false
+                        FillPortions: =1
+                        FocusedBorderThickness: =0
+                        Height: =1
+                        LayoutMinHeight: =0
+                        LayoutMinWidth: =0
+                        TabIndex: =-1
+                        Text: =""
+                        Width: =1
+                  - eqpNavInicio:
+                      Control: Label
+                      Properties:
+                        Align: =Align.Center
+                        AutoHeight: =false
+                        BorderColor: =RGBA(0,0,0,0)
+                        BorderThickness: =0
+                        Color: =RGBA(255, 255, 255, 0.72)
+                        FocusedBorderColor: =corTexto
+                        FocusedBorderThickness: =2
+                        Font: =Font.'Segoe UI'
+                        FontWeight: =FontWeight.Normal
+                        Height: =64
+                        HoverColor: =Color.White
+                        LayoutMinHeight: =0
+                        LayoutMinWidth: =0
+                        OnSelect: =Navigate(Menu, ScreenTransition.Fade)
+                        PaddingBottom: =0
+                        PaddingLeft: =0
+                        PaddingRight: =0
+                        PaddingTop: =0
+                        Size: =10
+                        TabIndex: =0
+                        Text: ="Início"
+                        VerticalAlign: =VerticalAlign.Middle
+                        Width: =60
+                        Wrap: =true
+                  - eqpNavMinhas:
+                      Control: Label
+                      Properties:
+                        Align: =Align.Center
+                        AutoHeight: =false
+                        BorderColor: =RGBA(0,0,0,0)
+                        BorderThickness: =0
+                        Color: =RGBA(255, 255, 255, 0.72)
+                        FocusedBorderColor: =corTexto
+                        FocusedBorderThickness: =2
+                        Font: =Font.'Segoe UI'
+                        FontWeight: =FontWeight.Normal
+                        Height: =64
+                        HoverColor: =Color.White
+                        LayoutMinHeight: =0
+                        LayoutMinWidth: =0
+                        OnSelect: =Navigate(minhasSolicitacoes, ScreenTransition.Fade)
+                        PaddingBottom: =0
+                        PaddingLeft: =0
+                        PaddingRight: =0
+                        PaddingTop: =0
+                        Size: =10
+                        TabIndex: =0
+                        Text: ="Minhas solicitações"
+                        VerticalAlign: =VerticalAlign.Middle
+                        Width: =150
+                        Wrap: =true
+                  - eqpNavFila:
+                      Control: Label
+                      Properties:
+                        Align: =Align.Center
+                        AutoHeight: =false
+                        BorderColor: =RGBA(0,0,0,0)
+                        BorderThickness: =0
+                        Color: =RGBA(255, 255, 255, 0.72)
+                        FocusedBorderColor: =corTexto
+                        FocusedBorderThickness: =2
+                        Font: =Font.'Segoe UI'
+                        FontWeight: =FontWeight.Normal
+                        Height: =64
+                        HoverColor: =Color.White
+                        LayoutMinHeight: =0
+                        LayoutMinWidth: =0
+                        OnSelect: =Navigate(filaAtendimento, ScreenTransition.Fade)
+                        PaddingBottom: =0
+                        PaddingLeft: =0
+                        PaddingRight: =0
+                        PaddingTop: =0
+                        Size: =10
+                        TabIndex: =0
+                        Text: ="Fila de atendimento"
+                        VerticalAlign: =VerticalAlign.Middle
+                        Visible: =varAtendente || varSupervisor
+                        Width: =150
+                        Wrap: =true
+                  - eqpNavEquipe:
+                      Control: Label
+                      Properties:
+                        Align: =Align.Center
+                        AutoHeight: =false
+                        BorderColor: =Color.White
+                        BorderThickness: =0
+                        Color: =Color.White
+                        FocusedBorderColor: =corTexto
+                        FocusedBorderThickness: =2
+                        Font: =Font.'Segoe UI'
+                        FontWeight: =FontWeight.Semibold
+                        Height: =64
+                        HoverColor: =Color.White
+                        LayoutMinHeight: =0
+                        LayoutMinWidth: =0
+                        OnSelect: =Navigate(cadastroEquipe, ScreenTransition.Fade)
+                        PaddingBottom: =0
+                        PaddingLeft: =0
+                        PaddingRight: =0
+                        PaddingTop: =0
+                        Size: =10
+                        TabIndex: =0
+                        Text: ="Equipe"
+                        VerticalAlign: =VerticalAlign.Middle
+                        Visible: =varSupervisor
+                        Width: =70
+                        Wrap: =true
+                  - eqpAvatar:
+                      Control: GroupContainer
+                      Variant: AutoLayout
+                      Properties:
+                        AlignInContainer: =AlignInContainer.SetByContainer
+                        BorderThickness: =0
+                        DropShadow: =DropShadow.None
+                        Fill: =Color.White
+                        FillPortions: =0
+                        Height: =32
+                        LayoutDirection: =LayoutDirection.Horizontal
+                        LayoutGap: =0
+                        LayoutMinHeight: =0
+                        LayoutMinWidth: =0
+                        RadiusBottomLeft: =16
+                        RadiusBottomRight: =16
+                        RadiusTopLeft: =16
+                        RadiusTopRight: =16
+                        Width: =32
+                      Children:
+                        - eqpAvatarTxt:
+                            Control: Label
+                            Properties:
+                              Align: =Align.Center
+                              AutoHeight: =false
+                              Color: =corHeader
+                              FillPortions: =1
+                              FocusedBorderThickness: =0
+                              Font: =Font.'Segoe UI'
+                              FontWeight: =FontWeight.Semibold
+                              Height: =32
+                              LayoutMinHeight: =0
+                              LayoutMinWidth: =0
+                              PaddingBottom: =0
+                              PaddingLeft: =0
+                              PaddingRight: =0
+                              PaddingTop: =0
+                              Size: =9
+                              TabIndex: =-1
+                              Text: =fxIniciais
+                              VerticalAlign: =VerticalAlign.Middle
+                              Wrap: =true
+                  - eqpUsuario:
+                      Control: Label
+                      Properties:
+                        AutoHeight: =false
+                        Color: =Color.White
+                        FocusedBorderThickness: =0
+                        Font: =Font.'Segoe UI'
+                        FontWeight: =FontWeight.Normal
+                        Height: =64
+                        LayoutMinHeight: =0
+                        LayoutMinWidth: =0
+                        PaddingBottom: =0
+                        PaddingLeft: =0
+                        PaddingRight: =0
+                        PaddingTop: =0
+                        Size: =10
+                        TabIndex: =-1
+                        Text: =fxNomeCurto
+                        VerticalAlign: =VerticalAlign.Middle
+                        Width: =170
+                        Wrap: =true
+            - eqpCorpo:
+                Control: GroupContainer
+                Variant: AutoLayout
+                Properties:
+                  AlignInContainer: =AlignInContainer.SetByContainer
+                  BorderThickness: =0
+                  DropShadow: =DropShadow.None
+                  Fill: =corFundo
+                  FillPortions: =1
+                  LayoutAlignItems: =LayoutAlignItems.Center
+                  LayoutDirection: =LayoutDirection.Vertical
+                  LayoutGap: =0
+                  LayoutMinHeight: =0
+                  LayoutMinWidth: =0
+                  LayoutOverflowY: =LayoutOverflow.Scroll
+                  PaddingBottom: =32
+                  PaddingLeft: =0
+                  PaddingRight: =0
+                  PaddingTop: =28
+                Children:
+                  - eqpConteudo:
+                      Control: GroupContainer
+                      Variant: AutoLayout
+                      Properties:
+                        AlignInContainer: =AlignInContainer.Center
+                        BorderThickness: =0
+                        DropShadow: =DropShadow.None
+                        FillPortions: =0
+                        Height: =16 + 56 + 420 + 3 * 20
+                        LayoutAlignItems: =LayoutAlignItems.Stretch
+                        LayoutDirection: =LayoutDirection.Vertical
+                        LayoutGap: =20
+                        LayoutMinHeight: =0
+                        LayoutMinWidth: =0
+                        Width: =Min(1100, Parent.Width - 64)
+                      Children:
+                        - eqpTrilha:
+                            Control: GroupContainer
+                            Variant: AutoLayout
+                            Properties:
+                              AlignInContainer: =AlignInContainer.SetByContainer
+                              BorderThickness: =0
+                              DropShadow: =DropShadow.None
+                              FillPortions: =0
+                              Height: =16
+                              LayoutAlignItems: =LayoutAlignItems.Start
+                              LayoutDirection: =LayoutDirection.Horizontal
+                              LayoutGap: =4
+                              LayoutMinHeight: =0
+                              LayoutMinWidth: =0
+                            Children:
+                              - eqpTrilhaInicio:
+                                  Control: Label
+                                  Properties:
+                                    AutoHeight: =true
+                                    Color: =corTextoSec
+                                    FocusedBorderColor: =corTexto
+                                    FocusedBorderThickness: =2
+                                    Font: =Font.'Segoe UI'
+                                    FontWeight: =FontWeight.Normal
+                                    HoverColor: =corPrimaria
+                                    LayoutMinHeight: =0
+                                    LayoutMinWidth: =0
+                                    OnSelect: =Navigate(Menu, ScreenTransition.Fade)
+                                    PaddingBottom: =0
+                                    PaddingLeft: =0
+                                    PaddingRight: =0
+                                    PaddingTop: =0
+                                    Size: =9
+                                    TabIndex: =0
+                                    Text: ="Início"
+                                    Width: =36
+                                    Wrap: =true
+                              - eqpTrilhaSep:
+                                  Control: Label
+                                  Properties:
+                                    AutoHeight: =true
+                                    Color: =corTextoSec
+                                    FocusedBorderThickness: =0
+                                    Font: =Font.'Segoe UI'
+                                    FontWeight: =FontWeight.Normal
+                                    LayoutMinHeight: =0
+                                    LayoutMinWidth: =0
+                                    PaddingBottom: =0
+                                    PaddingLeft: =0
+                                    PaddingRight: =0
+                                    PaddingTop: =0
+                                    Size: =9
+                                    TabIndex: =-1
+                                    Text: ="/"
+                                    Width: =10
+                                    Wrap: =true
+                              - eqpTrilhaAtual:
+                                  Control: Label
+                                  Properties:
+                                    AutoHeight: =true
+                                    Color: =corTextoSec
+                                    FocusedBorderThickness: =0
+                                    Font: =Font.'Segoe UI'
+                                    FontWeight: =FontWeight.Normal
+                                    LayoutMinHeight: =0
+                                    LayoutMinWidth: =0
+                                    PaddingBottom: =0
+                                    PaddingLeft: =0
+                                    PaddingRight: =0
+                                    PaddingTop: =0
+                                    Size: =9
+                                    TabIndex: =-1
+                                    Text: ="Equipe"
+                                    Width: =250
+                                    Wrap: =true
+                        - eqpCabecalho:
+                            Control: GroupContainer
+                            Variant: AutoLayout
+                            Properties:
+                              AlignInContainer: =AlignInContainer.SetByContainer
+                              BorderThickness: =0
+                              DropShadow: =DropShadow.None
+                              FillPortions: =0
+                              Height: =56
+                              LayoutAlignItems: =LayoutAlignItems.Center
+                              LayoutDirection: =LayoutDirection.Horizontal
+                              LayoutGap: =16
+                              LayoutMinHeight: =0
+                              LayoutMinWidth: =0
+                            Children:
+                              - eqpCabecalhoTxt:
+                                  Control: GroupContainer
+                                  Variant: AutoLayout
+                                  Properties:
+                                    AlignInContainer: =AlignInContainer.SetByContainer
+                                    BorderThickness: =0
+                                    DropShadow: =DropShadow.None
+                                    FillPortions: =1
+                                    Height: =56
+                                    LayoutDirection: =LayoutDirection.Vertical
+                                    LayoutGap: =4
+                                    LayoutMinHeight: =0
+                                    LayoutMinWidth: =0
+                                  Children:
+                                    - eqpTitulo:
+                                        Control: Label
+                                        Properties:
+                                          AutoHeight: =true
+                                          Color: =corTexto
+                                          FocusedBorderThickness: =0
+                                          Font: =Font.'Segoe UI'
+                                          FontWeight: =FontWeight.Semibold
+                                          LayoutMinHeight: =0
+                                          LayoutMinWidth: =0
+                                          PaddingBottom: =0
+                                          PaddingLeft: =0
+                                          PaddingRight: =0
+                                          PaddingTop: =0
+                                          Size: =20
+                                          TabIndex: =-1
+                                          Text: ="Equipe do almoxarifado"
+                                          Wrap: =true
+                                    - eqpSubtitulo:
+                                        Control: Label
+                                        Properties:
+                                          AutoHeight: =true
+                                          Color: =corTextoSec
+                                          FocusedBorderThickness: =0
+                                          Font: =Font.'Segoe UI'
+                                          FontWeight: =FontWeight.Normal
+                                          LayoutMinHeight: =0
+                                          LayoutMinWidth: =0
+                                          PaddingBottom: =0
+                                          PaddingLeft: =0
+                                          PaddingRight: =0
+                                          PaddingTop: =0
+                                          Size: =10
+                                          TabIndex: =-1
+                                          Text: ="Gerencie quem atende e quem supervisiona cada almoxarifado."
+                                          Wrap: =true
+                        - eqpRestrito:
+                            Control: GroupContainer
+                            Variant: AutoLayout
+                            Properties:
+                              AlignInContainer: =AlignInContainer.SetByContainer
+                              BorderColor: =corBorda
+                              BorderThickness: =1
+                              DropShadow: =DropShadow.None
+                              Fill: =corCard
+                              FillPortions: =0
+                              Height: =90
+                              LayoutAlignItems: =LayoutAlignItems.Stretch
+                              LayoutDirection: =LayoutDirection.Vertical
+                              LayoutGap: =12
+                              LayoutMinHeight: =0
+                              LayoutMinWidth: =0
+                              PaddingBottom: =20
+                              PaddingLeft: =20
+                              PaddingRight: =20
+                              PaddingTop: =20
+                              RadiusBottomLeft: =10
+                              RadiusBottomRight: =10
+                              RadiusTopLeft: =10
+                              RadiusTopRight: =10
+                              Visible: =!varSupervisor
+                            Children:
+                              - eqpRestritoTitulo:
+                                  Control: Label
+                                  Properties:
+                                    AutoHeight: =true
+                                    Color: =corTexto
+                                    FocusedBorderThickness: =0
+                                    Font: =Font.'Segoe UI'
+                                    FontWeight: =FontWeight.Semibold
+                                    LayoutMinHeight: =0
+                                    LayoutMinWidth: =0
+                                    PaddingBottom: =0
+                                    PaddingLeft: =0
+                                    PaddingRight: =0
+                                    PaddingTop: =0
+                                    Size: =13
+                                    TabIndex: =-1
+                                    Text: ="Acesso restrito"
+                                    Wrap: =true
+                              - eqpRestritoTxt:
+                                  Control: Label
+                                  Properties:
+                                    AutoHeight: =true
+                                    Color: =corTextoSec
+                                    FocusedBorderThickness: =0
+                                    Font: =Font.'Segoe UI'
+                                    FontWeight: =FontWeight.Normal
+                                    LayoutMinHeight: =0
+                                    LayoutMinWidth: =0
+                                    PaddingBottom: =0
+                                    PaddingLeft: =0
+                                    PaddingRight: =0
+                                    PaddingTop: =0
+                                    Size: =10
+                                    TabIndex: =-1
+                                    Text: ="Somente supervisores podem gerenciar a equipe do almoxarifado."
+                                    Wrap: =true
+                        - eqpColunas:
+                            Control: GroupContainer
+                            Variant: AutoLayout
+                            Properties:
+                              AlignInContainer: =AlignInContainer.SetByContainer
+                              BorderThickness: =0
+                              DropShadow: =DropShadow.None
+                              FillPortions: =0
+                              Height: =420
+                              LayoutAlignItems: =LayoutAlignItems.Start
+                              LayoutDirection: =LayoutDirection.Horizontal
+                              LayoutGap: =20
+                              LayoutMinHeight: =0
+                              LayoutMinWidth: =0
+                              Visible: =varSupervisor
+                            Children:
+                              - eqpAdd:
+                                  Control: GroupContainer
+                                  Variant: AutoLayout
+                                  Properties:
+                                    AlignInContainer: =AlignInContainer.SetByContainer
+                                    BorderColor: =corBorda
+                                    BorderThickness: =1
+                                    DropShadow: =DropShadow.None
+                                    Fill: =corCard
+                                    FillPortions: =0
+                                    Height: =420
+                                    LayoutAlignItems: =LayoutAlignItems.Stretch
+                                    LayoutDirection: =LayoutDirection.Vertical
+                                    LayoutGap: =12
+                                    LayoutMinHeight: =0
+                                    LayoutMinWidth: =0
+                                    PaddingBottom: =20
+                                    PaddingLeft: =20
+                                    PaddingRight: =20
+                                    PaddingTop: =20
+                                    RadiusBottomLeft: =10
+                                    RadiusBottomRight: =10
+                                    RadiusTopLeft: =10
+                                    RadiusTopRight: =10
+                                    Width: =340
+                                  Children:
+                                    - eqpAddTitulo:
+                                        Control: Label
+                                        Properties:
+                                          AutoHeight: =true
+                                          Color: =corTexto
+                                          FocusedBorderThickness: =0
+                                          Font: =Font.'Segoe UI'
+                                          FontWeight: =FontWeight.Semibold
+                                          LayoutMinHeight: =0
+                                          LayoutMinWidth: =0
+                                          PaddingBottom: =0
+                                          PaddingLeft: =0
+                                          PaddingRight: =0
+                                          PaddingTop: =0
+                                          Size: =13
+                                          TabIndex: =-1
+                                          Text: ="Adicionar membro"
+                                          Wrap: =true
+                                    - eqpAddSub:
+                                        Control: Label
+                                        Properties:
+                                          AutoHeight: =true
+                                          Color: =corTextoSec
+                                          FocusedBorderThickness: =0
+                                          Font: =Font.'Segoe UI'
+                                          FontWeight: =FontWeight.Normal
+                                          LayoutMinHeight: =0
+                                          LayoutMinWidth: =0
+                                          PaddingBottom: =0
+                                          PaddingLeft: =0
+                                          PaddingRight: =0
+                                          PaddingTop: =0
+                                          Size: =9
+                                          TabIndex: =-1
+                                          Text: ="Dê acesso à fila de um almoxarifado."
+                                          Wrap: =true
+                                    - eqpAddUsuarioCampo:
+                                        Control: GroupContainer
+                                        Variant: AutoLayout
+                                        Properties:
+                                          AlignInContainer: =AlignInContainer.SetByContainer
+                                          BorderThickness: =0
+                                          DropShadow: =DropShadow.None
+                                          FillPortions: =1
+                                          Height: =62
+                                          LayoutAlignItems: =LayoutAlignItems.Stretch
+                                          LayoutDirection: =LayoutDirection.Vertical
+                                          LayoutGap: =6
+                                          LayoutMinHeight: =0
+                                          LayoutMinWidth: =0
+                                        Children:
+                                          - eqpAddUsuarioRotulo:
+                                              Control: Label
+                                              Properties:
+                                                AutoHeight: =true
+                                                Color: =corTexto
+                                                FocusedBorderThickness: =0
+                                                Font: =Font.'Segoe UI'
+                                                FontWeight: =FontWeight.Semibold
+                                                LayoutMinHeight: =0
+                                                LayoutMinWidth: =0
+                                                PaddingBottom: =0
+                                                PaddingLeft: =0
+                                                PaddingRight: =0
+                                                PaddingTop: =0
+                                                Size: =10
+                                                TabIndex: =-1
+                                                Text: ="Colaborador"
+                                                Wrap: =true
+                                          - cbSelecionarUsuario:
+                                              Control: Classic/ComboBox
+                                              Properties:
+                                                AccessibleLabel: ="Digite o nome do colaborador..."
+                                                BorderColor: =corBorda
+                                                BorderThickness: =1
+                                                ChevronBackground: =Color.White
+                                                ChevronFill: =corTextoSec
+                                                ChevronHoverBackground: =corFundo
+                                                ChevronHoverFill: =corPrimaria
+                                                Color: =corTexto
+                                                DisplayFields: =["DisplayName"]
+                                                Fill: =Color.White
+                                                Font: =Font.'Segoe UI'
+                                                Height: =36
+                                                HoverBorderColor: =corPrimaria
+                                                HoverFill: =Color.White
+                                                InputTextPlaceholder: ="Digite o nome do colaborador..."
+                                                IsSearchable: =true
+                                                Items: |-
+                                                  =// NA BRACELL troque a linha abaixo por:
+                                                  // Filter(UsuáriosdoOffice365.SearchUserV2({searchTerm: cbSelecionarUsuario.SearchText, top: 50}).value, Mail <> User().Email)
+                                                  Filter(colUsuariosBusca, IsBlank(cbSelecionarUsuario.SearchText) || StartsWith(DisplayName, cbSelecionarUsuario.SearchText))
+                                                LayoutMinWidth: =0
+                                                PressedColor: =corTexto
+                                                PressedFill: =Color.White
+                                                SearchFields: =["DisplayName"]
+                                                SelectMultiple: =false
+                                                SelectionColor: =corTexto
+                                                SelectionFill: =corPrimariaClara
+                                                Size: =10
+                                                TabIndex: =0
+                                    - eqpAddAlmoxCampo:
+                                        Control: GroupContainer
+                                        Variant: AutoLayout
+                                        Properties:
+                                          AlignInContainer: =AlignInContainer.SetByContainer
+                                          BorderThickness: =0
+                                          DropShadow: =DropShadow.None
+                                          FillPortions: =1
+                                          Height: =62
+                                          LayoutAlignItems: =LayoutAlignItems.Stretch
+                                          LayoutDirection: =LayoutDirection.Vertical
+                                          LayoutGap: =6
+                                          LayoutMinHeight: =0
+                                          LayoutMinWidth: =0
+                                        Children:
+                                          - eqpAddAlmoxRotulo:
+                                              Control: Label
+                                              Properties:
+                                                AutoHeight: =true
+                                                Color: =corTexto
+                                                FocusedBorderThickness: =0
+                                                Font: =Font.'Segoe UI'
+                                                FontWeight: =FontWeight.Semibold
+                                                LayoutMinHeight: =0
+                                                LayoutMinWidth: =0
+                                                PaddingBottom: =0
+                                                PaddingLeft: =0
+                                                PaddingRight: =0
+                                                PaddingTop: =0
+                                                Size: =10
+                                                TabIndex: =-1
+                                                Text: ="Almoxarifado"
+                                                Wrap: =true
+                                          - dropAlmoxarifado:
+                                              Control: Classic/ComboBox
+                                              Properties:
+                                                AccessibleLabel: ="Selecione o almoxarifado"
+                                                BorderColor: =corBorda
+                                                BorderThickness: =1
+                                                ChevronBackground: =Color.White
+                                                ChevronFill: =corTextoSec
+                                                ChevronHoverBackground: =corFundo
+                                                ChevronHoverFill: =corPrimaria
+                                                Color: =corTexto
+                                                DisplayFields: =["Value"]
+                                                Fill: =Color.White
+                                                Font: =Font.'Segoe UI'
+                                                Height: =36
+                                                HoverBorderColor: =corPrimaria
+                                                HoverFill: =Color.White
+                                                InputTextPlaceholder: ="Selecione o almoxarifado"
+                                                IsSearchable: =false
+                                                Items: =opcAlmoxarifado
+                                                LayoutMinWidth: =0
+                                                PressedColor: =corTexto
+                                                PressedFill: =Color.White
+                                                SearchFields: =["Value"]
+                                                SelectMultiple: =false
+                                                SelectionColor: =corTexto
+                                                SelectionFill: =corPrimariaClara
+                                                Size: =10
+                                                TabIndex: =0
+                                    - eqpAddPerfilCampo:
+                                        Control: GroupContainer
+                                        Variant: AutoLayout
+                                        Properties:
+                                          AlignInContainer: =AlignInContainer.SetByContainer
+                                          BorderThickness: =0
+                                          DropShadow: =DropShadow.None
+                                          FillPortions: =1
+                                          Height: =62
+                                          LayoutAlignItems: =LayoutAlignItems.Stretch
+                                          LayoutDirection: =LayoutDirection.Vertical
+                                          LayoutGap: =6
+                                          LayoutMinHeight: =0
+                                          LayoutMinWidth: =0
+                                        Children:
+                                          - eqpAddPerfilRotulo:
+                                              Control: Label
+                                              Properties:
+                                                AutoHeight: =true
+                                                Color: =corTexto
+                                                FocusedBorderThickness: =0
+                                                Font: =Font.'Segoe UI'
+                                                FontWeight: =FontWeight.Semibold
+                                                LayoutMinHeight: =0
+                                                LayoutMinWidth: =0
+                                                PaddingBottom: =0
+                                                PaddingLeft: =0
+                                                PaddingRight: =0
+                                                PaddingTop: =0
+                                                Size: =10
+                                                TabIndex: =-1
+                                                Text: ="Perfil"
+                                                Wrap: =true
+                                          - dropPerfil:
+                                              Control: Classic/ComboBox
+                                              Properties:
+                                                AccessibleLabel: ="Atendente ou supervisor"
+                                                BorderColor: =corBorda
+                                                BorderThickness: =1
+                                                ChevronBackground: =Color.White
+                                                ChevronFill: =corTextoSec
+                                                ChevronHoverBackground: =corFundo
+                                                ChevronHoverFill: =corPrimaria
+                                                Color: =corTexto
+                                                DisplayFields: =["Value"]
+                                                Fill: =Color.White
+                                                Font: =Font.'Segoe UI'
+                                                Height: =36
+                                                HoverBorderColor: =corPrimaria
+                                                HoverFill: =Color.White
+                                                InputTextPlaceholder: ="Atendente ou supervisor"
+                                                IsSearchable: =false
+                                                Items: =opcPerfil
+                                                LayoutMinWidth: =0
+                                                PressedColor: =corTexto
+                                                PressedFill: =Color.White
+                                                SearchFields: =["Value"]
+                                                SelectMultiple: =false
+                                                SelectionColor: =corTexto
+                                                SelectionFill: =corPrimariaClara
+                                                Size: =10
+                                                TabIndex: =0
+                                    - eqpAddDica:
+                                        Control: Label
+                                        Properties:
+                                          AutoHeight: =true
+                                          Color: =corTextoSec
+                                          FocusedBorderThickness: =0
+                                          Font: =Font.'Segoe UI'
+                                          FontWeight: =FontWeight.Normal
+                                          LayoutMinHeight: =0
+                                          LayoutMinWidth: =0
+                                          PaddingBottom: =0
+                                          PaddingLeft: =0
+                                          PaddingRight: =0
+                                          PaddingTop: =0
+                                          Size: =8
+                                          TabIndex: =-1
+                                          Text: |-
+                                            ="Atendente: separa pedidos e atualiza status. Supervisor: tudo isso + gerencia a equipe."
+                                          Wrap: =true
+                                    - eqpBtnAdicionar:
+                                        Control: Classic/Button
+                                        Properties:
+                                          AlignInContainer: =AlignInContainer.Stretch
+                                          BorderColor: =corPrimaria
+                                          BorderThickness: =1
+                                          Color: =Color.White
+                                          Fill: =corPrimaria
+                                          FocusedBorderColor: =corTexto
+                                          FocusedBorderThickness: =2
+                                          Font: =Font.'Segoe UI'
+                                          FontWeight: =FontWeight.Semibold
+                                          Height: =40
+                                          HoverBorderColor: =corPrimariaHover
+                                          HoverColor: =Color.White
+                                          HoverFill: =corPrimariaHover
+                                          OnSelect: |-
+                                            =If(
+                                                IsBlank(dropAlmoxarifado.Selected.Value)
+                                                || IsBlank(cbSelecionarUsuario.Selected.Mail)
+                                                || IsBlank(dropPerfil.Selected.Value),
+                                                Notify("Selecione o colaborador, o almoxarifado e o perfil.", NotificationType.Error),
+
+                                                !IsBlank(LookUp(colColabAlmoxarifado, colab.Email = cbSelecionarUsuario.Selected.Mail && almoxarifado.Value = dropAlmoxarifado.Selected.Value && Perfil = dropPerfil.Selected.Value)),
+                                                Notify("Esse colaborador já tem esse perfil neste almoxarifado.", NotificationType.Warning),
+
+                                                // Perfil: supervisor -> lista 'supervisores'
+                                                Lower(dropPerfil.Selected.Value) = "supervisor",
+                                                Patch(
+                                                    supervisores,
+                                                    Defaults(supervisores),
+                                                    {
+                                                        almoxarifado: { Value: dropAlmoxarifado.Selected.Value },
+                                                        colab: {
+                                                            '@odata.type': "#Microsoft.Azure.Connectors.SharePoint.SPListExpandedUser",
+                                                            Claims: "i:0#.f|membership|" & Lower(cbSelecionarUsuario.Selected.Mail),
+                                                            DisplayName: cbSelecionarUsuario.Selected.DisplayName,
+                                                            Email: cbSelecionarUsuario.Selected.Mail,
+                                                            Department: cbSelecionarUsuario.Selected.Department,
+                                                            JobTitle: cbSelecionarUsuario.Selected.JobTitle,
+                                                            Picture: ""
+                                                        }
+                                                    }
+                                                );
+                                                Notify("Registro enviado com sucesso.", NotificationType.Success),
+
+                                                // Senão: atendente -> lista 'atendentes'
+                                                Patch(
+                                                    atendentes,
+                                                    Defaults(atendentes),
+                                                    {
+                                                        almoxarifado: { Value: dropAlmoxarifado.Selected.Value },
+                                                        colab: {
+                                                            '@odata.type': "#Microsoft.Azure.Connectors.SharePoint.SPListExpandedUser",
+                                                            Claims: "i:0#.f|membership|" & Lower(cbSelecionarUsuario.Selected.Mail),
+                                                            DisplayName: cbSelecionarUsuario.Selected.DisplayName,
+                                                            Email: cbSelecionarUsuario.Selected.Mail,
+                                                            Department: cbSelecionarUsuario.Selected.Department,
+                                                            JobTitle: cbSelecionarUsuario.Selected.JobTitle,
+                                                            Picture: ""
+                                                        }
+                                                    }
+                                                );
+                                                Notify("Registro enviado com sucesso.", NotificationType.Success)
+                                            );
+                                            Reset(dropAlmoxarifado);
+                                            Reset(cbSelecionarUsuario);
+                                            Reset(dropPerfil);
+                                            ClearCollect(
+                                                colColabAlmoxarifado,
+                                                AddColumns(
+                                                    ShowColumns(atendentes, colab, almoxarifado),
+                                                    Perfil, "Atendente"
+                                                )
+                                            );
+                                            Collect(
+                                                colColabAlmoxarifado,
+                                                AddColumns(
+                                                    ShowColumns(supervisores, colab, almoxarifado),
+                                                    Perfil, "Supervisor"
+                                                )
+                                            );
+                                            Set(varAtendenteAlmo, LookUp(atendentes, colab.Email = User().Email));
+                                            Set(varSupervisorAlmo, LookUp(supervisores, colab.Email = User().Email));
+                                            Set(varAtendente, !IsBlank(varAtendenteAlmo));
+                                            Set(varSupervisor, !IsBlank(varSupervisorAlmo));
+                                            Set(varAlmoxUsuario, If(varAtendente, varAtendenteAlmo.almoxarifado, varSupervisor, varSupervisorAlmo.almoxarifado, Blank()))
+                                          PressedBorderColor: =corPrimaria
+                                          PressedColor: =Color.White
+                                          PressedFill: =corPrimariaHover
+                                          RadiusBottomLeft: =6
+                                          RadiusBottomRight: =6
+                                          RadiusTopLeft: =6
+                                          RadiusTopRight: =6
+                                          Size: =10
+                                          Text: ="+  Adicionar à equipe"
+                                          Width: =0
+                              - eqpLista:
+                                  Control: GroupContainer
+                                  Variant: AutoLayout
+                                  Properties:
+                                    AlignInContainer: =AlignInContainer.SetByContainer
+                                    BorderColor: =corBorda
+                                    BorderThickness: =1
+                                    DropShadow: =DropShadow.None
+                                    Fill: =corCard
+                                    FillPortions: =1
+                                    Height: =420
+                                    LayoutAlignItems: =LayoutAlignItems.Stretch
+                                    LayoutDirection: =LayoutDirection.Vertical
+                                    LayoutGap: =12
+                                    LayoutMinHeight: =0
+                                    LayoutMinWidth: =0
+                                    PaddingBottom: =20
+                                    PaddingLeft: =20
+                                    PaddingRight: =20
+                                    PaddingTop: =20
+                                    RadiusBottomLeft: =10
+                                    RadiusBottomRight: =10
+                                    RadiusTopLeft: =10
+                                    RadiusTopRight: =10
+                                  Children:
+                                    - eqpListaTopo:
+                                        Control: GroupContainer
+                                        Variant: AutoLayout
+                                        Properties:
+                                          AlignInContainer: =AlignInContainer.SetByContainer
+                                          BorderThickness: =0
+                                          DropShadow: =DropShadow.None
+                                          FillPortions: =0
+                                          Height: =40
+                                          LayoutAlignItems: =LayoutAlignItems.Center
+                                          LayoutDirection: =LayoutDirection.Horizontal
+                                          LayoutGap: =12
+                                          LayoutMinHeight: =0
+                                          LayoutMinWidth: =0
+                                        Children:
+                                          - eqpListaTopoTxt:
+                                              Control: GroupContainer
+                                              Variant: AutoLayout
+                                              Properties:
+                                                AlignInContainer: =AlignInContainer.SetByContainer
+                                                BorderThickness: =0
+                                                DropShadow: =DropShadow.None
+                                                FillPortions: =1
+                                                Height: =40
+                                                LayoutDirection: =LayoutDirection.Vertical
+                                                LayoutGap: =2
+                                                LayoutMinHeight: =0
+                                                LayoutMinWidth: =0
+                                              Children:
+                                                - eqpListaTitulo:
+                                                    Control: Label
+                                                    Properties:
+                                                      AutoHeight: =true
+                                                      Color: =corTexto
+                                                      FocusedBorderThickness: =0
+                                                      Font: =Font.'Segoe UI'
+                                                      FontWeight: =FontWeight.Semibold
+                                                      LayoutMinHeight: =0
+                                                      LayoutMinWidth: =0
+                                                      PaddingBottom: =0
+                                                      PaddingLeft: =0
+                                                      PaddingRight: =0
+                                                      PaddingTop: =0
+                                                      Size: =13
+                                                      TabIndex: =-1
+                                                      Text: ="Membros da equipe"
+                                                      Wrap: =true
+                                                - eqpListaSub:
+                                                    Control: Label
+                                                    Properties:
+                                                      AutoHeight: =true
+                                                      Color: =corTextoSec
+                                                      FocusedBorderThickness: =0
+                                                      Font: =Font.'Segoe UI'
+                                                      FontWeight: =FontWeight.Normal
+                                                      LayoutMinHeight: =0
+                                                      LayoutMinWidth: =0
+                                                      PaddingBottom: =0
+                                                      PaddingLeft: =0
+                                                      PaddingRight: =0
+                                                      PaddingTop: =0
+                                                      Size: =9
+                                                      TabIndex: =-1
+                                                      Text: =eqpGal.AllItemsCount & " membro(s)"
+                                                      Wrap: =true
+                                          - txtBuscarEquipe:
+                                              Control: Classic/TextInput
+                                              Properties:
+                                                AccessibleLabel: ="Buscar por nome ou e-mail"
+                                                BorderColor: =corBorda
+                                                BorderThickness: =1
+                                                Color: =corTexto
+                                                Default: =""
+                                                DisabledBorderColor: =corBorda
+                                                DisabledColor: =corTextoSec
+                                                DisabledFill: =corFundo
+                                                Fill: =Color.White
+                                                FocusedBorderColor: =corPrimaria
+                                                FocusedBorderThickness: =2
+                                                Font: =Font.'Segoe UI'
+                                                Height: =36
+                                                HintText: ="Buscar por nome ou e-mail"
+                                                HoverBorderColor: =corPrimaria
+                                                HoverFill: =Color.White
+                                                LayoutMinWidth: =0
+                                                PaddingLeft: =10
+                                                RadiusBottomLeft: =6
+                                                RadiusBottomRight: =6
+                                                RadiusTopLeft: =6
+                                                RadiusTopRight: =6
+                                                Size: =10
+                                                TabIndex: =0
+                                                Width: =220
+                                          - cbFiltroAlmoxEquipe:
+                                              Control: Classic/ComboBox
+                                              Properties:
+                                                AccessibleLabel: ="Todos os almoxarifados"
+                                                BorderColor: =corBorda
+                                                BorderThickness: =1
+                                                ChevronBackground: =Color.White
+                                                ChevronFill: =corTextoSec
+                                                ChevronHoverBackground: =corFundo
+                                                ChevronHoverFill: =corPrimaria
+                                                Color: =corTexto
+                                                DisplayFields: =["Value"]
+                                                Fill: =Color.White
+                                                Font: =Font.'Segoe UI'
+                                                Height: =36
+                                                HoverBorderColor: =corPrimaria
+                                                HoverFill: =Color.White
+                                                InputTextPlaceholder: ="Todos os almoxarifados"
+                                                IsSearchable: =false
+                                                Items: =opcAlmoxarifado
+                                                LayoutMinWidth: =0
+                                                PressedColor: =corTexto
+                                                PressedFill: =Color.White
+                                                SearchFields: =["Value"]
+                                                SelectMultiple: =false
+                                                SelectionColor: =corTexto
+                                                SelectionFill: =corPrimariaClara
+                                                Size: =10
+                                                TabIndex: =0
+                                                Width: =210
+                                    - eqpVazio:
+                                        Control: Label
+                                        Properties:
+                                          Align: =Align.Center
+                                          AutoHeight: =false
+                                          Color: =corTextoSec
+                                          FocusedBorderThickness: =0
+                                          Font: =Font.'Segoe UI'
+                                          FontWeight: =FontWeight.Normal
+                                          Height: =60
+                                          LayoutMinHeight: =0
+                                          LayoutMinWidth: =0
+                                          PaddingBottom: =0
+                                          PaddingLeft: =0
+                                          PaddingRight: =0
+                                          PaddingTop: =0
+                                          Size: =10
+                                          TabIndex: =-1
+                                          Text: ="Nenhum membro encontrado."
+                                          VerticalAlign: =VerticalAlign.Middle
+                                          Visible: =eqpGal.AllItemsCount = 0
+                                          Wrap: =true
+                                    - eqpGal:
+                                        Control: Gallery
+                                        Variant: Vertical
+                                        Properties:
+                                          AccessibleLabel: ="Membros da equipe"
+                                          BorderThickness: =0
+                                          FillPortions: =1
+                                          FocusedBorderColor: =corPrimaria
+                                          FocusedBorderThickness: =2
+                                          Items: |-
+                                            =Sort(
+                                                Filter(
+                                                    colColabAlmoxarifado,
+                                                    IsBlank(txtBuscarEquipe.Text) || StartsWith(colab.DisplayName, txtBuscarEquipe.Text) || StartsWith(colab.Email, txtBuscarEquipe.Text),
+                                                    IsBlank(cbFiltroAlmoxEquipe.Selected.Value) || almoxarifado.Value = cbFiltroAlmoxEquipe.Selected.Value
+                                                ),
+                                                colab.DisplayName
+                                            )
+                                          LayoutMinHeight: =0
+                                          LayoutMinWidth: =0
+                                          TabIndex: =0
+                                          TemplatePadding: =0
+                                          TemplateSize: =57
+                                        Children:
+                                          - eqpGalLinha:
+                                              Control: GroupContainer
+                                              Variant: AutoLayout
+                                              Properties:
+                                                BorderThickness: =0
+                                                DropShadow: =DropShadow.None
+                                                Height: =56
+                                                LayoutAlignItems: =LayoutAlignItems.Center
+                                                LayoutDirection: =LayoutDirection.Horizontal
+                                                LayoutGap: =12
+                                                PaddingBottom: =0
+                                                PaddingLeft: =12
+                                                PaddingRight: =12
+                                                PaddingTop: =0
+                                                Width: =Parent.TemplateWidth
+                                                X: =0
+                                                Y: =0
+                                              Children:
+                                                - eqpGalAvatar:
+                                                    Control: GroupContainer
+                                                    Variant: AutoLayout
+                                                    Properties:
+                                                      AlignInContainer: =AlignInContainer.SetByContainer
+                                                      BorderThickness: =0
+                                                      DropShadow: =DropShadow.None
+                                                      Fill: =corPrimariaClara
+                                                      FillPortions: =0
+                                                      Height: =34
+                                                      LayoutDirection: =LayoutDirection.Horizontal
+                                                      LayoutGap: =0
+                                                      LayoutMinHeight: =0
+                                                      LayoutMinWidth: =0
+                                                      RadiusBottomLeft: =17
+                                                      RadiusBottomRight: =17
+                                                      RadiusTopLeft: =17
+                                                      RadiusTopRight: =17
+                                                      Width: =34
+                                                    Children:
+                                                      - eqpGalAvatarTxt:
+                                                          Control: Label
+                                                          Properties:
+                                                            Align: =Align.Center
+                                                            AutoHeight: =false
+                                                            Color: =corPrimaria
+                                                            FillPortions: =1
+                                                            FocusedBorderThickness: =0
+                                                            Font: =Font.'Segoe UI'
+                                                            FontWeight: =FontWeight.Semibold
+                                                            Height: =34
+                                                            LayoutMinHeight: =0
+                                                            LayoutMinWidth: =0
+                                                            PaddingBottom: =0
+                                                            PaddingLeft: =0
+                                                            PaddingRight: =0
+                                                            PaddingTop: =0
+                                                            Size: =9
+                                                            TabIndex: =-1
+                                                            Text: =Upper(Left(ThisItem.colab.DisplayName, 1) & Left(Last(Split(ThisItem.colab.DisplayName, " ")).Value, 1))
+                                                            VerticalAlign: =VerticalAlign.Middle
+                                                            Wrap: =true
+                                                - eqpGalPessoa:
+                                                    Control: GroupContainer
+                                                    Variant: AutoLayout
+                                                    Properties:
+                                                      AlignInContainer: =AlignInContainer.SetByContainer
+                                                      BorderThickness: =0
+                                                      DropShadow: =DropShadow.None
+                                                      FillPortions: =1
+                                                      Height: =40
+                                                      LayoutDirection: =LayoutDirection.Vertical
+                                                      LayoutGap: =2
+                                                      LayoutJustifyContent: =LayoutJustifyContent.Center
+                                                      LayoutMinHeight: =0
+                                                      LayoutMinWidth: =0
+                                                    Children:
+                                                      - eqpGalNome:
+                                                          Control: Label
+                                                          Properties:
+                                                            AutoHeight: =true
+                                                            Color: =corTexto
+                                                            FocusedBorderThickness: =0
+                                                            Font: =Font.'Segoe UI'
+                                                            FontWeight: =FontWeight.Semibold
+                                                            LayoutMinHeight: =0
+                                                            LayoutMinWidth: =0
+                                                            PaddingBottom: =0
+                                                            PaddingLeft: =0
+                                                            PaddingRight: =0
+                                                            PaddingTop: =0
+                                                            Size: =10
+                                                            TabIndex: =-1
+                                                            Text: =ThisItem.colab.DisplayName
+                                                            Wrap: =false
+                                                      - eqpGalEmail:
+                                                          Control: Label
+                                                          Properties:
+                                                            AutoHeight: =true
+                                                            Color: =corTextoSec
+                                                            FocusedBorderThickness: =0
+                                                            Font: =Font.'Segoe UI'
+                                                            FontWeight: =FontWeight.Normal
+                                                            LayoutMinHeight: =0
+                                                            LayoutMinWidth: =0
+                                                            PaddingBottom: =0
+                                                            PaddingLeft: =0
+                                                            PaddingRight: =0
+                                                            PaddingTop: =0
+                                                            Size: =9
+                                                            TabIndex: =-1
+                                                            Text: =ThisItem.colab.Email
+                                                            Wrap: =false
+                                                - eqpGalAlmox:
+                                                    Control: Label
+                                                    Properties:
+                                                      AutoHeight: =false
+                                                      Color: =corTexto
+                                                      FocusedBorderThickness: =0
+                                                      Font: =Font.'Segoe UI'
+                                                      FontWeight: =FontWeight.Normal
+                                                      Height: =56
+                                                      LayoutMinHeight: =0
+                                                      LayoutMinWidth: =0
+                                                      PaddingBottom: =0
+                                                      PaddingLeft: =0
+                                                      PaddingRight: =0
+                                                      PaddingTop: =0
+                                                      Size: =10
+                                                      TabIndex: =-1
+                                                      Text: =ThisItem.almoxarifado.Value
+                                                      VerticalAlign: =VerticalAlign.Middle
+                                                      Width: =180
+                                                      Wrap: =true
+                                                - eqpGalPerfilChip:
+                                                    Control: GroupContainer
+                                                    Variant: AutoLayout
+                                                    Properties:
+                                                      AlignInContainer: =AlignInContainer.SetByContainer
+                                                      BorderThickness: =0
+                                                      DropShadow: =DropShadow.None
+                                                      Fill: =If(ThisItem.Perfil = "Supervisor", RGBA(240, 232, 252, 1), corPrimariaClara)
+                                                      FillPortions: =0
+                                                      Height: =24
+                                                      LayoutAlignItems: =LayoutAlignItems.Center
+                                                      LayoutDirection: =LayoutDirection.Horizontal
+                                                      LayoutGap: =0
+                                                      LayoutJustifyContent: =LayoutJustifyContent.Center
+                                                      LayoutMinHeight: =0
+                                                      LayoutMinWidth: =0
+                                                      PaddingBottom: =0
+                                                      PaddingLeft: =10
+                                                      PaddingRight: =10
+                                                      PaddingTop: =0
+                                                      RadiusBottomLeft: =12
+                                                      RadiusBottomRight: =12
+                                                      RadiusTopLeft: =12
+                                                      RadiusTopRight: =12
+                                                      Width: =100
+                                                    Children:
+                                                      - eqpGalPerfilChipTxt:
+                                                          Control: Label
+                                                          Properties:
+                                                            Align: =Align.Center
+                                                            AutoHeight: =false
+                                                            Color: =If(ThisItem.Perfil = "Supervisor", RGBA(98, 60, 160, 1), corPrimaria)
+                                                            FillPortions: =1
+                                                            FocusedBorderThickness: =0
+                                                            Font: =Font.'Segoe UI'
+                                                            FontWeight: =FontWeight.Semibold
+                                                            Height: =24
+                                                            LayoutMinHeight: =0
+                                                            LayoutMinWidth: =0
+                                                            PaddingBottom: =0
+                                                            PaddingLeft: =0
+                                                            PaddingRight: =0
+                                                            PaddingTop: =0
+                                                            Size: =9
+                                                            TabIndex: =-1
+                                                            Text: =ThisItem.Perfil
+                                                            VerticalAlign: =VerticalAlign.Middle
+                                                            Wrap: =true
+                                                - eqpGalRemover:
+                                                    Control: Classic/Button
+                                                    Properties:
+                                                      BorderColor: =corBorda
+                                                      BorderThickness: =1
+                                                      Color: =corErro
+                                                      Fill: =Color.White
+                                                      FocusedBorderColor: =corTexto
+                                                      FocusedBorderThickness: =2
+                                                      Font: =Font.'Segoe UI'
+                                                      FontWeight: =FontWeight.Semibold
+                                                      Height: =32
+                                                      HoverBorderColor: =corErro
+                                                      HoverColor: =corErro
+                                                      HoverFill: =corErroClaro
+                                                      OnSelect: |-
+                                                        =UpdateContext({locRemover: ThisItem, locConfirmar: true})
+                                                      PressedBorderColor: =corBorda
+                                                      PressedColor: =corErro
+                                                      PressedFill: =corBorda
+                                                      RadiusBottomLeft: =6
+                                                      RadiusBottomRight: =6
+                                                      RadiusTopLeft: =6
+                                                      RadiusTopRight: =6
+                                                      Size: =10
+                                                      Text: ="Remover"
+                                                      Width: =90
+                                          - eqpGalDivisor:
+                                              Control: Rectangle
+                                              Properties:
+                                                Fill: =corBorda
+                                                FocusedBorderThickness: =0
+                                                Height: =1
+                                                TabIndex: =-1
+                                                Width: =Parent.TemplateWidth - 24
+                                                X: =12
+                                                Y: =56
+      - eqpConfOverlay:
+          Control: Rectangle
+          Properties:
+            AccessibleLabel: ="Fechar"
+            Fill: =RGBA(15, 23, 42, 0.45)
+            FocusedBorderColor: =corTexto
+            FocusedBorderThickness: =2
+            Height: =Parent.Height
+            OnSelect: |-
+              =UpdateContext({locConfirmar: false})
+            TabIndex: =0
+            Visible: =locConfirmar
+            Width: =Parent.Width
+            X: =0
+            Y: =0
+      - eqpConf:
+          Control: GroupContainer
+          Variant: AutoLayout
+          Properties:
+            BorderColor: =corBorda
+            BorderThickness: =1
+            DropShadow: =DropShadow.ExtraBold
+            Fill: =corCard
+            Height: =170
+            LayoutAlignItems: =LayoutAlignItems.Stretch
+            LayoutDirection: =LayoutDirection.Vertical
+            LayoutGap: =14
+            PaddingBottom: =20
+            PaddingLeft: =20
+            PaddingRight: =20
+            PaddingTop: =20
+            RadiusBottomLeft: =10
+            RadiusBottomRight: =10
+            RadiusTopLeft: =10
+            RadiusTopRight: =10
+            Visible: =locConfirmar
+            Width: =420
+            X: =(Parent.Width - Self.Width) / 2
+            Y: =(Parent.Height - Self.Height) / 2
+          Children:
+            - eqpConfTitulo:
+                Control: Label
+                Properties:
+                  AutoHeight: =true
+                  Color: =corTexto
+                  FocusedBorderThickness: =0
+                  Font: =Font.'Segoe UI'
+                  FontWeight: =FontWeight.Semibold
+                  LayoutMinHeight: =0
+                  LayoutMinWidth: =0
+                  PaddingBottom: =0
+                  PaddingLeft: =0
+                  PaddingRight: =0
+                  PaddingTop: =0
+                  Size: =14
+                  TabIndex: =-1
+                  Text: ="Remover membro?"
+                  Wrap: =true
+            - eqpConfTxt:
+                Control: Label
+                Properties:
+                  AutoHeight: =true
+                  Color: =corTextoSec
+                  FocusedBorderThickness: =0
+                  Font: =Font.'Segoe UI'
+                  FontWeight: =FontWeight.Normal
+                  LayoutMinHeight: =0
+                  LayoutMinWidth: =0
+                  PaddingBottom: =0
+                  PaddingLeft: =0
+                  PaddingRight: =0
+                  PaddingTop: =0
+                  Size: =10
+                  TabIndex: =-1
+                  Text: =locRemover.colab.DisplayName & " deixará de ser " & Lower(locRemover.Perfil) & " do " & locRemover.almoxarifado.Value & "."
+                  Wrap: =true
+            - eqpConfBotoes:
+                Control: GroupContainer
+                Variant: AutoLayout
+                Properties:
+                  AlignInContainer: =AlignInContainer.SetByContainer
+                  BorderThickness: =0
+                  DropShadow: =DropShadow.None
+                  FillPortions: =0
+                  Height: =38
+                  LayoutAlignItems: =LayoutAlignItems.Start
+                  LayoutDirection: =LayoutDirection.Horizontal
+                  LayoutGap: =10
+                  LayoutMinHeight: =0
+                  LayoutMinWidth: =0
+                Children:
+                  - eqpConfEsp:
+                      Control: Label
+                      Properties:
+                        AutoHeight: =false
+                        FillPortions: =1
+                        FocusedBorderThickness: =0
+                        Height: =1
+                        LayoutMinHeight: =0
+                        LayoutMinWidth: =0
+                        TabIndex: =-1
+                        Text: =""
+                        Width: =1
+                  - eqpConfCancelar:
+                      Control: Classic/Button
+                      Properties:
+                        BorderColor: =corBorda
+                        BorderThickness: =1
+                        Color: =corPrimaria
+                        Fill: =Color.White
+                        FocusedBorderColor: =corTexto
+                        FocusedBorderThickness: =2
+                        Font: =Font.'Segoe UI'
+                        FontWeight: =FontWeight.Semibold
+                        Height: =38
+                        HoverBorderColor: =corPrimaria
+                        HoverColor: =corPrimaria
+                        HoverFill: =corFundo
+                        OnSelect: |-
+                          =UpdateContext({locConfirmar: false})
+                        PressedBorderColor: =corBorda
+                        PressedColor: =corPrimaria
+                        PressedFill: =corBorda
+                        RadiusBottomLeft: =6
+                        RadiusBottomRight: =6
+                        RadiusTopLeft: =6
+                        RadiusTopRight: =6
+                        Size: =10
+                        Text: ="Cancelar"
+                        Width: =110
+                  - eqpConfRemover:
+                      Control: Classic/Button
+                      Properties:
+                        BorderColor: =corErro
+                        BorderThickness: =1
+                        Color: =Color.White
+                        Fill: =corErro
+                        FocusedBorderColor: =corTexto
+                        FocusedBorderThickness: =2
+                        Font: =Font.'Segoe UI'
+                        FontWeight: =FontWeight.Semibold
+                        Height: =38
+                        HoverBorderColor: =corErro
+                        HoverColor: =Color.White
+                        HoverFill: =ColorFade(corErro, -15%)
+                        OnSelect: |-
+                          =If(
+                              locRemover.Perfil = "Atendente",
+                              Remove(
+                                  atendentes,
+                                  LookUp(
+                                      atendentes,
+                                      colab.Email = locRemover.colab.Email && almoxarifado.Value = locRemover.almoxarifado.Value
+                                  )
+                              ),
+                              Remove(
+                                  supervisores,
+                                  LookUp(
+                                      supervisores,
+                                      colab.Email = locRemover.colab.Email && almoxarifado.Value = locRemover.almoxarifado.Value
+                                  )
+                              )
+                          );
+                          UpdateContext({locConfirmar: false});
+                          ClearCollect(
+                              colColabAlmoxarifado,
+                              AddColumns(
+                                  ShowColumns(atendentes, colab, almoxarifado),
+                                  Perfil, "Atendente"
+                              )
+                          );
+                          Collect(
+                              colColabAlmoxarifado,
+                              AddColumns(
+                                  ShowColumns(supervisores, colab, almoxarifado),
+                                  Perfil, "Supervisor"
+                              )
+                          );
+                          Set(varAtendenteAlmo, LookUp(atendentes, colab.Email = User().Email));
+                          Set(varSupervisorAlmo, LookUp(supervisores, colab.Email = User().Email));
+                          Set(varAtendente, !IsBlank(varAtendenteAlmo));
+                          Set(varSupervisor, !IsBlank(varSupervisorAlmo));
+                          Set(varAlmoxUsuario, If(varAtendente, varAtendenteAlmo.almoxarifado, varSupervisor, varSupervisorAlmo.almoxarifado, Blank()));
+                          Notify("Membro removido.", NotificationType.Success)
+                        PressedBorderColor: =corErro
+                        PressedColor: =Color.White
+                        PressedFill: =ColorFade(corErro, -25%)
+                        RadiusBottomLeft: =6
+                        RadiusBottomRight: =6
+                        RadiusTopLeft: =6
+                        RadiusTopRight: =6
+                        Size: =10
+                        Text: ="Remover"
+                        Width: =110

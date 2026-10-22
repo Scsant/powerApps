@@ -1,0 +1,85 @@
+App:
+  Properties:
+    Formulas: |-
+      =// ---------- Cores (protótipo Portal do Almoxarifado) ----------
+      corHeader = ColorValue("#2432C8");
+      corBanner = ColorValue("#4F68D2");
+      corBannerCard = ColorValue("#0F4F99");
+      corPrimaria = ColorValue("#1565A8");
+      corPrimariaHover = ColorValue("#0F4F87");
+      corPrimariaClara = ColorValue("#E6F0FA");
+      corFundo = ColorValue("#F3F6FA");
+      corCard = Color.White;
+      corBorda = ColorValue("#E1E6EE");
+      corTexto = ColorValue("#1B2B48");
+      corTextoSec = ColorValue("#5B6B82");
+      corSucesso = ColorValue("#1E8E4F");
+      corSucessoClaro = ColorValue("#E5F5EC");
+      corErro = ColorValue("#C0392B");
+      corErroClaro = ColorValue("#FDECEA");
+
+      // ---------- Usuário ----------
+      fxPrimeiroNome = Proper(First(Split(User().FullName, " ")).Value);
+      fxNomeCurto = Proper(First(Split(User().FullName, " ")).Value & " " & Last(Split(User().FullName, " ")).Value);
+      fxIniciais = Upper(Left(First(Split(User().FullName, " ")).Value, 1) & Left(Last(Split(User().FullName, " ")).Value, 1));
+
+      // ---------- Opções das colunas Choice ----------
+      // NA BRACELL: troque cada Table(...) pela fórmula comentada na linha de cima.
+      // Choices(soliMateriais.area)
+      opcArea = Table({Value: "Manutenção"}, {Value: "Produção"}, {Value: "Logística"});
+      // Choices(soliMateriais.unidadeNegocios)
+      opcUnidadeNegocios = Table({Value: "Celulose"}, {Value: "Florestal"}, {Value: "Energia"});
+      // Choices(soliMateriais.almoxarifado)
+      opcAlmoxarifado = Table({Value: "Almoxarifado Central"}, {Value: "Almoxarifado Fábrica"}, {Value: "Almoxarifado Florestal"});
+      // Choices(soliMateriais.tipoReservaSap)
+      opcTipoReserva = Table({Value: "Retirada"}, {Value: "Atendimento"}, {Value: "Delivery"});
+      // Choices(soliMateriais.janelaHorarioRetirada)
+      opcJanelaHorario = Table({Value: "07:00 - 09:00"}, {Value: "09:00 - 11:00"}, {Value: "13:00 - 15:00"}, {Value: "15:00 - 17:00"});
+      // Choices(soliMateriais.status)
+      opcStatus = Table({Value: "Aguardando Separação"}, {Value: "Em Separação"}, {Value: "Pronto para Retirada"}, {Value: "Finalizado"}, {Value: "Cancelado"});
+      // Choices(atendentes.almoxarifado)  (perfis não são lista: mantenha como está)
+      opcPerfil = Table({Value: "Atendente"}, {Value: "Supervisor"});
+    OnStart: |-
+      =// ===== MOCK INÍCIO (apagar na Bracell: as listas reais substituem estas coleções) =====
+      With(
+          {
+              pEu: {'@odata.type': "#Microsoft.Azure.Connectors.SharePoint.SPListExpandedUser", Claims: "i:0#.f|membership|" & Lower(User().Email), DisplayName: User().FullName, Email: User().Email, Department: "", JobTitle: "", Picture: ""},
+              pAna: {'@odata.type': "#Microsoft.Azure.Connectors.SharePoint.SPListExpandedUser", Claims: "i:0#.f|membership|ana.souza@exemplo.com", DisplayName: "Ana Souza", Email: "ana.souza@exemplo.com", Department: "Almoxarifado", JobTitle: "Atendente", Picture: ""},
+              pBruno: {'@odata.type': "#Microsoft.Azure.Connectors.SharePoint.SPListExpandedUser", Claims: "i:0#.f|membership|bruno.lima@exemplo.com", DisplayName: "Bruno Lima", Email: "bruno.lima@exemplo.com", Department: "Manutenção", JobTitle: "Mecânico", Picture: ""}
+          },
+          ClearCollect(
+              soliMateriais,
+              {ID: 1, Criado: DateAdd(Now(), -3, TimeUnit.Days), solicitante: pEu, matricula: 12345678, unidadeNegocios: {Value: "Celulose"}, area: {Value: "Manutenção"}, almoxarifado: {Value: "Almoxarifado Central"}, contato: 11987654321, reservaSap: 4500123, tipoReservaSap: {Value: "Retirada"}, dataRetirada: DateAdd(Today(), 1, TimeUnit.Days), janelaHorarioRetirada: {Value: "09:00 - 11:00"}, observacao: "Retirar no balcão 2.", status: {Value: "Aguardando Separação"}, atendente: Blank(), dataAtendimento: Blank(), ultimaAlteracao: DateAdd(Now(), -3, TimeUnit.Days), comentario: ""},
+              {ID: 2, Criado: DateAdd(Now(), -5, TimeUnit.Days), solicitante: pEu, matricula: 12345678, unidadeNegocios: {Value: "Celulose"}, area: {Value: "Produção"}, almoxarifado: {Value: "Almoxarifado Central"}, contato: 11987654321, reservaSap: 4500098, tipoReservaSap: {Value: "Delivery"}, dataRetirada: DateAdd(Today(), 2, TimeUnit.Days), janelaHorarioRetirada: Blank(), observacao: "", status: {Value: "Em Separação"}, atendente: pAna, dataAtendimento: DateAdd(Now(), -1, TimeUnit.Days), ultimaAlteracao: DateAdd(Now(), -1, TimeUnit.Days), comentario: "Separando os itens."},
+              {ID: 3, Criado: DateAdd(Now(), -9, TimeUnit.Days), solicitante: pEu, matricula: 12345678, unidadeNegocios: {Value: "Energia"}, area: {Value: "Logística"}, almoxarifado: {Value: "Almoxarifado Fábrica"}, contato: 11987654321, reservaSap: 4499876, tipoReservaSap: {Value: "Atendimento"}, dataRetirada: Blank(), janelaHorarioRetirada: Blank(), observacao: "", status: {Value: "Finalizado"}, atendente: pAna, dataAtendimento: DateAdd(Now(), -8, TimeUnit.Days), ultimaAlteracao: DateAdd(Now(), -8, TimeUnit.Days), comentario: "Entregue ao solicitante."},
+              {ID: 4, Criado: DateAdd(Now(), -1, TimeUnit.Days), solicitante: pBruno, matricula: 87654321, unidadeNegocios: {Value: "Florestal"}, area: {Value: "Manutenção"}, almoxarifado: {Value: "Almoxarifado Central"}, contato: 11912345678, reservaSap: 4500231, tipoReservaSap: {Value: "Retirada"}, dataRetirada: Today(), janelaHorarioRetirada: {Value: "13:00 - 15:00"}, observacao: "Urgente: parada de máquina.", status: {Value: "Aguardando Separação"}, atendente: Blank(), dataAtendimento: Blank(), ultimaAlteracao: DateAdd(Now(), -1, TimeUnit.Days), comentario: ""},
+              {ID: 5, Criado: DateAdd(Now(), -2, TimeUnit.Days), solicitante: pBruno, matricula: 87654321, unidadeNegocios: {Value: "Florestal"}, area: {Value: "Produção"}, almoxarifado: {Value: "Almoxarifado Central"}, contato: 11912345678, reservaSap: 4500187, tipoReservaSap: {Value: "Retirada"}, dataRetirada: DateAdd(Today(), 1, TimeUnit.Days), janelaHorarioRetirada: {Value: "07:00 - 09:00"}, observacao: "", status: {Value: "Pronto para Retirada"}, atendente: pAna, dataAtendimento: DateAdd(Now(), -1, TimeUnit.Days), ultimaAlteracao: DateAdd(Now(), -1, TimeUnit.Days), comentario: "Disponível no balcão 1."}
+          );
+          ClearCollect(
+              atendentes,
+              {colab: pEu, almoxarifado: {Value: "Almoxarifado Central"}},
+              {colab: pAna, almoxarifado: {Value: "Almoxarifado Central"}}
+          );
+          ClearCollect(
+              supervisores,
+              {colab: pEu, almoxarifado: {Value: "Almoxarifado Central"}}
+          );
+          // Simula UsuáriosdoOffice365.SearchUserV2(...).value (usado na tela Equipe)
+          ClearCollect(
+              colUsuariosBusca,
+              {DisplayName: "Ana Souza", Mail: "ana.souza@exemplo.com", Department: "Almoxarifado", JobTitle: "Atendente"},
+              {DisplayName: "Bruno Lima", Mail: "bruno.lima@exemplo.com", Department: "Manutenção", JobTitle: "Mecânico"},
+              {DisplayName: "Carla Mendes", Mail: "carla.mendes@exemplo.com", Department: "Almoxarifado", JobTitle: "Supervisora"},
+              {DisplayName: "Diego Rocha", Mail: "diego.rocha@exemplo.com", Department: "Logística", JobTitle: "Analista"}
+          )
+      );
+      // ===== MOCK FIM =====
+
+      // Perfil do usuário (mesma regra do app original: e-mail nas listas atendentes / supervisores)
+      Set(varAtendenteAlmo, LookUp(atendentes, colab.Email = User().Email));
+      Set(varSupervisorAlmo, LookUp(supervisores, colab.Email = User().Email));
+      Set(varAtendente, !IsBlank(varAtendenteAlmo));
+      Set(varSupervisor, !IsBlank(varSupervisorAlmo));
+      Set(varAlmoxUsuario, If(varAtendente, varAtendenteAlmo.almoxarifado, varSupervisor, varSupervisorAlmo.almoxarifado, Blank()));
+      Set(varPerfilUsuario, If(varSupervisor, "Supervisor", varAtendente, "Atendente", "Solicitante"));
+    Theme: =PowerAppsTheme

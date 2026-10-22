@@ -1,0 +1,8 @@
+EditorState:
+  ScreensOrder:
+    - Menu
+    - novaSolicitacao
+    - minhasSolicitacoes
+    - filaAtendimento
+    - cadastroEquipe
+    - Finalizada

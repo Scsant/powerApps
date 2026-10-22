@@ -1,0 +1,1711 @@
+Screens:
+  novaSolicitacao:
+    Properties:
+      Fill: =corFundo
+      LoadingSpinnerColor: =corPrimaria
+      OnVisible: |-
+        =UpdateContext({varErroValidacao: Blank()})
+    Children:
+      - novaRaiz:
+          Control: GroupContainer
+          Variant: AutoLayout
+          Properties:
+            BorderThickness: =0
+            DropShadow: =DropShadow.None
+            Fill: =corFundo
+            Height: =Parent.Height
+            LayoutAlignItems: =LayoutAlignItems.Stretch
+            LayoutDirection: =LayoutDirection.Vertical
+            LayoutGap: =0
+            Width: =Parent.Width
+            X: =0
+            Y: =0
+          Children:
+            - novaHeader:
+                Control: GroupContainer
+                Variant: AutoLayout
+                Properties:
+                  AlignInContainer: =AlignInContainer.SetByContainer
+                  BorderThickness: =0
+                  DropShadow: =DropShadow.None
+                  Fill: =corHeader
+                  FillPortions: =0
+                  Height: =64
+                  LayoutAlignItems: =LayoutAlignItems.Center
+                  LayoutDirection: =LayoutDirection.Horizontal
+                  LayoutGap: =14
+                  LayoutMinHeight: =0
+                  LayoutMinWidth: =0
+                  PaddingBottom: =0
+                  PaddingLeft: =32
+                  PaddingRight: =32
+                  PaddingTop: =0
+                Children:
+                  - novaLogo:
+                      Control: Label
+                      Properties:
+                        AutoHeight: =false
+                        Color: =Color.White
+                        FocusedBorderThickness: =0
+                        Font: =Font.'Segoe UI'
+                        FontWeight: =FontWeight.Semibold
+                        Height: =64
+                        LayoutMinHeight: =0
+                        LayoutMinWidth: =0
+                        PaddingBottom: =0
+                        PaddingLeft: =0
+                        PaddingRight: =0
+                        PaddingTop: =0
+                        Size: =18
+                        TabIndex: =-1
+                        Text: ="Bracell"
+                        VerticalAlign: =VerticalAlign.Middle
+                        Width: =90
+                        Wrap: =true
+                  - novaDivisor:
+                      Control: Rectangle
+                      Properties:
+                        Fill: =RGBA(255, 255, 255, 0.5)
+                        FocusedBorderThickness: =0
+                        Height: =24
+                        TabIndex: =-1
+                        Width: =1
+                  - novaPortal:
+                      Control: Label
+                      Properties:
+                        AutoHeight: =false
+                        Color: =Color.White
+                        FocusedBorderThickness: =0
+                        Font: =Font.'Segoe UI'
+                        FontWeight: =FontWeight.Semibold
+                        Height: =64
+                        LayoutMinHeight: =0
+                        LayoutMinWidth: =0
+                        PaddingBottom: =0
+                        PaddingLeft: =12
+                        PaddingRight: =0
+                        PaddingTop: =0
+                        Size: =11
+                        TabIndex: =-1
+                        Text: ="Portal do Almoxarifado"
+                        VerticalAlign: =VerticalAlign.Middle
+                        Width: =200
+                        Wrap: =true
+                  - novaSpacer:
+                      Control: Label
+                      Properties:
+                        AutoHeight: =false
+                        FillPortions: =1
+                        FocusedBorderThickness: =0
+                        Height: =1
+                        LayoutMinHeight: =0
+                        LayoutMinWidth: =0
+                        TabIndex: =-1
+                        Text: =""
+                        Width: =1
+                  - novaNavInicio:
+                      Control: Label
+                      Properties:
+                        Align: =Align.Center
+                        AutoHeight: =false
+                        BorderColor: =RGBA(0,0,0,0)
+                        BorderThickness: =0
+                        Color: =RGBA(255, 255, 255, 0.72)
+                        FocusedBorderColor: =corTexto
+                        FocusedBorderThickness: =2
+                        Font: =Font.'Segoe UI'
+                        FontWeight: =FontWeight.Normal
+                        Height: =64
+                        HoverColor: =Color.White
+                        LayoutMinHeight: =0
+                        LayoutMinWidth: =0
+                        OnSelect: =Navigate(Menu, ScreenTransition.Fade)
+                        PaddingBottom: =0
+                        PaddingLeft: =0
+                        PaddingRight: =0
+                        PaddingTop: =0
+                        Size: =10
+                        TabIndex: =0
+                        Text: ="Início"
+                        VerticalAlign: =VerticalAlign.Middle
+                        Width: =60
+                        Wrap: =true
+                  - novaNavMinhas:
+                      Control: Label
+                      Properties:
+                        Align: =Align.Center
+                        AutoHeight: =false
+                        BorderColor: =RGBA(0,0,0,0)
+                        BorderThickness: =0
+                        Color: =RGBA(255, 255, 255, 0.72)
+                        FocusedBorderColor: =corTexto
+                        FocusedBorderThickness: =2
+                        Font: =Font.'Segoe UI'
+                        FontWeight: =FontWeight.Normal
+                        Height: =64
+                        HoverColor: =Color.White
+                        LayoutMinHeight: =0
+                        LayoutMinWidth: =0
+                        OnSelect: =Navigate(minhasSolicitacoes, ScreenTransition.Fade)
+                        PaddingBottom: =0
+                        PaddingLeft: =0
+                        PaddingRight: =0
+                        PaddingTop: =0
+                        Size: =10
+                        TabIndex: =0
+                        Text: ="Minhas solicitações"
+                        VerticalAlign: =VerticalAlign.Middle
+                        Width: =150
+                        Wrap: =true
+                  - novaNavFila:
+                      Control: Label
+                      Properties:
+                        Align: =Align.Center
+                        AutoHeight: =false
+                        BorderColor: =RGBA(0,0,0,0)
+                        BorderThickness: =0
+                        Color: =RGBA(255, 255, 255, 0.72)
+                        FocusedBorderColor: =corTexto
+                        FocusedBorderThickness: =2
+                        Font: =Font.'Segoe UI'
+                        FontWeight: =FontWeight.Normal
+                        Height: =64
+                        HoverColor: =Color.White
+                        LayoutMinHeight: =0
+                        LayoutMinWidth: =0
+                        OnSelect: =Navigate(filaAtendimento, ScreenTransition.Fade)
+                        PaddingBottom: =0
+                        PaddingLeft: =0
+                        PaddingRight: =0
+                        PaddingTop: =0
+                        Size: =10
+                        TabIndex: =0
+                        Text: ="Fila de atendimento"
+                        VerticalAlign: =VerticalAlign.Middle
+                        Visible: =varAtendente || varSupervisor
+                        Width: =150
+                        Wrap: =true
+                  - novaNavEquipe:
+                      Control: Label
+                      Properties:
+                        Align: =Align.Center
+                        AutoHeight: =false
+                        BorderColor: =RGBA(0,0,0,0)
+                        BorderThickness: =0
+                        Color: =RGBA(255, 255, 255, 0.72)
+                        FocusedBorderColor: =corTexto
+                        FocusedBorderThickness: =2
+                        Font: =Font.'Segoe UI'
+                        FontWeight: =FontWeight.Normal
+                        Height: =64
+                        HoverColor: =Color.White
+                        LayoutMinHeight: =0
+                        LayoutMinWidth: =0
+                        OnSelect: =Navigate(cadastroEquipe, ScreenTransition.Fade)
+                        PaddingBottom: =0
+                        PaddingLeft: =0
+                        PaddingRight: =0
+                        PaddingTop: =0
+                        Size: =10
+                        TabIndex: =0
+                        Text: ="Equipe"
+                        VerticalAlign: =VerticalAlign.Middle
+                        Visible: =varSupervisor
+                        Width: =70
+                        Wrap: =true
+                  - novaAvatar:
+                      Control: GroupContainer
+                      Variant: AutoLayout
+                      Properties:
+                        AlignInContainer: =AlignInContainer.SetByContainer
+                        BorderThickness: =0
+                        DropShadow: =DropShadow.None
+                        Fill: =Color.White
+                        FillPortions: =0
+                        Height: =32
+                        LayoutDirection: =LayoutDirection.Horizontal
+                        LayoutGap: =0
+                        LayoutMinHeight: =0
+                        LayoutMinWidth: =0
+                        RadiusBottomLeft: =16
+                        RadiusBottomRight: =16
+                        RadiusTopLeft: =16
+                        RadiusTopRight: =16
+                        Width: =32
+                      Children:
+                        - novaAvatarTxt:
+                            Control: Label
+                            Properties:
+                              Align: =Align.Center
+                              AutoHeight: =false
+                              Color: =corHeader
+                              FillPortions: =1
+                              FocusedBorderThickness: =0
+                              Font: =Font.'Segoe UI'
+                              FontWeight: =FontWeight.Semibold
+                              Height: =32
+                              LayoutMinHeight: =0
+                              LayoutMinWidth: =0
+                              PaddingBottom: =0
+                              PaddingLeft: =0
+                              PaddingRight: =0
+                              PaddingTop: =0
+                              Size: =9
+                              TabIndex: =-1
+                              Text: =fxIniciais
+                              VerticalAlign: =VerticalAlign.Middle
+                              Wrap: =true
+                  - novaUsuario:
+                      Control: Label
+                      Properties:
+                        AutoHeight: =false
+                        Color: =Color.White
+                        FocusedBorderThickness: =0
+                        Font: =Font.'Segoe UI'
+                        FontWeight: =FontWeight.Normal
+                        Height: =64
+                        LayoutMinHeight: =0
+                        LayoutMinWidth: =0
+                        PaddingBottom: =0
+                        PaddingLeft: =0
+                        PaddingRight: =0
+                        PaddingTop: =0
+                        Size: =10
+                        TabIndex: =-1
+                        Text: =fxNomeCurto
+                        VerticalAlign: =VerticalAlign.Middle
+                        Width: =170
+                        Wrap: =true
+            - novaCorpo:
+                Control: GroupContainer
+                Variant: AutoLayout
+                Properties:
+                  AlignInContainer: =AlignInContainer.SetByContainer
+                  BorderThickness: =0
+                  DropShadow: =DropShadow.None
+                  Fill: =corFundo
+                  FillPortions: =1
+                  LayoutAlignItems: =LayoutAlignItems.Center
+                  LayoutDirection: =LayoutDirection.Vertical
+                  LayoutGap: =0
+                  LayoutMinHeight: =0
+                  LayoutMinWidth: =0
+                  LayoutOverflowY: =LayoutOverflow.Scroll
+                  PaddingBottom: =32
+                  PaddingLeft: =0
+                  PaddingRight: =0
+                  PaddingTop: =28
+                Children:
+                  - novaConteudo:
+                      Control: GroupContainer
+                      Variant: AutoLayout
+                      Properties:
+                        AlignInContainer: =AlignInContainer.Center
+                        BorderThickness: =0
+                        DropShadow: =DropShadow.None
+                        FillPortions: =0
+                        Height: =16 + 56 + 212 + If(cbTipoReserva.Selected.Value <> "Atendimento", 212, 138) + 160 + 40 + If(IsBlank(varErroValidacao), 6 * 20, 40 + 7 * 20)
+                        LayoutAlignItems: =LayoutAlignItems.Stretch
+                        LayoutDirection: =LayoutDirection.Vertical
+                        LayoutGap: =20
+                        LayoutMinHeight: =0
+                        LayoutMinWidth: =0
+                        Width: =Min(1100, Parent.Width - 64)
+                      Children:
+                        - novaTrilha:
+                            Control: GroupContainer
+                            Variant: AutoLayout
+                            Properties:
+                              AlignInContainer: =AlignInContainer.SetByContainer
+                              BorderThickness: =0
+                              DropShadow: =DropShadow.None
+                              FillPortions: =0
+                              Height: =16
+                              LayoutAlignItems: =LayoutAlignItems.Start
+                              LayoutDirection: =LayoutDirection.Horizontal
+                              LayoutGap: =4
+                              LayoutMinHeight: =0
+                              LayoutMinWidth: =0
+                            Children:
+                              - novaTrilhaInicio:
+                                  Control: Label
+                                  Properties:
+                                    AutoHeight: =true
+                                    Color: =corTextoSec
+                                    FocusedBorderColor: =corTexto
+                                    FocusedBorderThickness: =2
+                                    Font: =Font.'Segoe UI'
+                                    FontWeight: =FontWeight.Normal
+                                    HoverColor: =corPrimaria
+                                    LayoutMinHeight: =0
+                                    LayoutMinWidth: =0
+                                    OnSelect: =Navigate(Menu, ScreenTransition.Fade)
+                                    PaddingBottom: =0
+                                    PaddingLeft: =0
+                                    PaddingRight: =0
+                                    PaddingTop: =0
+                                    Size: =9
+                                    TabIndex: =0
+                                    Text: ="Início"
+                                    Width: =36
+                                    Wrap: =true
+                              - novaTrilhaSep:
+                                  Control: Label
+                                  Properties:
+                                    AutoHeight: =true
+                                    Color: =corTextoSec
+                                    FocusedBorderThickness: =0
+                                    Font: =Font.'Segoe UI'
+                                    FontWeight: =FontWeight.Normal
+                                    LayoutMinHeight: =0
+                                    LayoutMinWidth: =0
+                                    PaddingBottom: =0
+                                    PaddingLeft: =0
+                                    PaddingRight: =0
+                                    PaddingTop: =0
+                                    Size: =9
+                                    TabIndex: =-1
+                                    Text: ="/"
+                                    Width: =10
+                                    Wrap: =true
+                              - novaTrilhaAtual:
+                                  Control: Label
+                                  Properties:
+                                    AutoHeight: =true
+                                    Color: =corTextoSec
+                                    FocusedBorderThickness: =0
+                                    Font: =Font.'Segoe UI'
+                                    FontWeight: =FontWeight.Normal
+                                    LayoutMinHeight: =0
+                                    LayoutMinWidth: =0
+                                    PaddingBottom: =0
+                                    PaddingLeft: =0
+                                    PaddingRight: =0
+                                    PaddingTop: =0
+                                    Size: =9
+                                    TabIndex: =-1
+                                    Text: ="Nova solicitação"
+                                    Width: =250
+                                    Wrap: =true
+                        - novaCabecalho:
+                            Control: GroupContainer
+                            Variant: AutoLayout
+                            Properties:
+                              AlignInContainer: =AlignInContainer.SetByContainer
+                              BorderThickness: =0
+                              DropShadow: =DropShadow.None
+                              FillPortions: =0
+                              Height: =56
+                              LayoutAlignItems: =LayoutAlignItems.Center
+                              LayoutDirection: =LayoutDirection.Horizontal
+                              LayoutGap: =16
+                              LayoutMinHeight: =0
+                              LayoutMinWidth: =0
+                            Children:
+                              - novaCabecalhoTxt:
+                                  Control: GroupContainer
+                                  Variant: AutoLayout
+                                  Properties:
+                                    AlignInContainer: =AlignInContainer.SetByContainer
+                                    BorderThickness: =0
+                                    DropShadow: =DropShadow.None
+                                    FillPortions: =1
+                                    Height: =56
+                                    LayoutDirection: =LayoutDirection.Vertical
+                                    LayoutGap: =4
+                                    LayoutMinHeight: =0
+                                    LayoutMinWidth: =0
+                                  Children:
+                                    - novaTitulo:
+                                        Control: Label
+                                        Properties:
+                                          AutoHeight: =true
+                                          Color: =corTexto
+                                          FocusedBorderThickness: =0
+                                          Font: =Font.'Segoe UI'
+                                          FontWeight: =FontWeight.Semibold
+                                          LayoutMinHeight: =0
+                                          LayoutMinWidth: =0
+                                          PaddingBottom: =0
+                                          PaddingLeft: =0
+                                          PaddingRight: =0
+                                          PaddingTop: =0
+                                          Size: =20
+                                          TabIndex: =-1
+                                          Text: ="Nova solicitação"
+                                          Wrap: =true
+                                    - novaSubtitulo:
+                                        Control: Label
+                                        Properties:
+                                          AutoHeight: =true
+                                          Color: =corTextoSec
+                                          FocusedBorderThickness: =0
+                                          Font: =Font.'Segoe UI'
+                                          FontWeight: =FontWeight.Normal
+                                          LayoutMinHeight: =0
+                                          LayoutMinWidth: =0
+                                          PaddingBottom: =0
+                                          PaddingLeft: =0
+                                          PaddingRight: =0
+                                          PaddingTop: =0
+                                          Size: =10
+                                          TabIndex: =-1
+                                          Text: ="Preencha os dados para solicitar a retirada de materiais."
+                                          Wrap: =true
+                              - novaBtnVoltar:
+                                  Control: Classic/Button
+                                  Properties:
+                                    BorderColor: =corBorda
+                                    BorderThickness: =1
+                                    Color: =corPrimaria
+                                    Fill: =Color.White
+                                    FocusedBorderColor: =corTexto
+                                    FocusedBorderThickness: =2
+                                    Font: =Font.'Segoe UI'
+                                    FontWeight: =FontWeight.Semibold
+                                    Height: =38
+                                    HoverBorderColor: =corPrimaria
+                                    HoverColor: =corPrimaria
+                                    HoverFill: =corFundo
+                                    OnSelect: =Navigate(Menu, ScreenTransition.Fade)
+                                    PressedBorderColor: =corBorda
+                                    PressedColor: =corPrimaria
+                                    PressedFill: =corBorda
+                                    RadiusBottomLeft: =6
+                                    RadiusBottomRight: =6
+                                    RadiusTopLeft: =6
+                                    RadiusTopRight: =6
+                                    Size: =10
+                                    Text: ="←  Voltar"
+                                    Width: =130
+                        - novaSec1:
+                            Control: GroupContainer
+                            Variant: AutoLayout
+                            Properties:
+                              AlignInContainer: =AlignInContainer.SetByContainer
+                              BorderColor: =corBorda
+                              BorderThickness: =1
+                              DropShadow: =DropShadow.None
+                              Fill: =corCard
+                              FillPortions: =0
+                              Height: =212
+                              LayoutAlignItems: =LayoutAlignItems.Stretch
+                              LayoutDirection: =LayoutDirection.Vertical
+                              LayoutGap: =12
+                              LayoutMinHeight: =0
+                              LayoutMinWidth: =0
+                              PaddingBottom: =20
+                              PaddingLeft: =20
+                              PaddingRight: =20
+                              PaddingTop: =20
+                              RadiusBottomLeft: =10
+                              RadiusBottomRight: =10
+                              RadiusTopLeft: =10
+                              RadiusTopRight: =10
+                            Children:
+                              - novaSec1Titulo:
+                                  Control: GroupContainer
+                                  Variant: AutoLayout
+                                  Properties:
+                                    AlignInContainer: =AlignInContainer.SetByContainer
+                                    BorderThickness: =0
+                                    DropShadow: =DropShadow.None
+                                    FillPortions: =0
+                                    Height: =24
+                                    LayoutAlignItems: =LayoutAlignItems.Center
+                                    LayoutDirection: =LayoutDirection.Horizontal
+                                    LayoutGap: =4
+                                    LayoutMinHeight: =0
+                                    LayoutMinWidth: =0
+                                  Children:
+                                    - novaSec1Num:
+                                        Control: Label
+                                        Properties:
+                                          AutoHeight: =false
+                                          Color: =corPrimaria
+                                          FocusedBorderThickness: =0
+                                          Font: =Font.'Segoe UI'
+                                          FontWeight: =FontWeight.Semibold
+                                          Height: =24
+                                          LayoutMinHeight: =0
+                                          LayoutMinWidth: =0
+                                          PaddingBottom: =0
+                                          PaddingLeft: =0
+                                          PaddingRight: =0
+                                          PaddingTop: =0
+                                          Size: =10
+                                          TabIndex: =-1
+                                          Text: ="01"
+                                          VerticalAlign: =VerticalAlign.Middle
+                                          Width: =26
+                                          Wrap: =true
+                                    - novaSec1Nome:
+                                        Control: Label
+                                        Properties:
+                                          AutoHeight: =false
+                                          Color: =corTexto
+                                          FillPortions: =1
+                                          FocusedBorderThickness: =0
+                                          Font: =Font.'Segoe UI'
+                                          FontWeight: =FontWeight.Semibold
+                                          Height: =24
+                                          LayoutMinHeight: =0
+                                          LayoutMinWidth: =0
+                                          PaddingBottom: =0
+                                          PaddingLeft: =0
+                                          PaddingRight: =0
+                                          PaddingTop: =0
+                                          Size: =13
+                                          TabIndex: =-1
+                                          Text: ="Dados do solicitante"
+                                          VerticalAlign: =VerticalAlign.Middle
+                                          Wrap: =true
+                              - novaSec1L1:
+                                  Control: GroupContainer
+                                  Variant: AutoLayout
+                                  Properties:
+                                    AlignInContainer: =AlignInContainer.SetByContainer
+                                    BorderThickness: =0
+                                    DropShadow: =DropShadow.None
+                                    FillPortions: =0
+                                    Height: =62
+                                    LayoutAlignItems: =LayoutAlignItems.Start
+                                    LayoutDirection: =LayoutDirection.Horizontal
+                                    LayoutGap: =16
+                                    LayoutMinHeight: =0
+                                    LayoutMinWidth: =0
+                                  Children:
+                                    - novaNomeCampo:
+                                        Control: GroupContainer
+                                        Variant: AutoLayout
+                                        Properties:
+                                          AlignInContainer: =AlignInContainer.SetByContainer
+                                          BorderThickness: =0
+                                          DropShadow: =DropShadow.None
+                                          FillPortions: =1
+                                          Height: =62
+                                          LayoutAlignItems: =LayoutAlignItems.Stretch
+                                          LayoutDirection: =LayoutDirection.Vertical
+                                          LayoutGap: =6
+                                          LayoutMinHeight: =0
+                                          LayoutMinWidth: =0
+                                        Children:
+                                          - novaNomeRotulo:
+                                              Control: Label
+                                              Properties:
+                                                AutoHeight: =true
+                                                Color: =corTexto
+                                                FocusedBorderThickness: =0
+                                                Font: =Font.'Segoe UI'
+                                                FontWeight: =FontWeight.Semibold
+                                                LayoutMinHeight: =0
+                                                LayoutMinWidth: =0
+                                                PaddingBottom: =0
+                                                PaddingLeft: =0
+                                                PaddingRight: =0
+                                                PaddingTop: =0
+                                                Size: =10
+                                                TabIndex: =-1
+                                                Text: ="Solicitante"
+                                                Wrap: =true
+                                          - novaTxtNome:
+                                              Control: Classic/TextInput
+                                              Properties:
+                                                AccessibleLabel: ="Solicitante"
+                                                BorderColor: =corBorda
+                                                BorderThickness: =1
+                                                Color: =corTexto
+                                                Default: =User().FullName
+                                                DisabledBorderColor: =corBorda
+                                                DisabledColor: =corTextoSec
+                                                DisabledFill: =corFundo
+                                                DisplayMode: =DisplayMode.Disabled
+                                                Fill: =Color.White
+                                                FocusedBorderColor: =corPrimaria
+                                                FocusedBorderThickness: =2
+                                                Font: =Font.'Segoe UI'
+                                                Height: =36
+                                                HintText: =""
+                                                HoverBorderColor: =corPrimaria
+                                                HoverFill: =Color.White
+                                                LayoutMinWidth: =0
+                                                PaddingLeft: =10
+                                                RadiusBottomLeft: =6
+                                                RadiusBottomRight: =6
+                                                RadiusTopLeft: =6
+                                                RadiusTopRight: =6
+                                                Size: =10
+                                                TabIndex: =0
+                                    - novaEmailCampo:
+                                        Control: GroupContainer
+                                        Variant: AutoLayout
+                                        Properties:
+                                          AlignInContainer: =AlignInContainer.SetByContainer
+                                          BorderThickness: =0
+                                          DropShadow: =DropShadow.None
+                                          FillPortions: =1
+                                          Height: =62
+                                          LayoutAlignItems: =LayoutAlignItems.Stretch
+                                          LayoutDirection: =LayoutDirection.Vertical
+                                          LayoutGap: =6
+                                          LayoutMinHeight: =0
+                                          LayoutMinWidth: =0
+                                        Children:
+                                          - novaEmailRotulo:
+                                              Control: Label
+                                              Properties:
+                                                AutoHeight: =true
+                                                Color: =corTexto
+                                                FocusedBorderThickness: =0
+                                                Font: =Font.'Segoe UI'
+                                                FontWeight: =FontWeight.Semibold
+                                                LayoutMinHeight: =0
+                                                LayoutMinWidth: =0
+                                                PaddingBottom: =0
+                                                PaddingLeft: =0
+                                                PaddingRight: =0
+                                                PaddingTop: =0
+                                                Size: =10
+                                                TabIndex: =-1
+                                                Text: ="E-mail"
+                                                Wrap: =true
+                                          - novaTxtEmail:
+                                              Control: Classic/TextInput
+                                              Properties:
+                                                AccessibleLabel: ="E-mail"
+                                                BorderColor: =corBorda
+                                                BorderThickness: =1
+                                                Color: =corTexto
+                                                Default: =User().Email
+                                                DisabledBorderColor: =corBorda
+                                                DisabledColor: =corTextoSec
+                                                DisabledFill: =corFundo
+                                                DisplayMode: =DisplayMode.Disabled
+                                                Fill: =Color.White
+                                                FocusedBorderColor: =corPrimaria
+                                                FocusedBorderThickness: =2
+                                                Font: =Font.'Segoe UI'
+                                                Height: =36
+                                                HintText: =""
+                                                HoverBorderColor: =corPrimaria
+                                                HoverFill: =Color.White
+                                                LayoutMinWidth: =0
+                                                PaddingLeft: =10
+                                                RadiusBottomLeft: =6
+                                                RadiusBottomRight: =6
+                                                RadiusTopLeft: =6
+                                                RadiusTopRight: =6
+                                                Size: =10
+                                                TabIndex: =0
+                                    - novaMatriculaCampo:
+                                        Control: GroupContainer
+                                        Variant: AutoLayout
+                                        Properties:
+                                          AlignInContainer: =AlignInContainer.SetByContainer
+                                          BorderThickness: =0
+                                          DropShadow: =DropShadow.None
+                                          FillPortions: =1
+                                          Height: =62
+                                          LayoutAlignItems: =LayoutAlignItems.Stretch
+                                          LayoutDirection: =LayoutDirection.Vertical
+                                          LayoutGap: =6
+                                          LayoutMinHeight: =0
+                                          LayoutMinWidth: =0
+                                        Children:
+                                          - novaMatriculaRotulo:
+                                              Control: Label
+                                              Properties:
+                                                AutoHeight: =true
+                                                Color: =corTexto
+                                                FocusedBorderThickness: =0
+                                                Font: =Font.'Segoe UI'
+                                                FontWeight: =FontWeight.Semibold
+                                                LayoutMinHeight: =0
+                                                LayoutMinWidth: =0
+                                                PaddingBottom: =0
+                                                PaddingLeft: =0
+                                                PaddingRight: =0
+                                                PaddingTop: =0
+                                                Size: =10
+                                                TabIndex: =-1
+                                                Text: ="Matrícula"
+                                                Wrap: =true
+                                          - txtMatricula:
+                                              Control: Classic/TextInput
+                                              Properties:
+                                                AccessibleLabel: ="8 dígitos"
+                                                BorderColor: =corBorda
+                                                BorderThickness: =1
+                                                Color: =corTexto
+                                                Default: =""
+                                                DisabledBorderColor: =corBorda
+                                                DisabledColor: =corTextoSec
+                                                DisabledFill: =corFundo
+                                                Fill: =Color.White
+                                                FocusedBorderColor: =corPrimaria
+                                                FocusedBorderThickness: =2
+                                                Font: =Font.'Segoe UI'
+                                                Format: =TextFormat.Number
+                                                Height: =36
+                                                HintText: ="8 dígitos"
+                                                HoverBorderColor: =corPrimaria
+                                                HoverFill: =Color.White
+                                                LayoutMinWidth: =0
+                                                MaxLength: =8
+                                                PaddingLeft: =10
+                                                RadiusBottomLeft: =6
+                                                RadiusBottomRight: =6
+                                                RadiusTopLeft: =6
+                                                RadiusTopRight: =6
+                                                Size: =10
+                                                TabIndex: =0
+                              - novaSec1L2:
+                                  Control: GroupContainer
+                                  Variant: AutoLayout
+                                  Properties:
+                                    AlignInContainer: =AlignInContainer.SetByContainer
+                                    BorderThickness: =0
+                                    DropShadow: =DropShadow.None
+                                    FillPortions: =0
+                                    Height: =62
+                                    LayoutAlignItems: =LayoutAlignItems.Start
+                                    LayoutDirection: =LayoutDirection.Horizontal
+                                    LayoutGap: =16
+                                    LayoutMinHeight: =0
+                                    LayoutMinWidth: =0
+                                  Children:
+                                    - novaAreaCampo:
+                                        Control: GroupContainer
+                                        Variant: AutoLayout
+                                        Properties:
+                                          AlignInContainer: =AlignInContainer.SetByContainer
+                                          BorderThickness: =0
+                                          DropShadow: =DropShadow.None
+                                          FillPortions: =1
+                                          Height: =62
+                                          LayoutAlignItems: =LayoutAlignItems.Stretch
+                                          LayoutDirection: =LayoutDirection.Vertical
+                                          LayoutGap: =6
+                                          LayoutMinHeight: =0
+                                          LayoutMinWidth: =0
+                                        Children:
+                                          - novaAreaRotulo:
+                                              Control: Label
+                                              Properties:
+                                                AutoHeight: =true
+                                                Color: =corTexto
+                                                FocusedBorderThickness: =0
+                                                Font: =Font.'Segoe UI'
+                                                FontWeight: =FontWeight.Semibold
+                                                LayoutMinHeight: =0
+                                                LayoutMinWidth: =0
+                                                PaddingBottom: =0
+                                                PaddingLeft: =0
+                                                PaddingRight: =0
+                                                PaddingTop: =0
+                                                Size: =10
+                                                TabIndex: =-1
+                                                Text: ="Área"
+                                                Wrap: =true
+                                          - cbArea:
+                                              Control: Classic/ComboBox
+                                              Properties:
+                                                AccessibleLabel: ="Selecione a área"
+                                                BorderColor: =corBorda
+                                                BorderThickness: =1
+                                                ChevronBackground: =Color.White
+                                                ChevronFill: =corTextoSec
+                                                ChevronHoverBackground: =corFundo
+                                                ChevronHoverFill: =corPrimaria
+                                                Color: =corTexto
+                                                DisplayFields: =["Value"]
+                                                Fill: =Color.White
+                                                Font: =Font.'Segoe UI'
+                                                Height: =36
+                                                HoverBorderColor: =corPrimaria
+                                                HoverFill: =Color.White
+                                                InputTextPlaceholder: ="Selecione a área"
+                                                IsSearchable: =false
+                                                Items: =opcArea
+                                                LayoutMinWidth: =0
+                                                PressedColor: =corTexto
+                                                PressedFill: =Color.White
+                                                SearchFields: =["Value"]
+                                                SelectMultiple: =false
+                                                SelectionColor: =corTexto
+                                                SelectionFill: =corPrimariaClara
+                                                Size: =10
+                                                TabIndex: =0
+                                    - novaUnidadeCampo:
+                                        Control: GroupContainer
+                                        Variant: AutoLayout
+                                        Properties:
+                                          AlignInContainer: =AlignInContainer.SetByContainer
+                                          BorderThickness: =0
+                                          DropShadow: =DropShadow.None
+                                          FillPortions: =1
+                                          Height: =62
+                                          LayoutAlignItems: =LayoutAlignItems.Stretch
+                                          LayoutDirection: =LayoutDirection.Vertical
+                                          LayoutGap: =6
+                                          LayoutMinHeight: =0
+                                          LayoutMinWidth: =0
+                                        Children:
+                                          - novaUnidadeRotulo:
+                                              Control: Label
+                                              Properties:
+                                                AutoHeight: =true
+                                                Color: =corTexto
+                                                FocusedBorderThickness: =0
+                                                Font: =Font.'Segoe UI'
+                                                FontWeight: =FontWeight.Semibold
+                                                LayoutMinHeight: =0
+                                                LayoutMinWidth: =0
+                                                PaddingBottom: =0
+                                                PaddingLeft: =0
+                                                PaddingRight: =0
+                                                PaddingTop: =0
+                                                Size: =10
+                                                TabIndex: =-1
+                                                Text: ="Unidade de negócios"
+                                                Wrap: =true
+                                          - cbUnidadeNegocios:
+                                              Control: Classic/ComboBox
+                                              Properties:
+                                                AccessibleLabel: ="Selecione a unidade"
+                                                BorderColor: =corBorda
+                                                BorderThickness: =1
+                                                ChevronBackground: =Color.White
+                                                ChevronFill: =corTextoSec
+                                                ChevronHoverBackground: =corFundo
+                                                ChevronHoverFill: =corPrimaria
+                                                Color: =corTexto
+                                                DisplayFields: =["Value"]
+                                                Fill: =Color.White
+                                                Font: =Font.'Segoe UI'
+                                                Height: =36
+                                                HoverBorderColor: =corPrimaria
+                                                HoverFill: =Color.White
+                                                InputTextPlaceholder: ="Selecione a unidade"
+                                                IsSearchable: =false
+                                                Items: =opcUnidadeNegocios
+                                                LayoutMinWidth: =0
+                                                PressedColor: =corTexto
+                                                PressedFill: =Color.White
+                                                SearchFields: =["Value"]
+                                                SelectMultiple: =false
+                                                SelectionColor: =corTexto
+                                                SelectionFill: =corPrimariaClara
+                                                Size: =10
+                                                TabIndex: =0
+                                    - novaContatoCampo:
+                                        Control: GroupContainer
+                                        Variant: AutoLayout
+                                        Properties:
+                                          AlignInContainer: =AlignInContainer.SetByContainer
+                                          BorderThickness: =0
+                                          DropShadow: =DropShadow.None
+                                          FillPortions: =1
+                                          Height: =62
+                                          LayoutAlignItems: =LayoutAlignItems.Stretch
+                                          LayoutDirection: =LayoutDirection.Vertical
+                                          LayoutGap: =6
+                                          LayoutMinHeight: =0
+                                          LayoutMinWidth: =0
+                                        Children:
+                                          - novaContatoRotulo:
+                                              Control: Label
+                                              Properties:
+                                                AutoHeight: =true
+                                                Color: =corTexto
+                                                FocusedBorderThickness: =0
+                                                Font: =Font.'Segoe UI'
+                                                FontWeight: =FontWeight.Semibold
+                                                LayoutMinHeight: =0
+                                                LayoutMinWidth: =0
+                                                PaddingBottom: =0
+                                                PaddingLeft: =0
+                                                PaddingRight: =0
+                                                PaddingTop: =0
+                                                Size: =10
+                                                TabIndex: =-1
+                                                Text: ="Contato (telefone)"
+                                                Wrap: =true
+                                          - txtContato:
+                                              Control: Classic/TextInput
+                                              Properties:
+                                                AccessibleLabel: ="DDD + número"
+                                                BorderColor: =corBorda
+                                                BorderThickness: =1
+                                                Color: =corTexto
+                                                Default: =""
+                                                DisabledBorderColor: =corBorda
+                                                DisabledColor: =corTextoSec
+                                                DisabledFill: =corFundo
+                                                Fill: =Color.White
+                                                FocusedBorderColor: =corPrimaria
+                                                FocusedBorderThickness: =2
+                                                Font: =Font.'Segoe UI'
+                                                Format: =TextFormat.Number
+                                                Height: =36
+                                                HintText: ="DDD + número"
+                                                HoverBorderColor: =corPrimaria
+                                                HoverFill: =Color.White
+                                                LayoutMinWidth: =0
+                                                PaddingLeft: =10
+                                                RadiusBottomLeft: =6
+                                                RadiusBottomRight: =6
+                                                RadiusTopLeft: =6
+                                                RadiusTopRight: =6
+                                                Size: =10
+                                                TabIndex: =0
+                        - novaSec2:
+                            Control: GroupContainer
+                            Variant: AutoLayout
+                            Properties:
+                              AlignInContainer: =AlignInContainer.SetByContainer
+                              BorderColor: =corBorda
+                              BorderThickness: =1
+                              DropShadow: =DropShadow.None
+                              Fill: =corCard
+                              FillPortions: =0
+                              Height: =If(cbTipoReserva.Selected.Value <> "Atendimento", 212, 138)
+                              LayoutAlignItems: =LayoutAlignItems.Stretch
+                              LayoutDirection: =LayoutDirection.Vertical
+                              LayoutGap: =12
+                              LayoutMinHeight: =0
+                              LayoutMinWidth: =0
+                              PaddingBottom: =20
+                              PaddingLeft: =20
+                              PaddingRight: =20
+                              PaddingTop: =20
+                              RadiusBottomLeft: =10
+                              RadiusBottomRight: =10
+                              RadiusTopLeft: =10
+                              RadiusTopRight: =10
+                            Children:
+                              - novaSec2Titulo:
+                                  Control: GroupContainer
+                                  Variant: AutoLayout
+                                  Properties:
+                                    AlignInContainer: =AlignInContainer.SetByContainer
+                                    BorderThickness: =0
+                                    DropShadow: =DropShadow.None
+                                    FillPortions: =0
+                                    Height: =24
+                                    LayoutAlignItems: =LayoutAlignItems.Center
+                                    LayoutDirection: =LayoutDirection.Horizontal
+                                    LayoutGap: =4
+                                    LayoutMinHeight: =0
+                                    LayoutMinWidth: =0
+                                  Children:
+                                    - novaSec2Num:
+                                        Control: Label
+                                        Properties:
+                                          AutoHeight: =false
+                                          Color: =corPrimaria
+                                          FocusedBorderThickness: =0
+                                          Font: =Font.'Segoe UI'
+                                          FontWeight: =FontWeight.Semibold
+                                          Height: =24
+                                          LayoutMinHeight: =0
+                                          LayoutMinWidth: =0
+                                          PaddingBottom: =0
+                                          PaddingLeft: =0
+                                          PaddingRight: =0
+                                          PaddingTop: =0
+                                          Size: =10
+                                          TabIndex: =-1
+                                          Text: ="02"
+                                          VerticalAlign: =VerticalAlign.Middle
+                                          Width: =26
+                                          Wrap: =true
+                                    - novaSec2Nome:
+                                        Control: Label
+                                        Properties:
+                                          AutoHeight: =false
+                                          Color: =corTexto
+                                          FillPortions: =1
+                                          FocusedBorderThickness: =0
+                                          Font: =Font.'Segoe UI'
+                                          FontWeight: =FontWeight.Semibold
+                                          Height: =24
+                                          LayoutMinHeight: =0
+                                          LayoutMinWidth: =0
+                                          PaddingBottom: =0
+                                          PaddingLeft: =0
+                                          PaddingRight: =0
+                                          PaddingTop: =0
+                                          Size: =13
+                                          TabIndex: =-1
+                                          Text: ="Dados da retirada"
+                                          VerticalAlign: =VerticalAlign.Middle
+                                          Wrap: =true
+                              - novaSec2L1:
+                                  Control: GroupContainer
+                                  Variant: AutoLayout
+                                  Properties:
+                                    AlignInContainer: =AlignInContainer.SetByContainer
+                                    BorderThickness: =0
+                                    DropShadow: =DropShadow.None
+                                    FillPortions: =0
+                                    Height: =62
+                                    LayoutAlignItems: =LayoutAlignItems.Start
+                                    LayoutDirection: =LayoutDirection.Horizontal
+                                    LayoutGap: =16
+                                    LayoutMinHeight: =0
+                                    LayoutMinWidth: =0
+                                  Children:
+                                    - novaAlmoxCampo:
+                                        Control: GroupContainer
+                                        Variant: AutoLayout
+                                        Properties:
+                                          AlignInContainer: =AlignInContainer.SetByContainer
+                                          BorderThickness: =0
+                                          DropShadow: =DropShadow.None
+                                          FillPortions: =1
+                                          Height: =62
+                                          LayoutAlignItems: =LayoutAlignItems.Stretch
+                                          LayoutDirection: =LayoutDirection.Vertical
+                                          LayoutGap: =6
+                                          LayoutMinHeight: =0
+                                          LayoutMinWidth: =0
+                                        Children:
+                                          - novaAlmoxRotulo:
+                                              Control: Label
+                                              Properties:
+                                                AutoHeight: =true
+                                                Color: =corTexto
+                                                FocusedBorderThickness: =0
+                                                Font: =Font.'Segoe UI'
+                                                FontWeight: =FontWeight.Semibold
+                                                LayoutMinHeight: =0
+                                                LayoutMinWidth: =0
+                                                PaddingBottom: =0
+                                                PaddingLeft: =0
+                                                PaddingRight: =0
+                                                PaddingTop: =0
+                                                Size: =10
+                                                TabIndex: =-1
+                                                Text: ="Almoxarifado de retirada"
+                                                Wrap: =true
+                                          - cbAlmoxarifado:
+                                              Control: Classic/ComboBox
+                                              Properties:
+                                                AccessibleLabel: ="Selecione o local"
+                                                BorderColor: =corBorda
+                                                BorderThickness: =1
+                                                ChevronBackground: =Color.White
+                                                ChevronFill: =corTextoSec
+                                                ChevronHoverBackground: =corFundo
+                                                ChevronHoverFill: =corPrimaria
+                                                Color: =corTexto
+                                                DisplayFields: =["Value"]
+                                                Fill: =Color.White
+                                                Font: =Font.'Segoe UI'
+                                                Height: =36
+                                                HoverBorderColor: =corPrimaria
+                                                HoverFill: =Color.White
+                                                InputTextPlaceholder: ="Selecione o local"
+                                                IsSearchable: =false
+                                                Items: =opcAlmoxarifado
+                                                LayoutMinWidth: =0
+                                                PressedColor: =corTexto
+                                                PressedFill: =Color.White
+                                                SearchFields: =["Value"]
+                                                SelectMultiple: =false
+                                                SelectionColor: =corTexto
+                                                SelectionFill: =corPrimariaClara
+                                                Size: =10
+                                                TabIndex: =0
+                                    - novaReservaCampo:
+                                        Control: GroupContainer
+                                        Variant: AutoLayout
+                                        Properties:
+                                          AlignInContainer: =AlignInContainer.SetByContainer
+                                          BorderThickness: =0
+                                          DropShadow: =DropShadow.None
+                                          FillPortions: =1
+                                          Height: =62
+                                          LayoutAlignItems: =LayoutAlignItems.Stretch
+                                          LayoutDirection: =LayoutDirection.Vertical
+                                          LayoutGap: =6
+                                          LayoutMinHeight: =0
+                                          LayoutMinWidth: =0
+                                        Children:
+                                          - novaReservaRotulo:
+                                              Control: Label
+                                              Properties:
+                                                AutoHeight: =true
+                                                Color: =corTexto
+                                                FocusedBorderThickness: =0
+                                                Font: =Font.'Segoe UI'
+                                                FontWeight: =FontWeight.Semibold
+                                                LayoutMinHeight: =0
+                                                LayoutMinWidth: =0
+                                                PaddingBottom: =0
+                                                PaddingLeft: =0
+                                                PaddingRight: =0
+                                                PaddingTop: =0
+                                                Size: =10
+                                                TabIndex: =-1
+                                                Text: ="Número da reserva SAP"
+                                                Wrap: =true
+                                          - txtReservaSAP:
+                                              Control: Classic/TextInput
+                                              Properties:
+                                                AccessibleLabel: ="Informe o número"
+                                                BorderColor: =corBorda
+                                                BorderThickness: =1
+                                                Color: =corTexto
+                                                Default: =""
+                                                DisabledBorderColor: =corBorda
+                                                DisabledColor: =corTextoSec
+                                                DisabledFill: =corFundo
+                                                Fill: =Color.White
+                                                FocusedBorderColor: =corPrimaria
+                                                FocusedBorderThickness: =2
+                                                Font: =Font.'Segoe UI'
+                                                Format: =TextFormat.Number
+                                                Height: =36
+                                                HintText: ="Informe o número"
+                                                HoverBorderColor: =corPrimaria
+                                                HoverFill: =Color.White
+                                                LayoutMinWidth: =0
+                                                PaddingLeft: =10
+                                                RadiusBottomLeft: =6
+                                                RadiusBottomRight: =6
+                                                RadiusTopLeft: =6
+                                                RadiusTopRight: =6
+                                                Size: =10
+                                                TabIndex: =0
+                                    - novaTipoCampo:
+                                        Control: GroupContainer
+                                        Variant: AutoLayout
+                                        Properties:
+                                          AlignInContainer: =AlignInContainer.SetByContainer
+                                          BorderThickness: =0
+                                          DropShadow: =DropShadow.None
+                                          FillPortions: =1
+                                          Height: =62
+                                          LayoutAlignItems: =LayoutAlignItems.Stretch
+                                          LayoutDirection: =LayoutDirection.Vertical
+                                          LayoutGap: =6
+                                          LayoutMinHeight: =0
+                                          LayoutMinWidth: =0
+                                        Children:
+                                          - novaTipoRotulo:
+                                              Control: Label
+                                              Properties:
+                                                AutoHeight: =true
+                                                Color: =corTexto
+                                                FocusedBorderThickness: =0
+                                                Font: =Font.'Segoe UI'
+                                                FontWeight: =FontWeight.Semibold
+                                                LayoutMinHeight: =0
+                                                LayoutMinWidth: =0
+                                                PaddingBottom: =0
+                                                PaddingLeft: =0
+                                                PaddingRight: =0
+                                                PaddingTop: =0
+                                                Size: =10
+                                                TabIndex: =-1
+                                                Text: ="Tipo de reserva"
+                                                Wrap: =true
+                                          - cbTipoReserva:
+                                              Control: Classic/ComboBox
+                                              Properties:
+                                                AccessibleLabel: ="Selecione o tipo"
+                                                BorderColor: =corBorda
+                                                BorderThickness: =1
+                                                ChevronBackground: =Color.White
+                                                ChevronFill: =corTextoSec
+                                                ChevronHoverBackground: =corFundo
+                                                ChevronHoverFill: =corPrimaria
+                                                Color: =corTexto
+                                                DisplayFields: =["Value"]
+                                                Fill: =Color.White
+                                                Font: =Font.'Segoe UI'
+                                                Height: =36
+                                                HoverBorderColor: =corPrimaria
+                                                HoverFill: =Color.White
+                                                InputTextPlaceholder: ="Selecione o tipo"
+                                                IsSearchable: =false
+                                                Items: =opcTipoReserva
+                                                LayoutMinWidth: =0
+                                                PressedColor: =corTexto
+                                                PressedFill: =Color.White
+                                                SearchFields: =["Value"]
+                                                SelectMultiple: =false
+                                                SelectionColor: =corTexto
+                                                SelectionFill: =corPrimariaClara
+                                                Size: =10
+                                                TabIndex: =0
+                              - novaSec2L2:
+                                  Control: GroupContainer
+                                  Variant: AutoLayout
+                                  Properties:
+                                    AlignInContainer: =AlignInContainer.SetByContainer
+                                    BorderThickness: =0
+                                    DropShadow: =DropShadow.None
+                                    FillPortions: =0
+                                    Height: =62
+                                    LayoutAlignItems: =LayoutAlignItems.Start
+                                    LayoutDirection: =LayoutDirection.Horizontal
+                                    LayoutGap: =16
+                                    LayoutMinHeight: =0
+                                    LayoutMinWidth: =0
+                                    Visible: =cbTipoReserva.Selected.Value <> "Atendimento"
+                                  Children:
+                                    - novaDataCampo:
+                                        Control: GroupContainer
+                                        Variant: AutoLayout
+                                        Properties:
+                                          AlignInContainer: =AlignInContainer.SetByContainer
+                                          BorderThickness: =0
+                                          DropShadow: =DropShadow.None
+                                          FillPortions: =1
+                                          Height: =62
+                                          LayoutAlignItems: =LayoutAlignItems.Stretch
+                                          LayoutDirection: =LayoutDirection.Vertical
+                                          LayoutGap: =6
+                                          LayoutMinHeight: =0
+                                          LayoutMinWidth: =0
+                                          Visible: =cbTipoReserva.Selected.Value <> "Atendimento"
+                                        Children:
+                                          - novaDataRotulo:
+                                              Control: Label
+                                              Properties:
+                                                AutoHeight: =true
+                                                Color: =corTexto
+                                                FocusedBorderThickness: =0
+                                                Font: =Font.'Segoe UI'
+                                                FontWeight: =FontWeight.Semibold
+                                                LayoutMinHeight: =0
+                                                LayoutMinWidth: =0
+                                                PaddingBottom: =0
+                                                PaddingLeft: =0
+                                                PaddingRight: =0
+                                                PaddingTop: =0
+                                                Size: =10
+                                                TabIndex: =-1
+                                                Text: ="Data de retirada"
+                                                Wrap: =true
+                                          - dataRetirada:
+                                              Control: Classic/DatePicker
+                                              Properties:
+                                                AccessibleLabel: ="Data de retirada"
+                                                BorderColor: =corBorda
+                                                BorderThickness: =1
+                                                Color: =corTexto
+                                                DefaultDate: =Blank()
+                                                EndYear: =Year(Today()) + 1
+                                                Fill: =Color.White
+                                                Font: =Font.'Segoe UI'
+                                                Format: ="dd/mm/yyyy"
+                                                Height: =36
+                                                IconBackground: =Color.White
+                                                IconFill: =corTextoSec
+                                                InputTextPlaceholder: ="dd/mm/aaaa"
+                                                LayoutMinWidth: =0
+                                                Size: =10
+                                                StartYear: =Year(Today())
+                                                TabIndex: =0
+                                    - novaHorarioCampo:
+                                        Control: GroupContainer
+                                        Variant: AutoLayout
+                                        Properties:
+                                          AlignInContainer: =AlignInContainer.SetByContainer
+                                          BorderThickness: =0
+                                          DropShadow: =DropShadow.None
+                                          FillPortions: =1
+                                          Height: =62
+                                          LayoutAlignItems: =LayoutAlignItems.Stretch
+                                          LayoutDirection: =LayoutDirection.Vertical
+                                          LayoutGap: =6
+                                          LayoutMinHeight: =0
+                                          LayoutMinWidth: =0
+                                          Visible: =cbTipoReserva.Selected.Value <> "Atendimento" && cbTipoReserva.Selected.Value <> "Delivery"
+                                        Children:
+                                          - novaHorarioRotulo:
+                                              Control: Label
+                                              Properties:
+                                                AutoHeight: =true
+                                                Color: =corTexto
+                                                FocusedBorderThickness: =0
+                                                Font: =Font.'Segoe UI'
+                                                FontWeight: =FontWeight.Semibold
+                                                LayoutMinHeight: =0
+                                                LayoutMinWidth: =0
+                                                PaddingBottom: =0
+                                                PaddingLeft: =0
+                                                PaddingRight: =0
+                                                PaddingTop: =0
+                                                Size: =10
+                                                TabIndex: =-1
+                                                Text: ="Janela de horário"
+                                                Wrap: =true
+                                          - txtHorarioRetirada:
+                                              Control: Classic/ComboBox
+                                              Properties:
+                                                AccessibleLabel: ="Selecione a janela"
+                                                BorderColor: =corBorda
+                                                BorderThickness: =1
+                                                ChevronBackground: =Color.White
+                                                ChevronFill: =corTextoSec
+                                                ChevronHoverBackground: =corFundo
+                                                ChevronHoverFill: =corPrimaria
+                                                Color: =corTexto
+                                                DisplayFields: =["Value"]
+                                                Fill: =Color.White
+                                                Font: =Font.'Segoe UI'
+                                                Height: =36
+                                                HoverBorderColor: =corPrimaria
+                                                HoverFill: =Color.White
+                                                InputTextPlaceholder: ="Selecione a janela"
+                                                IsSearchable: =false
+                                                Items: =opcJanelaHorario
+                                                LayoutMinWidth: =0
+                                                PressedColor: =corTexto
+                                                PressedFill: =Color.White
+                                                SearchFields: =["Value"]
+                                                SelectMultiple: =false
+                                                SelectionColor: =corTexto
+                                                SelectionFill: =corPrimariaClara
+                                                Size: =10
+                                                TabIndex: =0
+                                    - novaSec2L2Fim:
+                                        Control: Label
+                                        Properties:
+                                          AutoHeight: =false
+                                          FillPortions: =1
+                                          FocusedBorderThickness: =0
+                                          Height: =1
+                                          LayoutMinHeight: =0
+                                          LayoutMinWidth: =0
+                                          TabIndex: =-1
+                                          Text: =""
+                                          Width: =1
+                        - novaSec3:
+                            Control: GroupContainer
+                            Variant: AutoLayout
+                            Properties:
+                              AlignInContainer: =AlignInContainer.SetByContainer
+                              BorderColor: =corBorda
+                              BorderThickness: =1
+                              DropShadow: =DropShadow.None
+                              Fill: =corCard
+                              FillPortions: =0
+                              Height: =160
+                              LayoutAlignItems: =LayoutAlignItems.Stretch
+                              LayoutDirection: =LayoutDirection.Vertical
+                              LayoutGap: =12
+                              LayoutMinHeight: =0
+                              LayoutMinWidth: =0
+                              PaddingBottom: =20
+                              PaddingLeft: =20
+                              PaddingRight: =20
+                              PaddingTop: =20
+                              RadiusBottomLeft: =10
+                              RadiusBottomRight: =10
+                              RadiusTopLeft: =10
+                              RadiusTopRight: =10
+                            Children:
+                              - novaSec3Titulo:
+                                  Control: GroupContainer
+                                  Variant: AutoLayout
+                                  Properties:
+                                    AlignInContainer: =AlignInContainer.SetByContainer
+                                    BorderThickness: =0
+                                    DropShadow: =DropShadow.None
+                                    FillPortions: =0
+                                    Height: =24
+                                    LayoutAlignItems: =LayoutAlignItems.Center
+                                    LayoutDirection: =LayoutDirection.Horizontal
+                                    LayoutGap: =4
+                                    LayoutMinHeight: =0
+                                    LayoutMinWidth: =0
+                                  Children:
+                                    - novaSec3Num:
+                                        Control: Label
+                                        Properties:
+                                          AutoHeight: =false
+                                          Color: =corPrimaria
+                                          FocusedBorderThickness: =0
+                                          Font: =Font.'Segoe UI'
+                                          FontWeight: =FontWeight.Semibold
+                                          Height: =24
+                                          LayoutMinHeight: =0
+                                          LayoutMinWidth: =0
+                                          PaddingBottom: =0
+                                          PaddingLeft: =0
+                                          PaddingRight: =0
+                                          PaddingTop: =0
+                                          Size: =10
+                                          TabIndex: =-1
+                                          Text: ="03"
+                                          VerticalAlign: =VerticalAlign.Middle
+                                          Width: =26
+                                          Wrap: =true
+                                    - novaSec3Nome:
+                                        Control: Label
+                                        Properties:
+                                          AutoHeight: =false
+                                          Color: =corTexto
+                                          FillPortions: =1
+                                          FocusedBorderThickness: =0
+                                          Font: =Font.'Segoe UI'
+                                          FontWeight: =FontWeight.Semibold
+                                          Height: =24
+                                          LayoutMinHeight: =0
+                                          LayoutMinWidth: =0
+                                          PaddingBottom: =0
+                                          PaddingLeft: =0
+                                          PaddingRight: =0
+                                          PaddingTop: =0
+                                          Size: =13
+                                          TabIndex: =-1
+                                          Text: ="Observações"
+                                          VerticalAlign: =VerticalAlign.Middle
+                                          Wrap: =true
+                              - txtObservacao:
+                                  Control: Classic/TextInput
+                                  Properties:
+                                    AccessibleLabel: ="Descreva alguma orientação importante para a retirada."
+                                    BorderColor: =corBorda
+                                    BorderThickness: =1
+                                    Color: =corTexto
+                                    Default: =""
+                                    DisabledBorderColor: =corBorda
+                                    DisabledColor: =corTextoSec
+                                    DisabledFill: =corFundo
+                                    Fill: =Color.White
+                                    FocusedBorderColor: =corPrimaria
+                                    FocusedBorderThickness: =2
+                                    Font: =Font.'Segoe UI'
+                                    Height: =84
+                                    HintText: ="Descreva alguma orientação importante para a retirada."
+                                    HoverBorderColor: =corPrimaria
+                                    HoverFill: =Color.White
+                                    LayoutMinWidth: =0
+                                    Mode: =TextMode.MultiLine
+                                    PaddingLeft: =10
+                                    PaddingTop: =8
+                                    RadiusBottomLeft: =6
+                                    RadiusBottomRight: =6
+                                    RadiusTopLeft: =6
+                                    RadiusTopRight: =6
+                                    Size: =10
+                                    TabIndex: =0
+                        - novaErro:
+                            Control: GroupContainer
+                            Variant: AutoLayout
+                            Properties:
+                              AlignInContainer: =AlignInContainer.SetByContainer
+                              BorderThickness: =0
+                              DropShadow: =DropShadow.None
+                              Fill: =corErroClaro
+                              FillPortions: =0
+                              Height: =40
+                              LayoutDirection: =LayoutDirection.Horizontal
+                              LayoutGap: =0
+                              LayoutMinHeight: =0
+                              LayoutMinWidth: =0
+                              PaddingBottom: =0
+                              PaddingLeft: =16
+                              PaddingRight: =16
+                              PaddingTop: =0
+                              RadiusBottomLeft: =8
+                              RadiusBottomRight: =8
+                              RadiusTopLeft: =8
+                              RadiusTopRight: =8
+                              Visible: =!IsBlank(varErroValidacao)
+                            Children:
+                              - novaErroTxt:
+                                  Control: Label
+                                  Properties:
+                                    AutoHeight: =false
+                                    Color: =corErro
+                                    FillPortions: =1
+                                    FocusedBorderThickness: =0
+                                    Font: =Font.'Segoe UI'
+                                    FontWeight: =FontWeight.Semibold
+                                    Height: =40
+                                    LayoutMinHeight: =0
+                                    LayoutMinWidth: =0
+                                    PaddingBottom: =0
+                                    PaddingLeft: =0
+                                    PaddingRight: =0
+                                    PaddingTop: =0
+                                    Size: =10
+                                    TabIndex: =-1
+                                    Text: ="⚠  " & varErroValidacao
+                                    VerticalAlign: =VerticalAlign.Middle
+                                    Wrap: =true
+                        - novaRodape:
+                            Control: GroupContainer
+                            Variant: AutoLayout
+                            Properties:
+                              AlignInContainer: =AlignInContainer.SetByContainer
+                              BorderThickness: =0
+                              DropShadow: =DropShadow.None
+                              FillPortions: =0
+                              Height: =40
+                              LayoutAlignItems: =LayoutAlignItems.Center
+                              LayoutDirection: =LayoutDirection.Horizontal
+                              LayoutGap: =12
+                              LayoutMinHeight: =0
+                              LayoutMinWidth: =0
+                            Children:
+                              - novaRodapeTxt:
+                                  Control: Label
+                                  Properties:
+                                    AutoHeight: =false
+                                    Color: =corTextoSec
+                                    FillPortions: =1
+                                    FocusedBorderThickness: =0
+                                    Font: =Font.'Segoe UI'
+                                    FontWeight: =FontWeight.Normal
+                                    Height: =40
+                                    LayoutMinHeight: =0
+                                    LayoutMinWidth: =0
+                                    PaddingBottom: =0
+                                    PaddingLeft: =0
+                                    PaddingRight: =0
+                                    PaddingTop: =0
+                                    Size: =9
+                                    TabIndex: =-1
+                                    Text: ="Confira os dados antes de enviar a solicitação."
+                                    VerticalAlign: =VerticalAlign.Middle
+                                    Wrap: =true
+                              - novaBtnCancelar:
+                                  Control: Classic/Button
+                                  Properties:
+                                    BorderColor: =corBorda
+                                    BorderThickness: =1
+                                    Color: =corPrimaria
+                                    Fill: =Color.White
+                                    FocusedBorderColor: =corTexto
+                                    FocusedBorderThickness: =2
+                                    Font: =Font.'Segoe UI'
+                                    FontWeight: =FontWeight.Semibold
+                                    Height: =40
+                                    HoverBorderColor: =corPrimaria
+                                    HoverColor: =corPrimaria
+                                    HoverFill: =corFundo
+                                    OnSelect: |-
+                                      =Reset(cbArea);
+                                      Reset(cbUnidadeNegocios);
+                                      Reset(txtContato);
+                                      Reset(txtReservaSAP);
+                                      Reset(cbTipoReserva);
+                                      Reset(txtHorarioRetirada);
+                                      Reset(txtObservacao);
+                                      Reset(txtMatricula);
+                                      Reset(dataRetirada);
+                                      Reset(cbAlmoxarifado);
+                                      UpdateContext({varErroValidacao: Blank()});
+                                      Navigate(Menu, ScreenTransition.Fade)
+                                    PressedBorderColor: =corBorda
+                                    PressedColor: =corPrimaria
+                                    PressedFill: =corBorda
+                                    RadiusBottomLeft: =6
+                                    RadiusBottomRight: =6
+                                    RadiusTopLeft: =6
+                                    RadiusTopRight: =6
+                                    Size: =10
+                                    Text: ="Cancelar"
+                                    Width: =130
+                              - novaBtnEnviar:
+                                  Control: Classic/Button
+                                  Properties:
+                                    BorderColor: =corPrimaria
+                                    BorderThickness: =1
+                                    Color: =Color.White
+                                    Fill: =corPrimaria
+                                    FocusedBorderColor: =corTexto
+                                    FocusedBorderThickness: =2
+                                    Font: =Font.'Segoe UI'
+                                    FontWeight: =FontWeight.Semibold
+                                    Height: =40
+                                    HoverBorderColor: =corPrimariaHover
+                                    HoverColor: =Color.White
+                                    HoverFill: =corPrimariaHover
+                                    OnSelect: |-
+                                      =// Validações: apenas o que existe na lista
+                                      UpdateContext({
+                                          varErroValidacao:
+                                              If(
+                                                  IsBlank(txtMatricula.Text), "Matrícula não informada.",
+                                                  Len(txtMatricula.Text) <> 8, "Matrícula deve ter exatamente 8 dígitos.",
+                                                  IsBlank(cbArea.Selected.Value), "Área não selecionada.",
+                                                  IsBlank(cbUnidadeNegocios.Selected.Value), "Unidade de negócios não selecionada.",
+                                                  IsBlank(txtContato.Text), "Contato não informado.",
+                                                  Len(txtContato.Text) <= 9, "Contato deve ter mais de 9 dígitos.",
+                                                  IsBlank(cbAlmoxarifado.Selected.Value), "Almoxarifado não selecionado.",
+                                                  IsBlank(txtReservaSAP.Text), "Reserva SAP não informada.",
+                                                  IsBlank(cbTipoReserva.Selected.Value), "Tipo de reserva não selecionado.",
+                                                  (cbTipoReserva.Selected.Value <> "Atendimento") && IsBlank(dataRetirada.SelectedDate), "Data de retirada não informada.",
+                                                  (cbTipoReserva.Selected.Value <> "Atendimento") && dataRetirada.SelectedDate < Today(), "Data de retirada não pode ser anterior a hoje.",
+                                                  (cbTipoReserva.Selected.Value <> "Atendimento" && cbTipoReserva.Selected.Value <> "Delivery") && IsBlank(txtHorarioRetirada.Selected.Value), "Horário de retirada não selecionado.",
+                                                  Blank()
+                                              )
+                                      });
+
+                                      If(
+                                          IsBlank(varErroValidacao),
+
+                                          Patch(
+                                              soliMateriais,
+                                              Defaults(soliMateriais),
+                                              {
+                                                  solicitante: {
+                                                      '@odata.type': "#Microsoft.Azure.Connectors.SharePoint.SPListExpandedUser",
+                                                      Claims: "i:0#.f|membership|" & Lower(User().Email),
+                                                      DisplayName: User().FullName,
+                                                      Email: User().Email,
+                                                      Department: "",
+                                                      JobTitle: "",
+                                                      Picture: ""
+                                                  },
+                                                  unidadeNegocios: { Value: cbUnidadeNegocios.Selected.Value },
+                                                  area: { Value: cbArea.Selected.Value },
+                                                  contato: Value(txtContato.Text),
+                                                  reservaSap: Value(txtReservaSAP.Text),
+                                                  tipoReservaSap: { Value: cbTipoReserva.Selected.Value },
+                                                  dataRetirada: If(cbTipoReserva.Selected.Value <> "Atendimento", dataRetirada.SelectedDate, Blank()),
+                                                  janelaHorarioRetirada: { Value: If(cbTipoReserva.Selected.Value <> "Atendimento" && cbTipoReserva.Selected.Value <> "Delivery", txtHorarioRetirada.Selected.Value, Blank()) },
+                                                  observacao: txtObservacao.Text,
+                                                  status: { Value: "Aguardando Separação" },
+                                                  almoxarifado: { Value: cbAlmoxarifado.Selected.Value },
+                                                  ultimaAlteracao: Now(),
+                                                  matricula: Value(txtMatricula.Text)
+                                              }
+                                          );
+                                          Set(varUltimaReserva, txtReservaSAP.Text);
+                                          Set(varUltimoAlmox, cbAlmoxarifado.Selected.Value);
+                                          Reset(cbArea);
+                                          Reset(cbUnidadeNegocios);
+                                          Reset(txtContato);
+                                          Reset(txtReservaSAP);
+                                          Reset(cbTipoReserva);
+                                          Reset(txtHorarioRetirada);
+                                          Reset(txtObservacao);
+                                          Reset(txtMatricula);
+                                          Reset(dataRetirada);
+                                          Reset(cbAlmoxarifado);
+                                          UpdateContext({varErroValidacao: Blank()});
+                                          Navigate(Finalizada, ScreenTransition.Fade),
+
+                                          Notify(varErroValidacao, NotificationType.Error)
+                                      )
+                                    PressedBorderColor: =corPrimaria
+                                    PressedColor: =Color.White
+                                    PressedFill: =corPrimariaHover
+                                    RadiusBottomLeft: =6
+                                    RadiusBottomRight: =6
+                                    RadiusTopLeft: =6
+                                    RadiusTopRight: =6
+                                    Size: =10
+                                    Text: ="Enviar solicitação  →"
+                                    Width: =190

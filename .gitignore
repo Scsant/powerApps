@@ -4,3 +4,4 @@
 **/bin/
 **/obj/
 *.binlog
+__pycache__/
