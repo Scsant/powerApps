@@ -1,0 +1,373 @@
+# Tela completa: header + corpo rolável + conteúdo centralizado com título e um card. Salve como <tela>.pa.yaml.
+Screens:
+  tplTela:
+    Properties:
+      Fill: =corFundo
+    Children:
+      - tplRaiz:
+          Control: GroupContainer
+          Variant: AutoLayout
+          Properties:
+            BorderThickness: =0
+            DropShadow: =DropShadow.None
+            Fill: =corFundo
+            Height: =Parent.Height
+            LayoutAlignItems: =LayoutAlignItems.Stretch
+            LayoutDirection: =LayoutDirection.Vertical
+            LayoutGap: =0
+            Width: =Parent.Width
+            X: =0
+            Y: =0
+          Children:
+            - tplHeader:
+                Control: GroupContainer
+                Variant: AutoLayout
+                Properties:
+                  AlignInContainer: =AlignInContainer.SetByContainer
+                  BorderThickness: =0
+                  DropShadow: =DropShadow.None
+                  Fill: =corHeader
+                  FillPortions: =0
+                  Height: =64
+                  LayoutAlignItems: =LayoutAlignItems.Center
+                  LayoutDirection: =LayoutDirection.Horizontal
+                  LayoutGap: =14
+                  LayoutMinHeight: =0
+                  LayoutMinWidth: =0
+                  PaddingBottom: =0
+                  PaddingLeft: =32
+                  PaddingRight: =32
+                  PaddingTop: =0
+                Children:
+                  - tplLogo:
+                      Control: Label
+                      Properties:
+                        AutoHeight: =false
+                        Color: =Color.White
+                        FocusedBorderThickness: =0
+                        Font: =Font.'Segoe UI'
+                        FontWeight: =FontWeight.Semibold
+                        Height: =64
+                        LayoutMinHeight: =0
+                        LayoutMinWidth: =0
+                        PaddingBottom: =0
+                        PaddingLeft: =0
+                        PaddingRight: =0
+                        PaddingTop: =0
+                        Size: =18
+                        TabIndex: =-1
+                        Text: ="Bracell"
+                        VerticalAlign: =VerticalAlign.Middle
+                        Width: =90
+                        Wrap: =true
+                  - tplDivisor:
+                      Control: Rectangle
+                      Properties:
+                        Fill: =RGBA(255, 255, 255, 0.5)
+                        FocusedBorderThickness: =0
+                        Height: =24
+                        TabIndex: =-1
+                        Width: =1
+                  - tplPortal:
+                      Control: Label
+                      Properties:
+                        AutoHeight: =false
+                        Color: =Color.White
+                        FocusedBorderThickness: =0
+                        Font: =Font.'Segoe UI'
+                        FontWeight: =FontWeight.Semibold
+                        Height: =64
+                        LayoutMinHeight: =0
+                        LayoutMinWidth: =0
+                        PaddingBottom: =0
+                        PaddingLeft: =12
+                        PaddingRight: =0
+                        PaddingTop: =0
+                        Size: =11
+                        TabIndex: =-1
+                        Text: ="Portal do Almoxarifado"
+                        VerticalAlign: =VerticalAlign.Middle
+                        Width: =200
+                        Wrap: =true
+                  - tplSpacer:
+                      Control: Label
+                      Properties:
+                        AutoHeight: =false
+                        FillPortions: =1
+                        FocusedBorderThickness: =0
+                        Height: =1
+                        LayoutMinHeight: =0
+                        LayoutMinWidth: =0
+                        TabIndex: =-1
+                        Text: =""
+                        Width: =1
+                  - tplNavInicio:
+                      Control: Label
+                      Properties:
+                        Align: =Align.Center
+                        AutoHeight: =false
+                        BorderColor: =RGBA(0,0,0,0)
+                        BorderThickness: =0
+                        Color: =RGBA(255, 255, 255, 0.72)
+                        FocusedBorderColor: =corTexto
+                        FocusedBorderThickness: =2
+                        Font: =Font.'Segoe UI'
+                        FontWeight: =FontWeight.Normal
+                        Height: =64
+                        HoverColor: =Color.White
+                        LayoutMinHeight: =0
+                        LayoutMinWidth: =0
+                        OnSelect: =Navigate(Menu, ScreenTransition.Fade)
+                        PaddingBottom: =0
+                        PaddingLeft: =0
+                        PaddingRight: =0
+                        PaddingTop: =0
+                        Size: =10
+                        TabIndex: =0
+                        Text: ="Início"
+                        VerticalAlign: =VerticalAlign.Middle
+                        Width: =60
+                        Wrap: =true
+                  - tplNavMinhas:
+                      Control: Label
+                      Properties:
+                        Align: =Align.Center
+                        AutoHeight: =false
+                        BorderColor: =RGBA(0,0,0,0)
+                        BorderThickness: =0
+                        Color: =RGBA(255, 255, 255, 0.72)
+                        FocusedBorderColor: =corTexto
+                        FocusedBorderThickness: =2
+                        Font: =Font.'Segoe UI'
+                        FontWeight: =FontWeight.Normal
+                        Height: =64
+                        HoverColor: =Color.White
+                        LayoutMinHeight: =0
+                        LayoutMinWidth: =0
+                        OnSelect: =Navigate(minhasSolicitacoes, ScreenTransition.Fade)
+                        PaddingBottom: =0
+                        PaddingLeft: =0
+                        PaddingRight: =0
+                        PaddingTop: =0
+                        Size: =10
+                        TabIndex: =0
+                        Text: ="Minhas solicitações"
+                        VerticalAlign: =VerticalAlign.Middle
+                        Width: =150
+                        Wrap: =true
+                  - tplNavFila:
+                      Control: Label
+                      Properties:
+                        Align: =Align.Center
+                        AutoHeight: =false
+                        BorderColor: =RGBA(0,0,0,0)
+                        BorderThickness: =0
+                        Color: =RGBA(255, 255, 255, 0.72)
+                        FocusedBorderColor: =corTexto
+                        FocusedBorderThickness: =2
+                        Font: =Font.'Segoe UI'
+                        FontWeight: =FontWeight.Normal
+                        Height: =64
+                        HoverColor: =Color.White
+                        LayoutMinHeight: =0
+                        LayoutMinWidth: =0
+                        OnSelect: =Navigate(filaAtendimento, ScreenTransition.Fade)
+                        PaddingBottom: =0
+                        PaddingLeft: =0
+                        PaddingRight: =0
+                        PaddingTop: =0
+                        Size: =10
+                        TabIndex: =0
+                        Text: ="Fila de atendimento"
+                        VerticalAlign: =VerticalAlign.Middle
+                        Visible: =varAtendente || varSupervisor
+                        Width: =150
+                        Wrap: =true
+                  - tplNavEquipe:
+                      Control: Label
+                      Properties:
+                        Align: =Align.Center
+                        AutoHeight: =false
+                        BorderColor: =RGBA(0,0,0,0)
+                        BorderThickness: =0
+                        Color: =RGBA(255, 255, 255, 0.72)
+                        FocusedBorderColor: =corTexto
+                        FocusedBorderThickness: =2
+                        Font: =Font.'Segoe UI'
+                        FontWeight: =FontWeight.Normal
+                        Height: =64
+                        HoverColor: =Color.White
+                        LayoutMinHeight: =0
+                        LayoutMinWidth: =0
+                        OnSelect: =Navigate(cadastroEquipe, ScreenTransition.Fade)
+                        PaddingBottom: =0
+                        PaddingLeft: =0
+                        PaddingRight: =0
+                        PaddingTop: =0
+                        Size: =10
+                        TabIndex: =0
+                        Text: ="Equipe"
+                        VerticalAlign: =VerticalAlign.Middle
+                        Visible: =varSupervisor
+                        Width: =70
+                        Wrap: =true
+                  - tplAvatar:
+                      Control: GroupContainer
+                      Variant: AutoLayout
+                      Properties:
+                        AlignInContainer: =AlignInContainer.SetByContainer
+                        BorderThickness: =0
+                        DropShadow: =DropShadow.None
+                        Fill: =Color.White
+                        FillPortions: =0
+                        Height: =32
+                        LayoutDirection: =LayoutDirection.Horizontal
+                        LayoutGap: =0
+                        LayoutMinHeight: =0
+                        LayoutMinWidth: =0
+                        RadiusBottomLeft: =16
+                        RadiusBottomRight: =16
+                        RadiusTopLeft: =16
+                        RadiusTopRight: =16
+                        Width: =32
+                      Children:
+                        - tplAvatarTxt:
+                            Control: Label
+                            Properties:
+                              Align: =Align.Center
+                              AutoHeight: =false
+                              Color: =corHeader
+                              FillPortions: =1
+                              FocusedBorderThickness: =0
+                              Font: =Font.'Segoe UI'
+                              FontWeight: =FontWeight.Semibold
+                              Height: =32
+                              LayoutMinHeight: =0
+                              LayoutMinWidth: =0
+                              PaddingBottom: =0
+                              PaddingLeft: =0
+                              PaddingRight: =0
+                              PaddingTop: =0
+                              Size: =9
+                              TabIndex: =-1
+                              Text: =fxIniciais
+                              VerticalAlign: =VerticalAlign.Middle
+                              Wrap: =true
+                  - tplUsuario:
+                      Control: Label
+                      Properties:
+                        AutoHeight: =false
+                        Color: =Color.White
+                        FocusedBorderThickness: =0
+                        Font: =Font.'Segoe UI'
+                        FontWeight: =FontWeight.Normal
+                        Height: =64
+                        LayoutMinHeight: =0
+                        LayoutMinWidth: =0
+                        PaddingBottom: =0
+                        PaddingLeft: =0
+                        PaddingRight: =0
+                        PaddingTop: =0
+                        Size: =10
+                        TabIndex: =-1
+                        Text: =fxNomeCurto
+                        VerticalAlign: =VerticalAlign.Middle
+                        Width: =170
+                        Wrap: =true
+            - tplCorpo:
+                Control: GroupContainer
+                Variant: AutoLayout
+                Properties:
+                  AlignInContainer: =AlignInContainer.SetByContainer
+                  BorderThickness: =0
+                  DropShadow: =DropShadow.None
+                  Fill: =corFundo
+                  FillPortions: =1
+                  LayoutAlignItems: =LayoutAlignItems.Center
+                  LayoutDirection: =LayoutDirection.Vertical
+                  LayoutGap: =0
+                  LayoutMinHeight: =0
+                  LayoutMinWidth: =0
+                  LayoutOverflowY: =LayoutOverflow.Scroll
+                  PaddingBottom: =32
+                  PaddingLeft: =0
+                  PaddingRight: =0
+                  PaddingTop: =28
+                Children:
+                  - tplConteudo:
+                      Control: GroupContainer
+                      Variant: AutoLayout
+                      Properties:
+                        AlignInContainer: =AlignInContainer.Center
+                        BorderThickness: =0
+                        DropShadow: =DropShadow.None
+                        FillPortions: =0
+                        Height: =280
+                        LayoutAlignItems: =LayoutAlignItems.Stretch
+                        LayoutDirection: =LayoutDirection.Vertical
+                        LayoutGap: =20
+                        LayoutMinHeight: =0
+                        LayoutMinWidth: =0
+                        Width: =Min(1100, Parent.Width - 64)
+                      Children:
+                        - tplTitulo:
+                            Control: Label
+                            Properties:
+                              AutoHeight: =true
+                              Color: =corTexto
+                              FocusedBorderThickness: =0
+                              Font: =Font.'Segoe UI'
+                              FontWeight: =FontWeight.Semibold
+                              LayoutMinHeight: =0
+                              LayoutMinWidth: =0
+                              PaddingBottom: =0
+                              PaddingLeft: =0
+                              PaddingRight: =0
+                              PaddingTop: =0
+                              Size: =20
+                              TabIndex: =-1
+                              Text: ="Título da página"
+                              Wrap: =true
+                        - tplCard:
+                            Control: GroupContainer
+                            Variant: AutoLayout
+                            Properties:
+                              AlignInContainer: =AlignInContainer.SetByContainer
+                              BorderColor: =corBorda
+                              BorderThickness: =1
+                              DropShadow: =DropShadow.None
+                              Fill: =corCard
+                              FillPortions: =0
+                              Height: =200
+                              LayoutAlignItems: =LayoutAlignItems.Stretch
+                              LayoutDirection: =LayoutDirection.Vertical
+                              LayoutGap: =12
+                              LayoutMinHeight: =0
+                              LayoutMinWidth: =0
+                              PaddingBottom: =20
+                              PaddingLeft: =20
+                              PaddingRight: =20
+                              PaddingTop: =20
+                              RadiusBottomLeft: =10
+                              RadiusBottomRight: =10
+                              RadiusTopLeft: =10
+                              RadiusTopRight: =10
+                            Children:
+                              - tplCardTxt:
+                                  Control: Label
+                                  Properties:
+                                    AutoHeight: =true
+                                    Color: =corTextoSec
+                                    FocusedBorderThickness: =0
+                                    Font: =Font.'Segoe UI'
+                                    FontWeight: =FontWeight.Normal
+                                    LayoutMinHeight: =0
+                                    LayoutMinWidth: =0
+                                    PaddingBottom: =0
+                                    PaddingLeft: =0
+                                    PaddingRight: =0
+                                    PaddingTop: =0
+                                    Size: =10
+                                    TabIndex: =-1
+                                    Text: ="Conteúdo"
+                                    Wrap: =true

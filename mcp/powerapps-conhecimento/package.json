@@ -1,0 +1,24 @@
+{
+  "name": "powerapps-conhecimento-mcp",
+  "version": "1.0.0",
+  "description": "MCP de conhecimento para Power Apps Canvas (pa.yaml, containers, Power Fx, SharePoint) — sem dependências de runtime.",
+  "main": "dist/server.js",
+  "bin": {
+    "powerapps-conhecimento-mcp": "dist/server.js"
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "start": "node dist/server.js",
+    "test": "node dist/selftest.js",
+    "pacote": "powershell -NoProfile -ExecutionPolicy Bypass -File scripts/empacotar.ps1"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.0",
+    "typescript": "^5.9.3"
+  },
+  "license": "UNLICENSED",
+  "private": true
+}

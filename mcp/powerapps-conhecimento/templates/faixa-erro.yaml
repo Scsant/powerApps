@@ -1,0 +1,46 @@
+# Faixa de erro de formulário (visível quando locErro não está vazio).
+# Cole dentro de Children:. Troque o prefixo 'tpl' (obter_template com prefixo) — nomes são globais no app.
+# Requer os tokens de cor (obter_template('tokens-app-formulas')).
+- tplErro:
+    Control: GroupContainer
+    Variant: AutoLayout
+    Properties:
+      AlignInContainer: =AlignInContainer.SetByContainer
+      BorderThickness: =0
+      DropShadow: =DropShadow.None
+      Fill: =corErroClaro
+      FillPortions: =0
+      Height: =40
+      LayoutDirection: =LayoutDirection.Horizontal
+      LayoutGap: =0
+      LayoutMinHeight: =0
+      LayoutMinWidth: =0
+      PaddingLeft: =16
+      PaddingRight: =16
+      RadiusBottomLeft: =8
+      RadiusBottomRight: =8
+      RadiusTopLeft: =8
+      RadiusTopRight: =8
+      Visible: =!IsBlank(locErro)
+    Children:
+      - tplErroTxt:
+          Control: Label
+          Properties:
+            AutoHeight: =false
+            Color: =corErro
+            FillPortions: =1
+            FocusedBorderThickness: =0
+            Font: =Font.'Segoe UI'
+            FontWeight: =FontWeight.Semibold
+            Height: =40
+            LayoutMinHeight: =0
+            LayoutMinWidth: =0
+            PaddingBottom: =0
+            PaddingLeft: =0
+            PaddingRight: =0
+            PaddingTop: =0
+            Size: =10
+            TabIndex: =-1
+            Text: ="⚠  " & locErro
+            VerticalAlign: =VerticalAlign.Middle
+            Wrap: =true

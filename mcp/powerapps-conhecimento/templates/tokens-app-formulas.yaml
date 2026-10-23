@@ -1,0 +1,20 @@
+# App.Formulas com os tokens de cor do design system (cole em App > Formulas).
+App:
+  Properties:
+    Formulas: |-
+      =// ---------- Cores (protótipo Portal do Almoxarifado) ----------
+      corHeader = ColorValue("#2432C8");
+      corBanner = ColorValue("#4F68D2");
+      corBannerCard = ColorValue("#0F4F99");
+      corPrimaria = ColorValue("#1565A8");
+      corPrimariaHover = ColorValue("#0F4F87");
+      corPrimariaClara = ColorValue("#E6F0FA");
+      corFundo = ColorValue("#F3F6FA");
+      corCard = Color.White;
+      corBorda = ColorValue("#E1E6EE");
+      corTexto = ColorValue("#1B2B48");
+      corTextoSec = ColorValue("#5B6B82");
+      corSucesso = ColorValue("#1E8E4F");
+      corSucessoClaro = ColorValue("#E5F5EC");
+      corErro = ColorValue("#C0392B");
+      corErroClaro = ColorValue("#FDECEA");

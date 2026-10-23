@@ -1,0 +1,1081 @@
+# Overlay + painel lateral direito de detalhes (usa varDados/varModal). Cole na TELA, depois do container raiz (não dentro de AutoLayout).
+# Cole dentro de Children:. Troque o prefixo 'tpl' (obter_template com prefixo) — nomes são globais no app.
+# Requer os tokens de cor (obter_template('tokens-app-formulas')).
+- tplOverlay:
+    Control: Rectangle
+    Properties:
+      AccessibleLabel: ="Fechar"
+      Fill: =RGBA(15, 23, 42, 0.45)
+      FocusedBorderColor: =corTexto
+      FocusedBorderThickness: =2
+      Height: =Parent.Height
+      OnSelect: |-
+        =UpdateContext({varModal: false})
+      TabIndex: =0
+      Visible: =varModal
+      Width: =Parent.Width
+      X: =0
+      Y: =0
+- tplPainel:
+    Control: GroupContainer
+    Variant: AutoLayout
+    Properties:
+      BorderThickness: =0
+      DropShadow: =DropShadow.ExtraBold
+      Fill: =Color.White
+      Height: =Parent.Height
+      LayoutAlignItems: =LayoutAlignItems.Stretch
+      LayoutDirection: =LayoutDirection.Vertical
+      LayoutGap: =12
+      LayoutOverflowY: =LayoutOverflow.Scroll
+      PaddingBottom: =24
+      PaddingLeft: =24
+      PaddingRight: =24
+      PaddingTop: =24
+      Visible: =varModal
+      Width: =Min(460, Parent.Width)
+      X: =Parent.Width - Self.Width
+      Y: =0
+    Children:
+      - tplDetTopo:
+          Control: GroupContainer
+          Variant: AutoLayout
+          Properties:
+            AlignInContainer: =AlignInContainer.SetByContainer
+            BorderThickness: =0
+            DropShadow: =DropShadow.None
+            FillPortions: =0
+            Height: =44
+            LayoutAlignItems: =LayoutAlignItems.Center
+            LayoutDirection: =LayoutDirection.Horizontal
+            LayoutGap: =8
+            LayoutMinHeight: =0
+            LayoutMinWidth: =0
+          Children:
+            - tplDetTopoTxt:
+                Control: GroupContainer
+                Variant: AutoLayout
+                Properties:
+                  AlignInContainer: =AlignInContainer.SetByContainer
+                  BorderThickness: =0
+                  DropShadow: =DropShadow.None
+                  FillPortions: =1
+                  Height: =44
+                  LayoutDirection: =LayoutDirection.Vertical
+                  LayoutGap: =2
+                  LayoutMinHeight: =0
+                  LayoutMinWidth: =0
+                Children:
+                  - tplDetKicker:
+                      Control: Label
+                      Properties:
+                        AutoHeight: =true
+                        Color: =corTextoSec
+                        FocusedBorderThickness: =0
+                        Font: =Font.'Segoe UI'
+                        FontWeight: =FontWeight.Semibold
+                        LayoutMinHeight: =0
+                        LayoutMinWidth: =0
+                        PaddingBottom: =0
+                        PaddingLeft: =0
+                        PaddingRight: =0
+                        PaddingTop: =0
+                        Size: =8
+                        TabIndex: =-1
+                        Text: ="SOLICITAÇÃO"
+                        Wrap: =true
+                  - tplDetTitulo:
+                      Control: Label
+                      Properties:
+                        AutoHeight: =true
+                        Color: =corTexto
+                        FocusedBorderThickness: =0
+                        Font: =Font.'Segoe UI'
+                        FontWeight: =FontWeight.Semibold
+                        LayoutMinHeight: =0
+                        LayoutMinWidth: =0
+                        PaddingBottom: =0
+                        PaddingLeft: =0
+                        PaddingRight: =0
+                        PaddingTop: =0
+                        Size: =16
+                        TabIndex: =-1
+                        Text: ="Reserva SAP " & varDados.reservaSap
+                        Wrap: =true
+            - tplDetFechar:
+                Control: Classic/Button
+                Properties:
+                  BorderColor: =corBorda
+                  BorderThickness: =1
+                  Color: =corPrimaria
+                  Fill: =Color.White
+                  FocusedBorderColor: =corTexto
+                  FocusedBorderThickness: =2
+                  Font: =Font.'Segoe UI'
+                  FontWeight: =FontWeight.Semibold
+                  Height: =36
+                  HoverBorderColor: =corPrimaria
+                  HoverColor: =corPrimaria
+                  HoverFill: =corFundo
+                  OnSelect: |-
+                    =UpdateContext({varModal: false})
+                  PressedBorderColor: =corBorda
+                  PressedColor: =corPrimaria
+                  PressedFill: =corBorda
+                  RadiusBottomLeft: =6
+                  RadiusBottomRight: =6
+                  RadiusTopLeft: =6
+                  RadiusTopRight: =6
+                  Size: =10
+                  Text: ="✕"
+                  Tooltip: ="Fechar detalhes"
+                  Width: =36
+      - tplDetStatusLinha:
+          Control: GroupContainer
+          Variant: AutoLayout
+          Properties:
+            AlignInContainer: =AlignInContainer.SetByContainer
+            BorderThickness: =0
+            DropShadow: =DropShadow.None
+            FillPortions: =0
+            Height: =24
+            LayoutAlignItems: =LayoutAlignItems.Center
+            LayoutDirection: =LayoutDirection.Horizontal
+            LayoutGap: =12
+            LayoutMinHeight: =0
+            LayoutMinWidth: =0
+          Children:
+            - tplDetStatusChip:
+                Control: GroupContainer
+                Variant: AutoLayout
+                Properties:
+                  AlignInContainer: =AlignInContainer.SetByContainer
+                  BorderThickness: =0
+                  DropShadow: =DropShadow.None
+                  Fill: =Switch(varDados.status.Value, "Aguardando Separação", RGBA(255, 244, 214, 1), "Em Separação", RGBA(222, 235, 255, 1), "Pronto para Retirada", RGBA(224, 245, 233, 1), "Finalizado", RGBA(233, 236, 241, 1), "Cancelado", RGBA(253, 228, 228, 1), RGBA(233, 236, 241, 1))
+                  FillPortions: =0
+                  Height: =24
+                  LayoutAlignItems: =LayoutAlignItems.Center
+                  LayoutDirection: =LayoutDirection.Horizontal
+                  LayoutGap: =0
+                  LayoutJustifyContent: =LayoutJustifyContent.Center
+                  LayoutMinHeight: =0
+                  LayoutMinWidth: =0
+                  PaddingBottom: =0
+                  PaddingLeft: =10
+                  PaddingRight: =10
+                  PaddingTop: =0
+                  RadiusBottomLeft: =12
+                  RadiusBottomRight: =12
+                  RadiusTopLeft: =12
+                  RadiusTopRight: =12
+                  Width: =170
+                Children:
+                  - tplDetStatusChipTxt:
+                      Control: Label
+                      Properties:
+                        Align: =Align.Center
+                        AutoHeight: =false
+                        Color: =Switch(varDados.status.Value, "Aguardando Separação", RGBA(138, 90, 0, 1), "Em Separação", RGBA(21, 82, 168, 1), "Pronto para Retirada", RGBA(22, 110, 60, 1), "Finalizado", RGBA(70, 82, 102, 1), "Cancelado", RGBA(176, 32, 32, 1), RGBA(70, 82, 102, 1))
+                        FillPortions: =1
+                        FocusedBorderThickness: =0
+                        Font: =Font.'Segoe UI'
+                        FontWeight: =FontWeight.Semibold
+                        Height: =24
+                        LayoutMinHeight: =0
+                        LayoutMinWidth: =0
+                        PaddingBottom: =0
+                        PaddingLeft: =0
+                        PaddingRight: =0
+                        PaddingTop: =0
+                        Size: =9
+                        TabIndex: =-1
+                        Text: =varDados.status.Value
+                        VerticalAlign: =VerticalAlign.Middle
+                        Wrap: =true
+            - tplDetCriado:
+                Control: Label
+                Properties:
+                  AutoHeight: =false
+                  Color: =corTextoSec
+                  FillPortions: =1
+                  FocusedBorderThickness: =0
+                  Font: =Font.'Segoe UI'
+                  FontWeight: =FontWeight.Normal
+                  Height: =24
+                  LayoutMinHeight: =0
+                  LayoutMinWidth: =0
+                  PaddingBottom: =0
+                  PaddingLeft: =0
+                  PaddingRight: =0
+                  PaddingTop: =0
+                  Size: =9
+                  TabIndex: =-1
+                  Text: ="Criada em " & Text(varDados.Criado, "dd/mm/yyyy hh:mm")
+                  VerticalAlign: =VerticalAlign.Middle
+                  Wrap: =true
+      - tplDetSep1:
+          Control: Rectangle
+          Properties:
+            Fill: =corBorda
+            FocusedBorderThickness: =0
+            Height: =1
+            TabIndex: =-1
+      - tplDetSecSolic:
+          Control: Label
+          Properties:
+            AutoHeight: =true
+            Color: =corTexto
+            FocusedBorderThickness: =0
+            Font: =Font.'Segoe UI'
+            FontWeight: =FontWeight.Semibold
+            LayoutMinHeight: =0
+            LayoutMinWidth: =0
+            PaddingBottom: =0
+            PaddingLeft: =0
+            PaddingRight: =0
+            PaddingTop: =0
+            Size: =11
+            TabIndex: =-1
+            Text: ="Solicitante"
+            Wrap: =true
+      - tplDetL1:
+          Control: GroupContainer
+          Variant: AutoLayout
+          Properties:
+            AlignInContainer: =AlignInContainer.SetByContainer
+            BorderThickness: =0
+            DropShadow: =DropShadow.None
+            FillPortions: =0
+            Height: =42
+            LayoutAlignItems: =LayoutAlignItems.Start
+            LayoutDirection: =LayoutDirection.Horizontal
+            LayoutGap: =16
+            LayoutMinHeight: =0
+            LayoutMinWidth: =0
+          Children:
+            - tplDetNome:
+                Control: GroupContainer
+                Variant: AutoLayout
+                Properties:
+                  AlignInContainer: =AlignInContainer.SetByContainer
+                  BorderThickness: =0
+                  DropShadow: =DropShadow.None
+                  FillPortions: =1
+                  Height: =42
+                  LayoutDirection: =LayoutDirection.Vertical
+                  LayoutGap: =2
+                  LayoutMinHeight: =0
+                  LayoutMinWidth: =0
+                Children:
+                  - tplDetNomeK:
+                      Control: Label
+                      Properties:
+                        AutoHeight: =true
+                        Color: =corTextoSec
+                        FocusedBorderThickness: =0
+                        Font: =Font.'Segoe UI'
+                        FontWeight: =FontWeight.Semibold
+                        LayoutMinHeight: =0
+                        LayoutMinWidth: =0
+                        PaddingBottom: =0
+                        PaddingLeft: =0
+                        PaddingRight: =0
+                        PaddingTop: =0
+                        Size: =8
+                        TabIndex: =-1
+                        Text: ="Nome"
+                        Wrap: =true
+                  - tplDetNomeV:
+                      Control: Label
+                      Properties:
+                        AutoHeight: =true
+                        Color: =corTexto
+                        FocusedBorderThickness: =0
+                        Font: =Font.'Segoe UI'
+                        FontWeight: =FontWeight.Normal
+                        LayoutMinHeight: =0
+                        LayoutMinWidth: =0
+                        PaddingBottom: =0
+                        PaddingLeft: =0
+                        PaddingRight: =0
+                        PaddingTop: =0
+                        Size: =11
+                        TabIndex: =-1
+                        Text: =Coalesce(varDados.solicitante.DisplayName, "—")
+                        Wrap: =true
+            - tplDetMatricula:
+                Control: GroupContainer
+                Variant: AutoLayout
+                Properties:
+                  AlignInContainer: =AlignInContainer.SetByContainer
+                  BorderThickness: =0
+                  DropShadow: =DropShadow.None
+                  FillPortions: =1
+                  Height: =42
+                  LayoutDirection: =LayoutDirection.Vertical
+                  LayoutGap: =2
+                  LayoutMinHeight: =0
+                  LayoutMinWidth: =0
+                Children:
+                  - tplDetMatriculaK:
+                      Control: Label
+                      Properties:
+                        AutoHeight: =true
+                        Color: =corTextoSec
+                        FocusedBorderThickness: =0
+                        Font: =Font.'Segoe UI'
+                        FontWeight: =FontWeight.Semibold
+                        LayoutMinHeight: =0
+                        LayoutMinWidth: =0
+                        PaddingBottom: =0
+                        PaddingLeft: =0
+                        PaddingRight: =0
+                        PaddingTop: =0
+                        Size: =8
+                        TabIndex: =-1
+                        Text: ="Matrícula"
+                        Wrap: =true
+                  - tplDetMatriculaV:
+                      Control: Label
+                      Properties:
+                        AutoHeight: =true
+                        Color: =corTexto
+                        FocusedBorderThickness: =0
+                        Font: =Font.'Segoe UI'
+                        FontWeight: =FontWeight.Normal
+                        LayoutMinHeight: =0
+                        LayoutMinWidth: =0
+                        PaddingBottom: =0
+                        PaddingLeft: =0
+                        PaddingRight: =0
+                        PaddingTop: =0
+                        Size: =11
+                        TabIndex: =-1
+                        Text: =Coalesce(Text(varDados.matricula), "—")
+                        Wrap: =true
+      - tplDetL2:
+          Control: GroupContainer
+          Variant: AutoLayout
+          Properties:
+            AlignInContainer: =AlignInContainer.SetByContainer
+            BorderThickness: =0
+            DropShadow: =DropShadow.None
+            FillPortions: =0
+            Height: =42
+            LayoutAlignItems: =LayoutAlignItems.Start
+            LayoutDirection: =LayoutDirection.Horizontal
+            LayoutGap: =16
+            LayoutMinHeight: =0
+            LayoutMinWidth: =0
+          Children:
+            - tplDetUnidade:
+                Control: GroupContainer
+                Variant: AutoLayout
+                Properties:
+                  AlignInContainer: =AlignInContainer.SetByContainer
+                  BorderThickness: =0
+                  DropShadow: =DropShadow.None
+                  FillPortions: =1
+                  Height: =42
+                  LayoutDirection: =LayoutDirection.Vertical
+                  LayoutGap: =2
+                  LayoutMinHeight: =0
+                  LayoutMinWidth: =0
+                Children:
+                  - tplDetUnidadeK:
+                      Control: Label
+                      Properties:
+                        AutoHeight: =true
+                        Color: =corTextoSec
+                        FocusedBorderThickness: =0
+                        Font: =Font.'Segoe UI'
+                        FontWeight: =FontWeight.Semibold
+                        LayoutMinHeight: =0
+                        LayoutMinWidth: =0
+                        PaddingBottom: =0
+                        PaddingLeft: =0
+                        PaddingRight: =0
+                        PaddingTop: =0
+                        Size: =8
+                        TabIndex: =-1
+                        Text: ="Unidade de negócios"
+                        Wrap: =true
+                  - tplDetUnidadeV:
+                      Control: Label
+                      Properties:
+                        AutoHeight: =true
+                        Color: =corTexto
+                        FocusedBorderThickness: =0
+                        Font: =Font.'Segoe UI'
+                        FontWeight: =FontWeight.Normal
+                        LayoutMinHeight: =0
+                        LayoutMinWidth: =0
+                        PaddingBottom: =0
+                        PaddingLeft: =0
+                        PaddingRight: =0
+                        PaddingTop: =0
+                        Size: =11
+                        TabIndex: =-1
+                        Text: =Coalesce(varDados.unidadeNegocios.Value, "—")
+                        Wrap: =true
+            - tplDetArea:
+                Control: GroupContainer
+                Variant: AutoLayout
+                Properties:
+                  AlignInContainer: =AlignInContainer.SetByContainer
+                  BorderThickness: =0
+                  DropShadow: =DropShadow.None
+                  FillPortions: =1
+                  Height: =42
+                  LayoutDirection: =LayoutDirection.Vertical
+                  LayoutGap: =2
+                  LayoutMinHeight: =0
+                  LayoutMinWidth: =0
+                Children:
+                  - tplDetAreaK:
+                      Control: Label
+                      Properties:
+                        AutoHeight: =true
+                        Color: =corTextoSec
+                        FocusedBorderThickness: =0
+                        Font: =Font.'Segoe UI'
+                        FontWeight: =FontWeight.Semibold
+                        LayoutMinHeight: =0
+                        LayoutMinWidth: =0
+                        PaddingBottom: =0
+                        PaddingLeft: =0
+                        PaddingRight: =0
+                        PaddingTop: =0
+                        Size: =8
+                        TabIndex: =-1
+                        Text: ="Área"
+                        Wrap: =true
+                  - tplDetAreaV:
+                      Control: Label
+                      Properties:
+                        AutoHeight: =true
+                        Color: =corTexto
+                        FocusedBorderThickness: =0
+                        Font: =Font.'Segoe UI'
+                        FontWeight: =FontWeight.Normal
+                        LayoutMinHeight: =0
+                        LayoutMinWidth: =0
+                        PaddingBottom: =0
+                        PaddingLeft: =0
+                        PaddingRight: =0
+                        PaddingTop: =0
+                        Size: =11
+                        TabIndex: =-1
+                        Text: =Coalesce(varDados.area.Value, "—")
+                        Wrap: =true
+      - tplDetL3:
+          Control: GroupContainer
+          Variant: AutoLayout
+          Properties:
+            AlignInContainer: =AlignInContainer.SetByContainer
+            BorderThickness: =0
+            DropShadow: =DropShadow.None
+            FillPortions: =0
+            Height: =42
+            LayoutAlignItems: =LayoutAlignItems.Start
+            LayoutDirection: =LayoutDirection.Horizontal
+            LayoutGap: =16
+            LayoutMinHeight: =0
+            LayoutMinWidth: =0
+          Children:
+            - tplDetContato:
+                Control: GroupContainer
+                Variant: AutoLayout
+                Properties:
+                  AlignInContainer: =AlignInContainer.SetByContainer
+                  BorderThickness: =0
+                  DropShadow: =DropShadow.None
+                  FillPortions: =1
+                  Height: =42
+                  LayoutDirection: =LayoutDirection.Vertical
+                  LayoutGap: =2
+                  LayoutMinHeight: =0
+                  LayoutMinWidth: =0
+                Children:
+                  - tplDetContatoK:
+                      Control: Label
+                      Properties:
+                        AutoHeight: =true
+                        Color: =corTextoSec
+                        FocusedBorderThickness: =0
+                        Font: =Font.'Segoe UI'
+                        FontWeight: =FontWeight.Semibold
+                        LayoutMinHeight: =0
+                        LayoutMinWidth: =0
+                        PaddingBottom: =0
+                        PaddingLeft: =0
+                        PaddingRight: =0
+                        PaddingTop: =0
+                        Size: =8
+                        TabIndex: =-1
+                        Text: ="Contato"
+                        Wrap: =true
+                  - tplDetContatoV:
+                      Control: Label
+                      Properties:
+                        AutoHeight: =true
+                        Color: =corTexto
+                        FocusedBorderThickness: =0
+                        Font: =Font.'Segoe UI'
+                        FontWeight: =FontWeight.Normal
+                        LayoutMinHeight: =0
+                        LayoutMinWidth: =0
+                        PaddingBottom: =0
+                        PaddingLeft: =0
+                        PaddingRight: =0
+                        PaddingTop: =0
+                        Size: =11
+                        TabIndex: =-1
+                        Text: =Coalesce(Text(varDados.contato), "—")
+                        Wrap: =true
+            - tplDetEmail:
+                Control: GroupContainer
+                Variant: AutoLayout
+                Properties:
+                  AlignInContainer: =AlignInContainer.SetByContainer
+                  BorderThickness: =0
+                  DropShadow: =DropShadow.None
+                  FillPortions: =1
+                  Height: =42
+                  LayoutDirection: =LayoutDirection.Vertical
+                  LayoutGap: =2
+                  LayoutMinHeight: =0
+                  LayoutMinWidth: =0
+                Children:
+                  - tplDetEmailK:
+                      Control: Label
+                      Properties:
+                        AutoHeight: =true
+                        Color: =corTextoSec
+                        FocusedBorderThickness: =0
+                        Font: =Font.'Segoe UI'
+                        FontWeight: =FontWeight.Semibold
+                        LayoutMinHeight: =0
+                        LayoutMinWidth: =0
+                        PaddingBottom: =0
+                        PaddingLeft: =0
+                        PaddingRight: =0
+                        PaddingTop: =0
+                        Size: =8
+                        TabIndex: =-1
+                        Text: ="E-mail"
+                        Wrap: =true
+                  - tplDetEmailV:
+                      Control: Label
+                      Properties:
+                        AutoHeight: =true
+                        Color: =corTexto
+                        FocusedBorderThickness: =0
+                        Font: =Font.'Segoe UI'
+                        FontWeight: =FontWeight.Normal
+                        LayoutMinHeight: =0
+                        LayoutMinWidth: =0
+                        PaddingBottom: =0
+                        PaddingLeft: =0
+                        PaddingRight: =0
+                        PaddingTop: =0
+                        Size: =11
+                        TabIndex: =-1
+                        Text: =Coalesce(varDados.solicitante.Email, "—")
+                        Wrap: =true
+      - tplDetSep2:
+          Control: Rectangle
+          Properties:
+            Fill: =corBorda
+            FocusedBorderThickness: =0
+            Height: =1
+            TabIndex: =-1
+      - tplDetSecRet:
+          Control: Label
+          Properties:
+            AutoHeight: =true
+            Color: =corTexto
+            FocusedBorderThickness: =0
+            Font: =Font.'Segoe UI'
+            FontWeight: =FontWeight.Semibold
+            LayoutMinHeight: =0
+            LayoutMinWidth: =0
+            PaddingBottom: =0
+            PaddingLeft: =0
+            PaddingRight: =0
+            PaddingTop: =0
+            Size: =11
+            TabIndex: =-1
+            Text: ="Retirada"
+            Wrap: =true
+      - tplDetL4:
+          Control: GroupContainer
+          Variant: AutoLayout
+          Properties:
+            AlignInContainer: =AlignInContainer.SetByContainer
+            BorderThickness: =0
+            DropShadow: =DropShadow.None
+            FillPortions: =0
+            Height: =42
+            LayoutAlignItems: =LayoutAlignItems.Start
+            LayoutDirection: =LayoutDirection.Horizontal
+            LayoutGap: =16
+            LayoutMinHeight: =0
+            LayoutMinWidth: =0
+          Children:
+            - tplDetAlmox:
+                Control: GroupContainer
+                Variant: AutoLayout
+                Properties:
+                  AlignInContainer: =AlignInContainer.SetByContainer
+                  BorderThickness: =0
+                  DropShadow: =DropShadow.None
+                  FillPortions: =1
+                  Height: =42
+                  LayoutDirection: =LayoutDirection.Vertical
+                  LayoutGap: =2
+                  LayoutMinHeight: =0
+                  LayoutMinWidth: =0
+                Children:
+                  - tplDetAlmoxK:
+                      Control: Label
+                      Properties:
+                        AutoHeight: =true
+                        Color: =corTextoSec
+                        FocusedBorderThickness: =0
+                        Font: =Font.'Segoe UI'
+                        FontWeight: =FontWeight.Semibold
+                        LayoutMinHeight: =0
+                        LayoutMinWidth: =0
+                        PaddingBottom: =0
+                        PaddingLeft: =0
+                        PaddingRight: =0
+                        PaddingTop: =0
+                        Size: =8
+                        TabIndex: =-1
+                        Text: ="Almoxarifado"
+                        Wrap: =true
+                  - tplDetAlmoxV:
+                      Control: Label
+                      Properties:
+                        AutoHeight: =true
+                        Color: =corTexto
+                        FocusedBorderThickness: =0
+                        Font: =Font.'Segoe UI'
+                        FontWeight: =FontWeight.Normal
+                        LayoutMinHeight: =0
+                        LayoutMinWidth: =0
+                        PaddingBottom: =0
+                        PaddingLeft: =0
+                        PaddingRight: =0
+                        PaddingTop: =0
+                        Size: =11
+                        TabIndex: =-1
+                        Text: =Coalesce(varDados.almoxarifado.Value, "—")
+                        Wrap: =true
+            - tplDetTipo:
+                Control: GroupContainer
+                Variant: AutoLayout
+                Properties:
+                  AlignInContainer: =AlignInContainer.SetByContainer
+                  BorderThickness: =0
+                  DropShadow: =DropShadow.None
+                  FillPortions: =1
+                  Height: =42
+                  LayoutDirection: =LayoutDirection.Vertical
+                  LayoutGap: =2
+                  LayoutMinHeight: =0
+                  LayoutMinWidth: =0
+                Children:
+                  - tplDetTipoK:
+                      Control: Label
+                      Properties:
+                        AutoHeight: =true
+                        Color: =corTextoSec
+                        FocusedBorderThickness: =0
+                        Font: =Font.'Segoe UI'
+                        FontWeight: =FontWeight.Semibold
+                        LayoutMinHeight: =0
+                        LayoutMinWidth: =0
+                        PaddingBottom: =0
+                        PaddingLeft: =0
+                        PaddingRight: =0
+                        PaddingTop: =0
+                        Size: =8
+                        TabIndex: =-1
+                        Text: ="Tipo de reserva"
+                        Wrap: =true
+                  - tplDetTipoV:
+                      Control: Label
+                      Properties:
+                        AutoHeight: =true
+                        Color: =corTexto
+                        FocusedBorderThickness: =0
+                        Font: =Font.'Segoe UI'
+                        FontWeight: =FontWeight.Normal
+                        LayoutMinHeight: =0
+                        LayoutMinWidth: =0
+                        PaddingBottom: =0
+                        PaddingLeft: =0
+                        PaddingRight: =0
+                        PaddingTop: =0
+                        Size: =11
+                        TabIndex: =-1
+                        Text: =Coalesce(varDados.tipoReservaSap.Value, "—")
+                        Wrap: =true
+      - tplDetL5:
+          Control: GroupContainer
+          Variant: AutoLayout
+          Properties:
+            AlignInContainer: =AlignInContainer.SetByContainer
+            BorderThickness: =0
+            DropShadow: =DropShadow.None
+            FillPortions: =0
+            Height: =42
+            LayoutAlignItems: =LayoutAlignItems.Start
+            LayoutDirection: =LayoutDirection.Horizontal
+            LayoutGap: =16
+            LayoutMinHeight: =0
+            LayoutMinWidth: =0
+          Children:
+            - tplDetData:
+                Control: GroupContainer
+                Variant: AutoLayout
+                Properties:
+                  AlignInContainer: =AlignInContainer.SetByContainer
+                  BorderThickness: =0
+                  DropShadow: =DropShadow.None
+                  FillPortions: =1
+                  Height: =42
+                  LayoutDirection: =LayoutDirection.Vertical
+                  LayoutGap: =2
+                  LayoutMinHeight: =0
+                  LayoutMinWidth: =0
+                Children:
+                  - tplDetDataK:
+                      Control: Label
+                      Properties:
+                        AutoHeight: =true
+                        Color: =corTextoSec
+                        FocusedBorderThickness: =0
+                        Font: =Font.'Segoe UI'
+                        FontWeight: =FontWeight.Semibold
+                        LayoutMinHeight: =0
+                        LayoutMinWidth: =0
+                        PaddingBottom: =0
+                        PaddingLeft: =0
+                        PaddingRight: =0
+                        PaddingTop: =0
+                        Size: =8
+                        TabIndex: =-1
+                        Text: ="Data de retirada"
+                        Wrap: =true
+                  - tplDetDataV:
+                      Control: Label
+                      Properties:
+                        AutoHeight: =true
+                        Color: =corTexto
+                        FocusedBorderThickness: =0
+                        Font: =Font.'Segoe UI'
+                        FontWeight: =FontWeight.Normal
+                        LayoutMinHeight: =0
+                        LayoutMinWidth: =0
+                        PaddingBottom: =0
+                        PaddingLeft: =0
+                        PaddingRight: =0
+                        PaddingTop: =0
+                        Size: =11
+                        TabIndex: =-1
+                        Text: =Coalesce(Text(varDados.dataRetirada, "dd/mm/yyyy"), "—")
+                        Wrap: =true
+            - tplDetJanela:
+                Control: GroupContainer
+                Variant: AutoLayout
+                Properties:
+                  AlignInContainer: =AlignInContainer.SetByContainer
+                  BorderThickness: =0
+                  DropShadow: =DropShadow.None
+                  FillPortions: =1
+                  Height: =42
+                  LayoutDirection: =LayoutDirection.Vertical
+                  LayoutGap: =2
+                  LayoutMinHeight: =0
+                  LayoutMinWidth: =0
+                Children:
+                  - tplDetJanelaK:
+                      Control: Label
+                      Properties:
+                        AutoHeight: =true
+                        Color: =corTextoSec
+                        FocusedBorderThickness: =0
+                        Font: =Font.'Segoe UI'
+                        FontWeight: =FontWeight.Semibold
+                        LayoutMinHeight: =0
+                        LayoutMinWidth: =0
+                        PaddingBottom: =0
+                        PaddingLeft: =0
+                        PaddingRight: =0
+                        PaddingTop: =0
+                        Size: =8
+                        TabIndex: =-1
+                        Text: ="Janela de horário"
+                        Wrap: =true
+                  - tplDetJanelaV:
+                      Control: Label
+                      Properties:
+                        AutoHeight: =true
+                        Color: =corTexto
+                        FocusedBorderThickness: =0
+                        Font: =Font.'Segoe UI'
+                        FontWeight: =FontWeight.Normal
+                        LayoutMinHeight: =0
+                        LayoutMinWidth: =0
+                        PaddingBottom: =0
+                        PaddingLeft: =0
+                        PaddingRight: =0
+                        PaddingTop: =0
+                        Size: =11
+                        TabIndex: =-1
+                        Text: =Coalesce(varDados.janelaHorarioRetirada.Value, "—")
+                        Wrap: =true
+      - tplDetObs:
+          Control: GroupContainer
+          Variant: AutoLayout
+          Properties:
+            AlignInContainer: =AlignInContainer.SetByContainer
+            BorderThickness: =0
+            DropShadow: =DropShadow.None
+            FillPortions: =0
+            Height: =42
+            LayoutDirection: =LayoutDirection.Vertical
+            LayoutGap: =2
+            LayoutMinHeight: =0
+            LayoutMinWidth: =0
+          Children:
+            - tplDetObsK:
+                Control: Label
+                Properties:
+                  AutoHeight: =true
+                  Color: =corTextoSec
+                  FocusedBorderThickness: =0
+                  Font: =Font.'Segoe UI'
+                  FontWeight: =FontWeight.Semibold
+                  LayoutMinHeight: =0
+                  LayoutMinWidth: =0
+                  PaddingBottom: =0
+                  PaddingLeft: =0
+                  PaddingRight: =0
+                  PaddingTop: =0
+                  Size: =8
+                  TabIndex: =-1
+                  Text: ="Observação"
+                  Wrap: =true
+            - tplDetObsV:
+                Control: Label
+                Properties:
+                  AutoHeight: =true
+                  Color: =corTexto
+                  FocusedBorderThickness: =0
+                  Font: =Font.'Segoe UI'
+                  FontWeight: =FontWeight.Normal
+                  LayoutMinHeight: =0
+                  LayoutMinWidth: =0
+                  PaddingBottom: =0
+                  PaddingLeft: =0
+                  PaddingRight: =0
+                  PaddingTop: =0
+                  Size: =11
+                  TabIndex: =-1
+                  Text: =Coalesce(varDados.observacao, "—")
+                  Wrap: =true
+      - tplDetSep3:
+          Control: Rectangle
+          Properties:
+            Fill: =corBorda
+            FocusedBorderThickness: =0
+            Height: =1
+            TabIndex: =-1
+      - tplDetSecAt:
+          Control: Label
+          Properties:
+            AutoHeight: =true
+            Color: =corTexto
+            FocusedBorderThickness: =0
+            Font: =Font.'Segoe UI'
+            FontWeight: =FontWeight.Semibold
+            LayoutMinHeight: =0
+            LayoutMinWidth: =0
+            PaddingBottom: =0
+            PaddingLeft: =0
+            PaddingRight: =0
+            PaddingTop: =0
+            Size: =11
+            TabIndex: =-1
+            Text: ="Atendimento"
+            Wrap: =true
+      - tplDetL6:
+          Control: GroupContainer
+          Variant: AutoLayout
+          Properties:
+            AlignInContainer: =AlignInContainer.SetByContainer
+            BorderThickness: =0
+            DropShadow: =DropShadow.None
+            FillPortions: =0
+            Height: =42
+            LayoutAlignItems: =LayoutAlignItems.Start
+            LayoutDirection: =LayoutDirection.Horizontal
+            LayoutGap: =16
+            LayoutMinHeight: =0
+            LayoutMinWidth: =0
+          Children:
+            - tplDetAtendente:
+                Control: GroupContainer
+                Variant: AutoLayout
+                Properties:
+                  AlignInContainer: =AlignInContainer.SetByContainer
+                  BorderThickness: =0
+                  DropShadow: =DropShadow.None
+                  FillPortions: =1
+                  Height: =42
+                  LayoutDirection: =LayoutDirection.Vertical
+                  LayoutGap: =2
+                  LayoutMinHeight: =0
+                  LayoutMinWidth: =0
+                Children:
+                  - tplDetAtendenteK:
+                      Control: Label
+                      Properties:
+                        AutoHeight: =true
+                        Color: =corTextoSec
+                        FocusedBorderThickness: =0
+                        Font: =Font.'Segoe UI'
+                        FontWeight: =FontWeight.Semibold
+                        LayoutMinHeight: =0
+                        LayoutMinWidth: =0
+                        PaddingBottom: =0
+                        PaddingLeft: =0
+                        PaddingRight: =0
+                        PaddingTop: =0
+                        Size: =8
+                        TabIndex: =-1
+                        Text: ="Atendente"
+                        Wrap: =true
+                  - tplDetAtendenteV:
+                      Control: Label
+                      Properties:
+                        AutoHeight: =true
+                        Color: =corTexto
+                        FocusedBorderThickness: =0
+                        Font: =Font.'Segoe UI'
+                        FontWeight: =FontWeight.Normal
+                        LayoutMinHeight: =0
+                        LayoutMinWidth: =0
+                        PaddingBottom: =0
+                        PaddingLeft: =0
+                        PaddingRight: =0
+                        PaddingTop: =0
+                        Size: =11
+                        TabIndex: =-1
+                        Text: =Coalesce(varDados.atendente.DisplayName, "—")
+                        Wrap: =true
+            - tplDetDataAt:
+                Control: GroupContainer
+                Variant: AutoLayout
+                Properties:
+                  AlignInContainer: =AlignInContainer.SetByContainer
+                  BorderThickness: =0
+                  DropShadow: =DropShadow.None
+                  FillPortions: =1
+                  Height: =42
+                  LayoutDirection: =LayoutDirection.Vertical
+                  LayoutGap: =2
+                  LayoutMinHeight: =0
+                  LayoutMinWidth: =0
+                Children:
+                  - tplDetDataAtK:
+                      Control: Label
+                      Properties:
+                        AutoHeight: =true
+                        Color: =corTextoSec
+                        FocusedBorderThickness: =0
+                        Font: =Font.'Segoe UI'
+                        FontWeight: =FontWeight.Semibold
+                        LayoutMinHeight: =0
+                        LayoutMinWidth: =0
+                        PaddingBottom: =0
+                        PaddingLeft: =0
+                        PaddingRight: =0
+                        PaddingTop: =0
+                        Size: =8
+                        TabIndex: =-1
+                        Text: ="Data do atendimento"
+                        Wrap: =true
+                  - tplDetDataAtV:
+                      Control: Label
+                      Properties:
+                        AutoHeight: =true
+                        Color: =corTexto
+                        FocusedBorderThickness: =0
+                        Font: =Font.'Segoe UI'
+                        FontWeight: =FontWeight.Normal
+                        LayoutMinHeight: =0
+                        LayoutMinWidth: =0
+                        PaddingBottom: =0
+                        PaddingLeft: =0
+                        PaddingRight: =0
+                        PaddingTop: =0
+                        Size: =11
+                        TabIndex: =-1
+                        Text: =Coalesce(Text(varDados.dataAtendimento, "dd/mm/yyyy hh:mm"), "—")
+                        Wrap: =true
+      - tplDetComent:
+          Control: GroupContainer
+          Variant: AutoLayout
+          Properties:
+            AlignInContainer: =AlignInContainer.SetByContainer
+            BorderThickness: =0
+            DropShadow: =DropShadow.None
+            FillPortions: =0
+            Height: =42
+            LayoutDirection: =LayoutDirection.Vertical
+            LayoutGap: =2
+            LayoutMinHeight: =0
+            LayoutMinWidth: =0
+          Children:
+            - tplDetComentK:
+                Control: Label
+                Properties:
+                  AutoHeight: =true
+                  Color: =corTextoSec
+                  FocusedBorderThickness: =0
+                  Font: =Font.'Segoe UI'
+                  FontWeight: =FontWeight.Semibold
+                  LayoutMinHeight: =0
+                  LayoutMinWidth: =0
+                  PaddingBottom: =0
+                  PaddingLeft: =0
+                  PaddingRight: =0
+                  PaddingTop: =0
+                  Size: =8
+                  TabIndex: =-1
+                  Text: ="Comentário"
+                  Wrap: =true
+            - tplDetComentV:
+                Control: Label
+                Properties:
+                  AutoHeight: =true
+                  Color: =corTexto
+                  FocusedBorderThickness: =0
+                  Font: =Font.'Segoe UI'
+                  FontWeight: =FontWeight.Normal
+                  LayoutMinHeight: =0
+                  LayoutMinWidth: =0
+                  PaddingBottom: =0
+                  PaddingLeft: =0
+                  PaddingRight: =0
+                  PaddingTop: =0
+                  Size: =11
+                  TabIndex: =-1
+                  Text: =Coalesce(varDados.comentario, "—")
+                  Wrap: =true

@@ -1,3 +1,5 @@
+> 📌 **Portal do Almoxarifado + MCP de conhecimento:** veja o [GUIA-BRACELL.md](GUIA-BRACELL.md), com o passo a passo para levar o app e instalar o MCP.
+
 # Venda de Ativos — Power Apps + React PCF
 
 Componente React PCF responsivo para cadastrar e conduzir solicitações de venda de ativos armazenadas em uma lista SharePoint.

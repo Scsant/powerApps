@@ -1,0 +1,423 @@
+# Card de seção numerada com 2 linhas de 3 campos (texto, combo de Choice, data). Filho de container vertical com LayoutAlignItems Stretch.
+# Cole dentro de Children:. Troque o prefixo 'tpl' (obter_template com prefixo) — nomes são globais no app.
+# Requer os tokens de cor (obter_template('tokens-app-formulas')).
+- tplSec:
+    Control: GroupContainer
+    Variant: AutoLayout
+    Properties:
+      AlignInContainer: =AlignInContainer.SetByContainer
+      BorderColor: =corBorda
+      BorderThickness: =1
+      DropShadow: =DropShadow.None
+      Fill: =corCard
+      FillPortions: =0
+      Height: =212
+      LayoutAlignItems: =LayoutAlignItems.Stretch
+      LayoutDirection: =LayoutDirection.Vertical
+      LayoutGap: =12
+      LayoutMinHeight: =0
+      LayoutMinWidth: =0
+      PaddingBottom: =20
+      PaddingLeft: =20
+      PaddingRight: =20
+      PaddingTop: =20
+      RadiusBottomLeft: =10
+      RadiusBottomRight: =10
+      RadiusTopLeft: =10
+      RadiusTopRight: =10
+    Children:
+      - tplSecTitulo:
+          Control: GroupContainer
+          Variant: AutoLayout
+          Properties:
+            AlignInContainer: =AlignInContainer.SetByContainer
+            BorderThickness: =0
+            DropShadow: =DropShadow.None
+            FillPortions: =0
+            Height: =24
+            LayoutAlignItems: =LayoutAlignItems.Center
+            LayoutDirection: =LayoutDirection.Horizontal
+            LayoutGap: =4
+            LayoutMinHeight: =0
+            LayoutMinWidth: =0
+          Children:
+            - tplSecNum:
+                Control: Label
+                Properties:
+                  AutoHeight: =false
+                  Color: =corPrimaria
+                  FocusedBorderThickness: =0
+                  Font: =Font.'Segoe UI'
+                  FontWeight: =FontWeight.Semibold
+                  Height: =24
+                  LayoutMinHeight: =0
+                  LayoutMinWidth: =0
+                  PaddingBottom: =0
+                  PaddingLeft: =0
+                  PaddingRight: =0
+                  PaddingTop: =0
+                  Size: =10
+                  TabIndex: =-1
+                  Text: ="01"
+                  VerticalAlign: =VerticalAlign.Middle
+                  Width: =26
+                  Wrap: =true
+            - tplSecNome:
+                Control: Label
+                Properties:
+                  AutoHeight: =false
+                  Color: =corTexto
+                  FillPortions: =1
+                  FocusedBorderThickness: =0
+                  Font: =Font.'Segoe UI'
+                  FontWeight: =FontWeight.Semibold
+                  Height: =24
+                  LayoutMinHeight: =0
+                  LayoutMinWidth: =0
+                  PaddingBottom: =0
+                  PaddingLeft: =0
+                  PaddingRight: =0
+                  PaddingTop: =0
+                  Size: =13
+                  TabIndex: =-1
+                  Text: ="Dados da retirada"
+                  VerticalAlign: =VerticalAlign.Middle
+                  Wrap: =true
+      - tplSecL1:
+          Control: GroupContainer
+          Variant: AutoLayout
+          Properties:
+            AlignInContainer: =AlignInContainer.SetByContainer
+            BorderThickness: =0
+            DropShadow: =DropShadow.None
+            FillPortions: =0
+            Height: =62
+            LayoutAlignItems: =LayoutAlignItems.Start
+            LayoutDirection: =LayoutDirection.Horizontal
+            LayoutGap: =16
+            LayoutMinHeight: =0
+            LayoutMinWidth: =0
+          Children:
+            - tplNomeCampo:
+                Control: GroupContainer
+                Variant: AutoLayout
+                Properties:
+                  AlignInContainer: =AlignInContainer.SetByContainer
+                  BorderThickness: =0
+                  DropShadow: =DropShadow.None
+                  FillPortions: =1
+                  Height: =62
+                  LayoutAlignItems: =LayoutAlignItems.Stretch
+                  LayoutDirection: =LayoutDirection.Vertical
+                  LayoutGap: =6
+                  LayoutMinHeight: =0
+                  LayoutMinWidth: =0
+                Children:
+                  - tplNomeRotulo:
+                      Control: Label
+                      Properties:
+                        AutoHeight: =true
+                        Color: =corTexto
+                        FocusedBorderThickness: =0
+                        Font: =Font.'Segoe UI'
+                        FontWeight: =FontWeight.Semibold
+                        LayoutMinHeight: =0
+                        LayoutMinWidth: =0
+                        PaddingBottom: =0
+                        PaddingLeft: =0
+                        PaddingRight: =0
+                        PaddingTop: =0
+                        Size: =10
+                        TabIndex: =-1
+                        Text: ="Nome"
+                        Wrap: =true
+                  - tplTxtNome:
+                      Control: Classic/TextInput
+                      Properties:
+                        AccessibleLabel: ="Informe o nome"
+                        BorderColor: =corBorda
+                        BorderThickness: =1
+                        Color: =corTexto
+                        Default: =""
+                        DisabledBorderColor: =corBorda
+                        DisabledColor: =corTextoSec
+                        DisabledFill: =corFundo
+                        Fill: =Color.White
+                        FocusedBorderColor: =corPrimaria
+                        FocusedBorderThickness: =2
+                        Font: =Font.'Segoe UI'
+                        Height: =36
+                        HintText: ="Informe o nome"
+                        HoverBorderColor: =corPrimaria
+                        HoverFill: =Color.White
+                        LayoutMinWidth: =0
+                        PaddingLeft: =10
+                        RadiusBottomLeft: =6
+                        RadiusBottomRight: =6
+                        RadiusTopLeft: =6
+                        RadiusTopRight: =6
+                        Size: =10
+                        TabIndex: =0
+            - tplAreaCampo:
+                Control: GroupContainer
+                Variant: AutoLayout
+                Properties:
+                  AlignInContainer: =AlignInContainer.SetByContainer
+                  BorderThickness: =0
+                  DropShadow: =DropShadow.None
+                  FillPortions: =1
+                  Height: =62
+                  LayoutAlignItems: =LayoutAlignItems.Stretch
+                  LayoutDirection: =LayoutDirection.Vertical
+                  LayoutGap: =6
+                  LayoutMinHeight: =0
+                  LayoutMinWidth: =0
+                Children:
+                  - tplAreaRotulo:
+                      Control: Label
+                      Properties:
+                        AutoHeight: =true
+                        Color: =corTexto
+                        FocusedBorderThickness: =0
+                        Font: =Font.'Segoe UI'
+                        FontWeight: =FontWeight.Semibold
+                        LayoutMinHeight: =0
+                        LayoutMinWidth: =0
+                        PaddingBottom: =0
+                        PaddingLeft: =0
+                        PaddingRight: =0
+                        PaddingTop: =0
+                        Size: =10
+                        TabIndex: =-1
+                        Text: ="Área"
+                        Wrap: =true
+                  - tplCbArea:
+                      Control: Classic/ComboBox
+                      Properties:
+                        AccessibleLabel: ="Selecione a área"
+                        BorderColor: =corBorda
+                        BorderThickness: =1
+                        ChevronBackground: =Color.White
+                        ChevronFill: =corTextoSec
+                        ChevronHoverBackground: =corFundo
+                        ChevronHoverFill: =corPrimaria
+                        Color: =corTexto
+                        DisplayFields: =["Value"]
+                        Fill: =Color.White
+                        Font: =Font.'Segoe UI'
+                        Height: =36
+                        HoverBorderColor: =corPrimaria
+                        HoverFill: =Color.White
+                        InputTextPlaceholder: ="Selecione a área"
+                        IsSearchable: =false
+                        Items: =opcArea
+                        LayoutMinWidth: =0
+                        PressedColor: =corTexto
+                        PressedFill: =Color.White
+                        SearchFields: =["Value"]
+                        SelectMultiple: =false
+                        SelectionColor: =corTexto
+                        SelectionFill: =corPrimariaClara
+                        Size: =10
+                        TabIndex: =0
+            - tplDataCampo:
+                Control: GroupContainer
+                Variant: AutoLayout
+                Properties:
+                  AlignInContainer: =AlignInContainer.SetByContainer
+                  BorderThickness: =0
+                  DropShadow: =DropShadow.None
+                  FillPortions: =1
+                  Height: =62
+                  LayoutAlignItems: =LayoutAlignItems.Stretch
+                  LayoutDirection: =LayoutDirection.Vertical
+                  LayoutGap: =6
+                  LayoutMinHeight: =0
+                  LayoutMinWidth: =0
+                Children:
+                  - tplDataRotulo:
+                      Control: Label
+                      Properties:
+                        AutoHeight: =true
+                        Color: =corTexto
+                        FocusedBorderThickness: =0
+                        Font: =Font.'Segoe UI'
+                        FontWeight: =FontWeight.Semibold
+                        LayoutMinHeight: =0
+                        LayoutMinWidth: =0
+                        PaddingBottom: =0
+                        PaddingLeft: =0
+                        PaddingRight: =0
+                        PaddingTop: =0
+                        Size: =10
+                        TabIndex: =-1
+                        Text: ="Data"
+                        Wrap: =true
+                  - tplDtData:
+                      Control: Classic/DatePicker
+                      Properties:
+                        AccessibleLabel: ="Data"
+                        BorderColor: =corBorda
+                        BorderThickness: =1
+                        Color: =corTexto
+                        DefaultDate: =Blank()
+                        EndYear: =Year(Today()) + 1
+                        Fill: =Color.White
+                        Font: =Font.'Segoe UI'
+                        Format: ="dd/mm/yyyy"
+                        Height: =36
+                        IconBackground: =Color.White
+                        IconFill: =corTextoSec
+                        InputTextPlaceholder: ="dd/mm/aaaa"
+                        LayoutMinWidth: =0
+                        Size: =10
+                        StartYear: =Year(Today())
+                        TabIndex: =0
+      - tplSecL2:
+          Control: GroupContainer
+          Variant: AutoLayout
+          Properties:
+            AlignInContainer: =AlignInContainer.SetByContainer
+            BorderThickness: =0
+            DropShadow: =DropShadow.None
+            FillPortions: =0
+            Height: =62
+            LayoutAlignItems: =LayoutAlignItems.Start
+            LayoutDirection: =LayoutDirection.Horizontal
+            LayoutGap: =16
+            LayoutMinHeight: =0
+            LayoutMinWidth: =0
+          Children:
+            - tplNumCampo:
+                Control: GroupContainer
+                Variant: AutoLayout
+                Properties:
+                  AlignInContainer: =AlignInContainer.SetByContainer
+                  BorderThickness: =0
+                  DropShadow: =DropShadow.None
+                  FillPortions: =1
+                  Height: =62
+                  LayoutAlignItems: =LayoutAlignItems.Stretch
+                  LayoutDirection: =LayoutDirection.Vertical
+                  LayoutGap: =6
+                  LayoutMinHeight: =0
+                  LayoutMinWidth: =0
+                Children:
+                  - tplNumRotulo:
+                      Control: Label
+                      Properties:
+                        AutoHeight: =true
+                        Color: =corTexto
+                        FocusedBorderThickness: =0
+                        Font: =Font.'Segoe UI'
+                        FontWeight: =FontWeight.Semibold
+                        LayoutMinHeight: =0
+                        LayoutMinWidth: =0
+                        PaddingBottom: =0
+                        PaddingLeft: =0
+                        PaddingRight: =0
+                        PaddingTop: =0
+                        Size: =10
+                        TabIndex: =-1
+                        Text: ="Número"
+                        Wrap: =true
+                  - tplTxtNum:
+                      Control: Classic/TextInput
+                      Properties:
+                        AccessibleLabel: ="Somente números"
+                        BorderColor: =corBorda
+                        BorderThickness: =1
+                        Color: =corTexto
+                        Default: =""
+                        DisabledBorderColor: =corBorda
+                        DisabledColor: =corTextoSec
+                        DisabledFill: =corFundo
+                        Fill: =Color.White
+                        FocusedBorderColor: =corPrimaria
+                        FocusedBorderThickness: =2
+                        Font: =Font.'Segoe UI'
+                        Format: =TextFormat.Number
+                        Height: =36
+                        HintText: ="Somente números"
+                        HoverBorderColor: =corPrimaria
+                        HoverFill: =Color.White
+                        LayoutMinWidth: =0
+                        PaddingLeft: =10
+                        RadiusBottomLeft: =6
+                        RadiusBottomRight: =6
+                        RadiusTopLeft: =6
+                        RadiusTopRight: =6
+                        Size: =10
+                        TabIndex: =0
+            - tplObsCampo:
+                Control: GroupContainer
+                Variant: AutoLayout
+                Properties:
+                  AlignInContainer: =AlignInContainer.SetByContainer
+                  BorderThickness: =0
+                  DropShadow: =DropShadow.None
+                  FillPortions: =1
+                  Height: =62
+                  LayoutAlignItems: =LayoutAlignItems.Stretch
+                  LayoutDirection: =LayoutDirection.Vertical
+                  LayoutGap: =6
+                  LayoutMinHeight: =0
+                  LayoutMinWidth: =0
+                Children:
+                  - tplObsRotulo:
+                      Control: Label
+                      Properties:
+                        AutoHeight: =true
+                        Color: =corTexto
+                        FocusedBorderThickness: =0
+                        Font: =Font.'Segoe UI'
+                        FontWeight: =FontWeight.Semibold
+                        LayoutMinHeight: =0
+                        LayoutMinWidth: =0
+                        PaddingBottom: =0
+                        PaddingLeft: =0
+                        PaddingRight: =0
+                        PaddingTop: =0
+                        Size: =10
+                        TabIndex: =-1
+                        Text: ="Observação"
+                        Wrap: =true
+                  - tplTxtObs:
+                      Control: Classic/TextInput
+                      Properties:
+                        AccessibleLabel: ="Opcional"
+                        BorderColor: =corBorda
+                        BorderThickness: =1
+                        Color: =corTexto
+                        Default: =""
+                        DisabledBorderColor: =corBorda
+                        DisabledColor: =corTextoSec
+                        DisabledFill: =corFundo
+                        Fill: =Color.White
+                        FocusedBorderColor: =corPrimaria
+                        FocusedBorderThickness: =2
+                        Font: =Font.'Segoe UI'
+                        Height: =36
+                        HintText: ="Opcional"
+                        HoverBorderColor: =corPrimaria
+                        HoverFill: =Color.White
+                        LayoutMinWidth: =0
+                        PaddingLeft: =10
+                        RadiusBottomLeft: =6
+                        RadiusBottomRight: =6
+                        RadiusTopLeft: =6
+                        RadiusTopRight: =6
+                        Size: =10
+                        TabIndex: =0
+            - tplSecL2Fim:
+                Control: Label
+                Properties:
+                  AutoHeight: =false
+                  FillPortions: =1
+                  FocusedBorderThickness: =0
+                  Height: =1
+                  LayoutMinHeight: =0
+                  LayoutMinWidth: =0
+                  TabIndex: =-1
+                  Text: =""
+                  Width: =1

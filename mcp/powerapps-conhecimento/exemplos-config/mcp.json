@@ -1,0 +1,9 @@
+{
+  "servers": {
+    "powerapps-conhecimento": {
+      "type": "stdio",
+      "command": "node",
+      "args": ["C:\mcp\powerapps-conhecimento\dist\server.js"]
+    }
+  }
+}

@@ -1,0 +1,108 @@
+# Botões primário, outline e perigo (Classic/Button) numa linha alinhada à direita. Filho de container vertical.
+# Cole dentro de Children:. Troque o prefixo 'tpl' (obter_template com prefixo) — nomes são globais no app.
+# Requer os tokens de cor (obter_template('tokens-app-formulas')).
+- tplBotoes:
+    Control: GroupContainer
+    Variant: AutoLayout
+    Properties:
+      AlignInContainer: =AlignInContainer.SetByContainer
+      BorderThickness: =0
+      DropShadow: =DropShadow.None
+      FillPortions: =0
+      Height: =40
+      LayoutAlignItems: =LayoutAlignItems.Center
+      LayoutDirection: =LayoutDirection.Horizontal
+      LayoutGap: =12
+      LayoutMinHeight: =0
+      LayoutMinWidth: =0
+    Children:
+      - tplBotoesEsp:
+          Control: Label
+          Properties:
+            AutoHeight: =false
+            FillPortions: =1
+            FocusedBorderThickness: =0
+            Height: =1
+            LayoutMinHeight: =0
+            LayoutMinWidth: =0
+            TabIndex: =-1
+            Text: =""
+            Width: =1
+      - tplBtnCancelar:
+          Control: Classic/Button
+          Properties:
+            BorderColor: =corBorda
+            BorderThickness: =1
+            Color: =corPrimaria
+            Fill: =Color.White
+            FocusedBorderColor: =corTexto
+            FocusedBorderThickness: =2
+            Font: =Font.'Segoe UI'
+            FontWeight: =FontWeight.Semibold
+            Height: =40
+            HoverBorderColor: =corPrimaria
+            HoverColor: =corPrimaria
+            HoverFill: =corFundo
+            OnSelect: =Back()
+            PressedBorderColor: =corBorda
+            PressedColor: =corPrimaria
+            PressedFill: =corBorda
+            RadiusBottomLeft: =6
+            RadiusBottomRight: =6
+            RadiusTopLeft: =6
+            RadiusTopRight: =6
+            Size: =10
+            Text: ="Cancelar"
+            Width: =130
+      - tplBtnExcluir:
+          Control: Classic/Button
+          Properties:
+            BorderColor: =corErro
+            BorderThickness: =1
+            Color: =Color.White
+            Fill: =corErro
+            FocusedBorderColor: =corTexto
+            FocusedBorderThickness: =2
+            Font: =Font.'Segoe UI'
+            FontWeight: =FontWeight.Semibold
+            Height: =40
+            HoverBorderColor: =corErro
+            HoverColor: =Color.White
+            HoverFill: =ColorFade(corErro, -15%)
+            OnSelect: =Notify("excluir")
+            PressedBorderColor: =corErro
+            PressedColor: =Color.White
+            PressedFill: =ColorFade(corErro, -25%)
+            RadiusBottomLeft: =6
+            RadiusBottomRight: =6
+            RadiusTopLeft: =6
+            RadiusTopRight: =6
+            Size: =10
+            Text: ="Excluir"
+            Width: =130
+      - tplBtnSalvar:
+          Control: Classic/Button
+          Properties:
+            BorderColor: =corPrimaria
+            BorderThickness: =1
+            Color: =Color.White
+            Fill: =corPrimaria
+            FocusedBorderColor: =corTexto
+            FocusedBorderThickness: =2
+            Font: =Font.'Segoe UI'
+            FontWeight: =FontWeight.Semibold
+            Height: =40
+            HoverBorderColor: =corPrimariaHover
+            HoverColor: =Color.White
+            HoverFill: =corPrimariaHover
+            OnSelect: =Notify("salvar")
+            PressedBorderColor: =corPrimaria
+            PressedColor: =Color.White
+            PressedFill: =corPrimariaHover
+            RadiusBottomLeft: =6
+            RadiusBottomRight: =6
+            RadiusTopLeft: =6
+            RadiusTopRight: =6
+            Size: =10
+            Text: ="Salvar  →"
+            Width: =170
